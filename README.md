@@ -88,7 +88,7 @@ We try an example using the emulator (using different devices require only chang
       start
      
      ```
- Note: You will be asked for the password for **asn** user each time you type this command. As workaround you can add the public key in the authorized hosts ```~/.ssh/authorized_keys ```
+ Note: You will be asked for the password for **asn** user each time you type a command. As workaround you can add the public key in the authorized hosts ```~/.ssh/authorized_keys ```
 * to collect the log files from the server, run in MARVELO
     ``` getlogs```
     a new folder will be created in **asn_server/logs** with the collected files. You will find 2 audio files for each speaker
