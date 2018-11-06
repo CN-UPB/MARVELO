@@ -14,7 +14,7 @@ $ usermod -aG sudo asn
 
 Note that this may be needed for the client but not necessary for the server.
 ### Server Installation
-* copy the **asn_server** folder to **/home/asn**
+* copy the **asn_server** folder to **/home/asn/**
 * Download the required python packages 
         ```  $ sudo apt-get install  python    python-pip    python-dev    build-essential    ntp    ntpdate    rsync    python-lxml ```
        ```  $ pip install netifaces pyomo pandas```
@@ -28,20 +28,17 @@ Note that this may be needed for the client but not necessary for the server.
   ``` 
        iface wlan0  inet static
        
-       address 10.1.1.254
-       
-       netmask 255.255.255.0
-       
-       wireless-channel 1
-       
-       wireless-essid marvelo_network
-       
-       wireless-mode ad-hoc 
+            iface wlan0 inet static
+            address 10.1.1.254
+            netmask 255.255.255.0
+            wireless-channel 1
+            wireless-essid marvelo_network
+            wireless-mode ad-hoc
   
 
 ### Client installation
 
-* Copy **asn_daemon** folder to **/home/asn_daemon**
+* Copy **asn_daemon** folder to **/home/asn/**
 * Download packages needed to run the daemon (and some demos for testing)
      ```
      $ sudo apt-get install  python    python-pip    python-dev    build-essential    ntp    ntpdate    rsync    systemd    python-lxml    python-scipy 
@@ -51,17 +48,11 @@ Note that this may be needed for the client but not necessary for the server.
 * Setup the ad-hoc network. Similar to the server, edit `/etc/network/interfaces`  and choose an IP in the same subnet for your network. Example 
 ```                        
             allow-hotplug wlan0
-
             iface wlan0 inet static
-
             address 10.1.1.101
-
             netmask 255.255.255.0
-
             wireless-channel 1
-
             wireless-essid marvelo_network
-
             wireless-mode ad-hoc
 ```
 * Add the daemon as a service and make it start at reboot
@@ -69,6 +60,29 @@ Note that this may be needed for the client but not necessary for the server.
   * run the following commands on the client:
       ```
       $sudo systemctl start asn_daemon  
-      
       $sudo systemctl enable asn_daemon
       ```
+ ### Emulator setup
+You can use a single device as a server and client, while the communications rely on the logical interfaces (multiple loopbacks). We show here how to use the default loopback *lo (127.0.0.1)*
+
+* make sure that you have **asn** user on the device and you have downloaded the required packages (see above)
+* Copy **asn_daemon** folder to **/home/asn/** and
+ ```cd /home/asn/asn_daemon```
+* to start the daemon run ``` 
+$sudo python daemon.py -if lo```  
+
+## Test with a Demo
+We try an example using the emulator (using different devices require only changing the IP address). This example uses ICA for source separation. The original audios can be found in **asn_server/Demos/system/fobi/mix1.wav
+* Go to the directory of the **asn_server**
+* run ``` python server.py```
+* Then ```
+     setxml Demos/topology/SourceSeparation/ica_b_local.xml
+     transferdata 
+     connect
+     start
+     ```
+ Note: You will be asked for the password for **asn** user each time you type this command. As workaround you can add the public key in the authorized hosts ```~/.ssh/authorized_keys ```
+* to collect the log files from the server, run in MARVELO
+    ``` getlogs```
+    a new folder will be created in **asn_server/logs** with the collected files. You will find 2 audio files for each speaker
+ 
