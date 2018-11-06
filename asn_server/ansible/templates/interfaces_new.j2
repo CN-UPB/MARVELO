@@ -1,0 +1,22 @@
+# interfaces(5) file used by ifup(8) and ifdown(8)
+
+# Include files from /etc/network/interfaces.d:
+source-directory /etc/network/interfaces.d
+
+auto lo
+iface lo inet loopback
+
+#ethernet interface: used for debugging via cable
+auto eth0
+iface eth0 inet dhcp
+
+#wireless interface: used for Ad-Hoc network between devices
+#last group of ip is device id (1-253)
+allow-hotplug wlan0
+iface wlan0 inet static
+    address 10.1.1.{{pi_id}} 
+    netmask 255.255.255.0
+    dns-nameservers 8.8.8.8 8.8.4.4
+    wireless-channel 1
+    wireless-essid {{pi_network}}
+    wireless-mode ad-hoc

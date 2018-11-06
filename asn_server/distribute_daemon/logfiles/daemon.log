@@ -1,0 +1,229 @@
+Waiting for server
+Waiting for server
+Command port connected
+Command port connected
+Message port connected
+Message port connected
+start method failed
+start method failed
+Waiting for server
+Command port connected
+Message port connected
+start method failed
+Waiting for server
+Command port connected
+Message port connected
+start method failed
+Waiting for server
+Command port connected
+Message port connected
+start method failed
+Waiting for server
+Command port connected
+Message port connected
+start method failed
+Waiting for server
+Command port connected
+Message port connected
+start method failed
+Waiting for server
+Command port connected
+Message port connected
+start method failed
+Waiting for server
+Command port connected
+Message port connected
+execute processes
+procces could not be started
+start method failed
+Waiting for server
+Command port connected
+Message port connected
+start method failed
+Waiting for server
+Command port connected
+Message port connected
+start method failed
+<type 'exceptions.OSError'>
+[Errno 13] Permission denied: '/home/pi/asn_daemon/temp/pipes_system/fifo_1'
+Waiting for server
+Command port connected
+Message port connected
+execute processes
+procces could not be started
+<type 'exceptions.OSError'>
+[Errno 2] No such file or directory: 'system/1'
+procces could not be started
+<type 'exceptions.OSError'>
+[Errno 2] No such file or directory: 'system/2'
+Waiting for server
+Waiting for server
+Waiting for server
+Waiting for server
+Command port connected
+Message port connected
+execute processes
+procces could not be started
+<type 'exceptions.OSError'>
+[Errno 2] No such file or directory: 'system/1/.'
+procces could not be started
+<type 'exceptions.OSError'>
+[Errno 2] No such file or directory: 'system/2/.'
+procces could not be started
+<type 'exceptions.OSError'>
+[Errno 2] No such file or directory: 'system/3/.'
+procces could not be started
+<type 'exceptions.OSError'>
+[Errno 2] No such file or directory: 'system/4/.'
+procces could not be started
+<type 'exceptions.OSError'>
+[Errno 2] No such file or directory: 'system/5/.'
+procces could not be started
+<type 'exceptions.OSError'>
+[Errno 2] No such file or directory: 'system/6/.'
+procces could not be started
+<type 'exceptions.OSError'>
+[Errno 2] No such file or directory: 'system/7/.'
+Delete data in system folder
+subprocess could not be killed
+<type 'exceptions.AttributeError'>
+'NoneType' object has no attribute 'pid'
+subprocess could not be killed
+<type 'exceptions.AttributeError'>
+'NoneType' object has no attribute 'pid'
+subprocess could not be killed
+<type 'exceptions.AttributeError'>
+'NoneType' object has no attribute 'pid'
+subprocess could not be killed
+<type 'exceptions.AttributeError'>
+'NoneType' object has no attribute 'pid'
+subprocess could not be killed
+<type 'exceptions.AttributeError'>
+'NoneType' object has no attribute 'pid'
+subprocess could not be killed
+<type 'exceptions.AttributeError'>
+'NoneType' object has no attribute 'pid'
+subprocess could not be killed
+<type 'exceptions.AttributeError'>
+'NoneType' object has no attribute 'pid'
+*Killed subprocesses
+Waiting for server
+Command port connected
+Message port connected
+execute processes
+procces could not be started
+<type 'exceptions.OSError'>
+[Errno 2] No such file or directory: 'system/1/.'
+procces could not be started
+<type 'exceptions.OSError'>
+[Errno 2] No such file or directory: 'system/2/.'
+procces could not be started
+<type 'exceptions.OSError'>
+[Errno 2] No such file or directory: 'system/3/.'
+procces could not be started
+<type 'exceptions.OSError'>
+[Errno 2] No such file or directory: 'system/4/.'
+procces could not be started
+<type 'exceptions.OSError'>
+[Errno 2] No such file or directory: 'system/5/.'
+procces could not be started
+<type 'exceptions.OSError'>
+[Errno 2] No such file or directory: 'system/6/.'
+procces could not be started
+<type 'exceptions.OSError'>
+[Errno 2] No such file or directory: 'system/7/.'
+subprocess could not be killed
+<type 'exceptions.AttributeError'>
+'NoneType' object has no attribute 'pid'
+subprocess could not be killed
+<type 'exceptions.AttributeError'>
+'NoneType' object has no attribute 'pid'
+subprocess could not be killed
+<type 'exceptions.AttributeError'>
+'NoneType' object has no attribute 'pid'
+subprocess could not be killed
+<type 'exceptions.AttributeError'>
+'NoneType' object has no attribute 'pid'
+subprocess could not be killed
+<type 'exceptions.AttributeError'>
+'NoneType' object has no attribute 'pid'
+subprocess could not be killed
+<type 'exceptions.AttributeError'>
+'NoneType' object has no attribute 'pid'
+subprocess could not be killed
+<type 'exceptions.AttributeError'>
+'NoneType' object has no attribute 'pid'
+*Killed subprocesses
+Waiting for server
+Command port connected
+Message port connected
+execute processes
+procces could not be started
+<type 'exceptions.OSError'>
+[Errno 2] No such file or directory: 'system/1/.'
+procces could not be started
+<type 'exceptions.OSError'>
+[Errno 2] No such file or directory: 'system/2/.'
+procces could not be started
+<type 'exceptions.OSError'>
+[Errno 2] No such file or directory: 'system/3/.'
+procces could not be started
+<type 'exceptions.OSError'>
+[Errno 2] No such file or directory: 'system/4/.'
+procces could not be started
+<type 'exceptions.OSError'>
+[Errno 2] No such file or directory: 'system/5/.'
+procces could not be started
+<type 'exceptions.OSError'>
+[Errno 2] No such file or directory: 'system/6/.'
+procces could not be started
+<type 'exceptions.OSError'>
+[Errno 2] No such file or directory: 'system/7/.'
+subprocess could not be killed
+<type 'exceptions.AttributeError'>
+'NoneType' object has no attribute 'pid'
+subprocess could not be killed
+<type 'exceptions.AttributeError'>
+'NoneType' object has no attribute 'pid'
+subprocess could not be killed
+<type 'exceptions.AttributeError'>
+'NoneType' object has no attribute 'pid'
+subprocess could not be killed
+<type 'exceptions.AttributeError'>
+'NoneType' object has no attribute 'pid'
+subprocess could not be killed
+<type 'exceptions.AttributeError'>
+'NoneType' object has no attribute 'pid'
+subprocess could not be killed
+<type 'exceptions.AttributeError'>
+'NoneType' object has no attribute 'pid'
+subprocess could not be killed
+<type 'exceptions.AttributeError'>
+'NoneType' object has no attribute 'pid'
+*Killed subprocesses
+Waiting for server
+Command port connected
+Message port connected
+Delete data in system folder
+execute processes
+procces could not be started
+<type 'exceptions.OSError'>
+[Errno 2] No such file or directory: 'system/1/.'
+procces could not be started
+<type 'exceptions.OSError'>
+[Errno 2] No such file or directory: 'system/2/.'
+procces could not be started
+<type 'exceptions.OSError'>
+[Errno 2] No such file or directory: 'system/3/.'
+procces could not be started
+<type 'exceptions.OSError'>
+[Errno 2] No such file or directory: 'system/4/.'
+procces could not be started
+<type 'exceptions.OSError'>
+[Errno 2] No such file or directory: 'system/5/.'
+procces could not be started
+<type 'exceptions.OSError'>
+[Errno 2] No such file or directory: 'system/6/.'
+procces could not be started
+<type 'exceptions.OSError'>
+[Errno 2] No such file or directory: 'system/7/.'

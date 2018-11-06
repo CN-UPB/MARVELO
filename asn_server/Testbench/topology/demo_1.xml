@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+	<network>
+
+        <node pi_id="10.0.1.2">
+            <algorithm path="Testbench/system/writeToFiles" executable="./f1_module.py">
+                <output target_pi_id="10.0.1.2" pipe_id="1"/>
+            </algorithm>
+
+            <algorithm path="Testbench/system/writeToFiles" executable="./f2_module.py">
+		<input source_pi_id="10.0.1.2" pipe_id="1"/>
+            </algorithm>
+        </node>
+	</network>

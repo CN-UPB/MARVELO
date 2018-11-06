@@ -1,0 +1,10 @@
+---
+- name: distribute server ssh key to clients
+  hosts: allPi
+  tasks:
+  - name: distribute ssh public key
+    authorized_key:
+      user: pi
+      state: present
+      key: "{{ lookup('file', '/home/{{server_username}}/asn_server/ssh/id_rsa.pub') }}"
+

@@ -1,0 +1,84 @@
+<?xml version="1.0" ?>
+	<network>
+        <node pi_id="3">
+            <algorithm path="Testbench/system/readfile_module" executable="./module_readfile.py">
+                <output target_pi_id="3" pipe_id="1"></output>
+                <output target_pi_id="3" pipe_id="2"></output>
+		<parameter param="-f AudioData/Audio_2Chan_80ppm.wav"></parameter>
+     	    </algorithm>
+
+	    <algorithm path="Testbench/system/processing_modules" executable="./module_process_resampling.py">
+                <input source_pi_id="3" pipe_id="1"></input>
+		<input source_pi_id="3" pipe_id="3"></input>
+		<parameter param="-l /home/pi/asn_daemon/logfiles/sro_info.log"></parameter>
+		<parameter param="--SamplingRateOffset 0 --WindowSize 20 --Name Resampling CH1"></parameter>
+            </algorithm>
+
+	    <algorithm path="Testbench/system/processing_modules" executable="./module_process_resampling.py">
+                <input source_pi_id="3" pipe_id="2"></input>
+		<input source_pi_id="3" pipe_id="4"></input>
+		<parameter param="-l /home/pi/asn_daemon/logfiles/sro_info.log"></parameter>
+		<parameter param="--SamplingRateOffset 0 --WindowSize 20 --Name Resampling CH2"></parameter>
+            </algorithm>
+
+	    <algorithm path="Testbench/system/processing_modules" executable="./module_process_reframe.py">
+		<input source_pi_id="3" pipe_id="3"></input>
+		<output target_pi_id="3" pipe_id="5"></output>
+		<output target_pi_id="3" pipe_id="6"></output>
+		<parameter param="--Name Reframing CH1"></parameter>
+            </algorithm>
+
+	    <algorithm path="Testbench/system/processing_modules" executable="./module_process_reframe.py">
+		<input source_pi_id="3" pipe_id="4"></input>
+		<output target_pi_id="3" pipe_id="7"></output>
+		<output target_pi_id="3" pipe_id="8"></output>
+		<parameter param="--Name Reframing CH2"></parameter>
+            </algorithm>
+
+	    <algorithm path="Testbench/system/processing_modules" executable="./module_process_delay.py">
+                <input source_pi_id="3" pipe_id="6"></input>
+		<output target_pi_id="3" pipe_id="9"></output>
+		<parameter param="--FrameSize 40960 --Delay 1024"></parameter>
+            </algorithm>
+
+	    <algorithm path="Testbench/system/processing_modules" executable="./module_process_delay.py">
+                <input source_pi_id="3" pipe_id="8"></input>
+		<output target_pi_id="3" pipe_id="10"></output>
+		<parameter param="--FrameSize 40960 --Delay 1024"></parameter>
+            </algorithm>
+
+	   <algorithm path="Testbench/system/processing_modules" executable="./module_process_coherencewelch.py">
+		<input source_pi_id="3" pipe_id="5"></input>
+                <input source_pi_id="3" pipe_id="7"></input>
+		<output target_pi_id="3" pipe_id="11"></output>
+		<parameter param="--FFTSize 8192 --WelchShift 1024 --WindowType Hann --Name Coherence Welch 2"></parameter>
+            </algorithm>
+
+	   <algorithm path="Testbench/system/processing_modules" executable="./module_process_coherencewelch.py">
+		<input source_pi_id="3" pipe_id="9"></input>
+                <input source_pi_id="3" pipe_id="10"></input>
+		<output target_pi_id="3" pipe_id="12"></output>
+		<parameter param="--FFTSize 8192 --WelchShift 1024 --WindowType Hann --Name Coherence Welch 2"></parameter>
+            </algorithm>
+
+
+	   <algorithm path="Testbench/system/processing_modules" executable="./module_process_driftestimator.py">
+		<input source_pi_id="3" pipe_id="11"></input>
+                <input source_pi_id="3" pipe_id="12"></input>
+		<output target_pi_id="3" pipe_id="13"></output>
+		<parameter param="--FFTSize 8192 --CoherenceTimeDelay 1024 --MaximumSRO 300 --WelchShift 1024"></parameter>
+            </algorithm>
+
+
+
+	    <algorithm path="Testbench/system/processing_modules" executable="./module_process_resamplingcontrol.py">
+		<input source_pi_id="3" pipe_id="13"></input>
+		<output target_pi_id="3" pipe_id="14"></output>
+		<parameter param="--SmoothFactor 0.99 --UpdateAfterNumObservations 30"></parameter>
+            </algorithm>
+
+
+
+
+        </node>
+	</network>

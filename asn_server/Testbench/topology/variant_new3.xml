@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<network>
+	<node pi_id="2">
+		<algorithm path="Testbench/system/readfile_module" executable="./module_readfile.py">
+	                <output target_pi_id="2" pipe_id="1"></output>
+	                <output target_pi_id="2" pipe_id="2"></output>
+			<parameter param="-f AudioData/Audio_2Chan_80ppm.wav"></parameter>
+		</algorithm>
+
+		<algorithm path="Testbench/system/processing_modules" executable="./module_process_resampling.py">
+			<input source_pi_id="2" pipe_id="1"></input>
+			<input source_pi_id="2" pipe_id="16"></input>
+			<output target_pi_id="2" pipe_id="5"></output>
+			<parameter param="--SamplingRateOffset 0 --WindowSize 20"></parameter>
+			<parameter param="-l /home/pi/asn_daemon/logfiles/resampling.log"></parameter>
+		</algorithm>
+
+		<algorithm path="Testbench/system/processing_modules" executable="./module_process_new_sampling.py">
+                	<input source_pi_id="2" pipe_id="5"></input>
+			<input source_pi_id="2" pipe_id="2"></input>
+			<output target_pi_id="2" pipe_id="16"></output>
+			<parameter param="-l /home/pi/asn_daemon/logfiles/results.log"></parameter>
+	        </algorithm>
+        </node>
+	</network>

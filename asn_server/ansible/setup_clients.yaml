@@ -1,0 +1,23 @@
+---
+- name: update/check network config files
+  hosts: allPi
+  tasks:
+  - name: write hostname config
+    template: src=templates/hostname.j2 dest=/etc/hostname
+  - name: write network interfaces config
+    template: src=templates/interfaces.j2 dest=/etc/network/interfaces
+  - name: write hosts config
+    template: src=templates/hosts.j2 dest=/etc/hosts
+
+- name: distribute server ssh key to clients
+  hosts: allPi
+  tasks:
+  - name: distribute ssh public key
+    authorized_key:
+      user: pi
+      state: present
+      key: "{{ lookup('file', '/home/{{server_username}}/asn_server/ssh/id_rsa.pub') }}"
+
+- include: update_packages.yaml
+- include: distribute_daemon.yaml
+- include: daemon_service_enable.yaml

@@ -1,0 +1,10 @@
+---
+- name: distribute_daemon
+  hosts: allPi
+  tasks:
+  - name: synchronize daemon directory
+    synchronize:
+        src: /home/{{server_username}}/asn_server/distribute_daemon/
+        dest: /home/pi/asn_daemon
+        delete: yes
+        use_ssh_args: yes

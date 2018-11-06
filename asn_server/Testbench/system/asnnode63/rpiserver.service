@@ -1,0 +1,11 @@
+[Unit]
+Description=Raspberry Pi Sound Server
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/rpiserver
+
+[Install]
+WantedBy=multi-user.target 
+
+

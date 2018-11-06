@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+	<network>
+		<node pi_id="10.0.1.3">
+			<algorithm path="Testbench/system/asnnode63/" executable="./asn6pipe">
+                <output target_pi_id="10.0.1.2" pipe_id="1"></output>
+
+			</algorithm>
+
+        </node>
+	<node pi_id="10.0.1.2">
+            <algorithm path="Testbench/system/cProcess" executable="./fdpy2.py">
+                <input source_pi_id="10.0.1.3" pipe_id="1"></input>
+		<parameter param="--Name /home/asn/asn_daemon/logfiles/rxdata1N "></parameter>
+
+            </algorithm>
+        </node>
+	</network>

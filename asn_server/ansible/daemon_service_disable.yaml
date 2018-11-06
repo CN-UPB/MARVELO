@@ -1,0 +1,10 @@
+---
+- name: disable daemon service
+  hosts: allPi
+  tasks:
+  - name: stop and disable service
+    systemd:
+      name: asn_daemon
+      enabled: no
+      state: stopped
+      daemon_reload: yes

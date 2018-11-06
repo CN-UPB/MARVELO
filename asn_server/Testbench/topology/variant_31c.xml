@@ -1,0 +1,71 @@
+<?xml version="1.0" ?>
+	<network>
+        <node pi_id="3">
+            <algorithm path="Testbench/system/readfile_module" executable="./module_readfile.py">
+                <output target_pi_id="3" pipe_id="1"></output>
+				<parameter param="-f AudioData/Audio_2Chan_80ppm.wav"></parameter>
+			</algorithm>
+
+		    <algorithm path="Testbench/system/processing_modules" executable="./module_process_driftestimator.py">
+				<input source_pi_id="3" pipe_id="11"></input>
+                <input source_pi_id="3" pipe_id="13"></input>
+				<output target_pi_id="3" pipe_id="14"></output>
+				<parameter param="--FFTSize 8192 --CoherenceTimeDelay 1024 --MaximumSRO 300 --WelchShift 1024"></parameter>
+            </algorithm>
+			<algorithm path="Testbench/system/processing_modules" executable="./module_process_resamplingcontrol.py">
+				<input source_pi_id="3" pipe_id="14"></input>
+				<output target_pi_id="3" pipe_id="15"></output>
+				<parameter param="--SmoothFactor 0.99 --UpdateAfterNumObservations 30"></parameter>
+            </algorithm>
+		    <algorithm path="Testbench/system/processing_modules" executable="./module_process_buffer.py">
+                <input source_pi_id="3" pipe_id="1"></input>
+				<output target_pi_id="3" pipe_id="2"></output>
+				<output target_pi_id="3" pipe_id="3"></output>
+            </algorithm>
+			<algorithm path="Testbench/system/processing_modules" executable="./module_process_tee.py">
+                <input source_pi_id="3" pipe_id="2"></input>
+				<output target_pi_id="3" pipe_id="4"></output>
+				<output target_pi_id="3" pipe_id="5"></output>
+				<output target_pi_id="3" pipe_id="6"></output>
+            </algorithm>
+			<algorithm path="Testbench/system/processing_modules" executable="./module_process_coherencewelch.py">
+				<input source_pi_id="3" pipe_id="12"></input>
+                <input source_pi_id="3" pipe_id="10"></input>
+				<output target_pi_id="3" pipe_id="13"></output>
+				<parameter param="--FFTSize 8192 --WelchShift 1024 --WindowType Hann"></parameter>
+            </algorithm>
+			<algorithm path="Testbench/system/processing_modules" executable="./module_process_delay.py">
+                <input source_pi_id="3" pipe_id="9"></input>
+				<output target_pi_id="3" pipe_id="10"></output>
+				<parameter param="--FrameSize 40960 --Delay 1024"></parameter>
+            </algorithm>
+            <algorithm path="Testbench/system/processing_modules" executable="./module_process_vad.py">
+                <input source_pi_id="3" pipe_id="4"></input>
+				<parameter param="-l /home/pi/asn_daemon/logfiles/vad.log"></parameter>
+				<parameter param="--EnergySmoothFactor 0.9 --OvershootFactor 2.0"></parameter>
+            </algorithm>
+			<algorithm path="Testbench/system/processing_modules" executable="./module_process_coherencewelch.py">
+                <input source_pi_id="3" pipe_id="5"></input>
+				<input source_pi_id="3" pipe_id="8"></input>
+				<output target_pi_id="3" pipe_id="11"></output>
+				<parameter param="--FFTSize 8192 --WelchShift 1024 --WindowType Hann"></parameter>
+            </algorithm>
+			<algorithm path="Testbench/system/processing_modules" executable="./module_process_delay.py">
+                <input source_pi_id="3" pipe_id="6"></input>
+				<output target_pi_id="3" pipe_id="12"></output>
+				<parameter param="--FrameSize 40960 --Delay 1024"></parameter>
+            </algorithm>
+			<algorithm path="Testbench/system/processing_modules" executable="./module_process_resampling.py">
+                <input source_pi_id="3" pipe_id="3"></input>
+				<input source_pi_id="3" pipe_id="15"></input>
+				<output target_pi_id="3" pipe_id="7"></output>
+				<parameter param="-l /home/pi/asn_daemon/logfiles/sro_info.log"></parameter>
+				<parameter param="--SamplingRateOffset 0 --WindowSize 20"></parameter>
+            </algorithm>
+			<algorithm path="Testbench/system/processing_modules" executable="./module_process_tee.py">
+                <input source_pi_id="3" pipe_id="7"></input>
+				<output target_pi_id="3" pipe_id="8"></output>
+				<output target_pi_id="3" pipe_id="9"></output>
+            </algorithm>
+        </node>
+	</network>

@@ -1,0 +1,38 @@
+---
+- include: internet_forwarding_enable.yaml
+
+- name: update apt packages
+  hosts: allPi
+
+  tasks:
+  - name: update package lists
+    apt:
+       update_cache: yes
+    ignore_errors: yes
+
+  - name: "install/update apt packages: {{apt_packages_to_install}}"
+    apt:
+      name: "{{item}}"
+      state: latest
+    with_items: "{{apt_packages_to_install}}"
+    ignore_errors: yes
+
+  - name: safely update all existing packages
+    apt:
+      upgrade: safe
+    ignore_errors: yes
+
+- include: update_system_time.yaml
+
+- name: update python packages
+  hosts: allPi
+
+  tasks:
+  - name: "install/update python packages: {{python_packages_to_install}}"
+    pip: 
+      name: "{{item}}"
+      state: latest
+    with_items: "{{python_packages_to_install}}"
+    ignore_errors: yes
+
+- include: internet_forwarding_disable.yaml

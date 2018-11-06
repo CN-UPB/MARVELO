@@ -1,0 +1,47 @@
+### Do not edit ###
+[server]
+localhost ansible_connection=local
+[Pi:children]
+localPi
+allPi
+[localPi]
+raspberrypi.local
+[all:vars]
+ansible_become=yes
+
+
+### User on Server (also edit in ansible.cfg) ###
+server_username=pi
+
+
+### Server settings ###
+[server:vars]
+
+server_internet_interface_name=eth0
+server_adhoc_interface_name=wlan0
+server_ethernet_interface_name=
+
+apt_packages_to_install='["python", "python-pip", "python-dev", "build-essential", "ntp", "ntpdate", "rsync", "python-lxml"]'
+python_packages_to_install='["pip", "netifaces"]'
+
+
+### Client settings ###
+[Pi:vars]
+
+#Username and password of clients in the system
+#Change of username currently not supported
+ansible_user=pi
+ansible_ssh_pass=raspberry
+
+apt_packages_to_install='["python", "python-pip", "python-dev", "build-essential", "ntp", "ntpdate", "rsync", "systemd", "python-lxml", "python-scipy"]'
+python_packages_to_install='["pip", "netifaces", "numpy"]'
+
+
+### List of all clients in the system ###
+### Format: 10.1.1.[ID] pi_id=[ID]    ###
+[allPi]
+10.1.1.1 pi_id=1
+10.1.1.2 pi_id=2
+10.1.1.3 pi_id=3
+10.1.1.4 pi_id=4
+10.1.1.5 pi_id=5

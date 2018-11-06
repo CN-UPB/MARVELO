@@ -1,0 +1,27 @@
+---
+- name: enable communication via ethernet
+  hosts: server
+  tasks:
+  - name: switch internet interface to static ip (if necessary)
+    command: ifconfig {{server_internet_interface_name}} 169.254.1.1 netmask 255.255.0.0
+    when: server_ethernet_interface_name == ""
+
+- name: update network config files to enable wifi connection
+  hosts: localPi
+  tasks:
+  - name: write hostname config
+    template: src=templates/hostname.j2 dest=/etc/hostname
+  - name: write network interfaces config
+    template: src=templates/interfaces.j2 dest=/etc/network/interfaces
+  - name: write hosts config
+    template: src=templates/hosts.j2 dest=/etc/hosts
+
+- name: disable communication via ethernet
+  hosts: server
+  tasks:
+  - name: stop internet interface
+    command: ifdown {{server_internet_interface_name}}
+    when: server_ethernet_interface_name == ""
+  - name: restart internet interface using DCHP
+    command: dhclient {{server_internet_interface_name}}
+    when: server_ethernet_interface_name == ""

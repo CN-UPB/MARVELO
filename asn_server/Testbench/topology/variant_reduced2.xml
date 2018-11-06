@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+	<network>
+		<node pi_id="3">
+			<algorithm path="Testbench/system/readfile_module" executable="./module_readfile.py">
+                <output target_pi_id="3" pipe_id="1"></output>
+				<parameter param="-f AudioData/Audio_2Chan_80ppm.wav"></parameter>
+			</algorithm>
+
+            <algorithm path="Testbench/system/processing_modules" executable="./module_process_all.py">
+                <input source_pi_id="3" pipe_id="1"></input>
+				<parameter param="-l /home/pi/asn_daemon/logfiles/results.log"></parameter>
+            </algorithm>
+        </node>
+	</network>

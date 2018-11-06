@@ -1,0 +1,36 @@
+<network>
+  <node pi_id="127.0.0.1">
+    <algorithm executable="./ica_readModule.py" path="Testbench/system/fobi">
+      <output pipe_id="10" target_pi_id="127.0.0.1"/>
+    </algorithm>
+    <algorithm executable="./cov1svd.py" path="Testbench/system/fobi">
+      <input pipe_id="10" source_pi_id="127.0.0.1"/>
+      <output pipe_id="30" target_pi_id="127.0.0.1"/>
+      <input pipe_id="20" source_pi_id="127.0.0.1"/>
+      <output pipe_id="50" target_pi_id="127.0.0.1"/>
+      <output pipe_id="40" target_pi_id="127.0.0.1"/>
+    </algorithm>
+    <algorithm executable="./whiten.py" path="Testbench/system/fobi">
+      <input pipe_id="60" source_pi_id="127.0.0.1"/>
+      <output pipe_id="90" target_pi_id="127.0.0.1"/>
+      <input pipe_id="50" source_pi_id="127.0.0.1"/>
+      <input pipe_id="40" source_pi_id="127.0.0.1"/>
+      <output pipe_id="70" target_pi_id="127.0.0.1"/>
+    </algorithm>
+    <algorithm executable="./cov2svd.py" path="Testbench/system/fobi">
+      <input pipe_id="90" source_pi_id="127.0.0.1"/>
+      <input pipe_id="80" source_pi_id="127.0.0.1"/>
+    </algorithm>
+    <algorithm executable="./normfn.py" path="Testbench/system/fobi">
+      <input pipe_id="70" source_pi_id="127.0.0.1"/>
+      <output pipe_id="80" target_pi_id="127.0.0.1"/>
+    </algorithm>
+    <algorithm executable="./ica_readModule2.py" path="Testbench/system/fobi">
+      <output pipe_id="20" target_pi_id="127.0.0.1"/>
+    </algorithm>
+    <algorithm executable="./sqrtfn.py" path="Testbench/system/fobi">
+      <input pipe_id="30" source_pi_id="127.0.0.1"/>
+      <output pipe_id="60" target_pi_id="127.0.0.1"/>
+    </algorithm>
+  </node>
+</network>
