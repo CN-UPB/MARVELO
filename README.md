@@ -74,7 +74,7 @@ $sudo python daemon.py -if lo```
 We try an example using the emulator (using different devices require only changing the IP address in the XML files). This example uses ICA for source separation. The original audios can be found in **asn_server/Demos/system/fobi/mix1.wav
 * Go to the directory of the **asn_server**
 * run ``` python server.py```
-* Then 
+* Then, execute the following commands in MARVELO (one by one)
      ```
       setxml Demos/topology/SourceSeparation/ica_b_local.xml
       transferdata 
