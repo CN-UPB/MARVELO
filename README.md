@@ -28,7 +28,6 @@ Note that this may be needed for the client but not necessary for the server.
   ``` 
        iface wlan0  inet static
        
-            iface wlan0 inet static
             address 10.1.1.254
             netmask 255.255.255.0
             wireless-channel 1
