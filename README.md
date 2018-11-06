@@ -77,7 +77,7 @@ You can use a single device as a server and client, while the communications rel
 $sudo python daemon.py -if lo```  
 
 ## Test with a Demo
-We try an example using the emulator (using different devices require only changing the IP address in the XML files). This example uses ICA for source separation. The original audios can be found in **asn_server/Demos/system/fobi/mix1.wav
+We try an example using the emulator (using different devices require only changing the IP address in the XML files). This example uses ICA for source separation. The original audios can be found in **asn_server/Demos/system/fobi/mix1.wav**
 * Go to the directory of the **asn_server**
 * run ``` python server.py```
 * Then, execute the following commands in MARVELO (one by one)
