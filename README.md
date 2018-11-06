@@ -6,6 +6,7 @@ This framework has been tested on Raspberry Pi 3 (RPi3) and Debian distrubtions 
 ## Quick Setup
 There are two roles in MARVELO; Server(the brain who will distribute the blocks) and Client (who will run the process). For the sake of consistency, please make sure that you have user "asn" on your RPis
 > adduser asn
+
 > usermod -aG sudo asn
 Note that this may be needed for the client but not necessary for the server.
 ### Server Installation
