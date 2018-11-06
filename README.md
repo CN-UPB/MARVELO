@@ -74,11 +74,13 @@ $sudo python daemon.py -if lo```
 We try an example using the emulator (using different devices require only changing the IP address). This example uses ICA for source separation. The original audios can be found in **asn_server/Demos/system/fobi/mix1.wav
 * Go to the directory of the **asn_server**
 * run ``` python server.py```
-* Then ```
-     setxml Demos/topology/SourceSeparation/ica_b_local.xml
-     transferdata 
-     connect
-     start
+* Then 
+     ```
+      setxml Demos/topology/SourceSeparation/ica_b_local.xml
+      transferdata 
+      connect
+      start
+     
      ```
  Note: You will be asked for the password for **asn** user each time you type this command. As workaround you can add the public key in the authorized hosts ```~/.ssh/authorized_keys ```
 * to collect the log files from the server, run in MARVELO
