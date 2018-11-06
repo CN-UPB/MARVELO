@@ -12,7 +12,9 @@ $ adduser asn
 $ usermod -aG sudo asn
 ```
 
-Note that this may be needed for the client but not necessary for the server.
+Note that this may be needed for the client but not necessary for the server. For a detailed setup steps, please check
+https://www.uni-paderborn.de/asn/software/
+
 ### Server Installation
 * copy the **asn_server** folder to **/home/asn/**
 * Download the required python packages 
