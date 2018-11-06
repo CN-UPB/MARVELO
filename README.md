@@ -5,10 +5,32 @@ The distribution can be prepared manually (by creating or editing an XML file) o
 This framework has been tested on Raspberry Pi 3 (RPi3) and Debian distrubtions (Raspbian strech and Kali). Thus, the network can consists of Laptops instead of RPis.
 ## Quick Setup
 There are two roles in MARVELO; Server(the brain who will distribute the blocks) and Client (who will run the process). For the sake of consistency, please make sure that you have user "asn" on your RPis
-> adduser asn
+```sh
+$ adduser asn
+$ usermod -aG sudo asn
+```
 
-> usermod -aG sudo asn
 Note that this may be needed for the client but not necessary for the server.
 ### Server Installation
-* copy the ,,asn_server'' folder in /home/asn
-*
+* copy the **asn_server** folder to **/home/asn**
+* Download the required python packages 
+        ```  $ sudo apt-get install  python    python-pip    python-dev    build-essential    ntp    ntpdate    rsync    python-lxml ```
+       ```  $ pip install netifaces pyomo pandas
+       ```
+* Setup the ad-hoc network. If you have limited experience, here is a quick setup for ad-hoc network
+  * change the network configuration of wireless interface 
+         ```
+      $ sudo nano /etc/network/interfaces
+         ```
+  *  comment your wireless interface config (let’s say ***wlan0***) and replace it with
+  > iface wlan0  inet static
+address 10.1.1.254
+netmask 255.255.255.0
+wireless-channel 1
+wireless-essid marvelo_network
+wireless-mode ad-hoc
+  >
+
+### Client installation
+
+
