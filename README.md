@@ -26,15 +26,15 @@ Note that this may be needed for the client but not necessary for the server.
          ```
   *  comment your wireless interface config (let’s say ***wlan0***) and replace it with
   > iface wlan0  inet static
-      > address 10.1.1.254
+     address 10.1.1.254
      
-     > netmask 255.255.255.0
+     netmask 255.255.255.0
      
-     > wireless-channel 1
+     wireless-channel 1
      
-     > wireless-essid marvelo_network
+     wireless-essid marvelo_network
      
-     > wireless-mode ad-hoc
+      wireless-mode ad-hoc
   
 
 ### Client installation
