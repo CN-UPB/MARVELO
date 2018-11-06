@@ -16,10 +16,11 @@ Note that this may be needed for the client but not necessary for the server.
 ### Server Installation
 * copy the **asn_server** folder to **/home/asn/**
 * Download the required python packages 
-        ``` 
-        $ sudo apt-get install  python    python-pip    python-dev    build-essential    ntp    ntpdate    rsync    python-lxml    
-        $ pip install netifaces pyomo pandas
-        ```
+        ```         
+         $ sudo apt-get install  python    python-pip    python-dev    build-essential    ntp    ntpdate    rsync    python-lxml  
+        
+         $ pip install netifaces pyomo pandas
+         ```
        
 * Setup the ad-hoc network. If you have limited experience, here is a quick setup for ad-hoc network
   * change the network configuration of wireless interface 
