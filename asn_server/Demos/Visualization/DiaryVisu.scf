@@ -1,0 +1,135 @@
+%% -----------------------------------------------------------------------
+%%
+%% Copyright (c) <2011> <University of Paderborn>
+%% Permission is hereby granted, free of charge, to any person
+%% obtaining a copy of this software and associated documentation
+%% files (the "Software"), to deal in the Software without restriction,
+%% including without limitation the rights to use, copy, modify and
+%% merge the Software, subject to the following conditions:
+%%
+%% 1.) The Software is used for non-commercial research and
+%%     education purposes.
+%%
+%% 2.) The above copyright notice and this permission notice shall be
+%%     included in all copies or substantial portions of the Software.
+%%
+%% 3.) Publication, Distribution, Sublicensing, and/or Selling of
+%%     copies or parts of the Software requires special agreements
+%%     with the University of Paderborn and is in general not permitted.
+%%
+%% 4.) Modifications or contributions to the software must be
+%%     published under this license. The University of Paderborn
+%%     is granted the non-exclusive right to publish modifications
+%%     or contributions in future versions of the Software free of charge.
+%%
+%% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+%% EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+%% OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+%% NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+%% HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+%% WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+%% FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+%% OTHER DEALINGS IN THE SOFTWARE.
+%%
+%% Persons using the Software are encouraged to notify the
+%% Department of Communications Engineering at the University of Paderborn
+%% about bugs via <spark@nt.uni-paderborn.de>. Please reference Spark
+%% in your publications if it was used for them.
+%%
+%% -----------------------------------------------------------------------
+[MACRO]
+  DIARYDATASIZE:  6
+  SIZEOFFLOAT: 4
+  ANGLESPERTWOPI: 8
+  MICARRAYS: 2
+  ACTIVITYDIARYSIZE: <eval=4+2*MICARRAYS >
+  HISTLENGTH:   500
+  
+[/MACRO]
+[TASK]
+  [KERNEL]
+    TaskType: Realtime
+    Scheduler:MultiCore
+  [/KERNEL]
+
+  [INPUT]
+    Client: ...
+  [/INPUT]
+
+  [OUTPUT]
+     DiaryImage: ...
+  [/OUTPUT]
+  [LOGGER]
+    DEFAULT: { ConsoleLogger, WARN }
+  [/LOGGER]
+  [MODULES]
+    [M]
+      Name:  Client
+      Type:  basic/RemoteLinkClient
+      FrameSizes: { <eval=DIARYDATASIZE*2*SIZEOFFLOAT> }
+      ServerIP: "10.0.1.1"
+      %% ServerIP: "131.234.222.121"
+      Port: 8000
+    [/M]
+
+    [M]   
+      Name:      DiaryDataSplitter
+      Type:      basic/Router2      
+      FrameSize: 1
+      InputChannels:  { 12 }
+      OutputChannels: { 2, 2, 6 }
+      Mapping:        { 0, 6, 2, 8, 3, 4, 5, 9, 10, 11 }
+    [/M]
+    
+    
+      [M]     
+      Name:      Diary
+      Type:      asn/Diarization
+      NumAngles:  { <eval=ANGLESPERTWOPI> } 
+      NumArrays:  { <eval=MICARRAYS> }
+      UseCloseTalkMic: false
+      [/M]
+      
+      [M]
+      Name: Hist2
+      Type: gtkplot2/History
+      InputFrameSize:  <eval=ACTIVITYDIARYSIZE>
+      OutputFrameSize: <eval=HISTLENGTH*ACTIVITYDIARYSIZE>
+      Channels: 1
+      [/M]
+      
+     [M]
+       Name:            Transpose2
+       Type:            basic/Math
+       InputFrameSize:  <eval=HISTLENGTH*ACTIVITYDIARYSIZE>
+       OutputFrameSize: <eval=HISTLENGTH*ACTIVITYDIARYSIZE>
+       ProcessData:     <str="out0=reshape(in0, " + ACTIVITYDIARYSIZE + ", " + HISTLENGTH + ")';">
+     [/M]     
+
+      
+      
+     [M]
+      Name: DiaryImage
+      Type: gtkplot2/ScaledImage
+      Width: <eval=HISTLENGTH>
+      Height: <eval=ACTIVITYDIARYSIZE>
+      ColormapResolution: 128
+      %%CloseAtTheEnd:    false
+      Queue:              DISCARD
+      [/M]
+          
+    
+    [/MODULES]
+
+  [CONNECTIONS]
+    Client[0] -> DiaryDataSplitter[0]
+    DiaryDataSplitter[0] -> Diary[0]
+    DiaryDataSplitter[1] -> Diary[1]
+    DiaryDataSplitter[2] -> Diary[2]
+    
+    Diary[0] -> Hist2[0]
+    Hist2[0] -> Transpose2[0] 
+    Transpose2[0] -> DiaryImage[0]
+    
+  [/CONNECTIONS]
+[/TASK] 

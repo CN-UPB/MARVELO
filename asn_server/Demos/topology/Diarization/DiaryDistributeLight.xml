@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<network>
+        <node pi_id="asnupb2">
+            <algorithm path="Demos/system/spark3/" executable="./spark3">
+		<parameter param="config/SparkAudio2Pipe.scf"></parameter>
+		<output target_pi_id="asnupb2" pipe_id="1"></output>
+            </algorithm>
+            <algorithm path="Demos/system/spark3/" executable="./spark3">
+		<parameter param="config/PipedSRP.scf"></parameter>
+		<input source_pi_id="asnupb2" pipe_id="1"></input>
+		<output target_pi_id="asnupb1" pipe_id="3"></output>
+            </algorithm>
+        </node>
+
+        <node pi_id="asnupb3">
+            <algorithm path="Demos/system/spark3/" executable="./spark3">
+		<parameter param="config/SparkAudio2Pipe.scf"></parameter>
+		<output target_pi_id="asnupb3" pipe_id="2"></output>
+            </algorithm>
+            <algorithm path="Demos/system/spark3/" executable="./spark3">
+		<parameter param="config/PipedSRPLight.scf"></parameter>
+		<input source_pi_id="asnupb3" pipe_id="2"></input>
+		<output target_pi_id="asnupb1" pipe_id="4"></output>
+            </algorithm>
+        </node>
+
+        <node pi_id="asnupb1">
+            <algorithm path="Demos/system/spark3/" executable="./spark3">
+		<parameter param="config/DiaryServer.scf"></parameter>
+		<input source_pi_id="asnupb2" pipe_id="3"></input>
+                <input source_pi_id="asnupb3" pipe_id="4"></input>
+            </algorithm>
+        </node>
+
+
+</network>

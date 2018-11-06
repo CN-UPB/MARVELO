@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<network>
+   <node pi_id="asnupb1">
+      <algorithm path="Demos/system/toyexample/" executable="python3 toy.py"></algorithm>
+   </node>
+</network>

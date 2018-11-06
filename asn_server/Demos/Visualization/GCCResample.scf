@@ -1,0 +1,188 @@
+%% -----------------------------------------------------------------------
+%%
+%% Copyright (c) <2011> <University of Paderborn>
+%% Permission is hereby granted, free of charge, to any person
+%% obtaining a copy of this software and associated documentation
+%% files (the "Software"), to deal in the Software without restriction,
+%% including without limitation the rights to use, copy, modify and
+%% merge the Software, subject to the following conditions:
+%%
+%% 1.) The Software is used for non-commercial research and
+%%     education purposes.
+%%
+%% 2.) The above copyright notice and this permission notice shall be
+%%     included in all copies or substantial portions of the Software.
+%%
+%% 3.) Publication, Distribution, Sublicensing, and/or Selling of
+%%     copies or parts of the Software requires special agreements
+%%     with the University of Paderborn and is in general not permitted.
+%%
+%% 4.) Modifications or contributions to the software must be
+%%     published under this license. The University of Paderborn
+%%     is granted the non-exclusive right to publish modifications
+%%     or contributions in future versions of the Software free of charge.
+%%
+%% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+%% EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+%% OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+%% NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+%% HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+%% WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+%% FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+%% OTHER DEALINGS IN THE SOFTWARE.
+%%
+%% Persons using the Software are encouraged to notify the
+%% Department of Communications Engineering at the University of Paderborn
+%% about bugs via <spark@nt.uni-paderborn.de>. Please reference Spark
+%% in your publications if it was used for them.
+%%
+%% -----------------------------------------------------------------------
+[MACRO]
+  CHANNELS: 2
+  FRAMESIZE: 128
+  SAMPLERATE: 16000
+  FFTSIZE: 8192
+  FFTSIZE2: 1024
+[/MACRO]
+[TASK]
+  [KERNEL]
+    TaskType: Realtime
+    Scheduler: MultiCore
+  [/KERNEL]
+%%Sequential_File_List
+  [INPUT]
+    Client: ...
+  [/INPUT]
+
+  [OUTPUT]
+     WriteAudioFile:  { "Audio.wav" }
+     AlsaPlay: { ... }
+  [/OUTPUT]
+  [LOGGER]
+    DEFAULT: { ConsoleLogger, WARN }
+  [/LOGGER]
+  [MODULES]
+    [M]
+      Name:  Client
+      Type:  basic/RemoteLinkClient
+      FrameSizes: { <eval=4*CHANNELS*FRAMESIZE> }
+      ServerIP: "10.0.1.2"
+      Port: 8000
+    [/M]
+     [M]     
+      Name:      WriteAudioFile
+      Type:      basic/WriteFile
+      FrameSize: <eval=CHANNELS*FRAMESIZE>
+      FileType:  WAV
+      FileDataType: FLOAT
+      Channels:  <eval=CHANNELS>
+      SampleRate: <eval=SAMPLERATE>
+     [/M]     
+     
+    [M]
+      Name:      Route
+      Type:      basic/Router2
+      FrameSize: <eval=FRAMESIZE>
+      InputChannels: <eval=CHANNELS>
+      OutputChannels: { 2 , 1 , 1}
+      Mapping: { 0, 1, 0, 1 }
+    [/M]
+     
+    [M]
+      Name: STFTResample1
+      Type: asn/stftresample
+      Channels: 1
+      FrameSize: { <eval=FRAMESIZE> }
+      FFTSize: { <eval=FFTSIZE2> }
+      SRO: { 0 }
+      UseSROInput: false
+    [/M] 
+    
+     [M]
+      Name: STFTResample2
+      Type: asn/stftresample
+      Channels: 1
+      FrameSize: { <eval=FRAMESIZE> }
+      FFTSize: { <eval=FFTSIZE2> }
+      SRO: { 0 }
+      UseSROInput: false
+    [/M] 
+    
+   
+    [M]
+      Name:            Router2
+      Type:            basic/Router2
+      FrameSize:       <eval=FRAMESIZE>
+      InputChannels:   { 1, 1 }
+      OutputChannels:  { 2 }
+      Mapping:         { 0, 1 }
+    [/M]
+    
+    [M]
+      Name: GCC
+      Type: asn/gccphat
+      Channels: <eval=CHANNELS>
+      FrameSize: { <eval=FRAMESIZE> }
+      FFTSize: { <eval=FFTSIZE> }
+    [/M] 
+    
+    [M]
+      Name: ResampleControl
+      Type: asn/ResampleControl
+      Channels: <eval=CHANNELS>
+      AverageMemLength: 256
+      UseFeedbackControl: false
+    [/M] 
+    
+    
+     [M]
+        Name:       Token
+        Type:       basic/GenerateToken
+        FrameSize:  <eval=CHANNELS*4>
+    [/M]
+    
+     [M]
+      Name:            RouterSRO
+      Type:            basic/Router2
+      FrameSize:       <eval=1>
+      InputChannels:   { 2 }
+      OutputChannels:  { 1, 1 }
+      Mapping:         { 0, 1 }
+    [/M]
+    
+    [M]
+      Name:            Normalize
+      Type:            basic/Math
+      InputFrameSize:  <eval=2*FRAMESIZE>
+      OutputFrameSize: <eval=2*FRAMESIZE>
+      ProcessData:     "out0=in0/10;"
+    [/M]
+    
+    [M]
+      Name:       AlsaPlay
+      Type:       basic/AlsaPlay
+      FrameSize:  <eval=FRAMESIZE>
+      Channels:   <eval=2>
+      SampleRate: <eval=SAMPLERATE>
+    [/M]
+     
+  [/MODULES]
+
+  [CONNECTIONS]
+    Client[0] -> Route[0]
+    Route[1] -> STFTResample1[0]
+    Route[2] -> STFTResample2[0]
+    STFTResample1[0] -> Router2[0] 
+    STFTResample2[0] -> Router2[1]
+    Router2[0] -> GCC[0]
+    Router2[0] -> WriteAudioFile[0]
+    GCC[0] -> ResampleControl[0]
+    ResampleControl[0] -> Token[0]
+    Token[0] -> RouterSRO[0]
+    %% RouterSRO[0] -> STFTResample1[1]
+    %% RouterSRO[1] -> STFTResample2[1]
+    Router2[0] -> Normalize[0]
+    Normalize[0] -> AlsaPlay[0]
+    
+  [/CONNECTIONS]
+[/TASK] 
