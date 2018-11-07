@@ -16,7 +16,7 @@ Note that this may be needed for the client but not necessary for the server. Fo
 https://www.uni-paderborn.de/asn/software/
 
 ### Server Installation
-* copy the **asn_server** folder to **/home/asn/**
+* *optional*: copy the **asn_server** folder to **/home/asn/**
 * Download the required python packages 
 
                  
