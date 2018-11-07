@@ -67,6 +67,10 @@ https://www.uni-paderborn.de/asn/software/
       $sudo systemctl start asn_daemon  
       $sudo systemctl enable asn_daemon
       ```
+  * *Post Check:* to make sure that the daemon is running in the background, check if it is active using:
+      ``` 
+      $ sudo service asn_daemon status
+      ```
  ### Emulator setup
 You can use a single device as a server and client, while the communications rely on the logical interfaces (multiple loopbacks). We show here how to use the default loopback *lo (127.0.0.1)*
 
