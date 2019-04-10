@@ -24,7 +24,7 @@ https://www.uni-paderborn.de/asn/software/
 * Download the required python packages 
 
                  
-         $ sudo apt-get install  python    python-pip    python-dev    build-essential    ntp    ntpdate    rsync    python-lxml  
+         $ sudo apt-get install  python    python-pip    python-dev    build-essential    ntp    ntpdate    rsync    python-lxml python-tk  
         
          $ pip install netifaces pyomo pandas
          
