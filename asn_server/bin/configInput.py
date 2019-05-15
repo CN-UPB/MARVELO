@@ -114,19 +114,19 @@ chainsfile = 'bin/simParam/dummyExample/chain_' + str(1) + '.csv'
 
 '''Example diariazation'''
 nodesfile = 'bin/simParam/dummyExample/nodeSim_diarization'+ '.csv'
-# nodesfile = 'simParam/dummyExample/nodeSim_diarization'+ '.csv'
+nodesfile = 'simParam/dummyExample/nodeSim_diarization'+ '.csv'
 # component
 appsfile = 'bin/simParam/dummyExample/sim_diarization' + '.csv'
 # appsfile = 'simParam/dummyExample/sim_diarization' + '.csv'
 # appSim
 appSimFile = 'bin/simParam/dummyExample/appsim_diarization'+'.csv'
-# appSimFile = 'simParam/dummyExample/appsim_diarization'+'.csv'
+appSimFile = 'simParam/dummyExample/appsim_diarization'+'.csv'
 # edges
 arcsfile = 'bin/simParam/dummyExample/arcs_diarization' + '.csv'
-# arcsfile = 'simParam/dummyExample/arcs_diarization' + '.csv'
+arcsfile = 'simParam/dummyExample/arcs_diarization' + '.csv'
 # vnf
 chainsfile = 'bin/simParam/dummyExample/chain_diarization' + '.csv'
-# chainsfile = 'simParam/dummyExample/chain_diarization' + '.csv'
+chainsfile = 'simParam/dummyExample/chain_diarization' + '.csv'
 
 src ='10.0.1.2'
 sinkNode='10.0.1.1'
@@ -138,18 +138,45 @@ givenPatha = 'Demos/system/spark3/'
 '''Example Fobi'''
 
 # nodesfile = 'bin/simParam/fobiExample/nodeSim_fobi.csv'
+# nodesfile = 'simParam/fobiExample/nodeSim_fobi.csv'
 # # component
-# appsfile = 'bin/simParam/fobiExample/sim_fobi.csv'
 # # appSim
 # appSimFile = 'bin/simParam/fobiExample/appsim_fobi.csv'
+# appSimFile = 'simParam/fobiExample/appsim_fobi.csv'
 # # edges
 # arcsfile = 'bin/simParam/fobiExample/arcs_fobi.csv'
+# arcsfile = 'simParam/fobiExample/arcs_fobi.csv'
 # # vnf
 # chainsfile = 'bin/simParam/fobiExample/chain_fobi.csv'
+# chainsfile = 'simParam/fobiExample/chain_fobi.csv'
 # givenPatha = '../../../Demos/system/spark3/'
 # src='127.0.0.1'
 # sinkNode = '127.0.0.1'
+# srcApp = ['./ica_readModule.py','./ica_readModule2.py']#[list(apps_set)[0]]
+
+
+''''WCNC Fobi Example'''
+'''Example Fobi'''
+
+nodesfile = 'bin/simParam/fobiExample/nodeSim_distfobi.csv'
+nodesfile = 'simParam/fobiExample/nodeSim_distfobi.csv'
+# component
+# appSim
+appSimFile = 'bin/simParam/fobiExample/appsim_fobi.csv'
+appSimFile = 'simParam/fobiExample/appsim_fobi.csv'
+# edges
+arcsfile = 'bin/simParam/fobiExample/arcs_distfobi.csv'
+arcsfile = 'simParam/fobiExample/arcs_distfobi.csv'
+# vnf
+chainsfile = 'bin/simParam/fobiExample/chain_fobi.csv'
+chainsfile = 'simParam/fobiExample/chain_fobi.csv'
+givenPatha = 'Demos/system/fobi/'
+src='10.0.1.14'
+sinkNode = '10.0.1.12'
+srcApp = ['./ica_readModule.py','./ica_readModule2.py']#[list(apps_set)[0]]
+
 #
+# #
 # nodesfile = 'simParam/dummyExample/nodeSim_0'+ '.csv'
 # # component
 # appsfile = 'simParam/dummyExample/sim_' + str(trialx) + '.csv'
@@ -227,6 +254,7 @@ mapping_set = {(list(apps_set)[0],src), (list(apps_set)[-1], sinkNode)}
 # sinkNode = list(node_set)[-1]
 sinkApp = list(apps_set)[-1]
 # srcApp = [list(apps_set)[0]]
+sinkApp = './cov2svd.py'
 srcAppList = srcApp
 maxTimeslots = 3
 timeslots_set = range(1, maxTimeslots + 1)

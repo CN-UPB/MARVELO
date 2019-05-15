@@ -1,4 +1,4 @@
-from pyomo.environ import *
+#from pyomo.environ import *
 from libex import generate_xml
 import math
 #import pyomo
@@ -9,7 +9,7 @@ import pickle
 from configInput import *
 import os
 
-model = ConcreteModel()
+#model = ConcreteModel()
 
 #print os.environ["PATH"]
 
@@ -632,12 +632,14 @@ def heuristicAllocation():
         sch = sch_o
         pathTemp = path + [start]
         pathNodes = [i[0] for i in pathTemp]
+        #print(fwdapp)
+        #print(appTriv)
         if start[0] == end:
             sch[start[0], start[0], appTriv, start[-1]] = 1
             updateFWD(sch, fwd, txpwr)
             updateFWDApp(sch, fwdapp)
             path = path + [[start[0], start[-1]]]
-            removeFromSch(path, sch, fwd, fwdapp, txpwr, appTriv)
+            # removeFromSch(path, sch, fwd, fwdapp, txpwr, appTriv)
             mon = [i for i in sch if sch[i] == 1]
 
             return path, sch
@@ -759,13 +761,13 @@ def heuristicAllocation():
                 if i[2] == appTriv:
                     sch[i] = 0
 
-    def addToSch(pathToAdd, sch, appTriv, extraSearch=True):
+    def addToSch(pathToAdd, sch, appTriv,portTriv, extraSearch=True):
         if len(pathToAdd) >= 2:
             for p in range(0, len(pathToAdd) - 1, 2):
                 # if  pathToAdd[p][0]!= pathToAdd[p+1][0]:
                 portDest = [l[1] for l in chain_set if l[0] == appTriv]
                 if portDest:
-                    portDest = portDest[0]
+                    portDest = portTriv#portDest[0]
                 else:
                     portDest = 1
                 sch[pathToAdd[p][0], pathToAdd[p + 1][0], (appTriv, portDest), pathToAdd[p + 1][1]] = 1
@@ -832,9 +834,9 @@ def heuristicAllocation():
         #print '************'
 
 
-        if float(capacityNode[v]) - float(appPort_data.loc[app]['demand'])>= 0:
+        if float(capacityNode[v]) - float(list(appPort_data.loc[app]['demand'])[0])>= 0:
             mapf[app, v] = 1
-            capacityNode[v] = float(capacityNode[v]) - float(appPort_data.loc[app]['demand'])
+            capacityNode[v] = float(capacityNode[v]) - float(list(appPort_data.loc[app]['demand'])[0])
             # print app,v
             # print capacityNode
             return True
@@ -995,7 +997,7 @@ def heuristicAllocation():
                 return False
         return True
 
-    # print find_first_path(graph, 'A', 'D')
+    # place source apps on source nodes
     fpath = []
     for startApp in srcAppList:
         checkCapacity(startApp, srcNode, capacityNode)
@@ -1003,8 +1005,12 @@ def heuristicAllocation():
     start_time = time.time()
     # try:
 
+    #loop over each link in the chain/overlaygraph
+        # get the destination ports for the dst-task in the link
+        #if the dst-task is mapped, find a route from the startnode to the mapped node.
     for link in chain_set:
         portDest = [l[1] for l in chain_set if l[0]==link[-1]]
+        print link
         if portDest:
             portDest = portDest[0]
 
@@ -1016,7 +1022,7 @@ def heuristicAllocation():
             fpath_r, scho = find_first_path(Graph, (startnode, 0), node, (link[0], link[1]), txpwro, scho, fwdo,
                                             fwdappo)
             fpath = fpath + fpath_r
-            addToSch(fpath_r, scho, link[0])
+            addToSch(fpath_r, scho, link[0],link[1])
             #print 'chosenAlready*****', fpath
             #print [i for i in scho if scho[i] == 1]
 
@@ -1029,7 +1035,7 @@ def heuristicAllocation():
                     fpath_r, scho = find_first_path(Graph, (startnode, 0), v, (link[0], link[1]), txpwro, scho, fwdo,
                                                     fwdappo)
                     fpath = fpath + fpath_r
-                    addToSch(fpath_r, scho, link[0])
+                    addToSch(fpath_r, scho, link[0],link[1])
 
                     #print 'chosenTomap*****', fpath
                     #print [i for i in scho if scho[i] == 1]
@@ -1091,12 +1097,17 @@ def heuristicAllocation():
     # print [i for i in sch if sch[i]==1]
     # print find_first_path(Graph, ['A',0], 'D',appT)
     # print checkDuplex()
-    # print [i for i in map if map[i]==1]
+    print [i for i in mapf if mapf[i]==1]
 #    s = {(b,i, j,  tt): 0 for i in node_set for j in node_set for b in list(appPort_set) for tt in t}
     s = {(c[2],c[0], c[1],  c[3]): scho[c] for c in scho}
+    # print s
+    for i in scho:
+        if scho[i]>0:
+            print i
     # s = {(b,i, j,  tt): scho[i,j,b,tt] for i in node_set for j in node_set for b in list(appPort_set) for tt in t}
 
     generate_xml(s, mapf, chain_set, srcAppList, sinkApp, sinkNode, dictParam, dictExec,givenPatha)
 
 #optimizeAllocation()
-#heuristicAllocation()
+heuristicAllocation()
+# print 'done'

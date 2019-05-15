@@ -7,7 +7,10 @@ from bin.file_managment import delete, send_data
 from bin.process_managment import abort, start,gentleAbort
 from bin.connection import connect, is_online
 from bin.core_functionality import help_f, exit_server, start_second_window, ssh_command
-from bin.optlib2_orig import optimizeAllocation,heuristicAllocation
+#from bin.optlib2_orig import optimizeAllocation,heuristicAllocation
+
+#import wiarne_api as a
+
 
 #define global variable for logfile
 logfile = 0
@@ -20,7 +23,7 @@ arcsfile = 'bin/simParam/arcs_' + str(0) + '.csv'
 # vnf
 chainsfile = 'bin/simParam/chain_' + str(1) + '.csv'
 
-COMMANDS = ["exit", "help","clear","start","abort","cleanfolder","setxml","connect","transferdata","isconnected","getlogs","rebootpi","restartdaemon","showxml","allocate","terminate","killproccess"]
+COMMANDS = ["getProfile","getResources","getAttenuation","exit", "help","clear","start","abort","cleanfolder","setxml","connect","transferdata","isconnected","getlogs","rebootpi","restartdaemon","showxml","allocate","terminate","killproccess","showProcessing","showInterference","showProfiling"]
 RE_SPACE = re.compile('.*\s+$', re.M)
 
 class Completer(object):
@@ -32,7 +35,7 @@ class Completer(object):
             open(self.history_file, 'a').close()
 
     def __del__(self):
-        print'read'
+        print('read')
         readline.write_history_file(self.history_file)
 
     def _listdir(self, root):
@@ -196,16 +199,40 @@ if __name__ == "__main__":
             if xmlfile!='':
                 os.system("python bin/xml_viewer.py "+xmlfile+" &")
             else:
-                print 'please set an xml path using \'setxml\' command'
+                print ('please set an xml path using \'setxml\' command')
 
         elif command == "allocate":
-            print '*** Start Allocation Process ** '
+            from bin.optlib2_orig import heuristicAllocation
+            print ('*** Start Allocation Process ** ')
             #gitos.system("python bin/optlib2.py")
             #optimizeAllocation()
             heuristicAllocation()
             xmlfile = "bin/simParam/allocation.xml"
-            print '*** Finished Allocation Process ** '
+            print ('created: '+xmlfile+'\n\n' )
+            print ('*** Finished Allocation Process ** ')
+        elif command == "getAttenuation":
+            c = a.init_connection()
+            a.arcs_diarization()
 
+        elif command == "getResources":
+            c = a.init_connection()
+            a.nodeSim_diarization()
+
+        elif command == "getProfile":
+            c = a.init_connection()
+            a.appSim_diarization()
+
+        elif command == "getNodes":
+            c = a.init_connection()
+            print([i for i in a.ip_mac_dict(c).keys()])
+
+        elif command == "showProcessing":
+            os.system("/opt/wiarne/bin/python bin/findProcessing.py")
+
+        elif command == "showInterference":
+            os.system("/opt/wiarne/bin/python bin/getInterference.py")
+        elif command == "showProfiling":
+            os.system("/opt/wiarne/bin/python bin/getProfiling.py")
 
 
         else:

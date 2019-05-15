@@ -1,5 +1,6 @@
 import lxml.etree as ET
 from HTMLParser import HTMLParser
+import os
 h = HTMLParser()
 
 ## Topology
@@ -98,7 +99,8 @@ def generate_xml(si,theta,vnf,srcApp,sinkApp,sinkNode,dictParam,dictExec,givenPa
                        xmlNodes[src] = ET.SubElement(network, 'node', pi_id=src)
                    if alg not in xmlAlgs:
                        xmlAlgs[alg] = ET.SubElement(xmlNodes[src], 'algorithm', executable = h.unescape(dictExec[alg]), path = givenPath)
-                       ET.SubElement(xmlAlgs[alg], 'parameter', param=h.unescape(dictParam[alg]), path=givenPath)
+                       print dictParam[alg]
+                       ET.SubElement(xmlAlgs[alg], 'parameter', param=h.unescape(dictParam[alg]))
                    if (dst, port) not in xmlOps:
                        xmlOps[dst, port] = ET.SubElement(xmlAlgs[alg], 'output', target_pi_id=str(dst), pipe_id=str(port))
                else:
@@ -106,7 +108,7 @@ def generate_xml(si,theta,vnf,srcApp,sinkApp,sinkNode,dictParam,dictExec,givenPa
                        xmlNodes[src] = ET.SubElement(network, 'node', pi_id=src)
                    if alg not in xmlAlgs:
                        xmlAlgs[alg] = ET.SubElement(xmlNodes[src], 'algorithm', path = givenPath, executable = h.unescape(dictExec[alg]))
-                       ET.SubElement(xmlAlgs[alg], 'parameter', param=str(dictParam[alg]), path=givenPath)
+                       ET.SubElement(xmlAlgs[alg], 'parameter', param=str(dictParam[alg]))
 
                    prevAppsPorts = getPrevAlg(alg,vnf)
                    for prevApp,prevPport in prevAppsPorts:
@@ -147,18 +149,18 @@ def generate_xml(si,theta,vnf,srcApp,sinkApp,sinkNode,dictParam,dictExec,givenPa
                   xmlNodes[dst] = ET.SubElement(network, 'node', pi_id=dst)
               if sinkApp not in xmlAlgs:
                   xmlAlgs[sinkApp] = ET.SubElement(xmlNodes[dst], 'algorithm', path = givenPath, executable=h.unescape(dictExec[sinkApp]))
-                  ET.SubElement(xmlAlgs[sinkApp], 'parameter', param=str(dictParam[sinkApp]), path=givenPath)
+                  ET.SubElement(xmlAlgs[sinkApp], 'parameter', param=str(dictParam[sinkApp]))
 
               if (src, port,sinkApp) not in xmlInps:
                   xmlInps[src, port,sinkApp] = ET.SubElement(xmlAlgs[sinkApp], 'input', source_pi_id=str(src),
                                                               pipe_id=str(port))
       tree = ET.ElementTree(network)
       #print(ET.tostring(tree, pretty_print=True))
-      f = open('bin/simParam/allocation.xml', 'w')
-      #f = open('simParam/allocation.xml', 'w')
+      # f = open('bin/simParam/allocation.xml', 'w')
+      f = open('simParam/allocation.xml', 'w')
       f.write(ET.tostring(tree, pretty_print=True))
       f.close()
-
+      os.system("python xml_viewer.py "+'simParam/allocation.xml'+" &")
 #upload = ET.SubElement(connect, 'upload').text="*"
 #view = ET.SubElement(network, 'view').text="*"
 #delFile = ET.SubElement(network, 'delete_file').text="*"

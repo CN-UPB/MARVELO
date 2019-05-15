@@ -24,7 +24,7 @@ class XmlViewer(Frame):
         self._drag_data = {"x": 0.0, "y": 0.0, "item": None, "children": None}
         self._drag_links = {"input": None, "output": None}
 
-	x=200.0
+	x= 200.0
 	y=300.0
         pi_width=0
 
@@ -32,7 +32,7 @@ class XmlViewer(Frame):
         for n in nodes:
 	    x=x+pi_width*1.2
 	    if x>canvas_width-400:
-		x=200.00
+		x=400.00
 		y=y+500.00
 	    	if y>canvas_height:
 		    y=300.00
@@ -80,11 +80,11 @@ class XmlViewer(Frame):
         width=0
         for a in algorithms:
             height = height + 1
-            name=str(a.get("executable"))
+            name=str(a.get("executable")+a.parameter.get('param'))
             if width < len(name):
                 width=len(name)
         width=width+0.0
-        width=width*15
+        width=width*10
         if width<120 :
             width=120.0
 
@@ -101,7 +101,7 @@ class XmlViewer(Frame):
         for a in algorithms:
             children = children + (self.canvas.create_rectangle(x-width/2 +5, (y-height*50)+5+port_row*100, x +width/2-5,
 				      (y-height*50)+95+port_row*100, fill="white"),)
-            children = children +(self.canvas.create_text(x, (y-height*50)+5+port_row*100+40, text=a.get("executable")),)
+            children = children +(self.canvas.create_text(x, (y-height*50)+5+port_row*100+40, text=a.get("executable")+" "+a.parameter.get("param")),)
             offset_i = 0
             offset_o = 0
             ports=a.getchildren()
