@@ -10,7 +10,7 @@ In this task, we build a simple network with a single node, single block and zer
 
 **Step1: Define the network** 
 
-![example1](pictures\example1.png)
+![example1](pictures/example1.png)
 
 We write an xml file that describes the distribution of nodes and their respective blocks in the network.
 
@@ -69,7 +69,7 @@ Once we run the start command, we can see the **task1.py** output on the MARVELO
 
 **Demo**
 
- ![video-to-gif-1](gif\video-to-gif-1.gif)
+ ![video-to-gif-1](gif/video-to-gif-1.gif)
 
  [MARVELO-Task1-video](videos/example1_muted.mp4)
 
