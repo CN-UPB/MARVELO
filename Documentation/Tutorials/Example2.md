@@ -1,6 +1,6 @@
-# Example-2: Send an integer or float data to second block and perform an arithemtic operation on teh received data in the second block.
+# Example-2: Send an integer or float data to second block and perform an arithmetic operation on the received data in the second block.
 
-In this task, we build a simple network with a single node, two blocks and one pipe connecting the blocks. We send data between the blocks via pipe. Once the data is received by the second block it performs an arithematic operation on it and prints the output to the MARVELO output window. The network processing in MARVELO takes place in the following steps-
+In this task, we build a simple network with a single node, two blocks and one pipe connecting the blocks. We send data between the blocks via pipe. Once the data is received by the second block it performs an arithmetic operation on it and prints the output to the MARVELO output window. The network processing in MARVELO takes place in the following steps-
 
 ## Step1: Define the network** 
 
@@ -56,7 +56,7 @@ The xml file is saved in the path `/home/asn/asn_server/Demos/system/topology/yo
     args = parse_arguments() 
     ```
 
-   5. The add_argument method in ArgumentParser function creates a list of pipe files of int data type and appends each `<output>` argument from the xml file to the `--outputs` list . Since there is only one output pipe defined in the xml file, there will be only one pipe file appended to the `--outputs` list. 
+   5. The add_argument method in ArgumentParser function creates a list of pipe files of **int** data type and appends each `<output>` argument from the xml file to the `--outputs` list . Since there is only one output pipe defined in the xml file, there will be only one pipe file appended to the `--outputs` list. 
 
        ```python
        outputs = [os.fdopen(int(args.outputs[0]), 'wb')]
