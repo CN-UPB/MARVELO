@@ -60,7 +60,7 @@ Once server is setup, run the below commands on MARVELO-
 
 Below commands are optional-
 
-  5. `abort` It kills the current process between server and the client 
+  5. `abort` It kills the running modules on the client 
   6. `cleanfolder` It cleans the data stored in the asn_daemon directory on the Client nodes which was transferred by the `transferdata`       command.
 
 **Step5: View output**
