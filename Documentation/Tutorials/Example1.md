@@ -69,7 +69,7 @@ Once we run the start command, we can see the **task1.py** output on the MARVELO
 
 **Demo**
 
- ![video-to-gif-1](gif/video-to-gif-1.gif)
+ ![video-to-gif-1](gif/video-to-gif-2.gif)
 
  [MARVELO-Task1-video](videos/example1_muted.mp4)
 
