@@ -2,7 +2,7 @@
 
 In this task, we build a simple network with a single node, two blocks and one pipe connecting the blocks. We send data between the blocks via pipe. Once the data is received by the second block it performs an arithmetic operation on it and prints the output to the MARVELO output window. The network processing in MARVELO takes place in the following steps-
 
-## Step1: Define the network** 
+## Step1: Define the network 
 
 ![example2](pictures/example2.png)
 
@@ -87,7 +87,7 @@ The xml file is saved in the path `/home/asn/asn_server/Demos/system/topology/yo
 
 # Step3: 
 
-We repeat the steps Step3 to Step5 as in [Example1](https://github.com/nispk/shk_computerNetworks/blob/master/Example1.md) .
+We repeat the steps Step3 to Step5 as in [Example1](Example1.md) .
 
 The script for the above example can be found here-
 
