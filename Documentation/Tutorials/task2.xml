@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+	<network>
+		<node pi_id="127.0.0.1">
+			<algorithm path="/home/asn/asn_server/Demos/system/shk" executable="./task2a.py">   
+			  <output target_pi_id = "127.0.0.1" pipe_id="1"></output>                            	
+			</algorithm>
+			<algorithm path="/home/asn/asn_server/Demos/system/shk" executable="./task2b.py">
+			   <input source_pi_id = "127.0.0.1" pipe_id="1"></input>                                	
+			</algorithm>
+		</node>
+	</network>

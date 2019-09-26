@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+	<network>
+		<node pi_id="127.0.0.1">
+			<algorithm path="/home/asn/MARVELO/asn_server/Practise" executable="./task3a.py">   
+			  <output target_pi_id = "127.0.0.1" pipe_id="1"></output>
+                            	
+			</algorithm>
+			<algorithm path="/home/asn/MARVELO/asn_server/Practise" executable="./task3b.py">
+			   <input source_pi_id = "127.0.0.1" pipe_id="1"></input>
+                                	
+			</algorithm>
+		</node>
+	</network>

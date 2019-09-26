@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+	<network>
+		<node pi_id="127.0.0.1">
+			<algorithm path="/home/asn/MARVELO/asn_server/Practise" executable="./task1.py">                                	
+			</algorithm>
+
+</node>
+</network>
