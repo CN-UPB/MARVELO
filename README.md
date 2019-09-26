@@ -88,7 +88,9 @@ In this example, our *logicalInterface* is *lo*
 ## Test with a Demo
 We try an example using the emulator (using different devices require only changing the IP address in the XML files). This example uses ICA for source separation. The original audios can be found in **asn_server/Demos/system/fobi/mix1.wav**
 * Go to the directory of the **asn_server**
+
 * run ``` python server.py```
+
 * Then, execute the following commands in MARVELO (one by one)
      ```
       setxml Demos/topology/SourceSeparation/ica_b_local.xml
@@ -98,9 +100,12 @@ We try an example using the emulator (using different devices require only chang
      
      ```
  Note: You will be asked for the password for **asn** user each time you type a command. As a workaround you can add the public key in the authorized hosts ```~/.ssh/authorized_keys ```
+     
 * to collect the log files from the server, run in MARVELO
     ``` getlogs```
     a new folder will be created in **asn_server/logs** with the collected files. You will find 2 audio files for each speaker
+
+**For a step-by-step guide, please check the [Tutorials](Documentation/Tutorials)**
 
 ## Powered by:
 
