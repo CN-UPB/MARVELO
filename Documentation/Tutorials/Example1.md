@@ -55,7 +55,7 @@ Once server is setup, run the below commands on MARVELO-
   1. `setxml` Defines the xml file 
   2. `showxml` It opens a new window and displays the network along with the pipe connections between the blocks
   3. `connect` It establishes initial connection to the nodes defined in the xml file 
-  3. `transferdata` Initiates the data transfer to the nodes
+  3. `transferdata` Initiates the data transfer to the nodes; (a) new folder(s) is/are created in the system folder for the daemon directory (/home/asn/asn_daemon/system/), where each folder represents an algorithm in the xml file. Because this example has only one algorithmm, then only 1 folder is created  (/home/asn/asn_daemon/system/1) which has the executable.
   4. `start` It triggers the *Daemon* to start the signal processing by invoking the respective executables (block codes)
 
 Below commands are optional-
