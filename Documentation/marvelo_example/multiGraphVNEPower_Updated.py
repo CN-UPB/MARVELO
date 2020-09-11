@@ -137,7 +137,10 @@ def runMARVELO(src,sinkNode,srcBlock,sinkBlock,chainsfile,appSimFile,arcsfile,no
     ''' Intializing model sets'''
     model.nodes = Set(initialize=node_set)
     model.components = Set(initialize=apps_set)
-    model.appPorts = Set( initialize=appPort_set, dimen=2)
+    #multi-index is not supported in new Pyomo versions
+    #https://github.com/Pyomo/pyomo/issues/1564
+    # model.appPorts = Set( initialize=appPort_set, dimen=2)
+    model.appPorts = Set( initialize=list(appPort_set.values), dimen=2)
     model.timeslots = Set(initialize=timeslots_set)
     model.vnf = Set(initialize=chain_set, dimen=3)
     model.edges = Set(initialize=arc_set, dimen=2)
