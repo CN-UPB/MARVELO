@@ -1,0 +1,4 @@
+User: asn
+System: asnupb6
+Spark: ./
+Time stamp: 3.11.2019  20:32:20

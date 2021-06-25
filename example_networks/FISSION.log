@@ -1,0 +1,722 @@
+2021-04-30 11:33:22,362 - fission.manager - DEBUG [2034728]- Entering join.
+2021-04-30 11:33:22,363 - fission.manager - INFO [2034728]- Joining <Process(SourceJob 1, started daemon)>
+2021-04-30 11:33:22,362 - fission - DEBUG [2034770]- Starting SourceJob 1 with debug=False
+2021-04-30 11:33:22,363 - fission - DEBUG [2034770]- Creating: /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//1
+2021-04-30 11:33:22,364 - fission - DEBUG [2034770]- Creating: /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/1/
+2021-04-30 11:33:22,364 - fission - DEBUG [2034771]- Starting MiddleJob 2 with debug=False
+2021-04-30 11:33:22,364 - fission - DEBUG [2034770]- Creating ingoing 0 Pipes.
+2021-04-30 11:33:22,364 - fission - DEBUG [2034770]- Creating outgoing 1 Pipes
+2021-04-30 11:33:22,365 - fission - DEBUG [2034770]- Created pipe /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/1/1.fifo (outgoing).
+2021-04-30 11:33:22,365 - fission - DEBUG [2034770]- Created pipe /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/1.fifo (outgoing).
+2021-04-30 11:33:22,365 - fission - DEBUG [2034770]- Starting WritePipe with /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/1.fifo, PicklePipe ID 1, <queue.Queue object at 0x7f2c0bd4bbd0>, False, wrapper_pipe=True
+2021-04-30 11:33:22,365 - fission - DEBUG [2034773]- Starting CSVSinkJob 3 with debug=False
+2021-04-30 11:33:22,365 - fission - DEBUG [2034773]- Creating: /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//3
+2021-04-30 11:33:22,365 - fission.remote.synchronization - DEBUG [2034770]- Starting CommandServer on port: 1999
+2021-04-30 11:33:22,365 - fission - DEBUG [2034773]- Creating: /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/3/
+2021-04-30 11:33:22,364 - fission - DEBUG [2034771]- Creating: /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//2
+2021-04-30 11:33:22,366 - fission - DEBUG [2034771]- Creating: /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/2/
+2021-04-30 11:33:22,366 - fission - DEBUG [2034773]- Creating ingoing 1 Pipes.
+2021-04-30 11:33:22,367 - fission - DEBUG [2034773]- Created pipe /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/3/2.fifo (ingoing).
+2021-04-30 11:33:22,367 - fission - DEBUG [2034773]- Created pipe /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/2.fifo (ingoing).
+2021-04-30 11:33:22,367 - fission - DEBUG [2034771]- Creating ingoing 1 Pipes.
+2021-04-30 11:33:22,367 - fission - DEBUG [2034771]- Created pipe /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/2/1.fifo (ingoing).
+2021-04-30 11:33:22,367 - fission - DEBUG [2034773]- Creating outgoing 0 Pipes
+2021-04-30 11:33:22,367 - fission - DEBUG [2034771]- Created pipe /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/1.fifo (ingoing).
+2021-04-30 11:33:22,367 - fission.remote.synchronization - DEBUG [2034773]- Starting CommandServer on port: 1995
+2021-04-30 11:33:22,367 - fission - DEBUG [2034771]- Creating outgoing 1 Pipes
+2021-04-30 11:33:22,368 - fission - DEBUG [2034771]- Created pipe /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/2/2.fifo (outgoing).
+2021-04-30 11:33:22,368 - fission - DEBUG [2034771]- Created pipe /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/2.fifo (outgoing).
+2021-04-30 11:33:22,368 - fission - DEBUG [2034771]- Starting WritePipe with /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/2.fifo, PicklePipe ID 2, <queue.Queue object at 0x7f2c0bd561d0>, False, wrapper_pipe=True
+2021-04-30 11:33:22,368 - fission - INFO [2034773]- @CSVSinkJob 3 starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/3/2.fifo), SQN_Checker (sink), CommandServer->(1995), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/2.fifo)] | out []
+2021-04-30 11:33:22,368 - fission.remote.synchronization - DEBUG [2034771]- Starting CommandServer on port: 1997
+2021-04-30 11:33:22,368 - fission - DEBUG [2034773]- Starting thread ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/2.fifo)...
+2021-04-30 11:33:22,368 - fission.remote.synchronization - DEBUG [2034773]- Opening ReadPipe on /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/2.fifo
+2021-04-30 11:33:22,368 - fission - DEBUG [2034773]- Starting thread WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/3/2.fifo)...
+2021-04-30 11:33:22,369 - fission - INFO [2034771]- @MiddleJob 2 starting 7 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/2/1.fifo), SQN_Checker (middle), SendBlock (middle), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/1.fifo)] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/2.fifo)]
+2021-04-30 11:33:22,369 - fission - DEBUG [2034771]- Starting thread ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/1.fifo)...
+2021-04-30 11:33:22,366 - fission - INFO [2034770]- @SourceJob 1 starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/1.fifo)]
+2021-04-30 11:33:22,369 - fission.remote.synchronization - DEBUG [2034773]- Opening WritePipe /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/3/2.fifo, wrapper_pipe = False
+2021-04-30 11:33:22,369 - fission - DEBUG [2034773]- Starting thread SQN_Checker (sink)...
+2021-04-30 11:33:22,369 - fission - DEBUG [2034770]- Starting thread SendBlock (source)...
+2021-04-30 11:33:22,369 - fission.remote.synchronization - DEBUG [2034771]- Opening ReadPipe on /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/1.fifo
+2021-04-30 11:33:22,369 - fission - DEBUG [2034771]- Starting thread WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/2/1.fifo)...
+2021-04-30 11:33:22,370 - fission.remote.synchronization - DEBUG [2034770]- SendBlock: Opening /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/1/1.fifo.
+2021-04-30 11:33:22,370 - fission.remote.synchronization - DEBUG [2034771]- Opening WritePipe /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/2/1.fifo, wrapper_pipe = False
+2021-04-30 11:33:22,370 - fission - DEBUG [2034770]- Starting thread CommandServer->(1999)...
+2021-04-30 11:33:22,370 - fission - DEBUG [2034771]- Starting thread SQN_Checker (middle)...
+2021-04-30 11:33:22,370 - fission - DEBUG [2034770]- Starting thread RedirectHandler...
+2021-04-30 11:33:22,370 - fission - DEBUG [2034770]- Starting thread WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/1.fifo)...
+2021-04-30 11:33:22,371 - fission.remote.synchronization - DEBUG [2034770]- Opening WritePipe /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/1.fifo, wrapper_pipe = True
+2021-04-30 11:33:22,371 - fission - DEBUG [2034770]- Executing SourceJob 1.
+2021-04-30 11:33:22,371 - fission - DEBUG [2034773]- Starting thread CommandServer->(1995)...
+2021-04-30 11:33:22,371 - fission - DEBUG [2034771]- Starting thread SendBlock (middle)...
+2021-04-30 11:33:22,371 - fission - DEBUG [2034773]- Starting thread RedirectHandler...
+2021-04-30 11:33:22,371 - fission.core.jobs - DEBUG [2034770]- SourceJob 1: in pipes: []
+2021-04-30 11:33:22,372 - fission.remote.synchronization - DEBUG [2034771]- SendBlock: Opening /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/2/2.fifo.
+2021-04-30 11:33:22,372 - fission - DEBUG [2034771]- Starting thread CommandServer->(1997)...
+2021-04-30 11:33:22,372 - fission.core.jobs - DEBUG [2034770]- SourceJob 1: out pipes: ['/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/1/1.fifo']
+2021-04-30 11:33:22,372 - fission - DEBUG [2034773]- Executing CSVSinkJob 3.
+2021-04-30 11:33:22,372 - fission - DEBUG [2034771]- Starting thread RedirectHandler...
+2021-04-30 11:33:22,372 - fission - DEBUG [2034771]- Starting thread WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/2.fifo)...
+2021-04-30 11:33:22,372 - fission.remote.synchronization - DEBUG [2034771]- Opening WritePipe /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/2.fifo, wrapper_pipe = True
+2021-04-30 11:33:22,373 - fission - DEBUG [2034771]- Executing MiddleJob 2.
+2021-04-30 11:33:22,373 - fission - DEBUG [2034773]- CSVSinkJob 3 waiting for finish event...
+2021-04-30 11:33:22,374 - fission.core.jobs - DEBUG [2034771]- MiddleJob 2: in pipes: ['/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/2/1.fifo']
+2021-04-30 11:33:22,374 - fission.core.jobs - DEBUG [2034771]- MiddleJob 2: out pipes: ['/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/2/2.fifo']
+2021-04-30 11:33:22,374 - fission.core.jobs - DEBUG [2034773]- CSVSinkJob 3: in pipes: ['/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/3/2.fifo']
+2021-04-30 11:33:22,374 - fission.core.jobs - DEBUG [2034773]- CSVSinkJob 3: out pipes: []
+2021-04-30 11:33:22,375 - fission - DEBUG [2034771]- MiddleJob 2 waiting for finish event...
+2021-04-30 11:33:30,559 - fission.core.base - INFO [2034728]- Cleared cache and reset counter.
+2021-04-30 11:33:34,958 - fission - INFO [2039783]- @SourceJob 1 starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_2/simulation//fifo/1.fifo)]
+2021-04-30 11:33:34,958 - fission.manager - INFO [2039742]- Joining <Process(SourceJob 1, started daemon)>
+2021-04-30 11:33:34,962 - fission - INFO [2039784]- @InteractiveJob 2 starting 4 threads: static [SendBlock (source), CommandServer->(1997), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_2/simulation//fifo/2.fifo)]
+2021-04-30 11:33:34,962 - fission - INFO [2039785]- @MiddleJob 3 starting 10 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_2/simulation//fifo/3/1.fifo), WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_2/simulation//fifo/3/2.fifo), SQN_Checker (middle), SendBlock (middle), CommandServer->(1995), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_2/simulation//fifo/1.fifo), ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_2/simulation//fifo/2.fifo)] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_2/simulation//fifo/3.fifo), WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_2/simulation//fifo/4.fifo)]
+2021-04-30 11:33:34,964 - fission - INFO [2039786]- @CSVSinkJob 4 starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_2/simulation//fifo/4/3.fifo), SQN_Checker (sink), CommandServer->(1993), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_2/simulation//fifo/3.fifo)] | out []
+2021-04-30 11:33:34,965 - fission.remote.debug - INFO [2039787]- reusing IP localhost - port 1990
+2021-04-30 11:33:34,968 - fission.core.jobs - INFO [2039784]- Starting interactive Terminal
+2021-04-30 11:33:34,970 - fission - INFO [2039787]- @DynamicExecutableJob 5 EXE: python3 sum.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_2/simulation//fifo/5/4.fifo), SQN_Checker (sink), CommandServer->(1991), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_2/simulation//fifo/4.fifo)] | out []
+2021-04-30 11:33:58,989 - fission.core.base - INFO [2039742]- Cleared cache and reset counter.
+2021-04-30 11:34:49,772 - fission - ERROR [2039785]- Error occured, shutting down.
+Traceback (most recent call last):
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 296, in wait
+    waiter.acquire()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 552, in wait
+    signaled = self._cond.wait(timeout)
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 296, in wait
+    waiter.acquire()
+  File "/home/hafifi/Documents/Paderborn/FISSION_clone/afdwc/fission/remote/wrapper.py", line 244, in sig_term
+    sys.exit(0)
+SystemExit: 0
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hafifi/Documents/Paderborn/FISSION_clone/afdwc/fission/remote/wrapper.py", line 292, in pipe_wrapper_sync
+    finish_event.wait()
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 553, in wait
+    return signaled
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 244, in __exit__
+    return self._lock.__exit__(*args)
+RuntimeError: release unlocked lock
+2021-04-30 12:42:47,141 - fission.manager - INFO [3414396]- Joining <Process(DynamicMARVELOJob 1 EXE: python3 task2a.py, started daemon)>
+2021-04-30 12:42:47,144 - fission - INFO [3414399]- @DynamicMARVELOJob 1 EXE: python3 task2a.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/demo_withXML/simulation//fifo/4.fifo)]
+2021-04-30 12:42:47,147 - fission - INFO [3414400]- @DynamicMARVELOJob 2 EXE: python3 task2b.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/demo_withXML/simulation//fifo/2/4.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/demo_withXML/simulation//fifo/4.fifo)] | out []
+2021-04-30 12:42:47,430 - fission - INFO [3414399]- DynamicMARVELOJob 1 EXE: python3 task2a.py finished with code: 1:
+2021-04-30 12:42:47,932 - fission.manager - INFO [3414396]- Joining <Process(DynamicMARVELOJob 2 EXE: python3 task2b.py, started daemon)>
+2021-04-30 12:53:45,939 - fission.manager - DEBUG [3642406]- Entering join.
+2021-04-30 12:53:45,939 - fission - DEBUG [3642490]- Starting SourceJob 1 with debug=False
+2021-04-30 12:53:45,940 - fission.manager - INFO [3642406]- Joining <Process(SourceJob 1, started daemon)>
+2021-04-30 12:53:45,941 - fission - DEBUG [3642490]- Creating: /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//1
+2021-04-30 12:53:45,941 - fission - DEBUG [3642490]- Creating: /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/1/
+2021-04-30 12:53:45,942 - fission - DEBUG [3642490]- Creating ingoing 0 Pipes.
+2021-04-30 12:53:45,942 - fission - DEBUG [3642490]- Creating outgoing 1 Pipes
+2021-04-30 12:53:45,940 - fission - DEBUG [3642491]- Starting MiddleJob 2 with debug=False
+2021-04-30 12:53:45,942 - fission - DEBUG [3642490]- Created pipe /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/1/1.fifo (outgoing).
+2021-04-30 12:53:45,942 - fission - DEBUG [3642490]- Created pipe /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/1.fifo (outgoing).
+2021-04-30 12:53:45,942 - fission - DEBUG [3642490]- Starting WritePipe with /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/1.fifo, PicklePipe ID 1, <queue.Queue object at 0x7fe89205b2d0>, False, wrapper_pipe=True
+2021-04-30 12:53:45,942 - fission - DEBUG [3642493]- Starting CSVSinkJob 3 with debug=False
+2021-04-30 12:53:45,942 - fission - DEBUG [3642493]- Creating: /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//3
+2021-04-30 12:53:45,942 - fission - DEBUG [3642493]- Creating: /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/3/
+2021-04-30 12:53:45,942 - fission.remote.synchronization - DEBUG [3642490]- Starting CommandServer on port: 1999
+2021-04-30 12:53:45,943 - fission - DEBUG [3642493]- Creating ingoing 1 Pipes.
+2021-04-30 12:53:45,943 - fission - DEBUG [3642493]- Created pipe /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/3/2.fifo (ingoing).
+2021-04-30 12:53:45,943 - fission - DEBUG [3642493]- Created pipe /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/2.fifo (ingoing).
+2021-04-30 12:53:45,943 - fission - DEBUG [3642493]- Creating outgoing 0 Pipes
+2021-04-30 12:53:45,943 - fission.remote.synchronization - DEBUG [3642493]- Starting CommandServer on port: 1995
+2021-04-30 12:53:45,942 - fission - DEBUG [3642491]- Creating: /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//2
+2021-04-30 12:53:45,944 - fission - DEBUG [3642491]- Creating: /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/2/
+2021-04-30 12:53:45,944 - fission - INFO [3642490]- @SourceJob 1 starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/1.fifo)]
+2021-04-30 12:53:45,944 - fission - DEBUG [3642490]- Starting thread SendBlock (source)...
+2021-04-30 12:53:45,944 - fission - DEBUG [3642491]- Creating ingoing 1 Pipes.
+2021-04-30 12:53:45,944 - fission - DEBUG [3642491]- Created pipe /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/2/1.fifo (ingoing).
+2021-04-30 12:53:45,944 - fission - DEBUG [3642491]- Created pipe /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/1.fifo (ingoing).
+2021-04-30 12:53:45,944 - fission - INFO [3642493]- @CSVSinkJob 3 starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/3/2.fifo), SQN_Checker (sink), CommandServer->(1995), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/2.fifo)] | out []
+2021-04-30 12:53:45,944 - fission - DEBUG [3642493]- Starting thread ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/2.fifo)...
+2021-04-30 12:53:45,944 - fission - DEBUG [3642491]- Creating outgoing 1 Pipes
+2021-04-30 12:53:45,945 - fission - DEBUG [3642491]- Created pipe /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/2/2.fifo (outgoing).
+2021-04-30 12:53:45,945 - fission - DEBUG [3642491]- Created pipe /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/2.fifo (outgoing).
+2021-04-30 12:53:45,945 - fission.remote.synchronization - DEBUG [3642493]- Opening ReadPipe on /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/2.fifo
+2021-04-30 12:53:45,945 - fission - DEBUG [3642491]- Starting WritePipe with /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/2.fifo, PicklePipe ID 2, <queue.Queue object at 0x7fe892058890>, False, wrapper_pipe=True
+2021-04-30 12:53:45,945 - fission.remote.synchronization - DEBUG [3642490]- SendBlock: Opening /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/1/1.fifo.
+2021-04-30 12:53:45,945 - fission - DEBUG [3642493]- Starting thread WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/3/2.fifo)...
+2021-04-30 12:53:45,945 - fission - DEBUG [3642490]- Starting thread CommandServer->(1999)...
+2021-04-30 12:53:45,945 - fission.remote.synchronization - DEBUG [3642491]- Starting CommandServer on port: 1997
+2021-04-30 12:53:45,945 - fission - DEBUG [3642490]- Starting thread RedirectHandler...
+2021-04-30 12:53:45,945 - fission.remote.synchronization - DEBUG [3642493]- Opening WritePipe /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/3/2.fifo, wrapper_pipe = False
+2021-04-30 12:53:45,946 - fission - DEBUG [3642490]- Starting thread WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/1.fifo)...
+2021-04-30 12:53:45,946 - fission - DEBUG [3642493]- Starting thread SQN_Checker (sink)...
+2021-04-30 12:53:45,946 - fission.remote.synchronization - DEBUG [3642490]- Opening WritePipe /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/1.fifo, wrapper_pipe = True
+2021-04-30 12:53:45,947 - fission - DEBUG [3642490]- Executing SourceJob 1.
+2021-04-30 12:53:45,947 - fission - INFO [3642491]- @MiddleJob 2 starting 7 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/2/1.fifo), SQN_Checker (middle), SendBlock (middle), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/1.fifo)] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/2.fifo)]
+2021-04-30 12:53:45,947 - fission.core.jobs - DEBUG [3642490]- SourceJob 1: in pipes: []
+2021-04-30 12:53:45,947 - fission - DEBUG [3642491]- Starting thread ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/1.fifo)...
+2021-04-30 12:53:45,947 - fission.core.jobs - DEBUG [3642490]- SourceJob 1: out pipes: ['/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/1/1.fifo']
+2021-04-30 12:53:45,948 - fission - DEBUG [3642493]- Starting thread CommandServer->(1995)...
+2021-04-30 12:53:45,948 - fission - DEBUG [3642493]- Starting thread RedirectHandler...
+2021-04-30 12:53:45,948 - fission.remote.synchronization - DEBUG [3642491]- Opening ReadPipe on /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/1.fifo
+2021-04-30 12:53:45,948 - fission - DEBUG [3642491]- Starting thread WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/2/1.fifo)...
+2021-04-30 12:53:45,949 - fission - DEBUG [3642493]- Executing CSVSinkJob 3.
+2021-04-30 12:53:45,949 - fission.remote.synchronization - DEBUG [3642491]- Opening WritePipe /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/2/1.fifo, wrapper_pipe = False
+2021-04-30 12:53:45,949 - fission - DEBUG [3642491]- Starting thread SQN_Checker (middle)...
+2021-04-30 12:53:45,950 - fission.core.jobs - DEBUG [3642493]- CSVSinkJob 3: in pipes: ['/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/3/2.fifo']
+2021-04-30 12:53:45,950 - fission - DEBUG [3642493]- CSVSinkJob 3 waiting for finish event...
+2021-04-30 12:53:45,950 - fission.core.jobs - DEBUG [3642493]- CSVSinkJob 3: out pipes: []
+2021-04-30 12:53:45,950 - fission - DEBUG [3642491]- Starting thread SendBlock (middle)...
+2021-04-30 12:53:45,951 - fission.remote.synchronization - DEBUG [3642491]- SendBlock: Opening /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/2/2.fifo.
+2021-04-30 12:53:45,951 - fission - DEBUG [3642491]- Starting thread CommandServer->(1997)...
+2021-04-30 12:53:45,952 - fission - DEBUG [3642491]- Starting thread RedirectHandler...
+2021-04-30 12:53:45,953 - fission - DEBUG [3642491]- Starting thread WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/2.fifo)...
+2021-04-30 12:53:45,954 - fission.remote.synchronization - DEBUG [3642491]- Opening WritePipe /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/2.fifo, wrapper_pipe = True
+2021-04-30 12:53:45,954 - fission - DEBUG [3642491]- Executing MiddleJob 2.
+2021-04-30 12:53:45,954 - fission - DEBUG [3642491]- MiddleJob 2 waiting for finish event...
+2021-04-30 12:53:45,955 - fission.core.jobs - DEBUG [3642491]- MiddleJob 2: in pipes: ['/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/2/1.fifo']
+2021-04-30 12:53:45,955 - fission.core.jobs - DEBUG [3642491]- MiddleJob 2: out pipes: ['/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/2/2.fifo']
+2021-04-30 12:53:49,087 - fission - DEBUG [3642493]- SIGTERM received. Shutting down subprocess.
+2021-04-30 12:53:49,087 - fission - DEBUG [3642491]- SIGTERM received. Shutting down subprocess.
+2021-04-30 12:53:49,087 - fission.remote.synchronization - DEBUG [3642491]- Killing ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/1.fifo)...
+2021-04-30 12:53:49,087 - fission.remote.synchronization - DEBUG [3642493]- Killing ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/2.fifo)...
+2021-04-30 12:53:49,087 - fission.remote.synchronization - DEBUG [3642493]- Killing WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/3/2.fifo)...
+2021-04-30 12:53:49,087 - fission.remote.synchronization - DEBUG [3642493]- Killing CommandServer->(1995)...
+2021-04-30 12:53:49,087 - fission.remote.synchronization - DEBUG [3642493]- Killing RedirectHandler...
+2021-04-30 12:53:49,089 - fission.remote.synchronization - DEBUG [3642491]- Killing WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/2/1.fifo)...
+2021-04-30 12:53:49,091 - fission.remote.synchronization - DEBUG [3642491]- Killing SendBlock (middle)...
+2021-04-30 12:53:49,091 - fission.remote.synchronization - DEBUG [3642491]- Killing CommandServer->(1997)...
+2021-04-30 12:53:49,091 - fission.remote.synchronization - DEBUG [3642491]- Killing RedirectHandler...
+2021-04-30 12:53:49,091 - fission.remote.synchronization - DEBUG [3642491]- Killing WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_1/simulation//fifo/2.fifo)...
+2021-04-30 12:55:49,361 - fission.manager - INFO [3680345]- Joining <Process(SourceJob 1, started daemon)>
+2021-04-30 12:55:49,365 - fission - INFO [3680349]- @InteractiveJob 2 starting 4 threads: static [SendBlock (source), CommandServer->(1997), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_2/simulation//fifo/2.fifo)]
+2021-04-30 12:55:49,365 - fission - INFO [3680348]- @SourceJob 1 starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_2/simulation//fifo/1.fifo)]
+2021-04-30 12:55:49,368 - fission - INFO [3680350]- @MiddleJob 3 starting 10 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_2/simulation//fifo/3/1.fifo), WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_2/simulation//fifo/3/2.fifo), SQN_Checker (middle), SendBlock (middle), CommandServer->(1995), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_2/simulation//fifo/1.fifo), ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_2/simulation//fifo/2.fifo)] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_2/simulation//fifo/3.fifo), WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_2/simulation//fifo/4.fifo)]
+2021-04-30 12:55:49,371 - fission - INFO [3680351]- @CSVSinkJob 4 starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_2/simulation//fifo/4/3.fifo), SQN_Checker (sink), CommandServer->(1993), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_2/simulation//fifo/3.fifo)] | out []
+2021-04-30 12:55:49,374 - fission - INFO [3680352]- @DynamicExecutableJob 5 EXE: python3 sum.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_2/simulation//fifo/5/4.fifo), SQN_Checker (sink), CommandServer->(1991), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_2/simulation//fifo/4.fifo)] | out []
+2021-04-30 12:55:49,376 - fission.core.jobs - INFO [3680349]- Starting interactive Terminal
+2021-04-30 13:02:01,559 - fission - ERROR [3680351]- Error occured, shutting down.
+Traceback (most recent call last):
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 296, in wait
+    waiter.acquire()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 552, in wait
+    signaled = self._cond.wait(timeout)
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 296, in wait
+    waiter.acquire()
+  File "/home/hafifi/Documents/Paderborn/marvelo-demo/fission/remote/wrapper.py", line 244, in sig_term
+    sys.exit(0)
+SystemExit: 0
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hafifi/Documents/Paderborn/marvelo-demo/fission/remote/wrapper.py", line 292, in pipe_wrapper_sync
+    finish_event.wait()
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 553, in wait
+    return signaled
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 244, in __exit__
+    return self._lock.__exit__(*args)
+RuntimeError: release unlocked lock
+2021-04-30 13:02:03,018 - fission - INFO [3805581]- @SourceJob 1 starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_2/simulation//fifo/1.fifo)]
+2021-04-30 13:02:03,018 - fission.manager - INFO [3805578]- Joining <Process(SourceJob 1, started daemon)>
+2021-04-30 13:02:03,020 - fission - INFO [3805582]- @InteractiveJob 2 starting 4 threads: static [SendBlock (source), CommandServer->(1997), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_2/simulation//fifo/2.fifo)]
+2021-04-30 13:02:03,023 - fission - INFO [3805584]- @CSVSinkJob 4 starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_2/simulation//fifo/4/3.fifo), SQN_Checker (sink), CommandServer->(1993), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_2/simulation//fifo/3.fifo)] | out []
+2021-04-30 13:02:03,023 - fission - INFO [3805583]- @MiddleJob 3 starting 10 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_2/simulation//fifo/3/1.fifo), WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_2/simulation//fifo/3/2.fifo), SQN_Checker (middle), SendBlock (middle), CommandServer->(1995), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_2/simulation//fifo/1.fifo), ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_2/simulation//fifo/2.fifo)] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_2/simulation//fifo/3.fifo), WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_2/simulation//fifo/4.fifo)]
+2021-04-30 13:02:03,024 - fission.core.jobs - INFO [3805582]- Starting interactive Terminal
+2021-04-30 13:02:03,025 - fission - INFO [3805585]- @DynamicExecutableJob 5 EXE: python3 sum.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_2/simulation//fifo/5/4.fifo), SQN_Checker (sink), CommandServer->(1991), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_2/simulation//fifo/4.fifo)] | out []
+2021-04-30 13:26:37,178 - fission.manager - INFO [108685]- Joining <Process(DynamicExecutableJob 1 EXE: python3 task3a_executable.py, started daemon)>
+2021-04-30 13:26:37,182 - fission - INFO [108689]- @DynamicExecutableJob 1 EXE: python3 task3a_executable.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)]
+2021-04-30 13:26:37,187 - fission - INFO [108690]- @DynamicExecutableJob 2 EXE: python3 task3b_executable starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/4.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)] | out []
+2021-04-30 13:26:37,381 - fission - INFO [108689]- DynamicExecutableJob 1 EXE: python3 task3a_executable.py finished with code: 1:
+2021-04-30 13:26:37,883 - fission.manager - INFO [108685]- Joining <Process(DynamicExecutableJob 2 EXE: python3 task3b_executable, started daemon)>
+2021-04-30 13:30:02,506 - fission.manager - INFO [183324]- Joining <Process(DynamicExecutableJob 1 EXE: python3 task3a_executable.py, started daemon)>
+2021-04-30 13:30:02,509 - fission - INFO [183366]- @DynamicExecutableJob 2 EXE: python3 task3b_executable.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/4.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)] | out []
+2021-04-30 13:30:02,510 - fission - INFO [183365]- @DynamicExecutableJob 1 EXE: python3 task3a_executable.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)]
+2021-04-30 13:30:02,735 - fission - INFO [183365]- DynamicExecutableJob 1 EXE: python3 task3a_executable.py finished with code: 1:
+2021-04-30 13:30:03,237 - fission.manager - INFO [183324]- Joining <Process(DynamicExecutableJob 2 EXE: python3 task3b_executable.py, started daemon)>
+2021-04-30 13:34:07,785 - fission - ERROR [183366]- Error occured, shutting down.
+Traceback (most recent call last):
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 296, in wait
+    waiter.acquire()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 552, in wait
+    signaled = self._cond.wait(timeout)
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 296, in wait
+    waiter.acquire()
+  File "/home/hafifi/Documents/Paderborn/marvelo-demo/fission/remote/wrapper.py", line 244, in sig_term
+    sys.exit(0)
+SystemExit: 0
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hafifi/Documents/Paderborn/marvelo-demo/fission/remote/wrapper.py", line 292, in pipe_wrapper_sync
+    finish_event.wait()
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 553, in wait
+    return signaled
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 244, in __exit__
+    return self._lock.__exit__(*args)
+RuntimeError: release unlocked lock
+2021-04-30 13:34:23,066 - fission.manager - INFO [267573]- Joining <Process(DynamicExecutableJob 1 EXE: python3 task3a_executable.py, started daemon)>
+2021-04-30 13:34:23,070 - fission - INFO [267576]- @DynamicExecutableJob 1 EXE: python3 task3a_executable.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)]
+2021-04-30 13:34:23,070 - fission - INFO [267577]- @DynamicExecutableJob 2 EXE: python3 task3b_executable.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/4.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)] | out []
+2021-04-30 13:34:23,259 - fission - INFO [267576]- DynamicExecutableJob 1 EXE: python3 task3a_executable.py finished with code: 0:
+2021-04-30 13:34:23,761 - fission.manager - INFO [267573]- Joining <Process(DynamicExecutableJob 2 EXE: python3 task3b_executable.py, started daemon)>
+2021-04-30 13:35:18,680 - fission.manager - INFO [284598]- Joining <Process(DynamicExecutableJob 1 EXE: python3 task3a_executable.py, started daemon)>
+2021-04-30 13:35:18,684 - fission - INFO [284647]- @DynamicExecutableJob 2 EXE: python3 task3b_executable.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/4.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)] | out []
+2021-04-30 13:35:18,686 - fission - INFO [284646]- @DynamicExecutableJob 1 EXE: python3 task3a_executable.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)]
+2021-04-30 13:35:18,888 - fission - INFO [284646]- DynamicExecutableJob 1 EXE: python3 task3a_executable.py finished with code: 0:
+2021-04-30 13:35:19,390 - fission.manager - INFO [284598]- Joining <Process(DynamicExecutableJob 2 EXE: python3 task3b_executable.py, started daemon)>
+2021-04-30 13:36:32,993 - fission.manager - INFO [308414]- Joining <Process(DynamicExecutableJob 1 EXE: python3 task3a_executable.py, started daemon)>
+2021-04-30 13:36:32,996 - fission - INFO [308417]- @DynamicExecutableJob 1 EXE: python3 task3a_executable.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)]
+2021-04-30 13:36:32,998 - fission - INFO [308418]- @DynamicExecutableJob 2 EXE: python3 task3b_executable.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/4.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)] | out []
+2021-04-30 13:36:33,176 - fission - INFO [308417]- DynamicExecutableJob 1 EXE: python3 task3a_executable.py finished with code: 0:
+2021-04-30 13:36:33,678 - fission.manager - INFO [308414]- Joining <Process(DynamicExecutableJob 2 EXE: python3 task3b_executable.py, started daemon)>
+2021-04-30 13:38:02,470 - fission.manager - INFO [338543]- Joining <Process(DynamicExecutableJob 1 EXE: python3 task3a_executable.py, started daemon)>
+2021-04-30 13:38:02,472 - fission - INFO [338628]- @DynamicExecutableJob 1 EXE: python3 task3a_executable.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)]
+2021-04-30 13:38:02,474 - fission - INFO [338629]- @DynamicExecutableJob 2 EXE: python3 task3b_executable.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/4.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)] | out []
+2021-04-30 13:38:02,687 - fission - INFO [338628]- DynamicExecutableJob 1 EXE: python3 task3a_executable.py finished with code: 0:
+2021-04-30 13:38:03,189 - fission.manager - INFO [338543]- Joining <Process(DynamicExecutableJob 2 EXE: python3 task3b_executable.py, started daemon)>
+2021-04-30 13:40:48,925 - fission.manager - INFO [396096]- Joining <Process(DynamicExecutableJob 1 EXE: python3 task3a_executable.py, started daemon)>
+2021-04-30 13:40:48,935 - fission - INFO [396164]- @DynamicExecutableJob 1 EXE: python3 task3a_executable.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)]
+2021-04-30 13:40:48,942 - fission - INFO [396165]- @DynamicExecutableJob 2 EXE: python3 task3b_executable.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/4.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)] | out []
+2021-04-30 13:40:49,243 - fission - INFO [396164]- DynamicExecutableJob 1 EXE: python3 task3a_executable.py finished with code: 0:
+2021-04-30 13:40:49,746 - fission.manager - INFO [396096]- Joining <Process(DynamicExecutableJob 2 EXE: python3 task3b_executable.py, started daemon)>
+2021-04-30 13:41:23,006 - fission.manager - INFO [407933]- Joining <Process(DynamicExecutableJob 1 EXE: python3 task3a_executable.py, started daemon)>
+2021-04-30 13:41:23,010 - fission - INFO [408019]- @DynamicExecutableJob 1 EXE: python3 task3a_executable.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)]
+2021-04-30 13:41:23,013 - fission - INFO [408021]- @DynamicExecutableJob 2 EXE: python3 task3b_executable.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/4.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)] | out []
+2021-04-30 13:41:23,211 - fission - INFO [408019]- DynamicExecutableJob 1 EXE: python3 task3a_executable.py finished with code: 0:
+2021-04-30 13:41:23,713 - fission.manager - INFO [407933]- Joining <Process(DynamicExecutableJob 2 EXE: python3 task3b_executable.py, started daemon)>
+2021-04-30 13:43:31,835 - fission.manager - INFO [453353]- Joining <Process(DynamicExecutableJob 1 EXE: python3 task3a_executable.py, started daemon)>
+2021-04-30 13:43:31,838 - fission - INFO [453410]- @DynamicExecutableJob 1 EXE: python3 task3a_executable.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)]
+2021-04-30 13:43:31,839 - fission - INFO [453411]- @DynamicExecutableJob 2 EXE: python3 task3b_executable.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/4.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)] | out []
+2021-04-30 13:43:32,058 - fission - INFO [453410]- DynamicExecutableJob 1 EXE: python3 task3a_executable.py finished with code: 0:
+2021-04-30 13:43:32,560 - fission.manager - INFO [453353]- Joining <Process(DynamicExecutableJob 2 EXE: python3 task3b_executable.py, started daemon)>
+2021-04-30 13:44:09,928 - fission.manager - INFO [465394]- Joining <Process(DynamicExecutableJob 1 EXE: python3 task3a_executable.py, started daemon)>
+2021-04-30 13:44:09,931 - fission - INFO [465397]- @DynamicExecutableJob 1 EXE: python3 task3a_executable.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)]
+2021-04-30 13:44:09,932 - fission - INFO [465398]- @DynamicExecutableJob 2 EXE: python3 task3b_executable.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/4.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)] | out []
+2021-04-30 13:44:10,147 - fission - INFO [465397]- DynamicExecutableJob 1 EXE: python3 task3a_executable.py finished with code: 0:
+2021-04-30 13:44:10,649 - fission.manager - INFO [465394]- Joining <Process(DynamicExecutableJob 2 EXE: python3 task3b_executable.py, started daemon)>
+2021-04-30 13:44:28,193 - fission.manager - INFO [470642]- Joining <Process(DynamicExecutableJob 1 EXE: python3 task3a_executable.py, started daemon)>
+2021-04-30 13:44:28,196 - fission - INFO [470645]- @DynamicExecutableJob 1 EXE: python3 task3a_executable.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)]
+2021-04-30 13:44:28,196 - fission - INFO [470646]- @DynamicExecutableJob 2 EXE: python3 task3b_executable.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/4.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)] | out []
+2021-04-30 13:44:28,387 - fission - INFO [470645]- DynamicExecutableJob 1 EXE: python3 task3a_executable.py finished with code: 0:
+2021-04-30 13:44:28,889 - fission.manager - INFO [470642]- Joining <Process(DynamicExecutableJob 2 EXE: python3 task3b_executable.py, started daemon)>
+2021-04-30 13:44:44,450 - fission - ERROR [470646]- Error occured, shutting down.
+Traceback (most recent call last):
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 296, in wait
+    waiter.acquire()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 552, in wait
+    signaled = self._cond.wait(timeout)
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 296, in wait
+    waiter.acquire()
+  File "/home/hafifi/Documents/Paderborn/marvelo-demo/fission/remote/wrapper.py", line 244, in sig_term
+    sys.exit(0)
+SystemExit: 0
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hafifi/Documents/Paderborn/marvelo-demo/fission/remote/wrapper.py", line 292, in pipe_wrapper_sync
+    finish_event.wait()
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 553, in wait
+    return signaled
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 244, in __exit__
+    return self._lock.__exit__(*args)
+RuntimeError: release unlocked lock
+2021-04-30 13:44:45,561 - fission.manager - INFO [477685]- Joining <Process(DynamicExecutableJob 1 EXE: python3 task3a_executable.py, started daemon)>
+2021-04-30 13:44:45,564 - fission - INFO [477688]- @DynamicExecutableJob 1 EXE: python3 task3a_executable.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)]
+2021-04-30 13:44:45,566 - fission - INFO [477689]- @DynamicExecutableJob 2 EXE: python3 task3b_executable.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/4.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)] | out []
+2021-04-30 13:44:45,801 - fission - INFO [477688]- DynamicExecutableJob 1 EXE: python3 task3a_executable.py finished with code: 0:
+2021-04-30 13:44:46,303 - fission.manager - INFO [477685]- Joining <Process(DynamicExecutableJob 2 EXE: python3 task3b_executable.py, started daemon)>
+2021-04-30 13:44:59,202 - fission.manager - INFO [482206]- Joining <Process(DynamicExecutableJob 1 EXE: python3 task3a_executable.py, started daemon)>
+2021-04-30 13:44:59,206 - fission - INFO [482210]- @DynamicExecutableJob 1 EXE: python3 task3a_executable.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)]
+2021-04-30 13:44:59,206 - fission - INFO [482211]- @DynamicExecutableJob 2 EXE: python3 task3b_executable.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/4.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)] | out []
+2021-04-30 13:44:59,419 - fission - INFO [482210]- DynamicExecutableJob 1 EXE: python3 task3a_executable.py finished with code: 0:
+2021-04-30 13:44:59,921 - fission.manager - INFO [482206]- Joining <Process(DynamicExecutableJob 2 EXE: python3 task3b_executable.py, started daemon)>
+2021-04-30 13:46:24,786 - fission.manager - INFO [507489]- Joining <Process(DynamicExecutableJob 1 EXE: python3 task3a_executable.py, started daemon)>
+2021-04-30 13:46:24,789 - fission - INFO [507533]- @DynamicExecutableJob 1 EXE: python3 task3a_executable.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)]
+2021-04-30 13:46:24,789 - fission - INFO [507534]- @DynamicExecutableJob 2 EXE: python3 task3b_executable.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/4.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)] | out []
+2021-04-30 13:46:25,051 - fission - INFO [507533]- DynamicExecutableJob 1 EXE: python3 task3a_executable.py finished with code: 0:
+2021-04-30 13:46:25,553 - fission.manager - INFO [507489]- Joining <Process(DynamicExecutableJob 2 EXE: python3 task3b_executable.py, started daemon)>
+2021-04-30 13:47:46,704 - fission.manager - INFO [530416]- Joining <Process(DynamicExecutableJob 1 EXE: python3 task3a_executable.py, started daemon)>
+2021-04-30 13:47:46,709 - fission - INFO [530419]- @DynamicExecutableJob 1 EXE: python3 task3a_executable.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)]
+2021-04-30 13:47:46,709 - fission - INFO [530420]- @DynamicExecutableJob 2 EXE: python3 task3b_executable.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/4.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)] | out []
+2021-04-30 13:47:46,919 - fission - INFO [530419]- DynamicExecutableJob 1 EXE: python3 task3a_executable.py finished with code: 0:
+2021-04-30 13:47:47,421 - fission.manager - INFO [530416]- Joining <Process(DynamicExecutableJob 2 EXE: python3 task3b_executable.py, started daemon)>
+2021-04-30 13:48:20,177 - fission.manager - INFO [542044]- Joining <Process(DynamicExecutableJob 1 EXE: python3 task3a_executable.py, started daemon)>
+2021-04-30 13:48:20,185 - fission - INFO [542048]- @DynamicExecutableJob 2 EXE: python3 task3b_executable.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/4.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)] | out []
+2021-04-30 13:48:20,195 - fission - INFO [542047]- @DynamicExecutableJob 1 EXE: python3 task3a_executable.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)]
+2021-04-30 13:48:20,578 - fission - INFO [542047]- DynamicExecutableJob 1 EXE: python3 task3a_executable.py finished with code: 0:
+2021-04-30 13:48:21,080 - fission.manager - INFO [542044]- Joining <Process(DynamicExecutableJob 2 EXE: python3 task3b_executable.py, started daemon)>
+2021-04-30 13:49:08,248 - fission.manager - INFO [559111]- Joining <Process(DynamicExecutableJob 1 EXE: python3 task3a_executable.py, started daemon)>
+2021-04-30 13:49:08,251 - fission - INFO [559173]- @DynamicExecutableJob 1 EXE: python3 task3a_executable.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)]
+2021-04-30 13:49:08,253 - fission - INFO [559175]- @DynamicExecutableJob 2 EXE: python3 task3b_executable.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/4.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)] | out []
+2021-04-30 13:49:08,533 - fission - INFO [559173]- DynamicExecutableJob 1 EXE: python3 task3a_executable.py finished with code: 0:
+2021-04-30 13:49:09,035 - fission.manager - INFO [559111]- Joining <Process(DynamicExecutableJob 2 EXE: python3 task3b_executable.py, started daemon)>
+2021-04-30 13:49:29,521 - fission.manager - INFO [565579]- Joining <Process(DynamicExecutableJob 1 EXE: python3 task3a_executable.py, started daemon)>
+2021-04-30 13:49:29,526 - fission - INFO [565622]- @DynamicExecutableJob 1 EXE: python3 task3a_executable.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)]
+2021-04-30 13:49:29,530 - fission - INFO [565624]- @DynamicExecutableJob 2 EXE: python3 task3b_executable.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/4.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)] | out []
+2021-04-30 13:49:29,746 - fission - INFO [565622]- DynamicExecutableJob 1 EXE: python3 task3a_executable.py finished with code: 0:
+2021-04-30 13:49:30,249 - fission.manager - INFO [565579]- Joining <Process(DynamicExecutableJob 2 EXE: python3 task3b_executable.py, started daemon)>
+2021-04-30 13:49:51,355 - fission.manager - INFO [572892]- Joining <Process(DynamicExecutableJob 1 EXE: python3 task3a_executable.py, started daemon)>
+2021-04-30 13:49:51,359 - fission - INFO [572933]- @DynamicExecutableJob 1 EXE: python3 task3a_executable.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)]
+2021-04-30 13:49:51,359 - fission - INFO [572934]- @DynamicExecutableJob 2 EXE: python3 task3b_executable.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/4.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)] | out []
+2021-04-30 13:49:51,570 - fission - INFO [572933]- DynamicExecutableJob 1 EXE: python3 task3a_executable.py finished with code: 0:
+2021-04-30 13:49:52,072 - fission.manager - INFO [572892]- Joining <Process(DynamicExecutableJob 2 EXE: python3 task3b_executable.py, started daemon)>
+2021-04-30 13:50:48,584 - fission.manager - INFO [592630]- Joining <Process(DynamicExecutableJob 1 EXE: python3 task3a_executable.py, started daemon)>
+2021-04-30 13:50:48,588 - fission - INFO [592721]- @DynamicExecutableJob 1 EXE: python3 task3a_executable.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)]
+2021-04-30 13:50:48,589 - fission - INFO [592723]- @DynamicExecutableJob 2 EXE: python3 task3b_executable.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/4.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)] | out []
+2021-04-30 13:50:48,789 - fission - INFO [592721]- DynamicExecutableJob 1 EXE: python3 task3a_executable.py finished with code: 0:
+2021-04-30 13:50:49,542 - fission.manager - INFO [592630]- Joining <Process(DynamicExecutableJob 2 EXE: python3 task3b_executable.py, started daemon)>
+2021-04-30 13:51:16,986 - fission.manager - INFO [600931]- Joining <Process(DynamicExecutableJob 1 EXE: python3 task3a_executable.py, started daemon)>
+2021-04-30 13:51:16,989 - fission - INFO [601001]- @DynamicExecutableJob 1 EXE: python3 task3a_executable.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)]
+2021-04-30 13:51:16,990 - fission - INFO [601002]- @DynamicExecutableJob 2 EXE: python3 task3b_executable.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/4.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)] | out []
+2021-04-30 13:51:17,219 - fission - INFO [601001]- DynamicExecutableJob 1 EXE: python3 task3a_executable.py finished with code: 0:
+2021-04-30 13:51:17,721 - fission.manager - INFO [600931]- Joining <Process(DynamicExecutableJob 2 EXE: python3 task3b_executable.py, started daemon)>
+2021-04-30 13:52:50,090 - fission.manager - INFO [631982]- Joining <Process(DynamicExecutableJob 1 EXE: python3 task3a_executable.py, started daemon)>
+2021-04-30 13:52:50,092 - fission - INFO [631985]- @DynamicExecutableJob 1 EXE: python3 task3a_executable.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)]
+2021-04-30 13:52:50,093 - fission - INFO [631986]- @DynamicExecutableJob 2 EXE: python3 task3b_executable.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/4.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)] | out []
+2021-04-30 13:52:50,341 - fission - INFO [631985]- DynamicExecutableJob 1 EXE: python3 task3a_executable.py finished with code: 0:
+2021-04-30 13:52:50,843 - fission.manager - INFO [631982]- Joining <Process(DynamicExecutableJob 2 EXE: python3 task3b_executable.py, started daemon)>
+2021-04-30 13:56:57,373 - fission.manager - INFO [710458]- Joining <Process(DynamicExecutableJob 1 EXE: python3 task3a_executable.py, started daemon)>
+2021-04-30 13:56:57,376 - fission - INFO [710550]- @DynamicExecutableJob 1 EXE: python3 task3a_executable.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)]
+2021-04-30 13:56:57,380 - fission - INFO [710551]- @DynamicExecutableJob 2 EXE: python3 task3b_executable.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/4.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)] | out []
+2021-04-30 13:56:57,610 - fission - INFO [710550]- DynamicExecutableJob 1 EXE: python3 task3a_executable.py finished with code: 0:
+2021-04-30 13:56:58,112 - fission.manager - INFO [710458]- Joining <Process(DynamicExecutableJob 2 EXE: python3 task3b_executable.py, started daemon)>
+2021-04-30 13:58:37,176 - fission.manager - INFO [741828]- Joining <Process(DynamicExecutableJob 1 EXE: python3 task3a_executable.py, started daemon)>
+2021-04-30 13:58:37,182 - fission - INFO [741898]- @DynamicExecutableJob 2 EXE: python3 task3b_executable.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/4.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)] | out []
+2021-04-30 13:58:37,184 - fission - INFO [741897]- @DynamicExecutableJob 1 EXE: python3 task3a_executable.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)]
+2021-04-30 13:58:37,475 - fission - INFO [741897]- DynamicExecutableJob 1 EXE: python3 task3a_executable.py finished with code: 0:
+2021-04-30 13:58:37,977 - fission.manager - INFO [741828]- Joining <Process(DynamicExecutableJob 2 EXE: python3 task3b_executable.py, started daemon)>
+2021-04-30 13:59:26,252 - fission.manager - INFO [757249]- Joining <Process(DynamicExecutableJob 1 EXE: python3 task3a_executable.py, started daemon)>
+2021-04-30 13:59:26,264 - fission - INFO [757304]- @DynamicExecutableJob 1 EXE: python3 task3a_executable.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)]
+2021-04-30 13:59:26,265 - fission - INFO [757307]- @DynamicExecutableJob 2 EXE: python3 task3b_executable.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/4.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)] | out []
+2021-04-30 13:59:26,632 - fission - INFO [757304]- DynamicExecutableJob 1 EXE: python3 task3a_executable.py finished with code: 0:
+2021-04-30 13:59:27,145 - fission.manager - INFO [757249]- Joining <Process(DynamicExecutableJob 2 EXE: python3 task3b_executable.py, started daemon)>
+2021-04-30 13:59:59,856 - fission.manager - INFO [767680]- Joining <Process(DynamicExecutableJob 1 EXE: python3 task3a_executable.py, started daemon)>
+2021-04-30 13:59:59,862 - fission - INFO [767730]- @DynamicExecutableJob 2 EXE: python3 task3b_executable.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/4.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)] | out []
+2021-04-30 13:59:59,863 - fission - INFO [767728]- @DynamicExecutableJob 1 EXE: python3 task3a_executable.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)]
+2021-04-30 14:00:00,090 - fission - INFO [767728]- DynamicExecutableJob 1 EXE: python3 task3a_executable.py finished with code: 0:
+2021-04-30 14:00:00,593 - fission.manager - INFO [767680]- Joining <Process(DynamicExecutableJob 2 EXE: python3 task3b_executable.py, started daemon)>
+2021-04-30 14:07:03,136 - fission.manager - INFO [887753]- Joining <Process(DynamicExecutableJob 1 EXE: python3 task3a_executable.py, started daemon)>
+2021-04-30 14:07:03,146 - fission - INFO [887811]- @DynamicExecutableJob 2 EXE: python3 task3b_executable.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/4.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)] | out []
+2021-04-30 14:07:03,157 - fission - INFO [887810]- @DynamicExecutableJob 1 EXE: python3 task3a_executable.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)]
+2021-04-30 14:07:13,492 - fission - INFO [887810]- DynamicExecutableJob 1 EXE: python3 task3a_executable.py finished with code: 0:
+2021-04-30 14:07:13,999 - fission.manager - INFO [887753]- Joining <Process(DynamicExecutableJob 2 EXE: python3 task3b_executable.py, started daemon)>
+2021-04-30 14:07:24,440 - fission.manager - INFO [894004]- Joining <Process(DynamicExecutableJob 1 EXE: python3 task3a_executable.py, started daemon)>
+2021-04-30 14:07:24,444 - fission - INFO [894091]- @DynamicExecutableJob 2 EXE: python3 task3b_executable.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/4.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)] | out []
+2021-04-30 14:07:24,444 - fission - INFO [894089]- @DynamicExecutableJob 1 EXE: python3 task3a_executable.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)]
+2021-04-30 14:07:25,687 - fission - INFO [894089]- DynamicExecutableJob 1 EXE: python3 task3a_executable.py finished with code: 0:
+2021-04-30 14:07:26,190 - fission.manager - INFO [894004]- Joining <Process(DynamicExecutableJob 2 EXE: python3 task3b_executable.py, started daemon)>
+2021-04-30 14:07:54,626 - fission.manager - INFO [902314]- Joining <Process(DynamicExecutableJob 1 EXE: python3 task3a_executable.py, started daemon)>
+2021-04-30 14:07:54,628 - fission - INFO [902317]- @DynamicExecutableJob 1 EXE: python3 task3a_executable.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)]
+2021-04-30 14:07:54,629 - fission - INFO [902318]- @DynamicExecutableJob 2 EXE: python3 task3b_executable.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/4.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)] | out []
+2021-04-30 14:07:55,814 - fission - INFO [902317]- DynamicExecutableJob 1 EXE: python3 task3a_executable.py finished with code: 0:
+2021-04-30 14:07:56,317 - fission.manager - INFO [902314]- Joining <Process(DynamicExecutableJob 2 EXE: python3 task3b_executable.py, started daemon)>
+2021-04-30 14:08:17,069 - fission.manager - INFO [909469]- Joining <Process(DynamicExecutableJob 1 EXE: python3 task3a_executable.py, started daemon)>
+2021-04-30 14:08:17,072 - fission - INFO [909472]- @DynamicExecutableJob 1 EXE: python3 task3a_executable.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)]
+2021-04-30 14:08:17,075 - fission - INFO [909473]- @DynamicExecutableJob 2 EXE: python3 task3b_executable.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/4.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)] | out []
+2021-04-30 14:08:27,271 - fission - INFO [909472]- DynamicExecutableJob 1 EXE: python3 task3a_executable.py finished with code: 0:
+2021-04-30 14:08:27,774 - fission.manager - INFO [909469]- Joining <Process(DynamicExecutableJob 2 EXE: python3 task3b_executable.py, started daemon)>
+2021-04-30 14:08:47,434 - fission - ERROR [909473]- Error occured, shutting down.
+Traceback (most recent call last):
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 296, in wait
+    waiter.acquire()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 552, in wait
+    signaled = self._cond.wait(timeout)
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 296, in wait
+    waiter.acquire()
+  File "/home/hafifi/Documents/Paderborn/marvelo-demo/fission/remote/wrapper.py", line 244, in sig_term
+    sys.exit(0)
+SystemExit: 0
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hafifi/Documents/Paderborn/marvelo-demo/fission/remote/wrapper.py", line 292, in pipe_wrapper_sync
+    finish_event.wait()
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 553, in wait
+    return signaled
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 244, in __exit__
+    return self._lock.__exit__(*args)
+RuntimeError: release unlocked lock
+2021-04-30 14:08:49,699 - fission.manager - INFO [920301]- Joining <Process(DynamicExecutableJob 1 EXE: python3 task3a_executable.py, started daemon)>
+2021-04-30 14:08:49,705 - fission - INFO [920368]- @DynamicExecutableJob 2 EXE: python3 task3b_executable.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/4.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)] | out []
+2021-04-30 14:08:49,708 - fission - INFO [920367]- @DynamicExecutableJob 1 EXE: python3 task3a_executable.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)]
+2021-04-30 14:08:59,985 - fission - INFO [920367]- DynamicExecutableJob 1 EXE: python3 task3a_executable.py finished with code: 0:
+2021-04-30 14:09:00,487 - fission.manager - INFO [920301]- Joining <Process(DynamicExecutableJob 2 EXE: python3 task3b_executable.py, started daemon)>
+2021-04-30 14:09:59,061 - fission.manager - INFO [942629]- Joining <Process(DynamicExecutableJob 1 EXE: python3 task3a_executable.py, started daemon)>
+2021-04-30 14:09:59,065 - fission - INFO [942632]- @DynamicExecutableJob 1 EXE: python3 task3a_executable.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)]
+2021-04-30 14:09:59,065 - fission - INFO [942633]- @DynamicExecutableJob 2 EXE: python3 task3b_executable.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/4.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)] | out []
+2021-04-30 14:10:09,245 - fission - INFO [942632]- DynamicExecutableJob 1 EXE: python3 task3a_executable.py finished with code: 0:
+2021-04-30 14:10:09,747 - fission.manager - INFO [942629]- Joining <Process(DynamicExecutableJob 2 EXE: python3 task3b_executable.py, started daemon)>
+2021-04-30 14:10:41,833 - fission - ERROR [942633]- Error occured, shutting down.
+Traceback (most recent call last):
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 296, in wait
+    waiter.acquire()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 552, in wait
+    signaled = self._cond.wait(timeout)
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 296, in wait
+    waiter.acquire()
+  File "/home/hafifi/Documents/Paderborn/marvelo-demo/fission/remote/wrapper.py", line 244, in sig_term
+    sys.exit(0)
+SystemExit: 0
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hafifi/Documents/Paderborn/marvelo-demo/fission/remote/wrapper.py", line 292, in pipe_wrapper_sync
+    finish_event.wait()
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 553, in wait
+    return signaled
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 244, in __exit__
+    return self._lock.__exit__(*args)
+RuntimeError: release unlocked lock
+2021-04-30 14:10:42,604 - fission.manager - INFO [956931]- Joining <Process(DynamicExecutableJob 1 EXE: python3 task3a_executable.py, started daemon)>
+2021-04-30 14:10:42,607 - fission - INFO [956934]- @DynamicExecutableJob 1 EXE: python3 task3a_executable.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)]
+2021-04-30 14:10:42,607 - fission - INFO [956935]- @DynamicExecutableJob 2 EXE: python3 task3b_executable.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/4.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)] | out []
+2021-04-30 14:10:52,799 - fission - INFO [956934]- DynamicExecutableJob 1 EXE: python3 task3a_executable.py finished with code: 0:
+2021-04-30 14:10:53,301 - fission.manager - INFO [956931]- Joining <Process(DynamicExecutableJob 2 EXE: python3 task3b_executable.py, started daemon)>
+2021-04-30 14:10:59,184 - fission.manager - INFO [961639]- Joining <Process(DynamicExecutableJob 1 EXE: python3 task3a_executable.py, started daemon)>
+2021-04-30 14:10:59,187 - fission - INFO [961685]- @DynamicExecutableJob 1 EXE: python3 task3a_executable.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)]
+2021-04-30 14:10:59,191 - fission - INFO [961686]- @DynamicExecutableJob 2 EXE: python3 task3b_executable.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/4.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)] | out []
+2021-04-30 14:11:09,406 - fission - INFO [961685]- DynamicExecutableJob 1 EXE: python3 task3a_executable.py finished with code: 0:
+2021-04-30 14:11:09,909 - fission.manager - INFO [961639]- Joining <Process(DynamicExecutableJob 2 EXE: python3 task3b_executable.py, started daemon)>
+2021-04-30 14:11:22,183 - fission.manager - INFO [969060]- Joining <Process(DynamicExecutableJob 1 EXE: python3 task3a_executable.py, started daemon)>
+2021-04-30 14:11:22,187 - fission - INFO [969105]- @DynamicExecutableJob 2 EXE: python3 task3b_executable.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/4.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)] | out []
+2021-04-30 14:11:22,188 - fission - INFO [969104]- @DynamicExecutableJob 1 EXE: python3 task3a_executable.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)]
+2021-04-30 14:11:42,419 - fission - INFO [969104]- DynamicExecutableJob 1 EXE: python3 task3a_executable.py finished with code: 0:
+2021-04-30 14:11:42,922 - fission.manager - INFO [969060]- Joining <Process(DynamicExecutableJob 2 EXE: python3 task3b_executable.py, started daemon)>
+2021-04-30 14:12:13,942 - fission.manager - INFO [985461]- Joining <Process(DynamicExecutableJob 1 EXE: python3 task3a_executable.py, started daemon)>
+2021-04-30 14:12:13,946 - fission - INFO [985465]- @DynamicExecutableJob 2 EXE: python3 task3b_executable.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/4.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)] | out []
+2021-04-30 14:12:13,946 - fission - INFO [985464]- @DynamicExecutableJob 1 EXE: python3 task3a_executable.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)]
+2021-04-30 14:12:34,142 - fission - INFO [985464]- DynamicExecutableJob 1 EXE: python3 task3a_executable.py finished with code: 0:
+2021-04-30 14:12:34,644 - fission.manager - INFO [985461]- Joining <Process(DynamicExecutableJob 2 EXE: python3 task3b_executable.py, started daemon)>
+2021-04-30 14:13:59,693 - fission.manager - INFO [1017222]- Joining <Process(DynamicExecutableJob 1 EXE: python3 task3a_executable.py, started daemon)>
+2021-04-30 14:13:59,697 - fission - INFO [1017273]- @DynamicExecutableJob 1 EXE: python3 task3a_executable.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)]
+2021-04-30 14:13:59,697 - fission - INFO [1017274]- @DynamicExecutableJob 2 EXE: python3 task3b_executable.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/4.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)] | out []
+2021-04-30 14:14:19,940 - fission - INFO [1017273]- DynamicExecutableJob 1 EXE: python3 task3a_executable.py finished with code: 0:
+2021-04-30 14:14:20,442 - fission.manager - INFO [1017222]- Joining <Process(DynamicExecutableJob 2 EXE: python3 task3b_executable.py, started daemon)>
+2021-04-30 14:14:41,783 - fission.manager - INFO [1030909]- Joining <Process(DynamicExecutableJob 1 EXE: python3 task3a_executable.py, started daemon)>
+2021-04-30 14:14:41,786 - fission - INFO [1030912]- @DynamicExecutableJob 1 EXE: python3 task3a_executable.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)]
+2021-04-30 14:14:41,788 - fission - INFO [1030913]- @DynamicExecutableJob 2 EXE: python3 task3b_executable.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/4.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)] | out []
+2021-04-30 14:14:43,002 - fission - INFO [1030912]- DynamicExecutableJob 1 EXE: python3 task3a_executable.py finished with code: 0:
+2021-04-30 14:14:43,504 - fission.manager - INFO [1030909]- Joining <Process(DynamicExecutableJob 2 EXE: python3 task3b_executable.py, started daemon)>
+2021-04-30 14:20:00,209 - fission.manager - INFO [1126921]- Joining <Process(DynamicExecutableJob 1 EXE: python3 task3a_executable.py, started daemon)>
+2021-04-30 14:20:00,214 - fission - INFO [1127018]- @DynamicExecutableJob 2 EXE: python3 task3b_executable.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/4.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)] | out []
+2021-04-30 14:20:00,216 - fission - INFO [1127022]- @DynamicMARVELOJob 4 EXE: python task3b.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4/1.fifo), SQN_Checker (sink), CommandServer->(1993), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/1.fifo)] | out []
+2021-04-30 14:20:00,219 - fission - INFO [1127017]- @DynamicExecutableJob 1 EXE: python3 task3a_executable.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)]
+2021-04-30 14:20:00,222 - fission - INFO [1127020]- @DynamicMARVELOJob 3 EXE: python task3a.py starting 4 threads: static [SendBlock (source), CommandServer->(1995), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/1.fifo)]
+2021-04-30 14:20:00,501 - fission - INFO [1127020]- DynamicMARVELOJob 3 EXE: python task3a.py finished with code: 0:
+2021-04-30 14:20:01,503 - fission - INFO [1127017]- DynamicExecutableJob 1 EXE: python3 task3a_executable.py finished with code: 0:
+2021-04-30 14:20:02,005 - fission.manager - INFO [1126921]- Joining <Process(DynamicExecutableJob 2 EXE: python3 task3b_executable.py, started daemon)>
+2021-04-30 14:20:28,127 - fission - ERROR [1127022]- Error occured, shutting down.
+Traceback (most recent call last):
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 296, in wait
+    waiter.acquire()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 552, in wait
+    signaled = self._cond.wait(timeout)
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 296, in wait
+    waiter.acquire()
+  File "/home/hafifi/Documents/Paderborn/marvelo-demo/fission/remote/wrapper.py", line 244, in sig_term
+    sys.exit(0)
+SystemExit: 0
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hafifi/Documents/Paderborn/marvelo-demo/fission/remote/wrapper.py", line 292, in pipe_wrapper_sync
+    finish_event.wait()
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 553, in wait
+    return signaled
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 244, in __exit__
+    return self._lock.__exit__(*args)
+RuntimeError: release unlocked lock
+2021-04-30 14:20:29,770 - fission.manager - INFO [1135473]- Joining <Process(DynamicMARVELOJob 1 EXE: python task3a.py, started daemon)>
+2021-04-30 14:20:29,772 - fission - INFO [1135519]- @DynamicMARVELOJob 1 EXE: python task3a.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/1.fifo)]
+2021-04-30 14:20:29,773 - fission - INFO [1135521]- @DynamicMARVELOJob 2 EXE: python task3b.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/1.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/1.fifo)] | out []
+2021-04-30 14:20:29,988 - fission - INFO [1135519]- DynamicMARVELOJob 1 EXE: python task3a.py finished with code: 0:
+2021-04-30 14:20:30,490 - fission.manager - INFO [1135473]- Joining <Process(DynamicMARVELOJob 2 EXE: python task3b.py, started daemon)>
+2021-04-30 14:21:35,370 - fission.manager - INFO [1155481]- Joining <Process(DynamicMARVELOJob 1 EXE: python task3a.py, started daemon)>
+2021-04-30 14:21:35,378 - fission - INFO [1155574]- @DynamicMARVELOJob 1 EXE: python task3a.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/1.fifo)]
+2021-04-30 14:21:35,380 - fission - INFO [1155575]- @DynamicMARVELOJob 2 EXE: python task3b.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/1.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/1.fifo)] | out []
+2021-04-30 14:21:35,639 - fission - INFO [1155574]- DynamicMARVELOJob 1 EXE: python task3a.py finished with code: 0:
+2021-04-30 14:21:36,141 - fission.manager - INFO [1155481]- Joining <Process(DynamicMARVELOJob 2 EXE: python task3b.py, started daemon)>
+2021-04-30 14:21:48,381 - fission.manager - INFO [1160014]- Joining <Process(DynamicMARVELOJob 1 EXE: python task3a.py, started daemon)>
+2021-04-30 14:21:48,384 - fission - INFO [1160022]- @DynamicMARVELOJob 1 EXE: python task3a.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/1.fifo)]
+2021-04-30 14:21:48,384 - fission - INFO [1160023]- @DynamicMARVELOJob 2 EXE: python task3b.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/1.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/1.fifo)] | out []
+2021-04-30 14:21:48,565 - fission - INFO [1160022]- DynamicMARVELOJob 1 EXE: python task3a.py finished with code: 0:
+2021-04-30 14:21:49,067 - fission.manager - INFO [1160014]- Joining <Process(DynamicMARVELOJob 2 EXE: python task3b.py, started daemon)>
+2021-04-30 14:22:01,028 - fission.manager - INFO [1162664]- Joining <Process(DynamicMARVELOJob 1 EXE: python task3a.py, started daemon)>
+2021-04-30 14:22:01,031 - fission - INFO [1162667]- @DynamicMARVELOJob 1 EXE: python task3a.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/1.fifo)]
+2021-04-30 14:22:01,032 - fission - INFO [1162668]- @DynamicMARVELOJob 2 EXE: python task3b.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/1.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/1.fifo)] | out []
+2021-04-30 14:22:01,260 - fission - INFO [1162667]- DynamicMARVELOJob 1 EXE: python task3a.py finished with code: 0:
+2021-04-30 14:22:01,762 - fission.manager - INFO [1162664]- Joining <Process(DynamicMARVELOJob 2 EXE: python task3b.py, started daemon)>
+2021-04-30 14:24:27,885 - fission.manager - INFO [1205631]- Joining <Process(DynamicMARVELOJob 1 EXE: python task3a.py, started daemon)>
+2021-04-30 14:24:27,890 - fission - INFO [1205680]- @DynamicMARVELOJob 2 EXE: python task3b.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/1.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/1.fifo)] | out []
+2021-04-30 14:24:27,892 - fission - INFO [1205679]- @DynamicMARVELOJob 1 EXE: python task3a.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/1.fifo)]
+2021-04-30 14:24:28,193 - fission - INFO [1205679]- DynamicMARVELOJob 1 EXE: python task3a.py finished with code: 0:
+2021-04-30 14:24:28,695 - fission.manager - INFO [1205631]- Joining <Process(DynamicMARVELOJob 2 EXE: python task3b.py, started daemon)>
+2021-04-30 14:26:16,596 - fission.manager - INFO [1235936]- Joining <Process(DynamicMARVELOJob 1 EXE: python task3a.py, started daemon)>
+2021-04-30 14:26:16,601 - fission - INFO [1235998]- @DynamicMARVELOJob 1 EXE: python task3a.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/1.fifo)]
+2021-04-30 14:26:16,603 - fission - INFO [1236000]- @DynamicMARVELOJob 2 EXE: python task3b.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/1.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/1.fifo)] | out []
+2021-04-30 14:26:16,799 - fission - INFO [1235998]- DynamicMARVELOJob 1 EXE: python task3a.py finished with code: 0:
+2021-04-30 14:26:17,302 - fission.manager - INFO [1235936]- Joining <Process(DynamicMARVELOJob 2 EXE: python task3b.py, started daemon)>
+2021-04-30 15:16:49,363 - fission.manager - INFO [2124150]- Joining <Process(DynamicExecutableJob 1 EXE: python3 task3a_executable.py, started daemon)>
+2021-04-30 15:16:49,366 - fission - INFO [2124209]- @DynamicExecutableJob 1 EXE: python3 task3a_executable.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)]
+2021-04-30 15:16:49,381 - fission - INFO [2124211]- @DynamicExecutableJob 2 EXE: python3 task3b_executable.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/4.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/4.fifo)] | out []
+2021-04-30 15:16:50,781 - fission - INFO [2124209]- DynamicExecutableJob 1 EXE: python3 task3a_executable.py finished with code: 0:
+2021-04-30 15:16:51,285 - fission.manager - INFO [2124150]- Joining <Process(DynamicExecutableJob 2 EXE: python3 task3b_executable.py, started daemon)>
+2021-04-30 15:17:17,205 - fission.manager - INFO [2132781]- Joining <Process(DynamicMARVELOJob 1 EXE: python task3a.py, started daemon)>
+2021-04-30 15:17:17,207 - fission - INFO [2132808]- @DynamicMARVELOJob 1 EXE: python task3a.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/1.fifo)]
+2021-04-30 15:17:17,210 - fission - INFO [2132809]- @DynamicMARVELOJob 2 EXE: python task3b.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/1.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/1.fifo)] | out []
+2021-04-30 15:17:17,926 - fission - INFO [2132808]- DynamicMARVELOJob 1 EXE: python task3a.py finished with code: 0:
+2021-04-30 15:17:18,428 - fission.manager - INFO [2132781]- Joining <Process(DynamicMARVELOJob 2 EXE: python task3b.py, started daemon)>
+2021-04-30 15:17:43,681 - fission.manager - INFO [2140016]- Joining <Process(DynamicMARVELOJob 1 EXE: python task3a.py, started daemon)>
+2021-04-30 15:17:43,685 - fission - INFO [2140019]- @DynamicMARVELOJob 1 EXE: python task3a.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/1.fifo)]
+2021-04-30 15:17:43,685 - fission - INFO [2140020]- @DynamicMARVELOJob 2 EXE: python task3b.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/1.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/1.fifo)] | out []
+2021-04-30 15:17:48,918 - fission - INFO [2140019]- DynamicMARVELOJob 1 EXE: python task3a.py finished with code: 0:
+2021-04-30 15:17:49,420 - fission.manager - INFO [2140016]- Joining <Process(DynamicMARVELOJob 2 EXE: python task3b.py, started daemon)>
+2021-04-30 15:26:09,104 - fission - ERROR [2140020]- Error occured, shutting down.
+Traceback (most recent call last):
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 296, in wait
+    waiter.acquire()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 552, in wait
+    signaled = self._cond.wait(timeout)
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 296, in wait
+    waiter.acquire()
+  File "/home/hafifi/Documents/Paderborn/marvelo-demo/fission/remote/wrapper.py", line 244, in sig_term
+    sys.exit(0)
+SystemExit: 0
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hafifi/Documents/Paderborn/marvelo-demo/fission/remote/wrapper.py", line 292, in pipe_wrapper_sync
+    finish_event.wait()
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 553, in wait
+    return signaled
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 244, in __exit__
+    return self._lock.__exit__(*args)
+RuntimeError: release unlocked lock
+2021-04-30 15:26:10,298 - fission.manager - INFO [2286156]- Joining <Process(DynamicMARVELOJob 1 EXE: python task3a.py, started daemon)>
+2021-04-30 15:26:10,304 - fission - INFO [2286210]- @DynamicMARVELOJob 1 EXE: python task3a.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/1.fifo)]
+2021-04-30 15:26:10,305 - fission - INFO [2286211]- @DynamicMARVELOJob 2 EXE: python task3b.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/1.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/1.fifo)] | out []
+2021-04-30 15:26:26,493 - fission - ERROR [2286210]- Error occured, shutting down.
+Traceback (most recent call last):
+  File "/home/hafifi/anaconda3/lib/python3.7/subprocess.py", line 1582, in _try_wait
+    (pid, sts) = os.waitpid(self.pid, wait_flags)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hafifi/Documents/Paderborn/marvelo-demo/fission/remote/wrapper.py", line 288, in pipe_wrapper_sync
+    exit_code = proc.wait()
+  File "/home/hafifi/anaconda3/lib/python3.7/subprocess.py", line 990, in wait
+    return self._wait(timeout=timeout)
+  File "/home/hafifi/anaconda3/lib/python3.7/subprocess.py", line 1624, in _wait
+    (pid, sts) = self._try_wait(0)
+  File "/home/hafifi/anaconda3/lib/python3.7/subprocess.py", line 1582, in _try_wait
+    (pid, sts) = os.waitpid(self.pid, wait_flags)
+  File "/home/hafifi/Documents/Paderborn/marvelo-demo/fission/remote/wrapper.py", line 236, in sig_term
+    proc.kill()
+  File "/home/hafifi/anaconda3/lib/python3.7/subprocess.py", line 1756, in kill
+    self.send_signal(signal.SIGKILL)
+  File "/home/hafifi/anaconda3/lib/python3.7/subprocess.py", line 1746, in send_signal
+    os.kill(self.pid, sig)
+ProcessLookupError: [Errno 3] No such process
+2021-04-30 15:35:28,184 - fission.manager - INFO [2474522]- Joining <Process(DynamicMARVELOJob 1 EXE: python task3a.py, started daemon)>
+2021-04-30 15:35:28,193 - fission - INFO [2474617]- @DynamicMARVELOJob 2 EXE: python task3b.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/1.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/1.fifo)] | out []
+2021-04-30 15:35:28,194 - fission - INFO [2474615]- @DynamicMARVELOJob 1 EXE: python task3a.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/1.fifo)]
+2021-04-30 15:35:28,422 - fission - INFO [2474615]- DynamicMARVELOJob 1 EXE: python task3a.py finished with code: 1:
+2021-04-30 15:35:28,925 - fission.manager - INFO [2474522]- Joining <Process(DynamicMARVELOJob 2 EXE: python task3b.py, started daemon)>
+2021-04-30 15:35:59,597 - fission - ERROR [2474617]- Error occured, shutting down.
+Traceback (most recent call last):
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 296, in wait
+    waiter.acquire()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 552, in wait
+    signaled = self._cond.wait(timeout)
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 296, in wait
+    waiter.acquire()
+  File "/home/hafifi/Documents/Paderborn/marvelo-demo/fission/remote/wrapper.py", line 244, in sig_term
+    sys.exit(0)
+SystemExit: 0
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hafifi/Documents/Paderborn/marvelo-demo/fission/remote/wrapper.py", line 292, in pipe_wrapper_sync
+    finish_event.wait()
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 553, in wait
+    return signaled
+  File "/home/hafifi/anaconda3/lib/python3.7/threading.py", line 244, in __exit__
+    return self._lock.__exit__(*args)
+RuntimeError: release unlocked lock
+2021-04-30 15:36:02,558 - fission.manager - INFO [2485464]- Joining <Process(DynamicMARVELOJob 1 EXE: python task3a.py, started daemon)>
+2021-04-30 15:36:02,563 - fission - INFO [2485542]- @DynamicMARVELOJob 1 EXE: python task3a.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/1.fifo)]
+2021-04-30 15:36:02,563 - fission - INFO [2485546]- @DynamicMARVELOJob 2 EXE: python task3b.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/2/1.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/simulation//fifo/1.fifo)] | out []
+2021-04-30 15:36:15,720 - fission - ERROR [2485542]- Error occured, shutting down.
+Traceback (most recent call last):
+  File "/home/hafifi/anaconda3/lib/python3.7/subprocess.py", line 1582, in _try_wait
+    (pid, sts) = os.waitpid(self.pid, wait_flags)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hafifi/Documents/Paderborn/marvelo-demo/fission/remote/wrapper.py", line 288, in pipe_wrapper_sync
+    exit_code = proc.wait()
+  File "/home/hafifi/anaconda3/lib/python3.7/subprocess.py", line 990, in wait
+    return self._wait(timeout=timeout)
+  File "/home/hafifi/anaconda3/lib/python3.7/subprocess.py", line 1624, in _wait
+    (pid, sts) = self._try_wait(0)
+  File "/home/hafifi/anaconda3/lib/python3.7/subprocess.py", line 1582, in _try_wait
+    (pid, sts) = os.waitpid(self.pid, wait_flags)
+  File "/home/hafifi/Documents/Paderborn/marvelo-demo/fission/remote/wrapper.py", line 236, in sig_term
+    proc.kill()
+  File "/home/hafifi/anaconda3/lib/python3.7/subprocess.py", line 1756, in kill
+    self.send_signal(signal.SIGKILL)
+  File "/home/hafifi/anaconda3/lib/python3.7/subprocess.py", line 1746, in send_signal
+    os.kill(self.pid, sig)
+ProcessLookupError: [Errno 3] No such process

@@ -1,0 +1,28 @@
+---
+- name: Ensure Pip is installed.
+  package:
+    name: python3-pip
+    state: present
+
+- name: Upgrade to most recent pip via old pip
+  pip: 
+    executable: pip3 
+    name: pip
+    state: latest
+
+- name: install required packages (You can add packages if needed)
+  pip: 
+    executable: pip3 
+    name: "{{ item['name'] }}"
+    state: present
+  with_items: "{{ pip3_packages }}"
+  when: item.version is not defined
+
+- name: install required packages with specific version (You can add packages if needed)
+  pip: 
+    executable: pip3 
+    name: "{{item.name}}"
+    state: present
+    version: "{{item.version}}"
+  with_items: "{{ pip3_packages }}"
+  when: item.version is defined

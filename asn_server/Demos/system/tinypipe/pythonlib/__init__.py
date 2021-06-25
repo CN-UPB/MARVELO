@@ -1,1 +1,0 @@
-from .pipelib import Pipeinterface

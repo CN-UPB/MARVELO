@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<network>
+        <node pi_id="10.0.2.13">
+            <algorithm path="Demos/system/DXCP_PHAT/ReadData" executable="./readData_mod.py">
+		<parameter param=""></parameter>
+                <output target_pi_id="10.0.2.13" pipe_id="1"></output>
+                <output target_pi_id="10.0.2.13" pipe_id="2"></output>
+            </algorithm>
+            <algorithm path="Demos/system/DXCP_PHAT/DxcpPhaT" executable="./dxcpPhat_mod.py">
+		<parameter param="-c config/Parameters_DXCPPhaT.py"></parameter>
+                <input source_pi_id="10.0.2.13" pipe_id="1"></input>
+                <input source_pi_id="10.0.2.13" pipe_id="2"></input>
+                <output target_pi_id="10.0.2.13" pipe_id="3"></output>
+                <output target_pi_id="10.0.2.13" pipe_id="4"></output>
+            </algorithm>
+            <algorithm path="Demos/system/DXCP_PHAT/PrintResults" executable="./printResults_mod.py">
+		<parameter param="-m 2"></parameter>
+                <input source_pi_id="10.0.2.13" pipe_id="3"></input>
+                <input source_pi_id="10.0.2.13" pipe_id="4"></input>
+            </algorithm>
+        </node>
+</network>

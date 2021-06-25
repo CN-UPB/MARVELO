@@ -1,0 +1,13 @@
+[Unit]
+Description=FISSION Service
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+ExecStart={{ dispynode_path.stdout_lines[0] }} -i {% if dispy_ip is defined %}{{ dispy_ip }}{% else %}{{ ansible_host }}{% endif %} --daemon --clean
+WorkingDirectory=/home/{{ansible_user}}
+User={{ansible_user}}
+
+[Install]
+WantedBy=multi-user.target

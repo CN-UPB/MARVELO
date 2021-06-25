@@ -1,6 +1,0 @@
-srcapp,port,demand,parameter,executable
-1,10,1, config/SparkAudio2Pipe.scf,./spark
-2,20,1,config/PipedSRP.scf,./spark
-3,30,1, config/SparkAudio2Pipe.scf,./spark
-4,40,1,config/PipedSRP.scf,./spark
-5,1,1,config/DiaryServer.scf,./spark

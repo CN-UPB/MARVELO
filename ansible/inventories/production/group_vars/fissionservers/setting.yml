@@ -1,0 +1,16 @@
+---
+# You have to use the same user with the same password on every server
+ansible_user: pi
+
+# any additional pip3 packages you would like to install
+# you have to set name, version is optional
+pip3_packages:
+  - name: dispy       # DO NOT REMOVE
+    version: "4.12.3"  
+# You may change the version (keep in mind that every client and server needs the same dispy version!)
+#  - name: some_package
+#  - name: some_package_with_version
+#    version: "1.0.0"
+  - name: numpy
+  - name: scipy
+  - name: psutil

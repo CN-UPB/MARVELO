@@ -1,0 +1,187 @@
+%% -----------------------------------------------------------------------
+%%
+%% Copyright (c) <2011> <University of Paderborn>
+%% Permission is hereby granted, free of charge, to any person
+%% obtaining a copy of this software and associated documentation
+%% files (the "Software"), to deal in the Software without restriction,
+%% including without limitation the rights to use, copy, modify and
+%% merge the Software, subject to the following conditions:
+%%
+%% 1.) The Software is used for non-commercial research and
+%%     education purposes.
+%%
+%% 2.) The above copyright notice and this permission notice shall be
+%%     included in all copies or substantial portions of the Software.
+%%
+%% 3.) Publication, Distribution, Sublicensing, and/or Selling of
+%%     copies or parts of the Software requires special agreements
+%%     with the University of Paderborn and is in general not permitted.
+%%
+%% 4.) Modifications or contributions to the software must be
+%%     published under this license. The University of Paderborn
+%%     is granted the non-exclusive right to publish modifications
+%%     or contributions in future versions of the Software free of charge.
+%%
+%% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+%% EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+%% OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+%% NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+%% HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+%% WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+%% FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+%% OTHER DEALINGS IN THE SOFTWARE.
+%%
+%% Persons using the Software are encouraged to notify the
+%% Department of Communications Engineering at the University of Paderborn
+%% about bugs via <spark@nt.uni-paderborn.de>. Please reference Spark
+%% in your publications if it was used for them.
+%%
+%% -----------------------------------------------------------------------
+
+[MACRO]
+  NTBB1: ntbb1
+  SAMPLERATE: 16000
+  CHANNELSSOUNDCARD:   16
+  CHANNELS:   16
+  FRAMESIZE:  64
+  SAMPLERATEOFFSETPPB: 0
+  INSTANCENAME1: ddnalsa4
+  INSTANCENAME2: ddnalsa5
+  XMLPATH_FILE: { <str=extractfilepath(CONFIGURATION_FILE)+"Config.xml"> }
+	BEAM_OUT_AUDIO_S:	512
+	BEAM_OUT_META_S:	 16
+	BEAM_OUT_META_VAD:	512
+
+  FFTSIZE:    2048
+  FFTHALV:    <eval=(FFTSIZE/2)>
+  FDSIZE:     <eval=(FFTSIZE+2)>
+  FDSIZE2:    <eval=(FDSIZE+2)/2>
+  MAXBIN:     <eval=FFTSIZE/2+1>
+  DD_SMOOTH:    0.92
+  NOISE_SMOOTH: 0.6
+  HISTLENGTH:   500
+  
+  DOA_FRAMESIZE:             1024
+  DOA_N_MICS:                2
+  DOA_N_TDOAMATRIX_ELEMENTS: <eval=DOA_N_MICS*DOA_N_MICS>
+  DOA_FASTTDOA_OUTPUTSIZE:   <eval=DOA_FRAMESIZE*DOA_N_TDOAMATRIX_ELEMENTS>
+  DOA_SAMPLERATE:          16000.0
+  DOA_WAVEPROPAGATIONSPEED:  343.0
+  DOA_MICSPACING:            0.048
+  FILTERLENGTH: 2048
+  SRPFRAMEFACTOR: 128
+  MICARRAYS: 4
+  CHANNELSPERARRAY: 4
+  ANGLESPERTWOPI: 8
+  
+  ACTIVITYDIARYSIZE: <eval=MICARRAYS+3 >
+[/MACRO]
+
+[TASK]
+  [KERNEL]
+    TaskType:   Realtime 
+    Scheduler: MultiCore
+    FloatingPointHandlerReg: On
+  [/KERNEL]
+  [INPUT]
+    Read1: { Nix }
+  [/INPUT]
+  [OUTPUT]
+    Pipe1: ..
+    Pipe2: ..
+    Pipe3: ..
+    Pipe4: ..
+  [/OUTPUT]
+  [LOGGER]
+    SPARK: { FileLogger, WARN }
+    DEFAULT: { DefaultLogger, WARN }
+    Read1: { DefaultLogger, WARN }
+  [/LOGGER]  
+ 
+  [MODULES]
+  
+    [M]
+      Name: Read1
+      Type: networksoundcard/ddnnode
+      Channels:  <eval=CHANNELSSOUNDCARD>
+      FrameSize: <eval=FRAMESIZE>
+      Samplerate: <eval=SAMPLERATE>
+      Soundcardname:  { <str=NTBB1> }
+      InstanceName: { <str=INSTANCENAME1> }
+      SamplerateOffset: <eval=SAMPLERATEOFFSETPPB>
+      NormFactor: 1
+    [/M]
+  
+    [M]
+      Name:            AmpDiv
+      Type:            basic/Math
+      InputFrameSize:  <eval=CHANNELSSOUNDCARD*FRAMESIZE>
+      OutputFrameSize: <eval=CHANNELSSOUNDCARD*FRAMESIZE>
+      ProcessData:     "out0=in0/16000;"
+    [/M] 
+        
+     [M]   
+      Name:      AudioSplitter
+      Type:      basic/Router2      
+      FrameSize: <eval=FRAMESIZE>
+      InputChannels:  { <eval=CHANNELSSOUNDCARD> }
+      OutputChannels: { 1, 4, 4, 4, 4 }
+      Mapping:        { 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 }
+    [/M]
+    
+    [M]     
+      Name:      Pipe1
+      Type:      asn/Pipe
+      BytesPerFrame: <eval=4*FRAMESIZE*4>
+      InputModuleMode: false
+      OutputModuleMode: true
+      Inputs: "NIX"
+      Outputs: { <eval=PIPEOUT0> }
+    [/M]
+    
+    [M]     
+      Name:      Pipe2
+      Type:      asn/Pipe
+      BytesPerFrame: <eval=4*FRAMESIZE*4>
+      InputModuleMode: false
+      OutputModuleMode: true
+      Inputs: "NIX"
+       Outputs: { <eval=PIPEOUT1> }
+    [/M]
+    
+    [M]     
+      Name:      Pipe3
+      Type:      asn/Pipe
+      BytesPerFrame: <eval=4*FRAMESIZE*4>
+      InputModuleMode: false
+      OutputModuleMode: true
+      Inputs: "NIX"
+       Outputs: { <eval=PIPEOUT2> }
+    [/M]
+    
+    [M]     
+      Name:      Pipe4
+      Type:      asn/Pipe
+      BytesPerFrame: <eval=4*FRAMESIZE*4>
+      InputModuleMode: false
+      OutputModuleMode: true
+      Inputs: "NIX"
+       Outputs: { <eval=PIPEOUT3> }
+    [/M]
+    
+      
+  [/MODULES]
+
+  [CONNECTIONS]
+
+    Read1[0] -> AmpDiv[0]
+  
+    AmpDiv[0] -> AudioSplitter[0]
+    AudioSplitter[1] -> Pipe1[0]
+    AudioSplitter[2] -> Pipe2[0]
+    AudioSplitter[3] -> Pipe3[0]
+    AudioSplitter[4] -> Pipe4[0]
+    
+  [/CONNECTIONS]
+
+[/TASK]

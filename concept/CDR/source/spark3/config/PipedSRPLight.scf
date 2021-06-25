@@ -1,0 +1,167 @@
+%% -----------------------------------------------------------------------
+%%
+%% Copyright (c) <2011> <University of Paderborn>
+%% Permission is hereby granted, free of charge, to any person
+%% obtaining a copy of this software and associated documentation
+%% files (the "Software"), to deal in the Software without restriction,
+%% including without limitation the rights to use, copy, modify and
+%% merge the Software, subject to the following conditions:
+%%
+%% 1.) The Software is used for non-commercial research and
+%%     education purposes.
+%%
+%% 2.) The above copyright notice and this permission notice shall be
+%%     included in all copies or substantial portions of the Software.
+%%
+%% 3.) Publication, Distribution, Sublicensing, and/or Selling of
+%%     copies or parts of the Software requires special agreements
+%%     with the University of Paderborn and is in general not permitted.
+%%
+%% 4.) Modifications or contributions to the software must be
+%%     published under this license. The University of Paderborn
+%%     is granted the non-exclusive right to publish modifications
+%%     or contributions in future versions of the Software free of charge.
+%%
+%% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+%% EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+%% OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+%% NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+%% HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+%% WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+%% FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+%% OTHER DEALINGS IN THE SOFTWARE.
+%%
+%% Persons using the Software are encouraged to notify the
+%% Department of Communications Engineering at the University of Paderborn
+%% about bugs via <spark@nt.uni-paderborn.de>. Please reference Spark
+%% in your publications if it was used for them.
+%%
+%% -----------------------------------------------------------------------
+
+[MACRO]
+  CHANNELSSOUNDCARD: 6
+  FRAMESIZE: 128
+  SAMPLERATE: 16000
+  SRPFRAMEFACTOR: 32
+  ANGLESPERTWOPI: 8
+  SRPPHATFFTSIZE: 8192
+[/MACRO]
+
+[TASK]
+  [KERNEL]
+    TaskType:   Realtime 
+    Scheduler: MultiCore
+    FloatingPointHandlerReg: On
+  [/KERNEL]
+  [INPUT]
+    PipeIn: { Nix }
+  [/INPUT]
+  [OUTPUT]
+    PipeOut: ..
+    Lightdirection: ..
+  [/OUTPUT]
+  [LOGGER]
+    SPARK: { FileLogger, WARN }
+    DEFAULT: { DefaultLogger, WARN }
+    Read1: { DefaultLogger, WARN }
+  [/LOGGER]  
+ 
+  [MODULES]
+  
+     [M]     
+      Name:      PipeIn
+      Type:      asn/Pipe
+      BytesPerFrame: <eval=4*CHANNELSSOUNDCARD*FRAMESIZE>
+      InputModuleMode: true
+      OutputModuleMode: false
+      Inputs: { <eval=PIPEIN0> }
+      Outputs: { "NIXX" }
+    [/M]
+      
+    [M]     
+      Name:      PipeOut
+      Type:      asn/Pipe
+      BytesPerFrame: <eval=6*4>
+      InputModuleMode: false
+      OutputModuleMode: true
+      Inputs: { "NIXX" }
+      Outputs: { <eval=PIPEOUT0> }
+    [/M]
+      
+      
+      [M]
+      Name: VAD
+      Type: ambicom/VAD
+      FrameSize: <eval=FRAMESIZE*SRPFRAMEFACTOR>
+      Channels: <eval=CHANNELSSOUNDCARD>
+      SampleRate: 16000
+      ACTIVITY_SHORT_TIME: 0.064
+      ACTIVITY_LONG_TIME: 1.024
+      ACTIVITY_BUF_TIME: 51.2
+      ACTIVITY_POW_ABS_MIN: 0.02
+      ACTIVITY_TIME_CONST_UP_SPEECH: 0.03
+      ACTIVITY_TIME_CONST_DN_SPEECH: 0.03
+      ACTIVITY_TIME_CONST_UP_NOISE: 0.03
+      ACTIVITY_TIME_CONST_DN_NOISE: 0.01
+      ACTIVITY_POW_ABS_MAX: 10.0
+      ACTIVITY_THRESHOLD_SPEECH: 12
+      ACTIVITY_THRESHOLD_NOISE: 8.0
+      MeanSpeech: 0.2
+      VarianceSpeech: 0.03
+      MeanNoise: 0.006
+      VarianceNoise: 0.003
+      [/M]
+   
+      [M]   
+      Name:      ReFrameSRP
+      Type:      basic/Reframing      
+      InFrameSize: <eval=FRAMESIZE*CHANNELSSOUNDCARD*4>
+      OutFrameSize: { <eval=FRAMESIZE*4*CHANNELSSOUNDCARD*SRPFRAMEFACTOR> }
+      [/M]
+      
+      [M]
+      Name: SRP
+      Type: asn/SRPPhat
+      Channels: <eval=CHANNELSSOUNDCARD>
+      FrameSize: { <eval=FRAMESIZE*SRPFRAMEFACTOR> }
+      FFTSize: { <eval=SRPPHATFFTSIZE> } 
+      NumAngles: { <eval=ANGLESPERTWOPI> } 
+      MicPos: { 0.025, 0, 0.0125, 0.021651, -0.0125, 0.021651, -0.025,  0, -0.0125, -0.021651, 0.0125, -0.021651 }
+      [/M]  
+      
+      
+      [M]   
+      Name:      Combine
+      Type:      basic/Router2      
+      FrameSize: 1
+      InputChannels:  { 1, 1, 1, 3 }
+      OutputChannels: { 6 }
+      Mapping:        { 0, 1, 2, 3 , 4, 5 }
+      [/M] 
+      
+    [M]
+      Name:            Lightdirection
+      Type:            networksoundcard/lightdirection
+      Angles: 1
+      FrameSize: { <eval=FRAMESIZE*CHANNELSSOUNDCARD*SRPFRAMEFACTOR> }
+      [/M]
+      
+  [/MODULES]
+
+  [CONNECTIONS]
+
+    PipeIn[0] -> ReFrameSRP[0] 
+    ReFrameSRP[0] -> VAD[0]
+    VAD[0] -> Combine[0]
+    ReFrameSRP[0] -> SRP[0]
+    SRP[0] -> Combine[1] 
+    SRP[1] -> Combine[2] 
+    VAD[2] -> Combine[3]
+    Combine[0] -> PipeOut[0]
+    
+    SRP[AnglesOutRad] ->  Lightdirection[Angles]
+    ReFrameSRP[0] -> Lightdirection[AudioSignal]
+    
+  [/CONNECTIONS]
+
+[/TASK]

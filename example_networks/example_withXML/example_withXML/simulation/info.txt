@@ -1,0 +1,2 @@
+1 - DynamicMARVELOJob 1 EXE: python task3a.py
+2 - DynamicMARVELOJob 2 EXE: python task3b.py

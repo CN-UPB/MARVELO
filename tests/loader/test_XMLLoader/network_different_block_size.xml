@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<network>
+    <node ip="192.168.4.1">
+        <job path="1" executable="exe1">
+            <parameter param="param1"></parameter>
+            <output pipe_id="1" block_size="10" block_count="5"></output>
+        </job>
+        <job path="2" executable="exe2">
+            <parameter param="param2"></parameter>
+            <input pipe_id="1" block_size="15" block_count="5"></input>
+        </job>
+    </node>
+</network>

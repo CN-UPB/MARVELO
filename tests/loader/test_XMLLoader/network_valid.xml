@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<network>
+    <node ip="192.168.4.1">
+        <job path="1" executable="exe1">
+            <parameter param="param1"></parameter>
+            <output pipe_id="1" block_size="10" block_count="5"></output>
+        </job>
+        <job path="2" executable="exe2">
+            <parameter param="param2"></parameter>
+            <input pipe_id="1" block_size="10" block_count="5"></input>
+            <output pipe_id="3" block_size="30"></output>
+        </job>
+    </node>
+
+    <node ip="192.168.4.2">
+        <job path="3" executable="exe3">
+            <parameter param="param3"></parameter>
+            <output pipe_id="2" block_size="20"></output>
+        </job>
+        <job path="4" executable="exe4">
+            <parameter param="param4"></parameter>
+            <input pipe_id="2" block_size="20"></input>
+            <output pipe_id="4" block_size="40"></output>
+            <output pipe_id="5" block_size="50"></output>
+        </job>
+    </node>
+
+    <node ip="192.168.4.3">
+        <job path="5" executable="exe5">
+            <input pipe_id="3" block_size="30"></input>
+            <input pipe_id="4" block_size="40"></input>
+        </job>
+    </node>
+
+    <node ip="192.168.4.4">
+        <job path="6" executable="exe6">
+            <parameter param="param6"></parameter>
+            <input pipe_id="5" block_size="50"></input>
+        </job>
+    </node>
+</network>

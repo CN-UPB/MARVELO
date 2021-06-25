@@ -1,0 +1,5 @@
+---
+- hosts: fissionservers
+  roles:
+    - role: setup
+      tags: setup

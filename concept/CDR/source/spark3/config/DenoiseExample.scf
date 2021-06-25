@@ -1,0 +1,197 @@
+%% -----------------------------------------------------------------------
+%%
+%% Copyright (c) <2011> <University of Paderborn>
+%% Permission is hereby granted, free of charge, to any person
+%% obtaining a copy of this software and associated documentation
+%% files (the "Software"), to deal in the Software without restriction,
+%% including without limitation the rights to use, copy, modify and
+%% merge the Software, subject to the following conditions:
+%%
+%% 1.) The Software is used for non-commercial research and
+%%     education purposes.
+%%
+%% 2.) The above copyright notice and this permission notice shall be
+%%     included in all copies or substantial portions of the Software.
+%%
+%% 3.) Publication, Distribution, Sublicensing, and/or Selling of
+%%     copies or parts of the Software requires special agreements
+%%     with the University of Paderborn and is in general not permitted.
+%%
+%% 4.) Modifications or contributions to the software must be
+%%     published under this license. The University of Paderborn
+%%     is granted the non-exclusive right to publish modifications
+%%     or contributions in future versions of the Software free of charge.
+%%
+%% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+%% EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+%% OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+%% NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+%% HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+%% WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+%% FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+%% OTHER DEALINGS IN THE SOFTWARE.
+%%
+%% Persons using the Software are encouraged to notify the
+%% Department of Communications Engineering at the University of Paderborn
+%% about bugs via <spark@nt.uni-paderborn.de>. Please reference Spark
+%% in your publications if it was used for them.
+%%
+%% -----------------------------------------------------------------------
+
+%% Task: This demo records single channel audio from a soundcard (0->hw:0, 108->dac108,...)
+%% and process it via IMCRA for denoising. Subsequently, a local wav file is written.
+%% This is a testfile for the ReSpeaker Soundcards, not intended for working with MARVELO
+%% MARVELO files: IMCRA.scf -> Piped Implementation of IMCRA
+%%                
+
+[MACRO]
+  SAMPLERATE: 16000
+  CHANNELS: 1
+  FRAMESIZE:  128
+  FFTSIZE:    1024
+  FDSIZE:     <eval=(FFTSIZE+2)>
+  MINGAIN: 0.1
+  APRIORISMOOTH: 0.95
+  NOISEPOWERSMOOTH: 0.95
+  CHANNELSSOUNDCARD: 1
+[/MACRO]
+[TASK]
+  [KERNEL]
+    TaskType:   Realtime 
+    Scheduler: MultiCore
+    FloatingPointHandlerReg: On
+  [/KERNEL]
+  [INPUT]
+    AudioInjectorModule:       { ... }
+  [/INPUT]
+  [OUTPUT]
+    WriteDenoiseAudio: { DenoisedAudio.wav }
+  [/OUTPUT]
+  [LOGGER]
+    SPARK: { ConsoleLogger, WARN }
+    DEFAULT: { ConsoleLogger, WARN }
+  [/LOGGER]  
+  [MODULES]
+   
+    [M]
+      Name: AudioInjectorModule
+      Type: networksoundcard/audioinjector
+      Channels:  <eval=CHANNELSSOUNDCARD>
+      Framesize: <eval=FRAMESIZE>
+      Samplerate: <eval=SAMPLERATE>
+      BitsPerSample: 16
+      HardwareInterface: 108
+    [/M]
+    
+    [M]
+      Name:            Normalize
+      Type:            basic/Math
+      InputFrameSize:  <eval=CHANNELSSOUNDCARD*FRAMESIZE>
+      OutputFrameSize: <eval=CHANNELSSOUNDCARD*FRAMESIZE>
+      ProcessData:     "out0=16000*in0;"
+    [/M]  
+    
+    [M]
+      Name:      ShortTimeFourierTransformMixed
+      Type:      basic/STFT
+      FrameSize: <eval=FRAMESIZE>
+      FFTSize:   <eval=FFTSIZE>
+      Window:    HANN
+    [/M]
+    [M]
+      Name:            MixedPower
+      Type:            basic/Math
+      InputFrameSize:  <eval=FDSIZE>
+      OutputFrameSize: <eval=FDSIZE/2>
+      ProcessData:     "out0=abs(complex(in0)).^2;"
+    [/M]
+   
+    [M]
+      Name: MinStat
+      Type: speechEnhancement/MinimumStatistics
+      FrequencyBins: <eval=FDSIZE/2>
+    [/M]
+    [M]
+      Name: PreVAD
+      Type: speechEnhancement/PrestageVAD
+      FrequencyBins: <eval=FDSIZE/2>
+    [/M]
+    [M]
+      Name: VSLocal
+      Type: speechEnhancement/VadSppLocalGlobal
+      FrequencyBins: <eval=FDSIZE/2>
+    [/M]
+    [M]
+      Name: VSGlobal
+      Type: speechEnhancement/VadSppLocalGlobal
+      FrequencyBins: <eval=FDSIZE/2>
+      SmoothWinLength: 31
+    [/M]
+    [M]
+      Name: VSFrame
+      Type: speechEnhancement/VadSppFrame
+      SampleRate: <eval=SAMPLERATE>
+      FrequencyBins: <eval=FDSIZE/2>
+    [/M]
+    [M]
+      Name: PsVad
+      Type: speechEnhancement/PoststageVAD
+      FrequencyBins: <eval=FDSIZE/2>
+    [/M]
+   
+    [M]
+      Name:            DecisionDirectedWiener
+      Type:            speechEnhancement/DecisionDirectedWienerFilter
+      FrequencyBins:  <eval=FDSIZE/2>
+      APrioriSNRSmoothFactor: <eval=APRIORISMOOTH>
+      NoisePowerSmoothFactor: <eval=NOISEPOWERSMOOTH>
+      MinGain:  <eval=MINGAIN>
+    [/M]
+    
+    
+    [M]
+      Name:      InverseSTFT
+      Type:      basic/ISTFT
+      FrameSize: <eval=FRAMESIZE>
+      FFTSize:   <eval=FFTSIZE>
+      Window:    HANN
+    [/M]
+    
+   
+    [M]
+      Name: WriteDenoiseAudio
+      Type: basic/WriteFile
+      FrameSize: <eval=FRAMESIZE>
+      FileDataType: INT16
+      FileType: WAV
+      Channels: <eval=CHANNELS>
+      SampleRate: <eval=SAMPLERATE>
+    [/M]
+    
+    
+  [/MODULES]
+  [CONNECTIONS]  
+     AudioInjectorModule[0] -> Normalize[0]
+     
+     Normalize         ->    ShortTimeFourierTransformMixed     ->  MixedPower
+     MixedPower    ->     MinStat      
+     MixedPower          ->     PreVAD[SignalPower]
+     MinStat[NoiseEstimate] ->     PreVAD[EstNoisePower]
+     PreVAD[Xi]        ->     VSLocal[InputXi]
+     PreVAD[Xi]        ->     VSGlobal[InputXi]    
+     PreVAD[Xi]        ->     VSFrame[InputXi]    
+
+     PreVAD[Eta]               ->     PsVad[Eta]
+     VSLocal[SppLocalGlobal]   ->     PsVad[SppLocal]
+     VSGlobal[SppLocalGlobal]  ->     PsVad[SppGlobal]
+     VSFrame[SppFrame]         ->     PsVad[SppFrame]
+     PreVAD[ExpIntArg] ->     PsVad[ExpIntArg]
+
+     ShortTimeFourierTransformMixed ->  DecisionDirectedWiener[0]
+     PsVad[VadSpp] ->  DecisionDirectedWiener[1]
+     DecisionDirectedWiener -> InverseSTFT
+     InverseSTFT -> WriteDenoiseAudio
+     
+  [/CONNECTIONS]
+[/TASK]
+

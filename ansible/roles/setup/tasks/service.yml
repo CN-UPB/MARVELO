@@ -1,0 +1,31 @@
+---
+- name: Get dispynode.py path
+  command: which dispynode.py
+  register: dispynode_path
+  tags:
+    - renew_service
+
+- name: Template-copy fission service file
+  template:
+    src: fission.service.j2
+    dest: /etc/systemd/system/fission.service
+  notify:
+    - restart fission
+  tags:
+    - renew_service
+
+- name: enable fission service
+  service:
+    name: fission
+    enabled: yes
+    state: started
+  tags:
+    - start_service
+
+- name: disable fission service
+  service:
+    name: fission
+    state: stopped
+  tags:
+    - never
+    - stop_service

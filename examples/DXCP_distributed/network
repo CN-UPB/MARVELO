@@ -1,0 +1,15 @@
+digraph Network {
+	"read_data 1" [fillcolor=deepskyblue1 style=filled]
+	"read_data 2" [fillcolor=deepskyblue1 style=filled]
+	"dxcp_phat 3" [fillcolor=deepskyblue1 style=filled]
+	"print_results 4" [fillcolor=deepskyblue1 style=filled]
+	"CSVSinkJob_2 5" [fillcolor=deepskyblue1 style=filled]
+	"read_data 1" -> "dxcp_phat 3" [label=1 fontcolor=crimson style=dashed]
+	"read_data 1" -> "CSVSinkJob_2 5" [label=11 fontcolor=crimson style=dashed]
+	"read_data 2" -> "dxcp_phat 3" [label=2 fontcolor=crimson style=dashed]
+	"read_data 2" -> "CSVSinkJob_2 5" [label=12 fontcolor=crimson style=dashed]
+	"dxcp_phat 3" -> "print_results 4" [label=3 fontcolor=crimson style=dashed]
+	"dxcp_phat 3" -> "print_results 4" [label=4 fontcolor=crimson style=dashed]
+	"dxcp_phat 3" -> "CSVSinkJob_2 5" [label=13 fontcolor=crimson style=dashed]
+	"print_results 4" -> "CSVSinkJob_2 5" [label=14 fontcolor=crimson style=dashed]
+}

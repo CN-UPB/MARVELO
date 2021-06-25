@@ -1,0 +1,4 @@
+User: asn
+System: asntesting
+Spark: /home/asn/asn_server/Demos/system/spark3/
+Time stamp: 1.4.2019  13:32:58

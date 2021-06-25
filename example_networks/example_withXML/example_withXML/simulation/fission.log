@@ -1,0 +1,93 @@
+2021-04-30 15:46:38,298 - fission - DEBUG [JOB:1] - Starting DynamicMARVELOJob 1 EXE: python task3a.py with debug=True
+2021-04-30 15:46:38,298 - fission.remote.debug - DEBUG [JOB:1] - Starting MultiWrite
+2021-04-30 15:46:38,301 - fission - DEBUG [JOB:2] - Starting DynamicMARVELOJob 2 EXE: python task3b.py with debug=True
+2021-04-30 15:46:38,302 - fission.remote.debug - DEBUG [JOB:1] - Starting DebugServer.
+2021-04-30 15:46:38,302 - fission - DEBUG [JOB:1] - Creating: /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/example_withXML/simulation//1
+2021-04-30 15:46:38,302 - fission - DEBUG [JOB:1] - Creating: /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/example_withXML/simulation//fifo/1/
+2021-04-30 15:46:38,303 - fission - DEBUG [JOB:1] - Creating ingoing 0 Pipes.
+2021-04-30 15:46:38,303 - fission - DEBUG [JOB:1] - Creating outgoing 1 Pipes
+2021-04-30 15:46:38,303 - fission - DEBUG [JOB:1] - Created pipe /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/example_withXML/simulation//fifo/1/1.fifo (outgoing).
+2021-04-30 15:46:38,303 - fission - DEBUG [JOB:1] - Created pipe /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/example_withXML/simulation//fifo/1.fifo (outgoing).
+2021-04-30 15:46:38,303 - fission - DEBUG [JOB:1] - Starting WritePipe with /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/example_withXML/simulation//fifo/1.fifo, LoaderPipe ID 1, <queue.Queue object at 0x7f3f238b9050>, False, wrapper_pipe=True
+2021-04-30 15:46:38,303 - fission.remote.synchronization - DEBUG [JOB:1] - Starting CommandServer on port: 1999
+2021-04-30 15:46:38,303 - fission - INFO [JOB:1] - @DynamicMARVELOJob 1 EXE: python task3a.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/example_withXML/simulation//fifo/1.fifo)]
+2021-04-30 15:46:38,303 - fission - DEBUG [JOB:1] - Starting thread SendBlock (source)...
+2021-04-30 15:46:38,303 - fission.remote.synchronization - DEBUG [JOB:1] - SendBlock: Opening /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/example_withXML/simulation//fifo/1/1.fifo.
+2021-04-30 15:46:38,304 - fission - DEBUG [JOB:1] - Starting thread CommandServer->(1999)...
+2021-04-30 15:46:38,304 - fission - DEBUG [JOB:1] - Starting thread RedirectHandler...
+2021-04-30 15:46:38,304 - fission - DEBUG [JOB:1] - Starting thread WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/example_withXML/simulation//fifo/1.fifo)...
+2021-04-30 15:46:38,304 - fission.remote.synchronization - DEBUG [JOB:1] - Opening WritePipe /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/example_withXML/simulation//fifo/1.fifo, wrapper_pipe = True
+2021-04-30 15:46:38,304 - fission - DEBUG [JOB:1] - Executing DynamicMARVELOJob 1 EXE: python task3a.py.
+2021-04-30 15:46:38,304 - fission.core.jobs - DEBUG [JOB:1] - Redirecting stderr and stdout to <MultiWrite(Thread-1, started daemon 139909128247040)>.
+2021-04-30 15:46:38,304 - fission.core.jobs - DEBUG [JOB:1] - DynamicMARVELOJob 1 EXE: python task3a.py executing ['python', 'task3a.py', '-o', '12']
+2021-04-30 15:46:38,304 - fission.remote.debug - DEBUG [JOB:2] - Starting MultiWrite
+2021-04-30 15:46:38,307 - fission.remote.debug - DEBUG [JOB:2] - Starting DebugServer.
+2021-04-30 15:46:38,307 - fission - DEBUG [JOB:2] - Creating: /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/example_withXML/simulation//2
+2021-04-30 15:46:38,308 - fission - DEBUG [JOB:2] - Creating: /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/example_withXML/simulation//fifo/2/
+2021-04-30 15:46:38,308 - fission - DEBUG [JOB:2] - Creating ingoing 1 Pipes.
+2021-04-30 15:46:38,309 - fission - DEBUG [JOB:2] - Created pipe /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/example_withXML/simulation//fifo/2/1.fifo (ingoing).
+2021-04-30 15:46:38,309 - fission - DEBUG [JOB:2] - Created pipe /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/example_withXML/simulation//fifo/1.fifo (ingoing).
+2021-04-30 15:46:38,309 - fission - DEBUG [JOB:2] - Creating outgoing 0 Pipes
+2021-04-30 15:46:38,309 - fission.remote.synchronization - DEBUG [JOB:2] - Starting CommandServer on port: 1997
+2021-04-30 15:46:38,309 - fission - INFO [JOB:2] - @DynamicMARVELOJob 2 EXE: python task3b.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/example_withXML/simulation//fifo/2/1.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/example_withXML/simulation//fifo/1.fifo)] | out []
+2021-04-30 15:46:38,309 - fission - DEBUG [JOB:2] - Starting thread ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/example_withXML/simulation//fifo/1.fifo)...
+2021-04-30 15:46:38,313 - fission.remote.synchronization - DEBUG [JOB:2] - Opening ReadPipe on /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/example_withXML/simulation//fifo/1.fifo
+2021-04-30 15:46:38,313 - fission - DEBUG [JOB:2] - Starting thread WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/example_withXML/simulation//fifo/2/1.fifo)...
+2021-04-30 15:46:38,314 - fission.remote.synchronization - DEBUG [JOB:2] - Opening WritePipe /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/example_withXML/simulation//fifo/2/1.fifo, wrapper_pipe = False
+2021-04-30 15:46:38,314 - fission - DEBUG [JOB:2] - Starting thread SQN_Checker (sink)...
+2021-04-30 15:46:38,314 - fission - DEBUG [JOB:2] - Starting thread CommandServer->(1997)...
+2021-04-30 15:46:38,314 - fission - DEBUG [JOB:2] - Starting thread RedirectHandler...
+2021-04-30 15:46:38,315 - fission - DEBUG [JOB:2] - Executing DynamicMARVELOJob 2 EXE: python task3b.py.
+2021-04-30 15:46:38,315 - fission.core.jobs - DEBUG [JOB:2] - Redirecting stderr and stdout to <MultiWrite(Thread-1, started daemon 139909128247040)>.
+2021-04-30 15:46:38,315 - fission.core.jobs - DEBUG [JOB:2] - DynamicMARVELOJob 2 EXE: python task3b.py executing ['python', 'task3b.py', '-i', '14']
+2021-04-30 15:46:38,317 - fission - DEBUG [JOB:2] - DynamicMARVELOJob 2 EXE: python task3b.py waiting for finish event...
+2021-04-30 15:46:43,642 - fission - INFO [JOB:1] - DynamicMARVELOJob 1 EXE: python task3a.py finished with code: 0:
+2021-04-30 15:47:09,661 - fission - DEBUG [JOB:2] - SIGTERM received. Shutting down subprocess.
+2021-04-30 15:47:09,661 - fission.remote.synchronization - DEBUG [JOB:2] - Killing ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/example_withXML/simulation//fifo/1.fifo)...
+2021-04-30 15:47:09,661 - fission.remote.synchronization - DEBUG [JOB:2] - Killing WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/example_withXML/simulation//fifo/2/1.fifo)...
+2021-04-30 15:47:09,661 - fission.remote.synchronization - DEBUG [JOB:2] - Killing CommandServer->(1997)...
+2021-04-30 15:47:09,661 - fission.remote.synchronization - DEBUG [JOB:2] - Killing RedirectHandler...
+2021-04-30 15:47:10,017 - fission - DEBUG [JOB:1] - Starting DynamicMARVELOJob 1 EXE: python task3a.py with debug=True
+2021-04-30 15:47:10,019 - fission.remote.debug - DEBUG [JOB:1] - Starting MultiWrite
+2021-04-30 15:47:10,020 - fission.remote.debug - DEBUG [JOB:1] - Starting DebugServer.
+2021-04-30 15:47:10,021 - fission - DEBUG [JOB:1] - Creating: /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/example_withXML/simulation//1
+2021-04-30 15:47:10,021 - fission - DEBUG [JOB:1] - Creating: /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/example_withXML/simulation//fifo/1/
+2021-04-30 15:47:10,021 - fission - DEBUG [JOB:1] - Creating ingoing 0 Pipes.
+2021-04-30 15:47:10,021 - fission - DEBUG [JOB:1] - Creating outgoing 1 Pipes
+2021-04-30 15:47:10,021 - fission - DEBUG [JOB:1] - Created pipe /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/example_withXML/simulation//fifo/1/1.fifo (outgoing).
+2021-04-30 15:47:10,021 - fission - DEBUG [JOB:1] - Created pipe /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/example_withXML/simulation//fifo/1.fifo (outgoing).
+2021-04-30 15:47:10,021 - fission - DEBUG [JOB:1] - Starting WritePipe with /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/example_withXML/simulation//fifo/1.fifo, LoaderPipe ID 1, <queue.Queue object at 0x7fb305a260d0>, False, wrapper_pipe=True
+2021-04-30 15:47:10,022 - fission.remote.synchronization - DEBUG [JOB:1] - Starting CommandServer on port: 1999
+2021-04-30 15:47:10,022 - fission - INFO [JOB:1] - @DynamicMARVELOJob 1 EXE: python task3a.py starting 4 threads: static [SendBlock (source), CommandServer->(1999), RedirectHandler] | in [] | out [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/example_withXML/simulation//fifo/1.fifo)]
+2021-04-30 15:47:10,022 - fission - DEBUG [JOB:1] - Starting thread SendBlock (source)...
+2021-04-30 15:47:10,022 - fission.remote.synchronization - DEBUG [JOB:1] - SendBlock: Opening /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/example_withXML/simulation//fifo/1/1.fifo.
+2021-04-30 15:47:10,022 - fission - DEBUG [JOB:1] - Starting thread CommandServer->(1999)...
+2021-04-30 15:47:10,022 - fission - DEBUG [JOB:1] - Starting thread RedirectHandler...
+2021-04-30 15:47:10,023 - fission - DEBUG [JOB:1] - Starting thread WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/example_withXML/simulation//fifo/1.fifo)...
+2021-04-30 15:47:10,024 - fission.remote.synchronization - DEBUG [JOB:1] - Opening WritePipe /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/example_withXML/simulation//fifo/1.fifo, wrapper_pipe = True
+2021-04-30 15:47:10,024 - fission - DEBUG [JOB:1] - Executing DynamicMARVELOJob 1 EXE: python task3a.py.
+2021-04-30 15:47:10,024 - fission.core.jobs - DEBUG [JOB:1] - Redirecting stderr and stdout to <MultiWrite(Thread-1, started daemon 140406842631936)>.
+2021-04-30 15:47:10,025 - fission.core.jobs - DEBUG [JOB:1] - DynamicMARVELOJob 1 EXE: python task3a.py executing ['python', 'task3a.py', '-o', '13']
+2021-04-30 15:47:10,027 - fission - DEBUG [JOB:2] - Starting DynamicMARVELOJob 2 EXE: python task3b.py with debug=True
+2021-04-30 15:47:10,028 - fission.remote.debug - DEBUG [JOB:2] - Starting MultiWrite
+2021-04-30 15:47:10,029 - fission.remote.debug - DEBUG [JOB:2] - Starting DebugServer.
+2021-04-30 15:47:10,029 - fission - DEBUG [JOB:2] - Creating: /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/example_withXML/simulation//2
+2021-04-30 15:47:10,029 - fission - DEBUG [JOB:2] - Creating: /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/example_withXML/simulation//fifo/2/
+2021-04-30 15:47:10,029 - fission - DEBUG [JOB:2] - Creating ingoing 1 Pipes.
+2021-04-30 15:47:10,029 - fission - DEBUG [JOB:2] - Created pipe /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/example_withXML/simulation//fifo/2/1.fifo (ingoing).
+2021-04-30 15:47:10,029 - fission - DEBUG [JOB:2] - Created pipe /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/example_withXML/simulation//fifo/1.fifo (ingoing).
+2021-04-30 15:47:10,029 - fission - DEBUG [JOB:2] - Creating outgoing 0 Pipes
+2021-04-30 15:47:10,029 - fission.remote.synchronization - DEBUG [JOB:2] - Starting CommandServer on port: 1997
+2021-04-30 15:47:10,030 - fission - INFO [JOB:2] - @DynamicMARVELOJob 2 EXE: python task3b.py starting 5 threads: static [WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/example_withXML/simulation//fifo/2/1.fifo), SQN_Checker (sink), CommandServer->(1997), RedirectHandler] | in [ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/example_withXML/simulation//fifo/1.fifo)] | out []
+2021-04-30 15:47:10,030 - fission - DEBUG [JOB:2] - Starting thread ReadPipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/example_withXML/simulation//fifo/1.fifo)...
+2021-04-30 15:47:10,030 - fission.remote.synchronization - DEBUG [JOB:2] - Opening ReadPipe on /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/example_withXML/simulation//fifo/1.fifo
+2021-04-30 15:47:10,030 - fission - DEBUG [JOB:2] - Starting thread WritePipe->(/home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/example_withXML/simulation//fifo/2/1.fifo)...
+2021-04-30 15:47:10,040 - fission.remote.synchronization - DEBUG [JOB:2] - Opening WritePipe /home/hafifi/Documents/Paderborn/marvelo-demo/example_networks/example_withXML/example_withXML/simulation//fifo/2/1.fifo, wrapper_pipe = False
+2021-04-30 15:47:10,040 - fission - DEBUG [JOB:2] - Starting thread SQN_Checker (sink)...
+2021-04-30 15:47:10,041 - fission - DEBUG [JOB:2] - Starting thread CommandServer->(1997)...
+2021-04-30 15:47:10,041 - fission - DEBUG [JOB:2] - Starting thread RedirectHandler...
+2021-04-30 15:47:10,041 - fission - DEBUG [JOB:2] - Executing DynamicMARVELOJob 2 EXE: python task3b.py.
+2021-04-30 15:47:10,042 - fission.core.jobs - DEBUG [JOB:2] - Redirecting stderr and stdout to <MultiWrite(Thread-1, started daemon 140406842631936)>.
+2021-04-30 15:47:10,042 - fission.core.jobs - DEBUG [JOB:2] - DynamicMARVELOJob 2 EXE: python task3b.py executing ['python', 'task3b.py', '-i', '14']
+2021-04-30 15:47:10,044 - fission - DEBUG [JOB:2] - DynamicMARVELOJob 2 EXE: python task3b.py waiting for finish event...
+2021-04-30 15:47:15,361 - fission - INFO [JOB:1] - DynamicMARVELOJob 1 EXE: python task3a.py finished with code: 0:

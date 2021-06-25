@@ -1,0 +1,231 @@
+%% -----------------------------------------------------------------------
+%%
+%% Copyright (c) <2011> <University of Paderborn>
+%% Permission is hereby granted, free of charge, to any person
+%% obtaining a copy of this software and associated documentation
+%% files (the "Software"), to deal in the Software without restriction,
+%% including without limitation the rights to use, copy, modify and
+%% merge the Software, subject to the following conditions:
+%%
+%% 1.) The Software is used for non-commercial research and
+%%     education purposes.
+%%
+%% 2.) The above copyright notice and this permission notice shall be
+%%     included in all copies or substantial portions of the Software.
+%%
+%% 3.) Publication, Distribution, Sublicensing, and/or Selling of
+%%     copies or parts of the Software requires special agreements
+%%     with the University of Paderborn and is in general not permitted.
+%%
+%% 4.) Modifications or contributions to the software must be
+%%     published under this license. The University of Paderborn
+%%     is granted the non-exclusive right to publish modifications
+%%     or contributions in future versions of the Software free of charge.
+%%
+%% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+%% EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+%% OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+%% NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+%% HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+%% WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+%% FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+%% OTHER DEALINGS IN THE SOFTWARE.
+%%
+%% Persons using the Software are encouraged to notify the
+%% Department of Communications Engineering at the University of Paderborn
+%% about bugs via <spark@nt.uni-paderborn.de>. Please reference Spark
+%% in your publications if it was used for them.
+%%
+%% -----------------------------------------------------------------------
+
+%% Wiedergabe über USB-Soundcard
+%% aplay --device plughw:CARD=Device,DEV=0 Sprache.wav 
+
+[MACRO]
+  FRAMESIZE:  128
+  CHANNELS: 2
+  FFTSIZE: 8192
+  FFTSIZERESAMPLE: 1024
+  SAMPLERATE: 16000
+[/MACRO]
+
+[TASK]
+  [KERNEL]
+    TaskType:   Realtime 
+    Scheduler: MultiCore
+    FloatingPointHandlerReg: On
+  [/KERNEL]
+  [INPUT]
+    ReadAudioC0: ...
+    ReadAudioC1: ...
+  [/INPUT]
+  [OUTPUT]
+    Intercom: ...
+    StereoAudioServer: ...
+  [/OUTPUT]
+  [LOGGER]
+    SPARK: { FileLogger, WARN }
+    DEFAULT: { DefaultLogger, WARN }
+  [/LOGGER]  
+ 
+  [MODULES]
+    
+    [M]     
+      Name:      ReadAudioC0
+      Type:      asn/Pipe
+      BytesPerFrame: <eval=4*FRAMESIZE>
+      InputModuleMode: true
+      OutputModuleMode: false
+      Inputs: { <eval=PIPEIN0> }
+      Outputs: { "NIXX" }
+    [/M]
+    
+    [M]     
+      Name:      ReadAudioC1
+      Type:      asn/Pipe
+      BytesPerFrame: <eval=4*FRAMESIZE>
+      InputModuleMode: true
+      OutputModuleMode: false
+      Inputs: { <eval=PIPEIN1> }
+      Outputs: { "NIXX" }
+    [/M]    
+     
+    [M]
+      Name:  CoherenceSRO
+      Type:  asn/CoherenceSRO
+      FrameSize:  <eval=FRAMESIZE>
+      Channels:   <eval=CHANNELS>
+      WelchWindowMultiplikator:  5
+      WelchWindowShift:  512
+      MaxSRO: 400
+      Samplerate: <eval=SAMPLERATE>
+      FFTSize:  <eval=FFTSIZE>
+      NormalizeSRO: true
+      TemporalDelayCoherence: <eval=FFTSIZE>
+      RestrictToFirst: true
+    [/M]
+    
+    [M]
+      Name:      Route
+      Type:      basic/Router2
+      FrameSize: <eval=FRAMESIZE>
+      InputChannels: { 1, 1 }
+      OutputChannels: { 2 }
+      Mapping: { 0, 1 }
+    [/M]
+    
+    
+     [M]
+      Name:      Splitter
+      Type:      basic/Router2
+      FrameSize: <eval=1>
+      InputChannels: { <eval=CHANNELS> }
+      OutputChannels: { 1, 1 }
+      Mapping: { 0, 1  }
+    [/M]
+    
+      
+    [M]
+      Name: STFTResampleC0
+      Type: asn/stftresample
+      Channels: <eval=1>
+      FrameSize: { <eval=FRAMESIZE> }
+      FFTSize: { <eval=FFTSIZERESAMPLE> }
+      SRO: { 0 }
+      UseSROInput: true
+    [/M] 
+
+    [M]
+      Name: STFTResampleC1
+      Type: asn/stftresample
+      Channels: <eval=1>
+      FrameSize: { <eval=FRAMESIZE> }
+      FFTSize: { <eval=FFTSIZERESAMPLE> }
+      SRO: { 0 }
+      UseSROInput: true
+    [/M] 
+    
+    [M]
+      Name: ResampleControl
+      Type: asn/SROTracker
+      Channels: <eval=CHANNELS>
+      RestrictToFirst: true
+      ShowInfo: true
+    [/M] 
+    
+    [M]
+        Name:       Token
+        Type:       basic/GenerateToken
+        FrameSize:  <eval=CHANNELS*4>
+    [/M]
+    
+    [M]     
+      Name:      Intercom
+      Type:      networksoundcard/udpintercom
+      ID: 66
+      ShowOnShell: false
+      ServerPort: 9000
+      ServerName: 131.234.222.22
+      DataSize: <eval=2>
+      PreString: "SRO "
+      DataDrop: 1000
+    [/M]
+    
+     [M]
+      Name:      DataPack
+      Type:      basic/Router2
+      FrameSize: <eval=1>
+      InputChannels: { 1, 1 }
+      OutputChannels: { 2 }
+      Mapping: { 0, 1 }
+    [/M]
+    
+    [M]   
+      Name:      StereoDataCombine
+      Type:      basic/Router2      
+      FrameSize: <eval=FRAMESIZE>
+      InputChannels:  { 1, 1 }
+      OutputChannels: { 2 }
+      Mapping:        { 0, 1 }
+      [/M] 
+      
+   [M]
+      Name:  StereoAudioServer
+      Type:  basic/RemoteLinkOutput
+      FrameSizes: {<eval=4*2*FRAMESIZE>}
+%%       NoClientBehavior: Wait
+%%       SyncStrategy: BLOCK_INPUT
+      QueueSize: <eval=100>
+    [/M]
+    
+    
+  [/MODULES]
+
+  [CONNECTIONS]
+
+    ReadAudioC0[0] -> STFTResampleC0[0]
+    ReadAudioC1[0] -> STFTResampleC1[0]
+    
+    STFTResampleC0[0] -> Route[0]
+    STFTResampleC1[0] -> Route[1]
+    
+    STFTResampleC0[0] -> StereoDataCombine[0]
+    STFTResampleC1[0] -> StereoDataCombine[1]
+    StereoDataCombine[0] -> StereoAudioServer[0]
+
+    Route[0] -> CoherenceSRO[0]
+    CoherenceSRO[1] -> ResampleControl[0]
+    CoherenceSRO[2] -> ResampleControl[1]
+    ResampleControl[0] -> Token[0]
+    Token[0] -> Splitter[0]
+
+    Splitter[0] -> STFTResampleC0[1]
+    Splitter[1] -> STFTResampleC1[1]
+    
+    CoherenceSRO[1] -> DataPack[0]
+    CoherenceSRO[2] -> DataPack[1]
+    DataPack[0] -> Intercom[0]    
+    
+  [/CONNECTIONS]
+
+[/TASK]

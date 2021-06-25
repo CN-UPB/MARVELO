@@ -1,0 +1,7 @@
+digraph Network {
+	"SourceJob 1" [fillcolor=deepskyblue1 style=filled]
+	"MiddleJob 2" [fillcolor=deepskyblue1 style=filled]
+	"CSVSinkJob 3" [fillcolor=deepskyblue1 style=filled]
+	"SourceJob 1" -> "MiddleJob 2" [label=1 fontcolor=crimson style=dashed]
+	"MiddleJob 2" -> "CSVSinkJob 3" [label=2 fontcolor=crimson style=dashed]
+}

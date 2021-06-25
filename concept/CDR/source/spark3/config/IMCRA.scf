@@ -1,0 +1,203 @@
+%% -----------------------------------------------------------------------
+%%
+%% Copyright (c) <2011> <University of Paderborn>
+%% Permission is hereby granted, free of charge, to any person
+%% obtaining a copy of this software and associated documentation
+%% files (the "Software"), to deal in the Software without restriction,
+%% including without limitation the rights to use, copy, modify and
+%% merge the Software, subject to the following conditions:
+%%
+%% 1.) The Software is used for non-commercial research and
+%%     education purposes.
+%%
+%% 2.) The above copyright notice and this permission notice shall be
+%%     included in all copies or substantial portions of the Software.
+%%
+%% 3.) Publication, Distribution, Sublicensing, and/or Selling of
+%%     copies or parts of the Software requires special agreements
+%%     with the University of Paderborn and is in general not permitted.
+%%
+%% 4.) Modifications or contributions to the software must be
+%%     published under this license. The University of Paderborn
+%%     is granted the non-exclusive right to publish modifications
+%%     or contributions in future versions of the Software free of charge.
+%%
+%% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+%% EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+%% OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+%% NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+%% HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+%% WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+%% FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+%% OTHER DEALINGS IN THE SOFTWARE.
+%%
+%% Persons using the Software are encouraged to notify the
+%% Department of Communications Engineering at the University of Paderborn
+%% about bugs via <spark@nt.uni-paderborn.de>. Please reference Spark
+%% in your publications if it was used for them.
+%%
+%% -----------------------------------------------------------------------
+
+%% Task: This is a piped demo of IMCRA for denoising. 
+%% Single channel noise tracker with Speech Presence Probabilty (SPP) decision
+%% Denoising employs DecsionDirected Wiener Filter with IMCRA noise tracker
+%% PESQ-Gain in noisy conditions: approx. 0.5
+%% WARNING: In clean conditions this approach will decrease the speech quality!
+
+[MACRO]
+  SAMPLERATE: 16000
+  FRAMESIZE:  128
+  FFTSIZE:    1024
+  FDSIZE:     <eval=(FFTSIZE+2)>
+  MINGAIN: 0.1
+  APRIORISMOOTH: 0.95
+  NOISEPOWERSMOOTH: 0.95
+[/MACRO]
+[TASK]
+  [KERNEL]
+    TaskType:   Realtime 
+    Scheduler: MultiCore
+    FloatingPointHandlerReg: On
+  [/KERNEL]
+  [INPUT]
+    PipeIn: { Nix }
+  [/INPUT]
+  [OUTPUT]
+    PipeOut: ..
+  [/OUTPUT]
+  [LOGGER]
+    SPARK: { ConsoleLogger, WARN }
+    DEFAULT: { ConsoleLogger, WARN }
+  [/LOGGER]  
+  [MODULES]
+   
+    [M]     
+      Name:      PipeIn
+      Type:      asn/Pipe
+      BytesPerFrame: <eval=4*FRAMESIZE>
+      InputModuleMode: true
+      OutputModuleMode: false
+      Inputs: { <eval=PIPEIN0> }
+      Outputs: { "NIXX" }
+    [/M]
+      
+    [M]     
+      Name:      PipeOut
+      Type:      asn/Pipe
+      BytesPerFrame: <eval=4*FRAMESIZE>
+      InputModuleMode: false
+      OutputModuleMode: true
+      Inputs: { "NIXX" }
+      Outputs: { <eval=PIPEOUT0> }
+    [/M]
+    
+    [M]
+      Name:            Normalize
+      Type:            basic/Math
+      InputFrameSize:  <eval=FRAMESIZE>
+      OutputFrameSize: <eval=FRAMESIZE>
+      ProcessData:     "out0=16000*in0;"
+    [/M]  
+    
+    
+    [M]
+      Name:            DeNormalize
+      Type:            basic/Math
+      InputFrameSize:  <eval=FRAMESIZE>
+      OutputFrameSize: <eval=FRAMESIZE>
+      ProcessData:     "out0=in0/16000;"
+    [/M] 
+    
+    [M]
+      Name:      ShortTimeFourierTransformMixed
+      Type:      basic/STFT
+      FrameSize: <eval=FRAMESIZE>
+      FFTSize:   <eval=FFTSIZE>
+      Window:    HANN
+    [/M]
+    [M]
+      Name:            MixedPower
+      Type:            basic/Math
+      InputFrameSize:  <eval=FDSIZE>
+      OutputFrameSize: <eval=FDSIZE/2>
+      ProcessData:     "out0=abs(complex(in0)).^2;"
+    [/M]
+   
+    [M]
+      Name: MinStat
+      Type: speechEnhancement/MinimumStatistics
+      FrequencyBins: <eval=FDSIZE/2>
+    [/M]
+    [M]
+      Name: PreVAD
+      Type: speechEnhancement/PrestageVAD
+      FrequencyBins: <eval=FDSIZE/2>
+    [/M]
+    [M]
+      Name: VSLocal
+      Type: speechEnhancement/VadSppLocalGlobal
+      FrequencyBins: <eval=FDSIZE/2>
+    [/M]
+    [M]
+      Name: VSGlobal
+      Type: speechEnhancement/VadSppLocalGlobal
+      FrequencyBins: <eval=FDSIZE/2>
+      SmoothWinLength: 31
+    [/M]
+    [M]
+      Name: VSFrame
+      Type: speechEnhancement/VadSppFrame
+      SampleRate: <eval=SAMPLERATE>
+      FrequencyBins: <eval=FDSIZE/2>
+    [/M]
+    [M]
+      Name: PsVad
+      Type: speechEnhancement/PoststageVAD
+      FrequencyBins: <eval=FDSIZE/2>
+    [/M]
+   
+    [M]
+      Name:            DecisionDirectedWiener
+      Type:            speechEnhancement/DecisionDirectedWienerFilter
+      FrequencyBins:  <eval=FDSIZE/2>
+      APrioriSNRSmoothFactor: <eval=APRIORISMOOTH>
+      NoisePowerSmoothFactor: <eval=NOISEPOWERSMOOTH>
+      MinGain:  <eval=MINGAIN>
+    [/M]
+    
+    
+    [M]
+      Name:      InverseSTFT
+      Type:      basic/ISTFT
+      FrameSize: <eval=FRAMESIZE>
+      FFTSize:   <eval=FFTSIZE>
+      Window:    HANN
+    [/M]
+    
+   
+    
+  [/MODULES]
+  [CONNECTIONS]  
+     PipeIn -> Normalize[0]
+     
+     Normalize         ->    ShortTimeFourierTransformMixed     ->  MixedPower
+     MixedPower    ->     MinStat      
+     MixedPower          ->     PreVAD[SignalPower]
+     MinStat[NoiseEstimate] ->     PreVAD[EstNoisePower]
+     PreVAD[Xi]        ->     VSLocal[InputXi]
+     PreVAD[Xi]        ->     VSGlobal[InputXi]    
+     PreVAD[Xi]        ->     VSFrame[InputXi]    
+
+     PreVAD[Eta]               ->     PsVad[Eta]
+     VSLocal[SppLocalGlobal]   ->     PsVad[SppLocal]
+     VSGlobal[SppLocalGlobal]  ->     PsVad[SppGlobal]
+     VSFrame[SppFrame]         ->     PsVad[SppFrame]
+     PreVAD[ExpIntArg] ->     PsVad[ExpIntArg]
+
+     ShortTimeFourierTransformMixed ->  DecisionDirectedWiener[0]
+     PsVad[VadSpp] ->  DecisionDirectedWiener[1]
+     DecisionDirectedWiener -> InverseSTFT
+     InverseSTFT -> DeNormalize -> PipeOut
+     
+  [/CONNECTIONS]
+[/TASK]

@@ -1,0 +1,178 @@
+Readme for selection of the Pi closest to the source based on CDR estimation.
+
+########################################################
+# Workflow
+########################################################
+
+1. Input or from moduel_signal_buffer_polling.py: 
+    Audio data, recorded using microphones connected to the Pi
+    |
+    v
+2. Estimation of the power spectral density for all specified channel combinations. 
+    (module_power_spectra_estimator.py)
+    |
+    v
+3. Estimation of the coherence for all specified channel combinatons.
+    (module_signal_coherence_estimator.py)
+    |
+    v
+4. Estimation of the Cohrent-to-Diffuse-power-Ratio (CDR) for all speciefied channel
+    combinations (module_cdr_estiamtor.py)
+    |
+    v
+5. Estimation of the diffuseness from the CDR. This step is not neccessarily needed, but
+    the diffuseness is directly proporional to the distance and the CDR is anti-propotional.
+    Therefore the diffuseness is more suitable for visualization.
+    |
+    v
+6. Two possibilites:
+    - The data is send to module_find_maximum.py running on a Pi which collects all diffuseness 
+        values and selects the Pi closest to the source. The result can also be forwarded to 
+        other modules.
+    or
+    - The data is transmitted via module_send_on_request.py to a computer with the Python 
+        script receive_data.py running. 
+
+
+
+########################################################
+# Usage
+########################################################
+
+The selection can be started on its own using MARVELO and all modules in the folders 1 to 5 
+and max. The IP-address of the Pi closest to the source will then be printed on the command line. 
+
+Instead of running the maximization on a Raspberry Pi it can also be run on a computer, which 
+is connected to the same ad-hoc wifi netwerk. Then the modules 1-6 are needed on each connected Pi
+and the Python skript receive_data.py is needed on the computer to collect the data from the Pis. 
+This script needs all IP addresses from which the data shall be collected as parameters.
+
+The reading of the microphone data can be done by a different module, if the format of the 
+data written on the pipe has the following interleaved format: 'first sample of the first channel, 
+first sample of the second channel, ..., first sample of the last channel, second sample of 
+the first channel, ...'
+
+The result of the selection can be forwarded to another module. If this is done two additional 
+pipes are needed. On the first one the mean diffuesness values of all input pipes is written 
+in interleaved format (diffuseness of the first Pi, diffuseness of the second Pi, ..., diffuseness 
+of the fist Pi, ...). On the second channel the IP address of the input with the minimum 
+diffuseness values is send. If only one pipe is configured only the mean diffuseness values are send.
+
+Remark: The file module_find_maximum.py searches for the minimum not the maximum. In order to avoid
+refactoring problems it has not been renamed.
+
+
+########################################################
+# topology file
+########################################################
+
+Here the parameters in the topology which are independed from Marvelo will shortly be explained
+and important configurations will be mentioned. 
+
+"-noc": The number of channels of the soundcard used. It can be set to the values 6 or 4, if other 
+      values are needed a new .csv file with the sensor positions is needed. This file needs to 
+      be placed in the folder 4 and the file name needs to be passed as parameter to the module 
+      module_cdr_estimator.py (see next parameter). 
+
+    - needed for the modules: module_signal_buffer_polling.py
+                              module_power_spectra_estimator.py
+                              modele_signal_coherence_estimator.py
+                              module_signal_coherence_estiamtor.py
+                              module_cdr_estimator.py
+
+"sensor_positions_6.csv": the file name of a csv file containing the sensor positions. If a 
+      soundcard with 4 channels is used it needs to be changed to 'sensor_positions_4.csv'. For a 
+      new soundcard with different microphone positions a new file is needed. 
+
+    - needed for the module: module_cdr_estimator.py
+
+"-cc": The channel combination that are used. For each of these combinations a seperate 
+      diffuseness value is estimated. The microphone channel numbering starts at 0. Each   
+      combination is given by two channel numbers, seperated by "-". The different combinations 
+      are seperated by ",". Example: "0-1, 0-2, 1-2" is the channel combination between each of 
+      the channels 0,1,2.
+
+    - needed for the modules: module_signal_coherence_estimator.py
+                              module_cdr_estimator.py
+                              module_diffuseness_estimator.py
+
+"-vc": The valid channels. The channels given here, seperated by ",", will be used for the 
+      calculation. All channels given in channel combinations have to be listed here.
+
+    - needed for the module: module_signal_buffer_polling.py
+
+"-fl": The framelength for which the estimate is calculated.
+
+    - needed for the modules: module_signal_buffer_polling.py
+                              module_power_spectra_estimator.py
+
+"-fs": The frameshift between two successive frames.
+
+    - needed for the modules: module_signal_buffer_polling.py
+                              module_diffuseness_estimator.py
+
+"-sf": The sampling frequency of the input data.
+
+    - needed for the modules: module_signal_buffer_polling.py
+                              module_diffuseness_estimator.py
+
+"--minimumfrequency": The minimum frequency for which the FFT is calculated.
+
+    - needed for the modules: module_power_spectra_estimator.py
+                              module_signal_coherence_estimator.py
+                              module_cdr_estimator.py
+
+"--maximumfrequency": The maximum frequency for which the FFT is calculated.
+
+    - needed for the modules: module_power_spectra_estimator.py
+                              module_signal_coherence_estimator.py
+                              module_cdr_estimator.py
+
+"--id": The IP addresses of each Raspberry Pi recording sound for the algorithm. Each address has 
+      to be written in a seperate line. The addresses have to be in the same order as the pipes.
+
+    - needed for the module: module_find_maximum.py
+
+########################################################
+# tested <-> not tested
+########################################################
+
+24.5.2019:
+    tested: 
+        - input received from spark instead of module_signal_buffer_polling.py
+        - soundcards with 6 and 4 microphones
+        - two Pis sending their data to module_find_maximum.py
+    not tested:
+        - sending the result of module_find_maximum.py to another module
+        - using more than two Pis simultaniously
+
+########################################################
+# create_topology.py
+########################################################
+
+The Python script create_topology.py can be used to create the topology for this program running
+on a network of several Pis. The script needs an example topology called template.py which has to
+be stored in the same folder. This template is then modified to match the needed IP addresses and
+the used number of microphones. The result is stored as topology.py in the same folder. An 
+already existing file with this name will be overwritten.
+
+The following parameter are modified:
+    "-noc": Can be specified separately for each Pi
+
+    "sensor_positions_6.csv" will be changed to sensor_postions_x.csv, with x being the specified
+        number of microphones
+
+    "-cc" is set such that all possible microphone channel combinations will be used
+
+    "-vc" is set such that all microphon channels witll be used 
+
+    "--id" is used such that the specified IPs match the input IPs of module_find_maximum.py
+
+    Furthermore will the input and output values be changed such that the workflow described is
+        implemented.
+
+All other parameters will not be changed, but copied from template.py.
+
+The script is started without any parameters and will ask for the needed information during runtime.
+
+
