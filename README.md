@@ -1,7 +1,21 @@
 # MARVELO meets FISSON
 ## FISSION - **F**ailover in w**I**rele**SS** d**I**stributed c**O**mputi**N**g
 
-[[_TOC_]]
+- [MARVELO meets FISSON](#marvelo-meets-fisson)
+  * [FISSION - **F**ailover in w**I**rele**SS** d**I**stributed c**O**mputi**N**g](#fission-----f--ailover-in-w--i--rele--ss---d--i--stributed-c--o--mputi--n--g)
+  * [Terminology and rough overview](#terminology-and-rough-overview)
+    + [A **Client**](#a---client--)
+    + [A **Server**](#a---server--)
+    + [A **Job**](#a---job--)
+  * [Setting up Client and Servers](#setting-up-client-and-servers)
+    + [Client](#client)
+    + [Server](#server)
+  * [Configuring your Network](#configuring-your-network)
+    + [Starting a Project and Network](#starting-a-project-and-network)
+  * [Writing the first Jobs](#writing-the-first-jobs)
+  * [Writing a custom Pipe](#writing-a-custom-pipe)
+  * [Edit config.py](#edit-configpy)
+  * [Acknowledgment:](#acknowledgment-)
 
 
 This project is a Python-based solution for distributing a set of dependent tasks onto multiple devices and having a failover mechanism in place to prevent outage of your cluster.  
