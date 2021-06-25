@@ -1,4 +1,4 @@
 dispy>=4.12
-lxml==4.4.2
+lxml==4.6.3
 pycos>=4.8.13
 graphviz==0.13.2
