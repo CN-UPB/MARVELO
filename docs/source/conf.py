@@ -37,11 +37,11 @@ release = '1.0'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-	'sphinxcontrib.mermaid',
+	#'sphinxcontrib.mermaid',
 	'sphinx.ext.autodoc',
-	#'myst_parser',
+	'myst_parser',
 	'recommonmark',
-	'sphinxcontrib.mermaid'
+	#'sphinxcontrib.mermaid'
 ]
 source_suffix = {
     '.rst': 'restructuredtext',
