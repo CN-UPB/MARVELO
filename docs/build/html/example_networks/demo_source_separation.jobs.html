@@ -193,70 +193,71 @@
 <div class="section" id="module-demo_source_separation.jobs.jobs">
 <span id="demo-source-separation-jobs-jobs-module"></span><h2>demo_source_separation.jobs.jobs module<a class="headerlink" href="#module-demo_source_separation.jobs.jobs" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt id="demo_source_separation.jobs.jobs.CSVSinkJob_2">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">demo_source_separation.jobs.jobs.</span></code><code class="sig-name descname"><span class="pre">CSVSinkJob_2</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.CSVSinkJob_2" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="../fission/fission.core.html#fission.core.jobs.PythonJob" title="fission.core.jobs.PythonJob"><code class="xref py py-class docutils literal notranslate"><span class="pre">fission.core.jobs.PythonJob</span></code></a>, <a class="reference internal" href="../fission/fission.core.html#fission.core.jobs.LocalJob" title="fission.core.jobs.LocalJob"><code class="xref py py-class docutils literal notranslate"><span class="pre">fission.core.jobs.LocalJob</span></code></a></p>
-<dl class="py method">
-<dt id="demo_source_separation.jobs.jobs.CSVSinkJob_2.run">
-<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.CSVSinkJob_2.run" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function defines the core functionality of a job.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="demo_source_separation.jobs.jobs.CSVSinkJob_2.setup">
-<code class="sig-name descname"><span class="pre">setup</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.CSVSinkJob_2.setup" title="Permalink to this definition">¶</a></dt>
-<dd><p>Setup before executing the Job.
-Includes creating pipes and sanity checking.</p>
-<dl class="simple">
-<dt>Arguments:</dt><dd><p>user {str} – The user the Job is run by.</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
 <dt id="demo_source_separation.jobs.jobs.cov1svd">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">demo_source_separation.jobs.jobs.</span></code><code class="sig-name descname"><span class="pre">cov1svd</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.cov1svd" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="../fission/fission.core.html#fission.core.jobs.PythonJob" title="fission.core.jobs.PythonJob"><code class="xref py py-class docutils literal notranslate"><span class="pre">fission.core.jobs.PythonJob</span></code></a></p>
+<p>What does cov1svd do?</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>self.audio1 {np.array} –
+self.audio2 {np.array} –
+self.x {np.array} –
+self.state {int} –
+self.counter {int}</p>
+</dd>
+</dl>
 <dl class="py method">
-<dt id="demo_source_separation.jobs.jobs.cov1svd.run">
-<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">audio1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">audio2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.cov1svd.run" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function defines the core functionality of a job.</p>
+<dt id="demo_source_separation.jobs.jobs.cov1svd.init_job">
+<code class="sig-name descname"><span class="pre">init_job</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.cov1svd.init_job" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="demo_source_separation.jobs.jobs.cov1svd.run_job">
+<code class="sig-name descname"><span class="pre">run_job</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">audio1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">audio2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.cov1svd.run_job" title="Permalink to this definition">¶</a></dt>
+<dd><p>Receives the data in smaller packets.
+Processes them.
+Sends the data in smaller packets.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="demo_source_separation.jobs.jobs.cov1svd.setup">
-<code class="sig-name descname"><span class="pre">setup</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.cov1svd.setup" title="Permalink to this definition">¶</a></dt>
-<dd><p>Setup before executing the Job.
-Includes creating pipes and sanity checking.</p>
-<dl class="simple">
-<dt>Arguments:</dt><dd><p>user {str} – The user the Job is run by.</p>
-</dd>
-</dl>
-</dd></dl>
+<dt id="demo_source_separation.jobs.jobs.cov1svd.setup_job">
+<code class="sig-name descname"><span class="pre">setup_job</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.cov1svd.setup_job" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt id="demo_source_separation.jobs.jobs.cov1svd_sqrtfn">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">demo_source_separation.jobs.jobs.</span></code><code class="sig-name descname"><span class="pre">cov1svd_sqrtfn</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.cov1svd_sqrtfn" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="../fission/fission.core.html#fission.core.jobs.PythonJob" title="fission.core.jobs.PythonJob"><code class="xref py py-class docutils literal notranslate"><span class="pre">fission.core.jobs.PythonJob</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="shared.jobs.html#shared.jobs.jobs.LoggingJob" title="shared.jobs.jobs.LoggingJob"><code class="xref py py-class docutils literal notranslate"><span class="pre">shared.jobs.jobs.LoggingJob</span></code></a></p>
+<p>combination of cov1svd and sqrtfn</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>self.audio1 {np.array} –
+self.audio2 {np.array} –
+self.x {np.array} –
+self.state {int} –
+self.counter {int} –</p>
+</dd>
+</dl>
 <dl class="py method">
-<dt id="demo_source_separation.jobs.jobs.cov1svd_sqrtfn.run">
-<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">audio1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">audio2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.cov1svd_sqrtfn.run" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function defines the core functionality of a job.</p>
+<dt id="demo_source_separation.jobs.jobs.cov1svd_sqrtfn.init_job">
+<code class="sig-name descname"><span class="pre">init_job</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.cov1svd_sqrtfn.init_job" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implement this method as a normal __init__ method, but wihtout the call to the super class.
+Use it to hand over parameters from the config to your job.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="demo_source_separation.jobs.jobs.cov1svd_sqrtfn.setup">
-<code class="sig-name descname"><span class="pre">setup</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.cov1svd_sqrtfn.setup" title="Permalink to this definition">¶</a></dt>
-<dd><p>Setup before executing the Job.
-Includes creating pipes and sanity checking.</p>
-<dl class="simple">
-<dt>Arguments:</dt><dd><p>user {str} – The user the Job is run by.</p>
-</dd>
-</dl>
+<dt id="demo_source_separation.jobs.jobs.cov1svd_sqrtfn.run_job">
+<code class="sig-name descname"><span class="pre">run_job</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">audio1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">audio2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.cov1svd_sqrtfn.run_job" title="Permalink to this definition">¶</a></dt>
+<dd><p>Receives the data in smaller packets.
+Processes them.
+Sends the data in smaller packets.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="demo_source_separation.jobs.jobs.cov1svd_sqrtfn.setup_job">
+<code class="sig-name descname"><span class="pre">setup_job</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.cov1svd_sqrtfn.setup_job" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implement this method as a normal setup method, but wihtout the call to the super class.
+Use it to initialize attributes of your job.</p>
 </dd></dl>
 
 </dd></dl>
@@ -264,22 +265,34 @@ Includes creating pipes and sanity checking.</p>
 <dl class="py class">
 <dt id="demo_source_separation.jobs.jobs.cov2svd">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">demo_source_separation.jobs.jobs.</span></code><code class="sig-name descname"><span class="pre">cov2svd</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.cov2svd" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="../fission/fission.core.html#fission.core.jobs.PythonJob" title="fission.core.jobs.PythonJob"><code class="xref py py-class docutils literal notranslate"><span class="pre">fission.core.jobs.PythonJob</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="shared.jobs.html#shared.jobs.jobs.LoggingJob" title="shared.jobs.jobs.LoggingJob"><code class="xref py py-class docutils literal notranslate"><span class="pre">shared.jobs.jobs.LoggingJob</span></code></a></p>
+<p>What does cov2svd do?</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>self.xn {np.array} –
+self.norm {np.array} –
+self.state {int} –</p>
+</dd>
+</dl>
 <dl class="py method">
-<dt id="demo_source_separation.jobs.jobs.cov2svd.run">
-<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.cov2svd.run" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function defines the core functionality of a job.</p>
+<dt id="demo_source_separation.jobs.jobs.cov2svd.init_job">
+<code class="sig-name descname"><span class="pre">init_job</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.cov2svd.init_job" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implement this method as a normal __init__ method, but wihtout the call to the super class.
+Use it to hand over parameters from the config to your job.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="demo_source_separation.jobs.jobs.cov2svd.setup">
-<code class="sig-name descname"><span class="pre">setup</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.cov2svd.setup" title="Permalink to this definition">¶</a></dt>
-<dd><p>Setup before executing the Job.
-Includes creating pipes and sanity checking.</p>
-<dl class="simple">
-<dt>Arguments:</dt><dd><p>user {str} – The user the Job is run by.</p>
-</dd>
-</dl>
+<dt id="demo_source_separation.jobs.jobs.cov2svd.run_job">
+<code class="sig-name descname"><span class="pre">run_job</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.cov2svd.run_job" title="Permalink to this definition">¶</a></dt>
+<dd><p>Receives the data in smaller packets.
+Processes them.
+Sends the data in smaller packets.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="demo_source_separation.jobs.jobs.cov2svd.setup_job">
+<code class="sig-name descname"><span class="pre">setup_job</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.cov2svd.setup_job" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implement this method as a normal setup method, but wihtout the call to the super class.
+Use it to initialize attributes of your job.</p>
 </dd></dl>
 
 </dd></dl>
@@ -287,27 +300,32 @@ Includes creating pipes and sanity checking.</p>
 <dl class="py class">
 <dt id="demo_source_separation.jobs.jobs.ica_readModule">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">demo_source_separation.jobs.jobs.</span></code><code class="sig-name descname"><span class="pre">ica_readModule</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.ica_readModule" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="../fission/fission.core.html#fission.core.jobs.PythonJob" title="fission.core.jobs.PythonJob"><code class="xref py py-class docutils literal notranslate"><span class="pre">fission.core.jobs.PythonJob</span></code></a></p>
-<dl class="py attribute">
-<dt id="demo_source_separation.jobs.jobs.ica_readModule.GROUPS">
-<code class="sig-name descname"><span class="pre">GROUPS</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'SOURCE'</span></em><a class="headerlink" href="#demo_source_separation.jobs.jobs.ica_readModule.GROUPS" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
+<dd><p>Bases: <a class="reference internal" href="shared.jobs.html#shared.jobs.jobs.LoggingJob" title="shared.jobs.jobs.LoggingJob"><code class="xref py py-class docutils literal notranslate"><span class="pre">shared.jobs.jobs.LoggingJob</span></code></a></p>
+<p>Sourcejob, reads in the data from a soundfile</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>self.counter {int} –
+self.restart_counter {int} –
+self.sending_done {bool} –
+self.data {np.array} –</p>
+</dd>
+</dl>
 <dl class="py method">
-<dt id="demo_source_separation.jobs.jobs.ica_readModule.run">
-<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.ica_readModule.run" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function defines the core functionality of a job.</p>
+<dt id="demo_source_separation.jobs.jobs.ica_readModule.init_job">
+<code class="sig-name descname"><span class="pre">init_job</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">soundFile</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.ica_readModule.init_job" title="Permalink to this definition">¶</a></dt>
+<dd><p>soundFile {str} – the name of the soundfile which should be read</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="demo_source_separation.jobs.jobs.ica_readModule.setup">
-<code class="sig-name descname"><span class="pre">setup</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.ica_readModule.setup" title="Permalink to this definition">¶</a></dt>
-<dd><p>Setup before executing the Job.
-Includes creating pipes and sanity checking.</p>
-<dl class="simple">
-<dt>Arguments:</dt><dd><p>user {str} – The user the Job is run by.</p>
-</dd>
-</dl>
+<dt id="demo_source_separation.jobs.jobs.ica_readModule.run_job">
+<code class="sig-name descname"><span class="pre">run_job</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.ica_readModule.run_job" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends the data in smaller packets of PACKETSIZE</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="demo_source_separation.jobs.jobs.ica_readModule.setup_job">
+<code class="sig-name descname"><span class="pre">setup_job</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.ica_readModule.setup_job" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implement this method as a normal setup method, but wihtout the call to the super class.
+Use it to initialize attributes of your job.</p>
 </dd></dl>
 
 </dd></dl>
@@ -315,22 +333,35 @@ Includes creating pipes and sanity checking.</p>
 <dl class="py class">
 <dt id="demo_source_separation.jobs.jobs.normfn">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">demo_source_separation.jobs.jobs.</span></code><code class="sig-name descname"><span class="pre">normfn</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.normfn" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="../fission/fission.core.html#fission.core.jobs.PythonJob" title="fission.core.jobs.PythonJob"><code class="xref py py-class docutils literal notranslate"><span class="pre">fission.core.jobs.PythonJob</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="shared.jobs.html#shared.jobs.jobs.LoggingJob" title="shared.jobs.jobs.LoggingJob"><code class="xref py py-class docutils literal notranslate"><span class="pre">shared.jobs.jobs.LoggingJob</span></code></a></p>
+<p>What does norm_fn do?</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>self.audio {np.array} –
+self.norm {np.array} –
+self.state {int} –
+self.counter {int} –</p>
+</dd>
+</dl>
 <dl class="py method">
-<dt id="demo_source_separation.jobs.jobs.normfn.run">
-<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.normfn.run" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function defines the core functionality of a job.</p>
+<dt id="demo_source_separation.jobs.jobs.normfn.init_job">
+<code class="sig-name descname"><span class="pre">init_job</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.normfn.init_job" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implement this method as a normal __init__ method, but wihtout the call to the super class.
+Use it to hand over parameters from the config to your job.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="demo_source_separation.jobs.jobs.normfn.setup">
-<code class="sig-name descname"><span class="pre">setup</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.normfn.setup" title="Permalink to this definition">¶</a></dt>
-<dd><p>Setup before executing the Job.
-Includes creating pipes and sanity checking.</p>
-<dl class="simple">
-<dt>Arguments:</dt><dd><p>user {str} – The user the Job is run by.</p>
-</dd>
-</dl>
+<dt id="demo_source_separation.jobs.jobs.normfn.run_job">
+<code class="sig-name descname"><span class="pre">run_job</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.normfn.run_job" title="Permalink to this definition">¶</a></dt>
+<dd><p>Receives the data in smaller packets.
+Processes them.
+Sends the data in smaller packets.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="demo_source_separation.jobs.jobs.normfn.setup_job">
+<code class="sig-name descname"><span class="pre">setup_job</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.normfn.setup_job" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implement this method as a normal setup method, but wihtout the call to the super class.
+Use it to initialize attributes of your job.</p>
 </dd></dl>
 
 </dd></dl>
@@ -338,22 +369,30 @@ Includes creating pipes and sanity checking.</p>
 <dl class="py class">
 <dt id="demo_source_separation.jobs.jobs.sqrtfn">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">demo_source_separation.jobs.jobs.</span></code><code class="sig-name descname"><span class="pre">sqrtfn</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.sqrtfn" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="../fission/fission.core.html#fission.core.jobs.PythonJob" title="fission.core.jobs.PythonJob"><code class="xref py py-class docutils literal notranslate"><span class="pre">fission.core.jobs.PythonJob</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="shared.jobs.html#shared.jobs.jobs.LoggingJob" title="shared.jobs.jobs.LoggingJob"><code class="xref py py-class docutils literal notranslate"><span class="pre">shared.jobs.jobs.LoggingJob</span></code></a></p>
+<p>What does sqrt_fn do?</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>None</p>
+</dd>
+</dl>
 <dl class="py method">
-<dt id="demo_source_separation.jobs.jobs.sqrtfn.run">
-<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.sqrtfn.run" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function defines the core functionality of a job.</p>
+<dt id="demo_source_separation.jobs.jobs.sqrtfn.init_job">
+<code class="sig-name descname"><span class="pre">init_job</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.sqrtfn.init_job" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implement this method as a normal __init__ method, but wihtout the call to the super class.
+Use it to hand over parameters from the config to your job.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="demo_source_separation.jobs.jobs.sqrtfn.setup">
-<code class="sig-name descname"><span class="pre">setup</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.sqrtfn.setup" title="Permalink to this definition">¶</a></dt>
-<dd><p>Setup before executing the Job.
-Includes creating pipes and sanity checking.</p>
-<dl class="simple">
-<dt>Arguments:</dt><dd><p>user {str} – The user the Job is run by.</p>
-</dd>
-</dl>
+<dt id="demo_source_separation.jobs.jobs.sqrtfn.run_job">
+<code class="sig-name descname"><span class="pre">run_job</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.sqrtfn.run_job" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implement this method as a normal run method. You have to return your outputs as a tuple in the end of the method</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="demo_source_separation.jobs.jobs.sqrtfn.setup_job">
+<code class="sig-name descname"><span class="pre">setup_job</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.sqrtfn.setup_job" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implement this method as a normal setup method, but wihtout the call to the super class.
+Use it to initialize attributes of your job.</p>
 </dd></dl>
 
 </dd></dl>
@@ -361,22 +400,39 @@ Includes creating pipes and sanity checking.</p>
 <dl class="py class">
 <dt id="demo_source_separation.jobs.jobs.whiten">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">demo_source_separation.jobs.jobs.</span></code><code class="sig-name descname"><span class="pre">whiten</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.whiten" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="../fission/fission.core.html#fission.core.jobs.PythonJob" title="fission.core.jobs.PythonJob"><code class="xref py py-class docutils literal notranslate"><span class="pre">fission.core.jobs.PythonJob</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="shared.jobs.html#shared.jobs.jobs.LoggingJob" title="shared.jobs.jobs.LoggingJob"><code class="xref py py-class docutils literal notranslate"><span class="pre">shared.jobs.jobs.LoggingJob</span></code></a></p>
+<p>What does whiten do?</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>self.audio {np.array} –
+self.E {np.array} –
+self.Di {np.array} –
+self.xn {np.array} –
+self.Di_recv {bool} –
+self.E_recv {bool} –
+self.state {int} –
+self.counter {int} –</p>
+</dd>
+</dl>
 <dl class="py method">
-<dt id="demo_source_separation.jobs.jobs.whiten.run">
-<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.whiten.run" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function defines the core functionality of a job.</p>
+<dt id="demo_source_separation.jobs.jobs.whiten.init_job">
+<code class="sig-name descname"><span class="pre">init_job</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.whiten.init_job" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implement this method as a normal __init__ method, but wihtout the call to the super class.
+Use it to hand over parameters from the config to your job.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="demo_source_separation.jobs.jobs.whiten.setup">
-<code class="sig-name descname"><span class="pre">setup</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.whiten.setup" title="Permalink to this definition">¶</a></dt>
-<dd><p>Setup before executing the Job.
-Includes creating pipes and sanity checking.</p>
-<dl class="simple">
-<dt>Arguments:</dt><dd><p>user {str} – The user the Job is run by.</p>
-</dd>
-</dl>
+<dt id="demo_source_separation.jobs.jobs.whiten.run_job">
+<code class="sig-name descname"><span class="pre">run_job</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.whiten.run_job" title="Permalink to this definition">¶</a></dt>
+<dd><p>Receives the data in smaller packets.
+Processes them.
+Sends the data in smaller packets.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="demo_source_separation.jobs.jobs.whiten.setup_job">
+<code class="sig-name descname"><span class="pre">setup_job</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#demo_source_separation.jobs.jobs.whiten.setup_job" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implement this method as a normal setup method, but wihtout the call to the super class.
+Use it to initialize attributes of your job.</p>
 </dd></dl>
 
 </dd></dl>

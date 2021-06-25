@@ -24,20 +24,19 @@ In addition we differentiate between 3 types depending on in- and outputs:
 There are some already implemented jobs that may be useful. 
 
 ### CSVSinkJob
+Writes all 
 
 ### InteractiveJob
-
+Opens an interactive console at the client, where one can type and send it to jobs during runtime.
 
 ### LoggingJob and LoggingSinkJobs
-
-
-### DataJob
-
+When a job inherits from  **LoggingJob** it logs times, CPU utilization, etc. It has to send it to a **LoggingSinkJob**, which writes it down in a CSV file.
 
 ### ClockJob
-
+Can be used as a source job to synchonize multiple source jobs.
 
 ### ForwardingJob
+This Job forwards all incoming data to its output pipe.
 
 
 

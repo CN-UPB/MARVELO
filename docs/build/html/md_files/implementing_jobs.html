@@ -96,7 +96,6 @@
 <li class="toctree-l4"><a class="reference internal" href="#csvsinkjob">CSVSinkJob</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#interactivejob">InteractiveJob</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#loggingjob-and-loggingsinkjobs">LoggingJob and LoggingSinkJobs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#datajob">DataJob</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#clockjob">ClockJob</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#forwardingjob">ForwardingJob</a></li>
 </ul>
@@ -220,21 +219,23 @@ It only feeds data into the network.</p></li>
 <p>There are some already implemented jobs that may be useful.</p>
 <div class="section" id="csvsinkjob">
 <h3>CSVSinkJob<a class="headerlink" href="#csvsinkjob" title="Permalink to this headline">¶</a></h3>
+<p>Writes all</p>
 </div>
 <div class="section" id="interactivejob">
 <h3>InteractiveJob<a class="headerlink" href="#interactivejob" title="Permalink to this headline">¶</a></h3>
+<p>Opens an interactive console at the client, where one can type and send it to jobs during runtime.</p>
 </div>
 <div class="section" id="loggingjob-and-loggingsinkjobs">
 <h3>LoggingJob and LoggingSinkJobs<a class="headerlink" href="#loggingjob-and-loggingsinkjobs" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="datajob">
-<h3>DataJob<a class="headerlink" href="#datajob" title="Permalink to this headline">¶</a></h3>
+<p>When a job inherits from  <strong>LoggingJob</strong> it logs times, CPU utilization, etc. It has to send it to a <strong>LoggingSinkJob</strong>, which writes it down in a CSV file.</p>
 </div>
 <div class="section" id="clockjob">
 <h3>ClockJob<a class="headerlink" href="#clockjob" title="Permalink to this headline">¶</a></h3>
+<p>Can be used as a source job to synchonize multiple source jobs.</p>
 </div>
 <div class="section" id="forwardingjob">
 <h3>ForwardingJob<a class="headerlink" href="#forwardingjob" title="Permalink to this headline">¶</a></h3>
+<p>This Job forwards all incoming data to its output pipe.</p>
 </div>
 </div>
 <div class="section" id="groups-default-node-and-max-queue">

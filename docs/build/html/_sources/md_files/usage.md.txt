@@ -2,11 +2,7 @@
 
 ## A First Example
 
-```mermaid
-graph LR
-  SourceJob(SourceJob) -->|PicklePipe 1| MiddleJob(MiddleJob)
-  MiddleJob(MiddleJob) -->|PicklePipe 2| CSVSinkJob(CSVSinkJob)
-```
+![example1](../figures/example1.png)
 
 In this section we have a closer look on the first example of MARVELO.
 The figure shows the network topology.

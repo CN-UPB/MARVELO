@@ -5,13 +5,6 @@ Terminology
 ------------------------------
 
 The four most important terms in **FISSION** are: **Network**, **Client**, **Server** and **Job**.
-
-> Coming from MARVELO:
->
-> - Server -> Client
-> - Daemon -> Server
-> - Algorithm -> Job
-
 Within a **Network** there is **one Client**, some number of **Server**s and a number of **Job**s.
 
 ### A Client ###

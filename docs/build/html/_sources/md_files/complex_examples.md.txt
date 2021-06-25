@@ -2,15 +2,7 @@
 
 ## Version 1
 
-```mermaid
-graph LR
-  subgraph network
-	2(SourceJob 2) -->|101| 5(JoinJob 5) 
-	3(SourceJob 3) -->|102| 5(JoinJob 5)
-	4(SourceJob 4) -->|103| 5(JoinJob 5)
-	5(JoinJob 5)-->|105| 6(ReduceJob 6)
-  end
-```
+![version1](../figures/examplev1.png)
 
 ### Writing the first Jobs
 
@@ -531,24 +523,8 @@ JOBS = [
 ```
 
 And that is the end of this example we we reached this network:
-```mermaid
-graph LR
-  subgraph network
-	2(SourceJob 2) -->|101| 5(JoinJob 5) 
-	3(SourceJob 3) -->|102| 5(JoinJob 5)
-	4(SourceJob 4) -->|103| 5(JoinJob 5)
-	5(JoinJob 5)-->|105| 6(ReduceJob 6)
-  end
-  subgraph local
-	1(InteractiveJob 1) -->|104| 5(JoinJob 5)
-  5(JoinJob 5) -->|204| 7(CSVSinkJob 7)
-  5(JoinJob 5) -->|205| 7(CSVSinkJob 7)
-  4(SourceJob 4) -->|203| 7(CSVSinkJob 7)
-  3(SourceJob 3) -->|202| 7(CSVSinkJob 7)
-  2(SourceJob 2) -->|201| 7(CSVSinkJob 7)
-  6(ReduceJob 6) -->|301| 8(CSVSinkJob 8)
-  end
-```
+
+![version4](../figures/examplev4.png)
 
 You can find some additional networks we played around during development in the `concept` folder of the git repository.
 

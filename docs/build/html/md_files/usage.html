@@ -181,11 +181,7 @@
 <h1>How to use MARVELO<a class="headerlink" href="#how-to-use-marvelo" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="a-first-example">
 <h2>A First Example<a class="headerlink" href="#a-first-example" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-mermaid notranslate"><div class="highlight"><pre><span></span>graph LR
-  SourceJob(SourceJob) --&gt;|PicklePipe 1| MiddleJob(MiddleJob)
-  MiddleJob(MiddleJob) --&gt;|PicklePipe 2| CSVSinkJob(CSVSinkJob)
-</pre></div>
-</div>
+<p><img alt="example1" src="../_images/example1.png" /></p>
 <p>In this section we have a closer look on the first example of MARVELO.
 The figure shows the network topology.
 <em>SourceJob</em> generates numbers and sends them to  <em>MiddleJob</em>, which then forwards them to <em>CSVSinkJob</em>.

@@ -92,7 +92,12 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../example_networks.html">Example Networks</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="simple_examples.html">Simple Examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="complex_examples.html">Complex Example – Tutorial</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Acoustic Signal Processing</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Acoustic Signal Processing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#source-separation">Source Separation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#synchronization">Synchronization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#literature">Literature</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../documentation.html">Documentation</a></li>
@@ -168,6 +173,32 @@
             
   <div class="section" id="acoustic-signal-processing">
 <h1>Acoustic Signal Processing<a class="headerlink" href="#acoustic-signal-processing" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="source-separation">
+<h2>Source Separation<a class="headerlink" href="#source-separation" title="Permalink to this headline">¶</a></h2>
+<p>Consider the following scenario. There are <em>P</em> independent speakers possibly speaking in the same room at the same time. In that room there are <em>P</em> independent microphones collecting mixed audio signals <em>X</em>. The goal is to seperate <em>X</em> to estimate the source audio signals <em>s_p</em>.
+There  are  a  three  assumptions  that we  consider  when  separating  the  signals  using  Independent Component  Analysis  (ICA) [1] :  First,  mixed  signals  are  alinear combination of the original signals. Second, the sourcesignals  are  independent.  Third,  the  source  signals  are  not Gaussian.
+This  can  be  divided  into  4  different  tasks: Cov1, Whitenning, norm and Cov2. The overlay graph can be seen in the following figure.</p>
+<p><img alt="Source Separation" src="../_images/ica_overlay.png" /></p>
+<p>The current implementation uses instead of microphone wav-files to get the acoustic signals.
+Our implementation also measures the network delay, CPU utilization, etc, using <a class="reference internal" href="../example_networks/shared.jobs.html"><span class="doc">LoggingJob</span></a> and <a class="reference internal" href="../example_networks/shared.jobs.html"><span class="doc">LoggingSinkJob</span></a>.</p>
+<p>For more information on the implementation, take a look at the <a class="reference internal" href="../example_networks/demo_source_separation.html"><span class="doc">documentation</span></a>.</p>
+</div>
+<div class="section" id="synchronization">
+<h2>Synchronization<a class="headerlink" href="#synchronization" title="Permalink to this headline">¶</a></h2>
+<p>In WASN, the microphones have their own sampling clock, however,  missynchronization  between  microphones  will  de-grade  the  performance  of  acoustic  applications.  We  consider Double-cross-Correlation Processor (DXCP) [2] for estimating  the  sampling  rate  offset  between  different  microphones, which can then be used to adjust the sampling clock [3] or to compensate  for  their  missynchronization  in  further  acousticprocessing.  DXCP  applies  only  under  the  assumption  that sampling rate offset is time-invariant.The DXCP application can be divided into two main tasks:  cross-correlation  function  and  parabolic  interpolation.  The  former  is  used  to  estimate  the  accumulated  time delay  between  two  (time-framed)  signals.  The  output  is  then forwarded  to  the  latter  that  uses  a  second-order  polynomial interpolation to find the maximum lag and estimate the sampling rate offset. The overlay graph can be seen in the following figure.</p>
+<p><img alt="DXCP" src="../_images/DXCP_overlay.png" /></p>
+<p>The current implementation uses instead of microphone wav-files to get the acoustic signals.
+Our implementation also measures the network delay, CPU utilization, etc, using <a class="reference internal" href="../example_networks/shared.jobs.html"><span class="doc">LoggingJob</span></a> and <a class="reference internal" href="../example_networks/shared.jobs.html"><span class="doc">LoggingSinkJob</span></a>.</p>
+<p>For more information on the implementation, take a look at the <a class="reference internal" href="../example_networks/demo_DXCP.html"><span class="doc">documentation</span></a>.</p>
+</div>
+<div class="section" id="literature">
+<h2>Literature<a class="headerlink" href="#literature" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>[1]: J. Cardoso,  “Source  separation  using  higher  order  moments,”  in <em>International Conference on Acoustics, Speech, and Signal Processing</em>, 1989, pp. 2109–2112 vol.4.</p></li>
+<li><p>[2]: A. Chinaev, P.Thüne, and G. Enzner, “A double-cross-correlationprocessor for blind sampling rate offset estimation in acoustic sensornetworks,” in <em>Proc. IEEE Int. Conf. Acoust., Speech, Signal Process.</em>, May 2019, pp. 641–645.</p></li>
+<li><p>[3]: A. H., S. J., U. J., H.-U. R., and K. H.,  “MARVELO – a  framework for signal processing in wireless acoustic sensor networks,” <em>13th ITG conference on Speech Communication</em>, October 2018.</p></li>
+</ul>
+</div>
 </div>
 
 

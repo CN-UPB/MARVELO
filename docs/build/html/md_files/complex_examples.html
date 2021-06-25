@@ -188,15 +188,7 @@
 <h1>Complex Example – Tutorial<a class="headerlink" href="#complex-example-tutorial" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="version-1">
 <h2>Version 1<a class="headerlink" href="#version-1" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-mermaid notranslate"><div class="highlight"><pre><span></span>graph LR
-  subgraph network
-	2(SourceJob 2) --&gt;|101| 5(JoinJob 5) 
-	3(SourceJob 3) --&gt;|102| 5(JoinJob 5)
-	4(SourceJob 4) --&gt;|103| 5(JoinJob 5)
-	5(JoinJob 5)--&gt;|105| 6(ReduceJob 6)
-  end
-</pre></div>
-</div>
+<p><img alt="version1" src="../_images/examplev1.png" /></p>
 <div class="section" id="writing-the-first-jobs">
 <h3>Writing the first Jobs<a class="headerlink" href="#writing-the-first-jobs" title="Permalink to this headline">¶</a></h3>
 <p>Assuming you already started a project and network let’s start by implementing our first job:</p>
@@ -636,24 +628,7 @@ But it know writes <code class="docutils literal notranslate"><span class="pre">
 </pre></div>
 </div>
 <p>And that is the end of this example we we reached this network:</p>
-<div class="highlight-mermaid notranslate"><div class="highlight"><pre><span></span>graph LR
-  subgraph network
-	2(SourceJob 2) --&gt;|101| 5(JoinJob 5) 
-	3(SourceJob 3) --&gt;|102| 5(JoinJob 5)
-	4(SourceJob 4) --&gt;|103| 5(JoinJob 5)
-	5(JoinJob 5)--&gt;|105| 6(ReduceJob 6)
-  end
-  subgraph local
-	1(InteractiveJob 1) --&gt;|104| 5(JoinJob 5)
-  5(JoinJob 5) --&gt;|204| 7(CSVSinkJob 7)
-  5(JoinJob 5) --&gt;|205| 7(CSVSinkJob 7)
-  4(SourceJob 4) --&gt;|203| 7(CSVSinkJob 7)
-  3(SourceJob 3) --&gt;|202| 7(CSVSinkJob 7)
-  2(SourceJob 2) --&gt;|201| 7(CSVSinkJob 7)
-  6(ReduceJob 6) --&gt;|301| 8(CSVSinkJob 8)
-  end
-</pre></div>
-</div>
+<p><img alt="version4" src="../_images/examplev4.png" /></p>
 <p>You can find some additional networks we played around during development in the <code class="docutils literal notranslate"><span class="pre">concept</span></code> folder of the git repository.</p>
 </div>
 <div class="section" id="controlling-allocation">
