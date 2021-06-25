@@ -39,7 +39,7 @@ release = '1.0'
 extensions = [
 	#'sphinxcontrib.mermaid',
 	'sphinx.ext.autodoc',
-	'myst_parser',
+	#'myst_parser',
 	'recommonmark',
 	#'sphinxcontrib.mermaid'
 ]
