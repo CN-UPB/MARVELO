@@ -37,6 +37,7 @@ release = '1.0'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+	'sphinxcontrib.mermaid',
 	'sphinx.ext.autodoc',
 	#'myst_parser',
 	'recommonmark',
