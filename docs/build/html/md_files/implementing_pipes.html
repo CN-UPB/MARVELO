@@ -1,0 +1,373 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Implementing Pipes &mdash; MARVELO 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Implementing Nodes" href="implementing_nodes.html" />
+    <link rel="prev" title="Implementing Jobs" href="implementing_jobs.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> MARVELO
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">How to use MARVELO</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../development.html">Develop your own Network</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="create_new_project.html">Create a new Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementing_jobs.html">Implementing Jobs</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Implementing Pipes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#predefined-pipes">Predefined Pipes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#picklepipe">PicklePipe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#jsonpipe">JSONPipe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bytespipe">BytesPipe</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#implementing-my-own-pipe">Implementing my own pipe</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#python-job-specific">Python job specific</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#general">General</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#async-and-optional-pipes">ASYNC and Optional Pipes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pipes-as-bridges-between-executable-jobs-and-python-jobs">Pipes as bridges between Executable jobs and Python jobs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="implementing_nodes.html">Implementing Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config.html">Set the Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugging.html">Debugging</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../example_networks.html">Example Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About MARVELO</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MARVELO</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../development.html">Develop your own Network</a> &raquo;</li>
+        
+      <li>Implementing Pipes</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/md_files/implementing_pipes.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="implementing-pipes">
+<h1>Implementing Pipes<a class="headerlink" href="#implementing-pipes" title="Permalink to this headline">¶</a></h1>
+<p>This section covers what you need to think about when making a pipe for <strong>MARVELO</strong>.</p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>A <strong>MARVELO</strong> pipe is where the protocols between jobs are defined.<br />There are a few powerful pipes predefined in <code class="docutils literal notranslate"><span class="pre">fission.core.pipes</span></code> which suffice most cases but you can implement you own pipes if you want to.</p>
+<p>Introducing 2 terminologies:</p>
+<ul class="simple">
+<li><p>Block: Is one output to a single pipe.</p></li>
+<li><p>Compute block: Is a complete set of blocks a job need before it can compute something.
+Each job (excluding source jobs) needs to receive one ore multiple blocks on each input before being able to compute something.</p></li>
+</ul>
+<p>Class attributes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">BLOCK_SIZE</span></code> is either a string or integer.
+If you implemented a custom protocol with variable length this should be string identifying the protocol.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BLOCK_COUNT</span></code> describes how many blocks are needed on this pipe until the receiving end is able to compute.
+For Python jobs this means it will pass a list of values of length <code class="docutils literal notranslate"><span class="pre">BLOCK_COUNT</span></code> instead of a single value.<br />For Executable jobs this will just write <code class="docutils literal notranslate"><span class="pre">BLOCK_COUNT</span></code> times to the pipe. This information is still needed to properly determine SQNs.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ASYNC</span></code> will be covered <a class="reference external" href="#async-and-optional-pipes">later</a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SOURCE_JOBS</span></code> is a list of job classes allowed as source of this pipe.
+It is not needed at any time but may be useful to avoid errors while configuring your network.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DESTINATION_JOBS</span></code> is a list of job classes allowed as destination of this pipe.
+It is not needed at any time but may be useful to avoid errors while configuring your network.</p></li>
+</ul>
+</div>
+<div class="section" id="predefined-pipes">
+<h2>Predefined Pipes<a class="headerlink" href="#predefined-pipes" title="Permalink to this headline">¶</a></h2>
+<p>The following pipes are predefined:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PicklePipe</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">JSONPipe</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BytesPipe</span></code></p></li>
+</ul>
+<div class="section" id="picklepipe">
+<h3>PicklePipe<a class="headerlink" href="#picklepipe" title="Permalink to this headline">¶</a></h3>
+<p>The PicklePipe, as the name suggests, implements a pipe using <a class="reference external" href="https://docs.python.org/3/library/pickle.html">pickle</a> and is therefore very suitable for communicating between Python jobs without worrying about too much.
+Only thing you have to worry about is to make sure you defined the dependencies correctly at both ends when sending objects from custom modules. Described <a class="reference external" href="Create-a-Job#using-modules">here</a>.</p>
+<p>As this is Python specific, it is not suitable for communicating with any Executable job running some other language</p>
+</div>
+<div class="section" id="jsonpipe">
+<h3>JSONPipe<a class="headerlink" href="#jsonpipe" title="Permalink to this headline">¶</a></h3>
+<p>This pipe sends data in the JSON format it therefore is very versatile.
+It relies on sending JSON in one line with an ending line break to distinguish between multiple in-/outputs.</p>
+<p>This does not have to bother you when using Python job.
+You just need to stick to types that are convertible according to <a class="reference external" href="https://docs.python.org/3/library/json.html?highlight=jsondecoder#json.JSONDecoder">this table</a>.
+Otherwise errors will occur while converting Python objects.</p>
+</div>
+<div class="section" id="bytespipe">
+<h3>BytesPipe<a class="headerlink" href="#bytespipe" title="Permalink to this headline">¶</a></h3>
+<p>A very basic pipe allowing to specify the amount of bytes expected to be send.</p>
+<p>It allows to to set the amount being send/received in the config:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">JOBS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">SomeJob</span><span class="p">(</span>
+        <span class="n">inputs</span><span class="o">=</span><span class="p">[</span>
+            <span class="n">BytesPipe</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>This example will read 64 bytes (BLOCK_SIZE) from the pipe twice (BLOCK_COUNT).</p>
+<p>Normally you sill want to define <a class="reference external" href="#packdata">pack</a> and <a class="reference external" href="#unpackdata">unpack</a> methods.</p>
+</div>
+</div>
+<div class="section" id="implementing-my-own-pipe">
+<h2>Implementing my own pipe<a class="headerlink" href="#implementing-my-own-pipe" title="Permalink to this headline">¶</a></h2>
+<p>We highly recommend to take a look at the <code class="docutils literal notranslate"><span class="pre">fission.core.pipes</span></code> module see a few examples of pipe implementations.</p>
+<p>There are 5 methods that are essential to a pipes behaviour:</p>
+<div class="section" id="python-job-specific">
+<h3>Python job specific<a class="headerlink" href="#python-job-specific" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="read-file-obj">
+<h4><code class="docutils literal notranslate"><span class="pre">read(file_obj)</span></code><a class="headerlink" href="#read-file-obj" title="Permalink to this headline">¶</a></h4>
+<p>This method take a file_obj opened in binary read mode and reads a block from it.<br />It is supposed to return bytes but may also return something else if it is inefficient to read the bytes before converting it to Python objects.
+E.g. the <code class="docutils literal notranslate"><span class="pre">PicklePipe</span></code> violates this rule.</p>
+</div>
+<div class="section" id="unpack-data">
+<h4><code class="docutils literal notranslate"><span class="pre">unpack(data)</span></code><a class="headerlink" href="#unpack-data" title="Permalink to this headline">¶</a></h4>
+<p>This method it called with what ever <a class="reference external" href="#readfileobj">read</a> returns.<br />It is supposed to return a Python object created from the bytes read in <a class="reference external" href="#readfileobj">read</a>.
+The default implementation always returns <code class="docutils literal notranslate"><span class="pre">data</span></code>.<br />It is meant to convert the received bytes from the network to a Python object suitable for the <code class="docutils literal notranslate"><span class="pre">run</span></code> method of the job.</p>
+</div>
+<div class="section" id="write-file-obj-data">
+<h4><code class="docutils literal notranslate"><span class="pre">write(file_obj,</span> <span class="pre">data)</span></code><a class="headerlink" href="#write-file-obj-data" title="Permalink to this headline">¶</a></h4>
+<p>This method is passed a file opened in binary write mode and data it is supposed to write to the file object.<br /><code class="docutils literal notranslate"><span class="pre">data</span></code> is what ever <a class="reference external" href="#packdata">pack</a> returns and should be bytes.</p>
+</div>
+<div class="section" id="pack-data">
+<h4><code class="docutils literal notranslate"><span class="pre">pack(data)</span></code><a class="headerlink" href="#pack-data" title="Permalink to this headline">¶</a></h4>
+<p>This method is meant to convert return values of the <code class="docutils literal notranslate"><span class="pre">run</span></code> method of a job into bytes to be able to send it across the network.</p>
+</div>
+</div>
+<div class="section" id="general">
+<h3>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="read-wrapper-file-obj">
+<h4><code class="docutils literal notranslate"><span class="pre">read_wrapper(file_obj)</span></code><a class="headerlink" href="#read-wrapper-file-obj" title="Permalink to this headline">¶</a></h4>
+<p>This method will be similar to the <a class="reference external" href="#readfileobj">read</a> method.
+It is called in the wrapper when reading from a jobs output pipe and therefore not only effecting Python jobs but Executable jobs.
+Other than <a class="reference external" href="#readfileobj">read</a> this method <strong>has to return bytes</strong>.<br />By default this method just calls <a class="reference external" href="#readfileobj">read</a> and returns it return value.</p>
+<blockquote>
+<div><p>Why do we have this method?</p>
+</div></blockquote>
+<p>Taking the <code class="docutils literal notranslate"><span class="pre">PicklePipe</span></code> as an example, we can’t use <code class="docutils literal notranslate"><span class="pre">pickle.load</span></code> to read from a pipe because necessary modules might not be loaded in the wrapper.<br />Therefore we need a method that only reads a bytes representation.
+Doing so each time before converting it to Python objects would be inefficient, therefore we have two different methods.</p>
+</div>
+</div>
+</div>
+<div class="section" id="async-and-optional-pipes">
+<h2>ASYNC and Optional Pipes<a class="headerlink" href="#async-and-optional-pipes" title="Permalink to this headline">¶</a></h2>
+<p>Setting the <code class="docutils literal notranslate"><span class="pre">ASYNC</span></code> flag to <code class="docutils literal notranslate"><span class="pre">True</span></code> will cause the pipe to bypass the [SQN Checker][fission/Synchronization#sqn-checker] and be directly forwarded to the underlying job.</p>
+<p>This is of special interest when talking about <a class="reference external" href="fission/Data-Structure#optionalmixin">optional pipes</a>.
+When you have a job that produces outputs occasionally but only improves your computation and isn’t necessary or will always be the same unless changed, this is what you need.</p>
+<p>Let’s say we use an <code class="docutils literal notranslate"><span class="pre">InteractiveJob</span></code> that reads user input once in a while to change a parameter of a job (see <a class="reference external" href="Examples#version-4">examples</a>) we do not want to rely on the user to inputs this parameter as frequently as other jobs may produce data.
+Therefore we want this input to be optional, have a default and it maybe should be overridden with the latest value.</p>
+<p>All of this provides the <a class="reference external" href="fission/Data-Structure#optionalmixin">OptionalMixIn</a>.</p>
+<p><strong>Only works with PythonJobs on the receiving end</strong></p>
+<p>This MixIn creates a pipe which does not have to read data for each time <code class="docutils literal notranslate"><span class="pre">run</span></code> is called.<br />Instead you can define a default value which should be returned by the pipe’s <code class="docutils literal notranslate"><span class="pre">read</span></code> method.
+If the pipe received a value, it will be returned instead.<br />You may also set whether the value should be saved, and replace the default value or just should be passed once and afterwards fall back on the old default value, if no new inputs are available.<br />At last you can also set a buffer size, indicating how many inputs the pipe is allowed to buffer before deleting data.</p>
+<p>This MixIn enables the <code class="docutils literal notranslate"><span class="pre">ASYNC</span></code> flag.</p>
+<p>This behaviour is achieved by calling <code class="docutils literal notranslate"><span class="pre">super().read()</span></code> in a thread while overriding the <code class="docutils literal notranslate"><span class="pre">read</span></code> method and having a queue between main and sub thread.
+This means this MixIn can only be used to <strong>extend a existing pipe</strong> by having the <code class="docutils literal notranslate"><span class="pre">OptionalMixIn</span></code> before the pipe you wish to extend in the mro.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyOptionalPipe</span><span class="p">(</span><span class="n">OptionalMixIn</span><span class="p">,</span> <span class="n">MyNormalPipe</span><span class="p">):</span>
+    <span class="n">OPTIONAL_DEFAULT</span> <span class="o">=</span> <span class="s2">&quot;And now I override the class attributes&quot;</span>
+</pre></div>
+</div>
+<p><strong>Class attributes</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">OPTIONAL_DEFAULT</span></code>: The default value, defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.
+Keep in mind that this is the value returned by <code class="docutils literal notranslate"><span class="pre">read</span></code> and therefore <code class="docutils literal notranslate"><span class="pre">unpack</span></code> will be called with it.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OPTIONAL_STORE</span></code>: Whether the value should be stored or not. Defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OPTIONAL_BUFFER_SIZE</span></code>: Buffer size, defaults to 0</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OPTIONAL_DELETE_MODE</span></code>: Defines delete mode it pipes is full. Must be <code class="docutils literal notranslate"><span class="pre">'oldest'</span></code> or <code class="docutils literal notranslate"><span class="pre">'newest'</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="pipes-as-bridges-between-executable-jobs-and-python-jobs">
+<h2>Pipes as bridges between Executable jobs and Python jobs<a class="headerlink" href="#pipes-as-bridges-between-executable-jobs-and-python-jobs" title="Permalink to this headline">¶</a></h2>
+<p>As stated in <a class="reference external" href="#python-job-specific">Python job specific</a>, there are methods only called by Python jobs.<br />Still putting the effort into developing all 5 methods listed <a class="reference external" href="#implementing-my-own-pipe">here</a> is worth it.<br />On one hand you can use the pipes to easily connect Python and Executable jobs, on the other handy it is very useful for debugging and testing a Executable like described in <a class="reference external" href="Debugging">debugging</a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="implementing_nodes.html" class="btn btn-neutral float-right" title="Implementing Nodes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="implementing_jobs.html" class="btn btn-neutral float-left" title="Implementing Jobs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, several.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

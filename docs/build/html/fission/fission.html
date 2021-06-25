@@ -1,0 +1,598 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>fission package &mdash; MARVELO 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="fission.core package" href="fission.core.html" />
+    <link rel="prev" title="Fission" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> MARVELO
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../md_files/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../md_files/usage.html">How to use MARVELO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development.html">Develop your own Network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example_networks.html">Example Networks</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../documentation.html">Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="modules.html">Fission</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">fission package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-fission.build">fission.build module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-fission.cmd">fission.cmd module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-fission.emulate">fission.emulate module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-fission.loader">fission.loader module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-fission.manager">fission.manager module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fission-test-module">fission.test module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-fission.visualize">fission.visualize module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-fission">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../example_networks/modules.html">Example Networks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../md_files/about.html">About MARVELO</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MARVELO</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../documentation.html">Documentation</a> &raquo;</li>
+        
+          <li><a href="modules.html">Fission</a> &raquo;</li>
+        
+      <li>fission package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/fission/fission.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="fission-package">
+<h1>fission package<a class="headerlink" href="#fission-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="fission.core.html">fission.core package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fission.core.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fission.core.html#module-fission.core.base">fission.core.base module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fission.core.html#module-fission.core.groups">fission.core.groups module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fission.core.html#module-fission.core.jobs">fission.core.jobs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fission.core.html#module-fission.core.network">fission.core.network module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fission.core.html#module-fission.core.nodes">fission.core.nodes module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fission.core.html#module-fission.core.pipes">fission.core.pipes module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fission.core.html#module-fission.core">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fission.remote.html">fission.remote package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fission.remote.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fission.remote.html#module-fission.remote.debug">fission.remote.debug module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fission.remote.html#module-fission.remote.synchronization">fission.remote.synchronization module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fission.remote.html#module-fission.remote.wrapper">fission.remote.wrapper module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fission.remote.html#module-fission.remote">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fission.templates.html">fission.templates package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fission.templates.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fission.templates.html#module-fission.templates.config">fission.templates.config module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fission.templates.html#module-fission.templates.fission_admin">fission.templates.fission_admin module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fission.templates.html#module-fission.templates.fission_debug">fission.templates.fission_debug module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fission.templates.html#fission-templates-fission-interactive-module">fission.templates.fission_interactive module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fission.templates.html#module-fission.templates.manage">fission.templates.manage module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fission.templates.html#module-fission.templates">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-fission.build">
+<span id="fission-build-module"></span><h2>fission.build module<a class="headerlink" href="#module-fission.build" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="fission.build.load_network">
+<code class="sig-prename descclassname"><span class="pre">fission.build.</span></code><code class="sig-name descname"><span class="pre">load_network</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remote_root</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sanity_check</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.build.load_network" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-fission.cmd">
+<span id="fission-cmd-module"></span><h2>fission.cmd module<a class="headerlink" href="#module-fission.cmd" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="fission.cmd.FissionCMD">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.cmd.</span></code><code class="sig-name descname"><span class="pre">FissionCMD</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">network</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.cmd.FissionCMD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">cmd.Cmd</span></code></p>
+<dl class="py method">
+<dt id="fission.cmd.FissionCMD.do_allocate">
+<code class="sig-name descname"><span class="pre">do_allocate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.cmd.FissionCMD.do_allocate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allocates all Jobs on available Nodes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.cmd.FissionCMD.do_clear">
+<code class="sig-name descname"><span class="pre">do_clear</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.cmd.FissionCMD.do_clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clears the Terminal.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.cmd.FissionCMD.do_closecluster">
+<code class="sig-name descname"><span class="pre">do_closecluster</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.cmd.FissionCMD.do_closecluster" title="Permalink to this definition">¶</a></dt>
+<dd><p>Kills all running Jobs on Nodes and deletes the current cluster.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.cmd.FissionCMD.do_exit">
+<code class="sig-name descname"><span class="pre">do_exit</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.cmd.FissionCMD.do_exit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exits the FISSION Terminal.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.cmd.FissionCMD.do_reboot">
+<code class="sig-name descname"><span class="pre">do_reboot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.cmd.FissionCMD.do_reboot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reboots all Nodes in network.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.cmd.FissionCMD.do_removedata">
+<code class="sig-name descname"><span class="pre">do_removedata</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.cmd.FissionCMD.do_removedata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove data from Nodes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.cmd.FissionCMD.do_senddata">
+<code class="sig-name descname"><span class="pre">do_senddata</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.cmd.FissionCMD.do_senddata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transfer Data to Nodes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.cmd.FissionCMD.do_start">
+<code class="sig-name descname"><span class="pre">do_start</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.cmd.FissionCMD.do_start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Starts the Jobs on the Nodes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.cmd.FissionCMD.do_startcluster">
+<code class="sig-name descname"><span class="pre">do_startcluster</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.cmd.FissionCMD.do_startcluster" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start the dispy cluster with all Nodes in the network.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.cmd.FissionCMD.do_status">
+<code class="sig-name descname"><span class="pre">do_status</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.cmd.FissionCMD.do_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display cluster status.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.cmd.FissionCMD.do_stop">
+<code class="sig-name descname"><span class="pre">do_stop</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.cmd.FissionCMD.do_stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stop current computation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.cmd.FissionCMD.emptyline">
+<code class="sig-name descname"><span class="pre">emptyline</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.cmd.FissionCMD.emptyline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when an empty line is entered in response to the prompt.</p>
+<p>If this method is not overridden, it repeats the last nonempty
+command entered.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.cmd.FissionCMD.file_complete">
+<code class="sig-name descname"><span class="pre">file_complete</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">begidx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">endidx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ending</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.cmd.FissionCMD.file_complete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Completer for setxml</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="fission.cmd.FissionCMD.intro">
+<code class="sig-name descname"><span class="pre">intro</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&quot;\n</span>&#160;&#160;&#160; <span class="pre">\\033[36m</span> <span class="pre">___</span> <span class="pre">___</span> <span class="pre">___</span> <span class="pre">___</span> <span class="pre">___</span> <span class="pre">___</span>&#160; <span class="pre">_</span>&#160; <span class="pre">_</span> <span class="pre">\\u001b[0m</span>&#160;&#160;&#160; <span class="pre">\n</span>&#160;&#160;&#160; <span class="pre">\\033[36m|</span> <span class="pre">__|_</span> <span class="pre">_/</span> <span class="pre">__/</span> <span class="pre">__|_</span> <span class="pre">_/</span> <span class="pre">_</span> <span class="pre">\\|</span> <span class="pre">\\|</span> <span class="pre">|\\u001b[0m</span>&#160;&#160;&#160; <span class="pre">\n</span>&#160;&#160;&#160; <span class="pre">\\033[36m|</span> <span class="pre">_|</span> <span class="pre">|</span> <span class="pre">|\\__</span> <span class="pre">\\__</span> <span class="pre">\\|</span> <span class="pre">|</span> <span class="pre">(_)</span> <span class="pre">|</span> <span class="pre">.`</span> <span class="pre">|\\u001b[0m</span>&#160;&#160;&#160; <span class="pre">\n</span>&#160;&#160;&#160; <span class="pre">\\033[36m|_|</span> <span class="pre">|___|___/___/___\\___/|_|\\_|\\u001b[0m</span>&#160;&#160;&#160; <span class="pre">\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">\nClient</span> <span class="pre">started.\nSee</span> <span class="pre">a</span> <span class="pre">list</span> <span class="pre">of</span> <span class="pre">commands</span> <span class="pre">and</span> <span class="pre">an</span> <span class="pre">introduction</span> <span class="pre">with</span> <span class="pre">'help'&quot;</span></em><a class="headerlink" href="#fission.cmd.FissionCMD.intro" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="fission.cmd.FissionCMD.prompt">
+<code class="sig-name descname"><span class="pre">prompt</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'\x1b[36mFISSION:</span> <span class="pre">\x1b[0m'</span></em><a class="headerlink" href="#fission.cmd.FissionCMD.prompt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-fission.emulate">
+<span id="fission-emulate-module"></span><h2>fission.emulate module<a class="headerlink" href="#module-fission.emulate" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="fission.emulate.ExecutableJobEmulator">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.emulate.</span></code><code class="sig-name descname"><span class="pre">ExecutableJobEmulator</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">job</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.emulate'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.emulate.ExecutableJobEmulator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fission.emulate.JobEmulator" title="fission.emulate.JobEmulator"><code class="xref py py-class docutils literal notranslate"><span class="pre">fission.emulate.JobEmulator</span></code></a></p>
+<dl class="py method">
+<dt id="fission.emulate.ExecutableJobEmulator.kill">
+<code class="sig-name descname"><span class="pre">kill</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.emulate.ExecutableJobEmulator.kill" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="fission.emulate.JobEmulator">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.emulate.</span></code><code class="sig-name descname"><span class="pre">JobEmulator</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">job</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.emulate'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.emulate.JobEmulator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="fission.emulate.JobEmulator.kill">
+<code class="sig-name descname"><span class="pre">kill</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.emulate.JobEmulator.kill" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.emulate.JobEmulator.start">
+<code class="sig-name descname"><span class="pre">start</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.emulate.JobEmulator.start" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="fission.emulate.PipeEmulator">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.emulate.</span></code><code class="sig-name descname"><span class="pre">PipeEmulator</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pipe</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.emulate.PipeEmulator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="fission.emulate.PipeEmulator.get">
+<code class="sig-name descname"><span class="pre">get</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.emulate.PipeEmulator.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.emulate.PipeEmulator.get_head">
+<code class="sig-name descname"><span class="pre">get_head</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.emulate.PipeEmulator.get_head" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.emulate.PipeEmulator.kill">
+<code class="sig-name descname"><span class="pre">kill</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.emulate.PipeEmulator.kill" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.emulate.PipeEmulator.put">
+<code class="sig-name descname"><span class="pre">put</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.emulate.PipeEmulator.put" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.emulate.PipeEmulator.put_head">
+<code class="sig-name descname"><span class="pre">put_head</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">head</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.emulate.PipeEmulator.put_head" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="fission.emulate.emulate">
+<code class="sig-prename descclassname"><span class="pre">fission.emulate.</span></code><code class="sig-name descname"><span class="pre">emulate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.emulate'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.emulate.emulate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="fission.emulate.sig_term">
+<code class="sig-prename descclassname"><span class="pre">fission.emulate.</span></code><code class="sig-name descname"><span class="pre">sig_term</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.emulate.sig_term" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-fission.loader">
+<span id="fission-loader-module"></span><h2>fission.loader module<a class="headerlink" href="#module-fission.loader" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="fission.loader.CSVLoader">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.loader.</span></code><code class="sig-name descname"><span class="pre">CSVLoader</span></code><a class="headerlink" href="#fission.loader.CSVLoader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="fission.loader.CSVLoader.load_nodes">
+<code class="sig-name descname"><span class="pre">load_nodes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">csv_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.loader.CSVLoader.load_nodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try reading nodes from csv. Does not add any nodes on error.</p>
+<dl class="simple">
+<dt>Arguments:</dt><dd><p>csv_path {str} – csv path</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="fission.loader.XMLLoader">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.loader.</span></code><code class="sig-name descname"><span class="pre">XMLLoader</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pi_id'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">executable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'executable'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dependencies</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'path'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'input'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'output'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pipe_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pipe_id'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameter_tag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'parameter'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'param'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'block_size'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'block_count'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.loader.XMLLoader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="fission.loader.XMLLoader.load">
+<code class="sig-name descname"><span class="pre">load</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xml_file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.loader.XMLLoader.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read XML file and generate according network</p>
+<dl class="simple">
+<dt>Arguments:</dt><dd><p>xml_file {str} – path to xml file</p>
+</dd>
+<dt>Return:</dt><dd><p>bool – Whether parsing succeded</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-fission.manager">
+<span id="fission-manager-module"></span><h2>fission.manager module<a class="headerlink" href="#module-fission.manager" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="fission.manager.configurate_logger">
+<code class="sig-prename descclassname"><span class="pre">fission.manager.</span></code><code class="sig-name descname"><span class="pre">configurate_logger</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shell_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'%(levelname)s</span> <span class="pre">-&gt;</span>&#160; <span class="pre">%(message)s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'%(asctime)s</span> <span class="pre">-</span> <span class="pre">%(name)s</span> <span class="pre">-</span> <span class="pre">%(levelname)s</span> <span class="pre">[%(process)s]-</span> <span class="pre">%(message)s'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.manager.configurate_logger" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="fission.manager.cwd_wrapper">
+<code class="sig-prename descclassname"><span class="pre">fission.manager.</span></code><code class="sig-name descname"><span class="pre">cwd_wrapper</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cwd</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.manager.cwd_wrapper" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="fission.manager.execute_cmd">
+<code class="sig-prename descclassname"><span class="pre">fission.manager.</span></code><code class="sig-name descname"><span class="pre">execute_cmd</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">network</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.manager.execute_cmd" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="fission.manager.execute_from_command_line">
+<code class="sig-prename descclassname"><span class="pre">fission.manager.</span></code><code class="sig-name descname"><span class="pre">execute_from_command_line</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">argv</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.manager.execute_from_command_line" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="fission.manager.execute_network">
+<code class="sig-prename descclassname"><span class="pre">fission.manager.</span></code><code class="sig-name descname"><span class="pre">execute_network</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">network</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.manager.execute_network" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="fission.manager.execute_simulation">
+<code class="sig-prename descclassname"><span class="pre">fission.manager.</span></code><code class="sig-name descname"><span class="pre">execute_simulation</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">network_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.manager.execute_simulation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="fission.manager.get_dependencies">
+<code class="sig-prename descclassname"><span class="pre">fission.manager.</span></code><code class="sig-name descname"><span class="pre">get_dependencies</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pre_copy</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.manager.get_dependencies" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="fission.manager.make_pdf">
+<code class="sig-prename descclassname"><span class="pre">fission.manager.</span></code><code class="sig-name descname"><span class="pre">make_pdf</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">network</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.manager.make_pdf" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="fission.manager.matplotlib_graph">
+<code class="sig-prename descclassname"><span class="pre">fission.manager.</span></code><code class="sig-name descname"><span class="pre">matplotlib_graph</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.manager.matplotlib_graph" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="fission.manager.open_debug_window">
+<code class="sig-prename descclassname"><span class="pre">fission.manager.</span></code><code class="sig-name descname"><span class="pre">open_debug_window</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pipe</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.manager.open_debug_window" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="fission.manager.run_tests">
+<code class="sig-prename descclassname"><span class="pre">fission.manager.</span></code><code class="sig-name descname"><span class="pre">run_tests</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">network</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">additional_args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.manager.run_tests" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="fission.manager.start_collection">
+<code class="sig-prename descclassname"><span class="pre">fission.manager.</span></code><code class="sig-name descname"><span class="pre">start_collection</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">network</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.manager.start_collection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="fission.manager.start_interactive">
+<code class="sig-prename descclassname"><span class="pre">fission.manager.</span></code><code class="sig-name descname"><span class="pre">start_interactive</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.manager.start_interactive" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="fission.manager.start_network">
+<code class="sig-prename descclassname"><span class="pre">fission.manager.</span></code><code class="sig-name descname"><span class="pre">start_network</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">create_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.manager.start_network" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="fission.manager.start_project">
+<code class="sig-prename descclassname"><span class="pre">fission.manager.</span></code><code class="sig-name descname"><span class="pre">start_project</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.manager.start_project" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="fission-test-module">
+<h2>fission.test module<a class="headerlink" href="#fission-test-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-fission.visualize">
+<span id="fission-visualize-module"></span><h2>fission.visualize module<a class="headerlink" href="#module-fission.visualize" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="fission.visualize.generate_detailed_graph">
+<code class="sig-prename descclassname"><span class="pre">fission.visualize.</span></code><code class="sig-name descname"><span class="pre">generate_detailed_graph</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">network</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.visualize.generate_detailed_graph" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="fission.visualize.generate_job_graph">
+<code class="sig-prename descclassname"><span class="pre">fission.visualize.</span></code><code class="sig-name descname"><span class="pre">generate_job_graph</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">network</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.visualize.generate_job_graph" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="fission.visualize.get_mermaid">
+<code class="sig-prename descclassname"><span class="pre">fission.visualize.</span></code><code class="sig-name descname"><span class="pre">get_mermaid</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">network</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.visualize.get_mermaid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="fission.visualize.show_job_graph">
+<code class="sig-prename descclassname"><span class="pre">fission.visualize.</span></code><code class="sig-name descname"><span class="pre">show_job_graph</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">network</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.visualize.show_job_graph" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-fission">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-fission" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="fission.core.html" class="btn btn-neutral float-right" title="fission.core package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="modules.html" class="btn btn-neutral float-left" title="Fission" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, several.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,1344 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>fission.core package &mdash; MARVELO 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="fission.remote package" href="fission.remote.html" />
+    <link rel="prev" title="fission package" href="fission.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> MARVELO
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../md_files/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../md_files/usage.html">How to use MARVELO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development.html">Develop your own Network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example_networks.html">Example Networks</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../documentation.html">Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="modules.html">Fission</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="fission.html">fission package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="fission.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fission.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fission.html#module-fission.build">fission.build module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fission.html#module-fission.cmd">fission.cmd module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fission.html#module-fission.emulate">fission.emulate module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fission.html#module-fission.loader">fission.loader module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fission.html#module-fission.manager">fission.manager module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fission.html#fission-test-module">fission.test module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fission.html#module-fission.visualize">fission.visualize module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fission.html#module-fission">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../example_networks/modules.html">Example Networks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../md_files/about.html">About MARVELO</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MARVELO</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../documentation.html">Documentation</a> &raquo;</li>
+        
+          <li><a href="modules.html">Fission</a> &raquo;</li>
+        
+          <li><a href="fission.html">fission package</a> &raquo;</li>
+        
+      <li>fission.core package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/fission/fission.core.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="fission-core-package">
+<h1>fission.core package<a class="headerlink" href="#fission-core-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-fission.core.base">
+<span id="fission-core-base-module"></span><h2>fission.core.base module<a class="headerlink" href="#module-fission.core.base" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="fission.core.base.BaseGroup">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.core.base.</span></code><code class="sig-name descname"><span class="pre">BaseGroup</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.base.BaseGroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="fission.core.base.BaseGroup.add_job">
+<code class="sig-name descname"><span class="pre">add_job</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">job</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.base.BaseGroup.add_job" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a Job to the Group</p>
+<dl class="simple">
+<dt>Arguments:</dt><dd><p>job {BaseJob} – The Job you wish to add</p>
+</dd>
+<dt>Raises:</dt><dd><p>TypeError: When types missmatch</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.base.BaseGroup.add_node">
+<code class="sig-name descname"><span class="pre">add_node</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.base.BaseGroup.add_node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a Node to the Group</p>
+<dl class="simple">
+<dt>Arguments:</dt><dd><p>node {BaseNode} – The Node you wish to add</p>
+</dd>
+<dt>Raises:</dt><dd><p>TypeError: When types missmatch</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="fission.core.base.BaseJob">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.core.base.</span></code><code class="sig-name descname"><span class="pre">BaseJob</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.base.BaseJob" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>BaseJob for all Jobs.
+Defines the least amount of functionality a Job must have.</p>
+<dl class="py attribute">
+<dt id="fission.core.base.BaseJob.CREATES_SUBPROCESS">
+<code class="sig-name descname"><span class="pre">CREATES_SUBPROCESS</span></code><em class="property"> <span class="pre">=</span> <span class="pre">False</span></em><a class="headerlink" href="#fission.core.base.BaseJob.CREATES_SUBPROCESS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="fission.core.base.BaseJob.DEFAULT_NODE">
+<code class="sig-name descname"><span class="pre">DEFAULT_NODE</span></code><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#fission.core.base.BaseJob.DEFAULT_NODE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="fission.core.base.BaseJob.FINISHED">
+<code class="sig-name descname"><span class="pre">FINISHED</span></code><em class="property"> <span class="pre">=</span> <span class="pre">3</span></em><a class="headerlink" href="#fission.core.base.BaseJob.FINISHED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="fission.core.base.BaseJob.GROUPS">
+<code class="sig-name descname"><span class="pre">GROUPS</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'ALL'</span></em><a class="headerlink" href="#fission.core.base.BaseJob.GROUPS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="fission.core.base.BaseJob.HEAD">
+<code class="sig-name descname"><span class="pre">HEAD</span></code><em class="property"> <span class="pre">=</span> <span class="pre">False</span></em><a class="headerlink" href="#fission.core.base.BaseJob.HEAD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="fission.core.base.BaseJob.MAX_QUEUE">
+<code class="sig-name descname"><span class="pre">MAX_QUEUE</span></code><em class="property"> <span class="pre">=</span> <span class="pre">0</span></em><a class="headerlink" href="#fission.core.base.BaseJob.MAX_QUEUE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="fission.core.base.BaseJob.RESTARTING">
+<code class="sig-name descname"><span class="pre">RESTARTING</span></code><em class="property"> <span class="pre">=</span> <span class="pre">2</span></em><a class="headerlink" href="#fission.core.base.BaseJob.RESTARTING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="fission.core.base.BaseJob.RUNNING">
+<code class="sig-name descname"><span class="pre">RUNNING</span></code><em class="property"> <span class="pre">=</span> <span class="pre">1</span></em><a class="headerlink" href="#fission.core.base.BaseJob.RUNNING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="fission.core.base.BaseJob.STOPPED">
+<code class="sig-name descname"><span class="pre">STOPPED</span></code><em class="property"> <span class="pre">=</span> <span class="pre">0</span></em><a class="headerlink" href="#fission.core.base.BaseJob.STOPPED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.base.BaseJob.allocate">
+<code class="sig-name descname"><span class="pre">allocate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.base.BaseJob.allocate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allocate to node</p>
+<dl class="simple">
+<dt>Arguments:</dt><dd><p>node {Node} – Node the job gets allocated to</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.base.BaseJob.deallocate">
+<code class="sig-name descname"><span class="pre">deallocate</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.base.BaseJob.deallocate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deallocate the job from its Node</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.base.BaseJob.get_dependencies">
+<code class="sig-name descname"><span class="pre">get_dependencies</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.base.BaseJob.get_dependencies" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.base.BaseJob.is_async">
+<code class="sig-name descname"><span class="pre">is_async</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.base.BaseJob.is_async" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if all inputs are marked as ASYNC.
+This leads for a job to act like a source</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>[type] – [description]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.base.BaseJob.is_connector">
+<code class="sig-name descname"><span class="pre">is_connector</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.base.BaseJob.is_connector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if Job has any inputs.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>bool – Whether Job has inputs (False) or not (True)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.base.BaseJob.is_sink">
+<code class="sig-name descname"><span class="pre">is_sink</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.base.BaseJob.is_sink" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if Job has any inputs.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>bool – Whether Job has inputs (False) or not (True)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.base.BaseJob.is_source">
+<code class="sig-name descname"><span class="pre">is_source</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.base.BaseJob.is_source" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if Job has any inputs.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>bool – Whether Job has inputs (False) or not (True)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.base.BaseJob.run">
+<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.base.BaseJob.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function defines the core functionality of a job.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.base.BaseJob.setup">
+<code class="sig-name descname"><span class="pre">setup</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seperate_job_pipes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.base.BaseJob.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setup before executing the Job.
+Includes creating pipes and sanity checking.</p>
+<dl class="simple">
+<dt>Arguments:</dt><dd><p>user {str} – The user the Job is run by.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.base.BaseJob.start">
+<code class="sig-name descname"><span class="pre">start</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seperate_job_pipes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.base.BaseJob.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is called when a job starts.
+By default it calls ‘setup’ and ‘run’ and passes all
+arguments.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="fission.core.base.BaseNode">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.core.base.</span></code><code class="sig-name descname"><span class="pre">BaseNode</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.base.BaseNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dispy.NodeAllocate</span></code></p>
+<dl class="py attribute">
+<dt id="fission.core.base.BaseNode.GROUPS">
+<code class="sig-name descname"><span class="pre">GROUPS</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'ALL'</span></em><a class="headerlink" href="#fission.core.base.BaseNode.GROUPS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.base.BaseNode.add_job">
+<code class="sig-name descname"><span class="pre">add_job</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">job</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.base.BaseNode.add_job" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a Job to the node.
+The Node allocates itself to the Job.</p>
+<dl class="simple">
+<dt>Arguments:</dt><dd><p>job {BaseJob} – Job you wish to add to the Node</p>
+</dd>
+<dt>Raises:</dt><dd><p>RuntimeError: If Job is not an instance of BaseJob or max job capacity is reached.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.base.BaseNode.add_jobs">
+<code class="sig-name descname"><span class="pre">add_jobs</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jobs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.base.BaseNode.add_jobs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calls ‘add_job’ onto a list of Jobs.</p>
+<dl class="simple">
+<dt>Arguments:</dt><dd><p>jobs {list} – A list of Jobs you wish to add.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.base.BaseNode.allocate">
+<code class="sig-name descname"><span class="pre">allocate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cluster</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ip_addr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cpus</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">avail_info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">platform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.base.BaseNode.allocate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Needed by dispy.AllocateNode</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.base.BaseNode.batman_info">
+<code class="sig-name descname"><span class="pre">batman_info</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.base.BaseNode.batman_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function for data “getting” from current bat.txt file.</p>
+<p>Stores data in Node._routing_table as dict({“mac” : “MAC_ADDR”, “TQ”: TRANSMIT_QUALITY}</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None – if function throws an Error
+1    – if function runs correctly</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.base.BaseNode.close">
+<code class="sig-name descname"><span class="pre">close</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.base.BaseNode.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Is called by callback when Node closes.
+Sets active to False and removes all that have not been finished.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.base.BaseNode.flush">
+<code class="sig-name descname"><span class="pre">flush</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.base.BaseNode.flush" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flush all jobs and return them</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>list – list of flushed jobs</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.base.BaseNode.full">
+<code class="sig-name descname"><span class="pre">full</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.base.BaseNode.full" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns whether maximum Job capacity is reached.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.base.BaseNode.get_mac">
+<code class="sig-name descname"><span class="pre">get_mac</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.base.BaseNode.get_mac" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the MAC_ADDR of the Node with its IP_ADDR in the ad-hoc network.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.base.BaseNode.info">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">info</span></code><a class="headerlink" href="#fission.core.base.BaseNode.info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.base.BaseNode.name">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">name</span></code><a class="headerlink" href="#fission.core.base.BaseNode.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.base.BaseNode.open">
+<code class="sig-name descname"><span class="pre">open</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.base.BaseNode.open" title="Permalink to this definition">¶</a></dt>
+<dd><p>Is called by callback when Node is discovered by dispy
+Set Node active to True. And collects the MAC Address.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.base.BaseNode.routing_table">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">routing_table</span></code><a class="headerlink" href="#fission.core.base.BaseNode.routing_table" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="fission.core.base.BasePipe">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.core.base.</span></code><code class="sig-name descname"><span class="pre">BasePipe</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.base.BasePipe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>BasePipe for all Pipes.
+Defines the least amount of functionality a Pipe must have.</p>
+<dl class="py attribute">
+<dt id="fission.core.base.BasePipe.ASYNC">
+<code class="sig-name descname"><span class="pre">ASYNC</span></code><em class="property"> <span class="pre">=</span> <span class="pre">False</span></em><a class="headerlink" href="#fission.core.base.BasePipe.ASYNC" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="fission.core.base.BasePipe.BLOCK_COUNT">
+<code class="sig-name descname"><span class="pre">BLOCK_COUNT</span></code><em class="property"> <span class="pre">=</span> <span class="pre">1</span></em><a class="headerlink" href="#fission.core.base.BasePipe.BLOCK_COUNT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="fission.core.base.BasePipe.BLOCK_SIZE">
+<code class="sig-name descname"><span class="pre">BLOCK_SIZE</span></code><em class="property"> <span class="pre">=</span> <span class="pre">1</span></em><a class="headerlink" href="#fission.core.base.BasePipe.BLOCK_SIZE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="fission.core.base.BasePipe.DESTINATION_JOBS">
+<code class="sig-name descname"><span class="pre">DESTINATION_JOBS</span></code><em class="property"> <span class="pre">=</span> <span class="pre">[]</span></em><a class="headerlink" href="#fission.core.base.BasePipe.DESTINATION_JOBS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="fission.core.base.BasePipe.SOURCE_JOBS">
+<code class="sig-name descname"><span class="pre">SOURCE_JOBS</span></code><em class="property"> <span class="pre">=</span> <span class="pre">[]</span></em><a class="headerlink" href="#fission.core.base.BasePipe.SOURCE_JOBS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.base.BasePipe.complete">
+<code class="sig-name descname"><span class="pre">complete</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.base.BasePipe.complete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if both source and destination are set.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.base.BasePipe.destination">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">destination</span></code><a class="headerlink" href="#fission.core.base.BasePipe.destination" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.base.BasePipe.pack">
+<code class="sig-name descname"><span class="pre">pack</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.base.BasePipe.pack" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is meant to be overridden.
+It specifies actions to be done before sending data over 
+the network/pipe. Useful for PythonJobs.</p>
+<dl class="simple">
+<dt>Arguments:</dt><dd><p>data {-} – Data returned by the PythonJob</p>
+</dd>
+<dt>Returns:</dt><dd><p>bytes – A bytes representation of data, passed to ‘unpack’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.base.BasePipe.read">
+<code class="sig-name descname"><span class="pre">read</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.base.BasePipe.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read from given file_obj and serialize it if
+given.</p>
+<dl class="simple">
+<dt>Arguments:</dt><dd><p>file_obj {File} – File object of file to read from (openend in binary)
+pipe {Pipe} – Assotiated pipe</p>
+</dd>
+<dt>Keyword Arguments:</dt><dd><p>serializer {[type]} – [description] (default: {None})</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.base.BasePipe.read_head">
+<code class="sig-name descname"><span class="pre">read_head</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.base.BasePipe.read_head" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.base.BasePipe.read_wrapper">
+<code class="sig-name descname"><span class="pre">read_wrapper</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.base.BasePipe.read_wrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is called by the job wrapper.
+By default it just read BLOCK_SIZE bytes from the pipe.
+Overriding this allows you to implement custom protocols.
+See PicklePipe and JSONPipe as examples.</p>
+<dl class="simple">
+<dt>Arguments:</dt><dd><p>file_obj {file} – Pipe openend in binary mode</p>
+</dd>
+<dt>Returns:</dt><dd><p>bytes – data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.base.BasePipe.source">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">source</span></code><a class="headerlink" href="#fission.core.base.BasePipe.source" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.base.BasePipe.unpack">
+<code class="sig-name descname"><span class="pre">unpack</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.base.BasePipe.unpack" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is meant to be overridden.
+It specifies actions to be done before passing received bytes
+to the underlying PythonJob.</p>
+<dl class="simple">
+<dt>Arguments:</dt><dd><p>data {bytes} – Received bytes from ‘pack’</p>
+</dd>
+<dt>Returns:</dt><dd><ul class="simple">
+<li><p>– Data passed to the PythonJob</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.base.BasePipe.write">
+<code class="sig-name descname"><span class="pre">write</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.base.BasePipe.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write data to given file_obj</p>
+<dl class="simple">
+<dt>Arguments:</dt><dd><p>file_obj {file_obj} – File object to write to (needs to be opened in binary)
+data {bytes} – Date to write to file_obj</p>
+</dd>
+<dt>Returns:</dt><dd><p>[type] – [description]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.base.BasePipe.write_head">
+<code class="sig-name descname"><span class="pre">write_head</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">head</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.base.BasePipe.write_head" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="fission.core.base.MetaJob">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.core.base.</span></code><code class="sig-name descname"><span class="pre">MetaJob</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bases</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dct</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.base.MetaJob" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></p>
+<p>Metaclass for all Jobs.
+Does some sanity checks on all classes inheriting from BaseJob.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="fission.core.base.MetaPipe">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.core.base.</span></code><code class="sig-name descname"><span class="pre">MetaPipe</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bases</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dct</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.base.MetaPipe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></p>
+<p>Metaclass for all Pipes.
+Does some sanity checks on all classes inheriting from BasePipe.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="fission.core.base.reset">
+<code class="sig-prename descclassname"><span class="pre">fission.core.base.</span></code><code class="sig-name descname"><span class="pre">reset</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.base.reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clears all chache and resets id counter for jobs.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-fission.core.groups">
+<span id="fission-core-groups-module"></span><h2>fission.core.groups module<a class="headerlink" href="#module-fission.core.groups" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-fission.core.jobs">
+<span id="fission-core-jobs-module"></span><h2>fission.core.jobs module<a class="headerlink" href="#module-fission.core.jobs" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="fission.core.jobs.CSVSinkJob">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.core.jobs.</span></code><code class="sig-name descname"><span class="pre">CSVSinkJob</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.jobs.CSVSinkJob" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fission.core.jobs.LocalJob" title="fission.core.jobs.LocalJob"><code class="xref py py-class docutils literal notranslate"><span class="pre">fission.core.jobs.LocalJob</span></code></a>, <a class="reference internal" href="#fission.core.jobs.PythonJob" title="fission.core.jobs.PythonJob"><code class="xref py py-class docutils literal notranslate"><span class="pre">fission.core.jobs.PythonJob</span></code></a></p>
+<dl class="py method">
+<dt id="fission.core.jobs.CSVSinkJob.run">
+<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.jobs.CSVSinkJob.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function defines the core functionality of a job.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.jobs.CSVSinkJob.setup">
+<code class="sig-name descname"><span class="pre">setup</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.jobs.CSVSinkJob.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setup before executing the Job.
+Includes creating pipes and sanity checking.</p>
+<dl class="simple">
+<dt>Arguments:</dt><dd><p>user {str} – The user the Job is run by.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="fission.core.jobs.DynamicExecutableJob">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.core.jobs.</span></code><code class="sig-name descname"><span class="pre">DynamicExecutableJob</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.jobs.DynamicExecutableJob" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fission.core.jobs.ExecutableJob" title="fission.core.jobs.ExecutableJob"><code class="xref py py-class docutils literal notranslate"><span class="pre">fission.core.jobs.ExecutableJob</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="fission.core.jobs.DynamicMARVELOJob">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.core.jobs.</span></code><code class="sig-name descname"><span class="pre">DynamicMARVELOJob</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.jobs.DynamicMARVELOJob" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fission.core.jobs.MARVELOJob" title="fission.core.jobs.MARVELOJob"><code class="xref py py-class docutils literal notranslate"><span class="pre">fission.core.jobs.MARVELOJob</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="fission.core.jobs.ExecutableJob">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.core.jobs.</span></code><code class="sig-name descname"><span class="pre">ExecutableJob</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.jobs.ExecutableJob" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fission.core.base.BaseJob" title="fission.core.base.BaseJob"><code class="xref py py-class docutils literal notranslate"><span class="pre">fission.core.base.BaseJob</span></code></a></p>
+<dl class="py attribute">
+<dt id="fission.core.jobs.ExecutableJob.CREATES_SUBPROCESS">
+<code class="sig-name descname"><span class="pre">CREATES_SUBPROCESS</span></code><em class="property"> <span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#fission.core.jobs.ExecutableJob.CREATES_SUBPROCESS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="fission.core.jobs.ExecutableJob.DEPENDENCIES">
+<code class="sig-name descname"><span class="pre">DEPENDENCIES</span></code><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#fission.core.jobs.ExecutableJob.DEPENDENCIES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="fission.core.jobs.ExecutableJob.EXECUTABLE">
+<code class="sig-name descname"><span class="pre">EXECUTABLE</span></code><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#fission.core.jobs.ExecutableJob.EXECUTABLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="fission.core.jobs.ExecutableJob.INPUT_FLAG">
+<code class="sig-name descname"><span class="pre">INPUT_FLAG</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'-i'</span></em><a class="headerlink" href="#fission.core.jobs.ExecutableJob.INPUT_FLAG" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="fission.core.jobs.ExecutableJob.OUTPUT_FLAG">
+<code class="sig-name descname"><span class="pre">OUTPUT_FLAG</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'-o'</span></em><a class="headerlink" href="#fission.core.jobs.ExecutableJob.OUTPUT_FLAG" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="fission.core.jobs.ExecutableJob.PARAMETERS">
+<code class="sig-name descname"><span class="pre">PARAMETERS</span></code><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#fission.core.jobs.ExecutableJob.PARAMETERS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.jobs.ExecutableJob.generate_command">
+<code class="sig-name descname"><span class="pre">generate_command</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seperate_job_pipes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.jobs.ExecutableJob.generate_command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates the command that should be executed.</p>
+<dl class="simple">
+<dt>Arguments:</dt><dd><p>root {str} – The root directory of fission
+seperate_job_pipes {bool} – Historical reaons, will be True</p>
+</dd>
+<dt>Returns:</dt><dd><p>list – Command that is executed by Popen</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.jobs.ExecutableJob.run">
+<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redirect_stdout_stderr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.jobs.ExecutableJob.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run generated command in subprocess</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.jobs.ExecutableJob.start">
+<code class="sig-name descname"><span class="pre">start</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seperate_job_pipes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redirect_stdout_stderr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.jobs.ExecutableJob.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sure ExecutableJob returns subprocess</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="fission.core.jobs.Head">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.core.jobs.</span></code><code class="sig-name descname"><span class="pre">Head</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">head</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">head_length</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.jobs.Head" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="fission.core.jobs.Head.bit_conversion">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">bit_conversion</span></code><a class="headerlink" href="#fission.core.jobs.Head.bit_conversion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.jobs.Head.bytes_int">
+<code class="sig-name descname"><span class="pre">bytes_int</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.jobs.Head.bytes_int" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.jobs.Head.head">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">head</span></code><a class="headerlink" href="#fission.core.jobs.Head.head" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.jobs.Head.head_size">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">head_size</span></code><a class="headerlink" href="#fission.core.jobs.Head.head_size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.jobs.Head.int_bytes">
+<code class="sig-name descname"><span class="pre">int_bytes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.jobs.Head.int_bytes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.jobs.Head.to_bytes">
+<code class="sig-name descname"><span class="pre">to_bytes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.jobs.Head.to_bytes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="fission.core.jobs.InteractiveJob">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.core.jobs.</span></code><code class="sig-name descname"><span class="pre">InteractiveJob</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.jobs.InteractiveJob" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fission.core.jobs.LocalJob" title="fission.core.jobs.LocalJob"><code class="xref py py-class docutils literal notranslate"><span class="pre">fission.core.jobs.LocalJob</span></code></a>, <a class="reference internal" href="#fission.core.jobs.PythonJob" title="fission.core.jobs.PythonJob"><code class="xref py py-class docutils literal notranslate"><span class="pre">fission.core.jobs.PythonJob</span></code></a></p>
+<dl class="py method">
+<dt id="fission.core.jobs.InteractiveJob.run">
+<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.jobs.InteractiveJob.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function defines the core functionality of a job.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="fission.core.jobs.LocalJob">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.core.jobs.</span></code><code class="sig-name descname"><span class="pre">LocalJob</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.jobs.LocalJob" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fission.core.base.BaseJob" title="fission.core.base.BaseJob"><code class="xref py py-class docutils literal notranslate"><span class="pre">fission.core.base.BaseJob</span></code></a></p>
+<dl class="py attribute">
+<dt id="fission.core.jobs.LocalJob.GROUPS">
+<code class="sig-name descname"><span class="pre">GROUPS</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'LOCAL'</span></em><a class="headerlink" href="#fission.core.jobs.LocalJob.GROUPS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="fission.core.jobs.MARVELOJob">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.core.jobs.</span></code><code class="sig-name descname"><span class="pre">MARVELOJob</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.jobs.MARVELOJob" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fission.core.jobs.ExecutableJob" title="fission.core.jobs.ExecutableJob"><code class="xref py py-class docutils literal notranslate"><span class="pre">fission.core.jobs.ExecutableJob</span></code></a></p>
+<p>Same as ExecutableJob but passes file descriptors to be executable instead
+of paths to fifo pipes.</p>
+<dl class="py method">
+<dt id="fission.core.jobs.MARVELOJob.generate_command">
+<code class="sig-name descname"><span class="pre">generate_command</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seperate_job_pipes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.jobs.MARVELOJob.generate_command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates the command that should be executed.</p>
+<dl class="simple">
+<dt>Arguments:</dt><dd><p>root {str} – The root directory of fission
+seperate_job_pipes {bool} – Historical reaons, will be True</p>
+</dd>
+<dt>Returns:</dt><dd><p>list – Command that is executed by Popen</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.jobs.MARVELOJob.run">
+<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redirect_stdout_stderr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.jobs.MARVELOJob.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run generated command in subprocess</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="fission.core.jobs.PythonJob">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.core.jobs.</span></code><code class="sig-name descname"><span class="pre">PythonJob</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.jobs.PythonJob" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fission.core.base.BaseJob" title="fission.core.base.BaseJob"><code class="xref py py-class docutils literal notranslate"><span class="pre">fission.core.base.BaseJob</span></code></a></p>
+<dl class="py attribute">
+<dt id="fission.core.jobs.PythonJob.DEPENDENCIES">
+<code class="sig-name descname"><span class="pre">DEPENDENCIES</span></code><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#fission.core.jobs.PythonJob.DEPENDENCIES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.jobs.PythonJob.finish">
+<code class="sig-name descname"><span class="pre">finish</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.jobs.PythonJob.finish" title="Permalink to this definition">¶</a></dt>
+<dd><p>Has to be called by a source job before finishing to make sure all
+following jobs close properly.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.jobs.PythonJob.head_reduce">
+<code class="sig-name descname"><span class="pre">head_reduce</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.jobs.PythonJob.head_reduce" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method describes how the heads from all incoming pipes are
+reduced to a single one.</p>
+<p>By default they are all copared with bitwise or.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>int – A compressed head</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.jobs.PythonJob.open_pipes">
+<code class="sig-name descname"><span class="pre">open_pipes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seperate_job_pipes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.jobs.PythonJob.open_pipes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Open all pipes for the job placed relativ to ‘root’.</p>
+<dl class="simple">
+<dt>Arguments:</dt><dd><p>root {str} – The root directory for fission</p>
+</dd>
+<dt>Keyword Arguments:</dt><dd><p>seperate_job_pipes {bool} – Mostly historical reason, will be True (default: {False})</p>
+</dd>
+<dt>Returns:</dt><dd><p>tuple – (&lt;openend in files&gt;, &lt;openend out files&gt;)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.jobs.PythonJob.start">
+<code class="sig-name descname"><span class="pre">start</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seperate_job_pipes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redirect_stdout_stderr</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.jobs.PythonJob.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is called when a job starts.
+By default it calls ‘setup’ and ‘run’ and passes all
+arguments.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.jobs.PythonJob.wrapper">
+<code class="sig-name descname"><span class="pre">wrapper</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_files</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_files</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redirect_stdout_stderr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.jobs.PythonJob.wrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>[summary]</p>
+<dl class="simple">
+<dt>Arguments:</dt><dd><p>in_files {list} – file objects for ingoing pipes (mode = “rb”)
+out_files {[type]} – file objects for outgoing pipes (mode = “wb”)</p>
+</dd>
+<dt>Keyword Arguments:</dt><dd><p>redirect_stdout_stderr {bool/MultiWrite} – If not False a MultiWrite object is expected. (default: {False})</p>
+</dd>
+<dt>Raises:</dt><dd><p>RuntimeError: If return value of the ‘run’ method has a unexpectes shape.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-fission.core.network">
+<span id="fission-core-network-module"></span><h2>fission.core.network module<a class="headerlink" href="#module-fission.core.network" title="Permalink to this headline">¶</a></h2>
+<dl class="py exception">
+<dt id="fission.core.network.AllocationError">
+<em class="property"><span class="pre">exception</span> </em><code class="sig-prename descclassname"><span class="pre">fission.core.network.</span></code><code class="sig-name descname"><span class="pre">AllocationError</span></code><a class="headerlink" href="#fission.core.network.AllocationError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">RuntimeError</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="fission.core.network.Network">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.core.network.</span></code><code class="sig-name descname"><span class="pre">Network</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pipes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remote_root</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_ip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'localhost'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pre_copy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port_offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2000</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.network.Network" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="fission.core.network.Network.add_job">
+<code class="sig-name descname"><span class="pre">add_job</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">job</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.network.Network.add_job" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.network.Network.add_node">
+<code class="sig-name descname"><span class="pre">add_node</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.network.Network.add_node" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.network.Network.allocate_jobs">
+<code class="sig-name descname"><span class="pre">allocate_jobs</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ssh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.network.Network.allocate_jobs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allocate all none allocated jobs</p>
+<p>Returns: Nodes with new allocated jobs</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.network.Network.delete_files">
+<code class="sig-name descname"><span class="pre">delete_files</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.network.Network.delete_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete all files from nodes. Including pipes.</p>
+<dl class="simple">
+<dt>Keyword Arguments:</dt><dd><p>user {str} – User ssh connects to (default: {“asn”})
+nodes {list} – List of nodes. Runs for all Nodes when empty (default: {[]})</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.network.Network.down">
+<code class="sig-name descname"><span class="pre">down</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ip</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.network.Network.down" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a node with given ip to down state</p>
+<dl class="simple">
+<dt>Arguments:</dt><dd><p>ip {str} – ip of the node</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.network.Network.finished">
+<code class="sig-name descname"><span class="pre">finished</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.network.Network.finished" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.network.Network.is_ready">
+<code class="sig-name descname"><span class="pre">is_ready</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.network.Network.is_ready" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns if all Jobs are allocated</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>bool – Whether all Jobs are running or not</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.network.Network.local_submit">
+<code class="sig-name descname"><span class="pre">local_submit</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.network.Network.local_submit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Submits all LocalJobs.
+Basically meaning it starts the subprocesses for all LocalJobs.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.network.Network.reboot">
+<code class="sig-name descname"><span class="pre">reboot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.network.Network.reboot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reboot all Nodes</p>
+<dl class="simple">
+<dt>Keyword Arguments:</dt><dd><p>user {str} – User ssh connects to (default: {“asn”})
+nodes {list} – List of nodes. Runs for all Nodes when empty (default: {[]})</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.network.Network.restart">
+<code class="sig-name descname"><span class="pre">restart</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.network.Network.restart" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.network.Network.running">
+<code class="sig-name descname"><span class="pre">running</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.network.Network.running" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.network.Network.send_files">
+<code class="sig-name descname"><span class="pre">send_files</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.network.Network.send_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send job files to all or specific nodes</p>
+<dl class="simple">
+<dt>Keyword Arguments:</dt><dd><p>nodes {list} – List of nodes. Runs for all Nodes when empty (default: {[]})</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.network.Network.send_redirect">
+<code class="sig-name descname"><span class="pre">send_redirect</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">job</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.network.Network.send_redirect" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.network.Network.shutdown">
+<code class="sig-name descname"><span class="pre">shutdown</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.network.Network.shutdown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Closes attached dispy cluster if there is one and ignores any further
+incoming callbacks</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.network.Network.status_callback">
+<code class="sig-name descname"><span class="pre">status_callback</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">status</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">job</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.network.Network.status_callback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handling callbacks from JobCluster</p>
+<dl class="simple">
+<dt>Arguments:</dt><dd><p>status {dispy status} – New status (Job status or node status)
+node {dispy.DispyNode} – Updated node
+job {dispy.DispyJob} – Updated job</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.network.Network.submit">
+<code class="sig-name descname"><span class="pre">submit</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cluster</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.network.Network.submit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Submit all STOPPED jobs to given cluster.
+If pre_copy is set it will also wait until data transfer is complete.</p>
+<dl class="simple">
+<dt>Arguments:</dt><dd><p>cluster {JobCluster} – Cluster to submit to
+user {str} – ssh user</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.network.Network.terminated">
+<code class="sig-name descname"><span class="pre">terminated</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.network.Network.terminated" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.network.Network.up">
+<code class="sig-name descname"><span class="pre">up</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ip</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.network.Network.up" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a node with given ip to up state</p>
+<dl class="simple">
+<dt>Arguments:</dt><dd><p>ip {str} – ip of the node</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.network.Network.update_debug_window">
+<code class="sig-name descname"><span class="pre">update_debug_window</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.network.Network.update_debug_window" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends a update of the network in JSON format to 
+the debug window via the debug_pipe.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.network.Network.wait">
+<code class="sig-name descname"><span class="pre">wait</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.network.Network.wait" title="Permalink to this definition">¶</a></dt>
+<dd><p>Waits until all jobs are finished or cluster is shutdown</p>
+<dl class="simple">
+<dt>Keyword Arguments:</dt><dd><p>timeout {float} – Timeout for wait statement (default: {None})</p>
+</dd>
+<dt>Returns:</dt><dd><p>bool – Whether shutdown was called (False) or cluster finished all jobs (True)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-fission.core.nodes">
+<span id="fission-core-nodes-module"></span><h2>fission.core.nodes module<a class="headerlink" href="#module-fission.core.nodes" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="fission.core.nodes.LocalNode">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.core.nodes.</span></code><code class="sig-name descname"><span class="pre">LocalNode</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.nodes.LocalNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fission.core.base.BaseNode" title="fission.core.base.BaseNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">fission.core.base.BaseNode</span></code></a></p>
+<dl class="py attribute">
+<dt id="fission.core.nodes.LocalNode.GROUPS">
+<code class="sig-name descname"><span class="pre">GROUPS</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'LOCAL'</span></em><a class="headerlink" href="#fission.core.nodes.LocalNode.GROUPS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="fission.core.nodes.MultiNode">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.core.nodes.</span></code><code class="sig-name descname"><span class="pre">MultiNode</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cpus</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depends</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setup_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.nodes.MultiNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dispy.NodeAllocate</span></code></p>
+<dl class="py attribute">
+<dt id="fission.core.nodes.MultiNode.GROUPS">
+<code class="sig-name descname"><span class="pre">GROUPS</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'ALL'</span></em><a class="headerlink" href="#fission.core.nodes.MultiNode.GROUPS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="fission.core.nodes.NodeInfo">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.core.nodes.</span></code><code class="sig-name descname"><span class="pre">NodeInfo</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cpu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">memory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">disk</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">swap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TQ</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.nodes.NodeInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-fission.core.pipes">
+<span id="fission-core-pipes-module"></span><h2>fission.core.pipes module<a class="headerlink" href="#module-fission.core.pipes" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="fission.core.pipes.BytesPipe">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.core.pipes.</span></code><code class="sig-name descname"><span class="pre">BytesPipe</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.pipes.BytesPipe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fission.core.base.BasePipe" title="fission.core.base.BasePipe"><code class="xref py py-class docutils literal notranslate"><span class="pre">fission.core.base.BasePipe</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="fission.core.pipes.JSONMixIn">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.core.pipes.</span></code><code class="sig-name descname"><span class="pre">JSONMixIn</span></code><a class="headerlink" href="#fission.core.pipes.JSONMixIn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fission.core.pipes.ReadJSONMixIn" title="fission.core.pipes.ReadJSONMixIn"><code class="xref py py-class docutils literal notranslate"><span class="pre">fission.core.pipes.ReadJSONMixIn</span></code></a>, <a class="reference internal" href="#fission.core.pipes.WriteJSONMixIn" title="fission.core.pipes.WriteJSONMixIn"><code class="xref py py-class docutils literal notranslate"><span class="pre">fission.core.pipes.WriteJSONMixIn</span></code></a></p>
+<p>Combines ReadJSONMixIn and WriteJSONMixIn.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="fission.core.pipes.JSONPipe">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.core.pipes.</span></code><code class="sig-name descname"><span class="pre">JSONPipe</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.pipes.JSONPipe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fission.core.pipes.JSONMixIn" title="fission.core.pipes.JSONMixIn"><code class="xref py py-class docutils literal notranslate"><span class="pre">fission.core.pipes.JSONMixIn</span></code></a>, <a class="reference internal" href="#fission.core.base.BasePipe" title="fission.core.base.BasePipe"><code class="xref py py-class docutils literal notranslate"><span class="pre">fission.core.base.BasePipe</span></code></a></p>
+<p>Combines JSONMixIn with BasePipe.
+Can be used as a Pipe without further action.</p>
+<dl class="py attribute">
+<dt id="fission.core.pipes.JSONPipe.BLOCK_SIZE">
+<code class="sig-name descname"><span class="pre">BLOCK_SIZE</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'JSON'</span></em><a class="headerlink" href="#fission.core.pipes.JSONPipe.BLOCK_SIZE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="fission.core.pipes.LoaderPipe">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.core.pipes.</span></code><code class="sig-name descname"><span class="pre">LoaderPipe</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.pipes.LoaderPipe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fission.core.base.BasePipe" title="fission.core.base.BasePipe"><code class="xref py py-class docutils literal notranslate"><span class="pre">fission.core.base.BasePipe</span></code></a></p>
+<p>A Pipe specific for loader module.
+Adds validation by changing BLOCK_SIZE and BLOCK_COUNT to properties.
+This class bypasses some sanity checking and is not meant for use outside a Loader.</p>
+<dl class="py attribute">
+<dt id="fission.core.pipes.LoaderPipe.BLOCK_COUNT">
+<code class="sig-name descname"><span class="pre">BLOCK_COUNT</span></code><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#fission.core.pipes.LoaderPipe.BLOCK_COUNT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="fission.core.pipes.LoaderPipe.BLOCK_SIZE">
+<code class="sig-name descname"><span class="pre">BLOCK_SIZE</span></code><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#fission.core.pipes.LoaderPipe.BLOCK_SIZE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.pipes.LoaderPipe.block_count">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">block_count</span></code><a class="headerlink" href="#fission.core.pipes.LoaderPipe.block_count" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.pipes.LoaderPipe.block_size">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">block_size</span></code><a class="headerlink" href="#fission.core.pipes.LoaderPipe.block_size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="fission.core.pipes.OptionalBytesPipe">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.core.pipes.</span></code><code class="sig-name descname"><span class="pre">OptionalBytesPipe</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.pipes.OptionalBytesPipe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fission.core.pipes.OptionalMixIn" title="fission.core.pipes.OptionalMixIn"><code class="xref py py-class docutils literal notranslate"><span class="pre">fission.core.pipes.OptionalMixIn</span></code></a>, <a class="reference internal" href="#fission.core.pipes.BytesPipe" title="fission.core.pipes.BytesPipe"><code class="xref py py-class docutils literal notranslate"><span class="pre">fission.core.pipes.BytesPipe</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="fission.core.pipes.OptionalJSONPipe">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.core.pipes.</span></code><code class="sig-name descname"><span class="pre">OptionalJSONPipe</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.pipes.OptionalJSONPipe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fission.core.pipes.OptionalMixIn" title="fission.core.pipes.OptionalMixIn"><code class="xref py py-class docutils literal notranslate"><span class="pre">fission.core.pipes.OptionalMixIn</span></code></a>, <a class="reference internal" href="#fission.core.pipes.JSONPipe" title="fission.core.pipes.JSONPipe"><code class="xref py py-class docutils literal notranslate"><span class="pre">fission.core.pipes.JSONPipe</span></code></a></p>
+<p>Combines OptionalMixIn and JSONPipe.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="fission.core.pipes.OptionalMixIn">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.core.pipes.</span></code><code class="sig-name descname"><span class="pre">OptionalMixIn</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.pipes.OptionalMixIn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt id="fission.core.pipes.OptionalMixIn.ASYNC">
+<code class="sig-name descname"><span class="pre">ASYNC</span></code><em class="property"> <span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#fission.core.pipes.OptionalMixIn.ASYNC" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="fission.core.pipes.OptionalMixIn.OPTIONAL_BUFFER_SIZE">
+<code class="sig-name descname"><span class="pre">OPTIONAL_BUFFER_SIZE</span></code><em class="property"> <span class="pre">=</span> <span class="pre">0</span></em><a class="headerlink" href="#fission.core.pipes.OptionalMixIn.OPTIONAL_BUFFER_SIZE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="fission.core.pipes.OptionalMixIn.OPTIONAL_DEFAULT">
+<code class="sig-name descname"><span class="pre">OPTIONAL_DEFAULT</span></code><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#fission.core.pipes.OptionalMixIn.OPTIONAL_DEFAULT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="fission.core.pipes.OptionalMixIn.OPTIONAL_DELETE_MODE">
+<code class="sig-name descname"><span class="pre">OPTIONAL_DELETE_MODE</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'oldest'</span></em><a class="headerlink" href="#fission.core.pipes.OptionalMixIn.OPTIONAL_DELETE_MODE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="fission.core.pipes.OptionalMixIn.OPTIONAL_STORE">
+<code class="sig-name descname"><span class="pre">OPTIONAL_STORE</span></code><em class="property"> <span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#fission.core.pipes.OptionalMixIn.OPTIONAL_STORE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.pipes.OptionalMixIn.read">
+<code class="sig-name descname"><span class="pre">read</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.pipes.OptionalMixIn.read" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="fission.core.pipes.OptionalPicklePipe">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.core.pipes.</span></code><code class="sig-name descname"><span class="pre">OptionalPicklePipe</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.pipes.OptionalPicklePipe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fission.core.pipes.OptionalMixIn" title="fission.core.pipes.OptionalMixIn"><code class="xref py py-class docutils literal notranslate"><span class="pre">fission.core.pipes.OptionalMixIn</span></code></a>, <a class="reference internal" href="#fission.core.pipes.PicklePipe" title="fission.core.pipes.PicklePipe"><code class="xref py py-class docutils literal notranslate"><span class="pre">fission.core.pipes.PicklePipe</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="fission.core.pipes.PickleMixIn">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.core.pipes.</span></code><code class="sig-name descname"><span class="pre">PickleMixIn</span></code><a class="headerlink" href="#fission.core.pipes.PickleMixIn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fission.core.pipes.ReadPickleMixIn" title="fission.core.pipes.ReadPickleMixIn"><code class="xref py py-class docutils literal notranslate"><span class="pre">fission.core.pipes.ReadPickleMixIn</span></code></a>, <a class="reference internal" href="#fission.core.pipes.WritePickleMixIn" title="fission.core.pipes.WritePickleMixIn"><code class="xref py py-class docutils literal notranslate"><span class="pre">fission.core.pipes.WritePickleMixIn</span></code></a></p>
+<p>This MixIn does not require overriding pack and unpack
+as pickle already functions with Python objects.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="fission.core.pipes.PicklePipe">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.core.pipes.</span></code><code class="sig-name descname"><span class="pre">PicklePipe</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.pipes.PicklePipe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fission.core.pipes.PickleMixIn" title="fission.core.pipes.PickleMixIn"><code class="xref py py-class docutils literal notranslate"><span class="pre">fission.core.pipes.PickleMixIn</span></code></a>, <a class="reference internal" href="#fission.core.base.BasePipe" title="fission.core.base.BasePipe"><code class="xref py py-class docutils literal notranslate"><span class="pre">fission.core.base.BasePipe</span></code></a></p>
+<dl class="py attribute">
+<dt id="fission.core.pipes.PicklePipe.BLOCK_SIZE">
+<code class="sig-name descname"><span class="pre">BLOCK_SIZE</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'PKL'</span></em><a class="headerlink" href="#fission.core.pipes.PicklePipe.BLOCK_SIZE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="fission.core.pipes.ReadJSONMixIn">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.core.pipes.</span></code><code class="sig-name descname"><span class="pre">ReadJSONMixIn</span></code><a class="headerlink" href="#fission.core.pipes.ReadJSONMixIn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This MixIn Reads JSON from the pipe and converts it.
+It expects the JSON to be send in one line and finished with a linebreak.
+Encoding should be UTF8.</p>
+<dl class="py method">
+<dt id="fission.core.pipes.ReadJSONMixIn.read">
+<code class="sig-name descname"><span class="pre">read</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.pipes.ReadJSONMixIn.read" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.pipes.ReadJSONMixIn.read_wrapper">
+<code class="sig-name descname"><span class="pre">read_wrapper</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.pipes.ReadJSONMixIn.read_wrapper" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.pipes.ReadJSONMixIn.unpack">
+<code class="sig-name descname"><span class="pre">unpack</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.pipes.ReadJSONMixIn.unpack" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="fission.core.pipes.ReadPickleMixIn">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.core.pipes.</span></code><code class="sig-name descname"><span class="pre">ReadPickleMixIn</span></code><a class="headerlink" href="#fission.core.pipes.ReadPickleMixIn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="fission.core.pipes.ReadPickleMixIn.read">
+<code class="sig-name descname"><span class="pre">read</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.pipes.ReadPickleMixIn.read" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.pipes.ReadPickleMixIn.read_wrapper">
+<code class="sig-name descname"><span class="pre">read_wrapper</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.pipes.ReadPickleMixIn.read_wrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads pickle data without loading it.</p>
+<dl class="simple">
+<dt>Arguments:</dt><dd><p>file_obj {file like} – File object to read from</p>
+</dd>
+<dt>Raises:</dt><dd><p>EOFError: When EOF is reached</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="fission.core.pipes.WriteJSONMixIn">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.core.pipes.</span></code><code class="sig-name descname"><span class="pre">WriteJSONMixIn</span></code><a class="headerlink" href="#fission.core.pipes.WriteJSONMixIn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This MixIn Writes JSON to the pipe. It is written in one line and ends 
+with a linebreak. It is encoded in UTF8.</p>
+<dl class="py method">
+<dt id="fission.core.pipes.WriteJSONMixIn.pack">
+<code class="sig-name descname"><span class="pre">pack</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.pipes.WriteJSONMixIn.pack" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.core.pipes.WriteJSONMixIn.write">
+<code class="sig-name descname"><span class="pre">write</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.pipes.WriteJSONMixIn.write" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="fission.core.pipes.WritePickleMixIn">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.core.pipes.</span></code><code class="sig-name descname"><span class="pre">WritePickleMixIn</span></code><a class="headerlink" href="#fission.core.pipes.WritePickleMixIn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="fission.core.pipes.WritePickleMixIn.write">
+<code class="sig-name descname"><span class="pre">write</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.core.pipes.WritePickleMixIn.write" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-fission.core">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-fission.core" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="fission.remote.html" class="btn btn-neutral float-right" title="fission.remote package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="fission.html" class="btn btn-neutral float-left" title="fission package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, several.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

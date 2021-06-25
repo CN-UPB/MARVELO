@@ -1,0 +1,316 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Simple Examples &mdash; MARVELO 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Complex Example – Tutorial" href="complex_examples.html" />
+    <link rel="prev" title="Example Networks" href="../example_networks.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> MARVELO
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">How to use MARVELO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development.html">Develop your own Network</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../example_networks.html">Example Networks</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Simple Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#first-example">First Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#second-example">Second Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#third-example">Third Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fourth-example">Fourth Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="complex_examples.html">Complex Example – Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acoustic_examples.html">Acoustic Signal Processing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About MARVELO</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MARVELO</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../example_networks.html">Example Networks</a> &raquo;</li>
+        
+      <li>Simple Examples</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/md_files/simple_examples.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="simple-examples">
+<h1>Simple Examples<a class="headerlink" href="#simple-examples" title="Permalink to this headline">¶</a></h1>
+<p>To explain the configuration of <strong>MARVELO</strong> we provide four simple examples. You can find them in the examples folder. The Examples are shortly described in the table below.
+This page explains only the settings of the examples. If you want to know in more detail, how these examples work, take a look at the page about <a class="reference internal" href="usage.html"><span class="doc">How to use MARVELO</span></a>, where we go through the first example step by step. In the page <a class="reference internal" href="complex_examples.html"><span class="doc">Complex Example</span></a> we go through the development of a more complex network.</p>
+<p>| # | network name                              | network structure                                        | new configuration                                           |
+|—|——————————————-|———————————————————-|————————————————————-|
+| 1 | <a class="reference external" href="#first-example">example_1</a>               | Source -&gt; Middle -&gt; Sink                                 | First configuration                                         |
+| 2 | <a class="reference external" href="#second-example">example_2</a>              | (Source + Interactive) -&gt; Middle -&gt; (Sink + Sink)        | Interactive + multiple Inputs/Outputs + ExecutableJob       |
+| 3 | <a class="reference external" href="#third-example">example_3</a>               | (Source + Source + Interactive) -&gt; Middle -&gt; SinkJob     | Interactive with default value and Buffer                   |
+| 4 | <a class="reference external" href="#fourth-example">example_4</a>              | (Interactive + Interactive) -&gt; Middle -&gt; HeadJob -&gt; Sink | Head in Job                                                 |</p>
+<div class="section" id="first-example">
+<h2>First Example<a class="headerlink" href="#first-example" title="Permalink to this headline">¶</a></h2>
+<p>In the first example we want to show the basic configuration of a simple network in FISSION. The network consists of 3 Jobs. The first Job, named SourceJob, sends and print a number every second, which is always increased by one, to the MiddleJob. After the MiddleJob received the number, it print the number and send it to the CSVSinkJob. The CSVSinkJob from FISSION write the number in a .csv-File.</p>
+<div class="highlight-mermaid notranslate"><div class="highlight"><pre><span></span>graph LR
+  SourceJob(SourceJob) --&gt;|PicklePipe 1| MiddleJob(MiddleJob)
+  MiddleJob(MiddleJob) --&gt;|PicklePipe 2| CSVSinkJob(CSVSinkJob)
+</pre></div>
+</div>
+<p>In config.py the network is configured. First we need to import all Jobs, Pipes and Nodes, which we use. Under USER we fill in the user on the remote machines. Next we can define the log-level and the name of the log-file. We also have to enter the client IPv4. The Debug Window collect all stdouts and print them on the console. To see the print statements we enable the Debug Window by setting DEBUG_WINDOW = True. Now we have to set the inputs, outputs and other settings for our Jobs. The SourceJob is sending the number via a PicklePipe with the ID 1 to the MiddleJob. So the MiddleJob has as input the PicklePipe with the ID 1. The same way, we configure the Pipe between MiddleJob and CSVSinkJob. The CSVSinkJob needs also a path, where the .csv-File is placed. Under NODES we give all Nodes with the IPv4, which we can use for the network.</p>
+<p>In jobs/jobs.py are the SourceJob and the MiddleJob defined. To define a Job in Python we need to inherit from fission.core.jobs.PythonJob. Then every Job is an own class, where we overwrite the run function. We have to return a tuple as output. Multiple outputs are shown in the <a class="reference external" href="#second-example">Second Example</a>.</p>
+<p>Now we can simulate or run the network. For simulation we go to examples directory and execute:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">example_1</span> <span class="n">simulate</span>
+</pre></div>
+</div>
+<p>If we want to run the configuration on our network:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">example_1</span> <span class="n">run</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="second-example">
+<h2>Second Example<a class="headerlink" href="#second-example" title="Permalink to this headline">¶</a></h2>
+<p>The second example is very similar to the first one. We have the SourceJob from the <a class="reference external" href="#first-example">First Example</a> and an InteractiveJob to the start. With the InteractiveJob we can type in values at run time. A new terminal window will be opened where we can type in new values. The MiddleJob gets his inputs from the SourceJob and InteractiveJob. The inputs of the function are mapped to the inputs, we configured in the config.py file. In this example the PicklePipe(1) is the first and PicklePipe(2) the second input for the MiddleJob. The output-mapping works similar to the input-mapping. The MiddleJob has the return-value:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="nb">tuple</span><span class="p">([</span><span class="n">value</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The first item of the tuple is mapped to the first output of the MiddleJob in the config.py file. In this example the tuple consists of twice the same item. So the value is mapped to PicklePipe(3) and IntPipe(4). The PicklePipe is the input for the CSVSinkJob, known from the <a class="reference external" href="#first-example">First Example</a>. The IntPipe(4) is the input for a ExecutableJob. The ExecutableJob can be written in a different programming language than Python.
+Important for the ExecutableJob is a pipe, so that the Job can process the data. In this example the IntPipe is given. The pack and unpack function must be overwritten, like in the example.</p>
+<div class="highlight-mermaid notranslate"><div class="highlight"><pre><span></span>graph LR
+  SourceJob(SourceJob) --&gt;|PicklePipe 1| MiddleJob(MiddleJob)
+  InteractiveJob(InteractiveJob) --&gt;|PicklePipe 2| MiddleJob(MiddleJob)
+  MiddleJob(MiddleJob) --&gt;|PicklePipe 3| CSVSinkJob1(CSVSinkJob)
+  MiddleJob(MiddleJob) --&gt;|IntPipe 4|CSVSinkJob2(CSVSinkJob)
+</pre></div>
+</div>
+<p>For simulation we go to examples directory and execute:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">example_2</span> <span class="n">simulate</span>
+</pre></div>
+</div>
+<p>If we want to run the configuration on our network:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">example_2</span> <span class="n">run</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="third-example">
+<h2>Third Example<a class="headerlink" href="#third-example" title="Permalink to this headline">¶</a></h2>
+<p>In the third example we show how to use the InteractiveJob to adjust values at run time, but not to type the values every time. In this example the two SourceJobs are similar to the SourceJob from the <a class="reference external" href="#first-example">First Example</a>. By typing a ‘+’ or a ‘-‘ into the InteractiveJob-terminal we can configure the MiddleJob, if it adds or subtracts the values from the SourceJobs. To make this possible we need a new pipe, in this example called InteractivePipe. We have three configuration options: OPTIONAL_DEFAULT, OPTIONAL_STORE, OPTIONAL_BUFFER_SIZE. In OPTIONAL_DEFAULT we can set a default_value for the pipe, in this example the ‘+’. With OPTIONAL_STORE we can decide if a value once typed is maintained. In the example if we typed a ‘-‘ it is maintained and the MiddleJob will subtract until we type in something different. In OPTIONAL_BUFFER_SIZE we can set a buffer size. So for example OPTIONAL_BUFFER_SIZE = 1 and first we type ‘-‘ and then ‘+’ before the MiddleJob executes once, the MiddleJob will add. So only the last input will be stored. The rest of the example is similar to the examples shown before.</p>
+<div class="highlight-mermaid notranslate"><div class="highlight"><pre><span></span>graph LR
+  SourceJob1(SourceJob) --&gt;|PicklePipe 1| MiddleJob(MiddleJob)
+  SourceJob2(SourceJob) --&gt;|PicklePipe 2| MiddleJob(MiddleJob)
+  InteractiveJob1(InteractiveJob) --&gt;|InteractivePipe 3| MiddleJob(MiddleJob)
+  MiddleJob(MiddleJob) --&gt;|PicklePipe 4| CSVSinkJob(CSVSinkJob)
+</pre></div>
+</div>
+<p>For simulation we go to examples directory and execute:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">example_3</span> <span class="n">simulate</span>
+</pre></div>
+</div>
+<p>If we want to run the configuration on our network:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">example_3</span> <span class="n">run</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="fourth-example">
+<h2>Fourth Example<a class="headerlink" href="#fourth-example" title="Permalink to this headline">¶</a></h2>
+<p>In the fourth example we show how to use the additional head, which can be used for flags. The head has a length of 8 bit and first three bits are reserved for a corrupted, reset and finish flag. The other 5 bits can be used freely. In the example the MiddleJob adds two values, which are given by both InteractiveJobs. If the value of the sum is greater or equal 10, the MiddleJob set the eighth bit. We can work with the head, if we set the class attribute HEAD true. The HeadJob looks for the eighth bit and change the output for the .csv-file at the end of the CSVSinkJob.</p>
+<div class="highlight-mermaid notranslate"><div class="highlight"><pre><span></span>graph LR
+  InteractiveJob1(InteractiveJob) --&gt;|PicklePipe 1| MiddleJob(MiddleJob)
+  InteractiveJob2(InteractiveJob) --&gt;|PicklePipe 2| MiddleJob(MiddleJob)
+  MiddleJob(MiddleJob) --&gt;|PicklePipe 3| HeadJob(HeadJob)
+  HeadJob(HeadJob) --&gt;|PicklePipe 4|CSVSinkJob(CSVSinkJob)
+</pre></div>
+</div>
+<p>For simulation we go to examples directory and execute:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">example_4</span> <span class="n">simulate</span>
+</pre></div>
+</div>
+<p>If we want to run the configuration on our network:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">example_4</span> <span class="n">run</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="complex_examples.html" class="btn btn-neutral float-right" title="Complex Example – Tutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../example_networks.html" class="btn btn-neutral float-left" title="Example Networks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, several.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

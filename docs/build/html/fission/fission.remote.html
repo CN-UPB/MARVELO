@@ -1,0 +1,664 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>fission.remote package &mdash; MARVELO 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="fission.templates package" href="fission.templates.html" />
+    <link rel="prev" title="fission.core package" href="fission.core.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> MARVELO
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../md_files/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../md_files/usage.html">How to use MARVELO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development.html">Develop your own Network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example_networks.html">Example Networks</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../documentation.html">Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="modules.html">Fission</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="fission.html">fission package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="fission.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fission.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fission.html#module-fission.build">fission.build module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fission.html#module-fission.cmd">fission.cmd module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fission.html#module-fission.emulate">fission.emulate module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fission.html#module-fission.loader">fission.loader module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fission.html#module-fission.manager">fission.manager module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fission.html#fission-test-module">fission.test module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fission.html#module-fission.visualize">fission.visualize module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fission.html#module-fission">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../example_networks/modules.html">Example Networks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../md_files/about.html">About MARVELO</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MARVELO</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../documentation.html">Documentation</a> &raquo;</li>
+        
+          <li><a href="modules.html">Fission</a> &raquo;</li>
+        
+          <li><a href="fission.html">fission package</a> &raquo;</li>
+        
+      <li>fission.remote package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/fission/fission.remote.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="fission-remote-package">
+<h1>fission.remote package<a class="headerlink" href="#fission-remote-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-fission.remote.debug">
+<span id="fission-remote-debug-module"></span><h2>fission.remote.debug module<a class="headerlink" href="#module-fission.remote.debug" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="fission.remote.debug.DebugServer">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.remote.debug.</span></code><code class="sig-name descname"><span class="pre">DebugServer</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multi_write</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.debug.DebugServer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">threading.Thread</span></code></p>
+<dl class="py method">
+<dt id="fission.remote.debug.DebugServer.kill">
+<code class="sig-name descname"><span class="pre">kill</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.debug.DebugServer.kill" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.remote.debug.DebugServer.run">
+<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.debug.DebugServer.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method representing the thread’s activity.</p>
+<p>You may override this method in a subclass. The standard run() method
+invokes the callable object passed to the object’s constructor as the
+target argument, if any, with sequential and keyword arguments taken
+from the args and kwargs arguments, respectively.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="fission.remote.debug.MultiWrite">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.remote.debug.</span></code><code class="sig-name descname"><span class="pre">MultiWrite</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.debug.MultiWrite" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">threading.Thread</span></code></p>
+<dl class="py method">
+<dt id="fission.remote.debug.MultiWrite.attach">
+<code class="sig-name descname"><span class="pre">attach</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">handler</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.debug.MultiWrite.attach" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.remote.debug.MultiWrite.close">
+<code class="sig-name descname"><span class="pre">close</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.debug.MultiWrite.close" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.remote.debug.MultiWrite.getvalue">
+<code class="sig-name descname"><span class="pre">getvalue</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.debug.MultiWrite.getvalue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.remote.debug.MultiWrite.kill">
+<code class="sig-name descname"><span class="pre">kill</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.debug.MultiWrite.kill" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.remote.debug.MultiWrite.run">
+<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.debug.MultiWrite.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method representing the thread’s activity.</p>
+<p>You may override this method in a subclass. The standard run() method
+invokes the callable object passed to the object’s constructor as the
+target argument, if any, with sequential and keyword arguments taken
+from the args and kwargs arguments, respectively.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.remote.debug.MultiWrite.write">
+<code class="sig-name descname"><span class="pre">write</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.debug.MultiWrite.write" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.remote.debug.MultiWrite.writer">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">writer</span></code><a class="headerlink" href="#fission.remote.debug.MultiWrite.writer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-fission.remote.synchronization">
+<span id="fission-remote-synchronization-module"></span><h2>fission.remote.synchronization module<a class="headerlink" href="#module-fission.remote.synchronization" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="fission.remote.synchronization.CommandHandler">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.remote.synchronization.</span></code><code class="sig-name descname"><span class="pre">CommandHandler</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">socket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reset_queue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redirect_queue</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.synchronization.CommandHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">threading.Thread</span></code></p>
+<dl class="py method">
+<dt id="fission.remote.synchronization.CommandHandler.run">
+<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.synchronization.CommandHandler.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method representing the thread’s activity.</p>
+<p>You may override this method in a subclass. The standard run() method
+invokes the callable object passed to the object’s constructor as the
+target argument, if any, with sequential and keyword arguments taken
+from the args and kwargs arguments, respectively.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="fission.remote.synchronization.CommandServer">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.remote.synchronization.</span></code><code class="sig-name descname"><span class="pre">CommandServer</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reset_queue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redirect_queue</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.synchronization.CommandServer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">threading.Thread</span></code></p>
+<dl class="py method">
+<dt id="fission.remote.synchronization.CommandServer.kill">
+<code class="sig-name descname"><span class="pre">kill</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.synchronization.CommandServer.kill" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.remote.synchronization.CommandServer.run">
+<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.synchronization.CommandServer.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method representing the thread’s activity.</p>
+<p>You may override this method in a subclass. The standard run() method
+invokes the callable object passed to the object’s constructor as the
+target argument, if any, with sequential and keyword arguments taken
+from the args and kwargs arguments, respectively.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="fission.remote.synchronization.InputHandler">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.remote.synchronization.</span></code><code class="sig-name descname"><span class="pre">InputHandler</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">socket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">queue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pipe</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.synchronization.InputHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">threading.Thread</span></code></p>
+<dl class="py method">
+<dt id="fission.remote.synchronization.InputHandler.kill">
+<code class="sig-name descname"><span class="pre">kill</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.synchronization.InputHandler.kill" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.remote.synchronization.InputHandler.run">
+<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.synchronization.InputHandler.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method representing the thread’s activity.</p>
+<p>You may override this method in a subclass. The standard run() method
+invokes the callable object passed to the object’s constructor as the
+target argument, if any, with sequential and keyword arguments taken
+from the args and kwargs arguments, respectively.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="fission.remote.synchronization.InputServer">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.remote.synchronization.</span></code><code class="sig-name descname"><span class="pre">InputServer</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pipe</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">queue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seq_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">head_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port_offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2000</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.synchronization.InputServer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">threading.Thread</span></code></p>
+<p>Waiting and accepting new tcp-connections</p>
+<dl class="py method">
+<dt id="fission.remote.synchronization.InputServer.kill">
+<code class="sig-name descname"><span class="pre">kill</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.synchronization.InputServer.kill" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.remote.synchronization.InputServer.run">
+<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.synchronization.InputServer.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method representing the thread’s activity.</p>
+<p>You may override this method in a subclass. The standard run() method
+invokes the callable object passed to the object’s constructor as the
+target argument, if any, with sequential and keyword arguments taken
+from the args and kwargs arguments, respectively.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="fission.remote.synchronization.Packet">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.remote.synchronization.</span></code><code class="sig-name descname"><span class="pre">Packet</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">head_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sqn_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.synchronization.Packet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="fission.remote.synchronization.Packet.corrupted">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">corrupted</span></code><a class="headerlink" href="#fission.remote.synchronization.Packet.corrupted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.remote.synchronization.Packet.data">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">data</span></code><a class="headerlink" href="#fission.remote.synchronization.Packet.data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.remote.synchronization.Packet.finished">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">finished</span></code><a class="headerlink" href="#fission.remote.synchronization.Packet.finished" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.remote.synchronization.Packet.full_data">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">full_data</span></code><a class="headerlink" href="#fission.remote.synchronization.Packet.full_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.remote.synchronization.Packet.get_dummy">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">get_dummy</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sqn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">head_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sqn_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.synchronization.Packet.get_dummy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.remote.synchronization.Packet.head">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">head</span></code><a class="headerlink" href="#fission.remote.synchronization.Packet.head" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.remote.synchronization.Packet.rst">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">rst</span></code><a class="headerlink" href="#fission.remote.synchronization.Packet.rst" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.remote.synchronization.Packet.sqn">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">sqn</span></code><a class="headerlink" href="#fission.remote.synchronization.Packet.sqn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="fission.remote.synchronization.ReadPipe">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.remote.synchronization.</span></code><code class="sig-name descname"><span class="pre">ReadPipe</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pipe</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">queue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seq_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">head_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.synchronization.ReadPipe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">threading.Thread</span></code></p>
+<p>Reading the pipe between wrappers</p>
+<dl class="py method">
+<dt id="fission.remote.synchronization.ReadPipe.kill">
+<code class="sig-name descname"><span class="pre">kill</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.synchronization.ReadPipe.kill" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.remote.synchronization.ReadPipe.run">
+<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.synchronization.ReadPipe.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method representing the thread’s activity.</p>
+<p>You may override this method in a subclass. The standard run() method
+invokes the callable object passed to the object’s constructor as the
+target argument, if any, with sequential and keyword arguments taken
+from the args and kwargs arguments, respectively.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="fission.remote.synchronization.RedirectHandler">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.remote.synchronization.</span></code><code class="sig-name descname"><span class="pre">RedirectHandler</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">job</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">my_ip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redirect_queue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_pipes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_pipes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wrapper_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wrapper_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port_offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2000</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.synchronization.RedirectHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">threading.Thread</span></code></p>
+<dl class="py method">
+<dt id="fission.remote.synchronization.RedirectHandler.get_index_in_pipes">
+<code class="sig-name descname"><span class="pre">get_index_in_pipes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pipe_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.synchronization.RedirectHandler.get_index_in_pipes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.remote.synchronization.RedirectHandler.get_index_out_pipes">
+<code class="sig-name descname"><span class="pre">get_index_out_pipes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pipe_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.synchronization.RedirectHandler.get_index_out_pipes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.remote.synchronization.RedirectHandler.kill">
+<code class="sig-name descname"><span class="pre">kill</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.synchronization.RedirectHandler.kill" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.remote.synchronization.RedirectHandler.run">
+<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.synchronization.RedirectHandler.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method representing the thread’s activity.</p>
+<p>You may override this method in a subclass. The standard run() method
+invokes the callable object passed to the object’s constructor as the
+target argument, if any, with sequential and keyword arguments taken
+from the args and kwargs arguments, respectively.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="fission.remote.synchronization.SQN_Checker">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.remote.synchronization.</span></code><code class="sig-name descname"><span class="pre">SQN_Checker</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inqueues</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outqueues</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pipes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection_queue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">finish_event</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dummy_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'zero'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.synchronization.SQN_Checker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">threading.Thread</span></code></p>
+<dl class="py method">
+<dt id="fission.remote.synchronization.SQN_Checker.dummy_in_outqueue">
+<code class="sig-name descname"><span class="pre">dummy_in_outqueue</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">queue_index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run_index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">given_sqn</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.synchronization.SQN_Checker.dummy_in_outqueue" title="Permalink to this definition">¶</a></dt>
+<dd><p>dummy packet will be pushed in outqueue</p>
+<dl class="simple">
+<dt>Arguments:</dt><dd><p>queue_index {int} – index for outqueue and pipe
+run_index {int} – index for run for right sqn (BLOCK_COUNT)
+mode {string} – “prev” for previous data, “zero” for filling data with 0. Overridden to “prev” if ‘PKL’
+given_sqn {int} – for logger warning</p>
+</dd>
+<dt>Raises:</dt><dd><p>ValueError: wrong mode passed</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.remote.synchronization.SQN_Checker.dummy_mode_in_outqueue">
+<code class="sig-name descname"><span class="pre">dummy_mode_in_outqueue</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">queue_index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run_index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">head_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.synchronization.SQN_Checker.dummy_mode_in_outqueue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Put Dummy in outqueue in mode ‘zero’ or ‘prev’</p>
+<dl class="simple">
+<dt>Arguments:</dt><dd><p>queue_index {int} – index for outqueue and pipe
+run_index {int} – index for run for right sqn (BLOCK_COUNT)</p>
+</dd>
+<dt>Keyword Arguments:</dt><dd><p>log {string} – string will be logged as a warning (default: {None})</p>
+</dd>
+<dt>Raises:</dt><dd><p>ValueError: wrong mode passed</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.remote.synchronization.SQN_Checker.head_join">
+<code class="sig-name descname"><span class="pre">head_join</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">packet_head</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.synchronization.SQN_Checker.head_join" title="Permalink to this definition">¶</a></dt>
+<dd><p>combines the heads and checks if finish-flag is set</p>
+<dl class="simple">
+<dt>Arguments:</dt><dd><p>packet_head {int} – one head, which will be combined with the others of one run</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.remote.synchronization.SQN_Checker.packet_in_outqueue">
+<code class="sig-name descname"><span class="pre">packet_in_outqueue</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">packet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.synchronization.SQN_Checker.packet_in_outqueue" title="Permalink to this definition">¶</a></dt>
+<dd><p>handed over packet or packet from datalist will be pushed in outqueue</p>
+<dl class="simple">
+<dt>Keyword Arguments:</dt><dd><p>packet {Packet} – packet, which will be pushed in outqueue (default: {None})
+index {[type]} – index to identify in which outqueue will be pushed (default: {None})</p>
+</dd>
+<dt>Raises:</dt><dd><p>RuntimeError: Error if no packet in datalist
+ValueError: function has to be called with minimum index parameter</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.remote.synchronization.SQN_Checker.run">
+<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.synchronization.SQN_Checker.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method representing the thread’s activity.</p>
+<p>You may override this method in a subclass. The standard run() method
+invokes the callable object passed to the object’s constructor as the
+target argument, if any, with sequential and keyword arguments taken
+from the args and kwargs arguments, respectively.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="fission.remote.synchronization.SendBlock">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.remote.synchronization.</span></code><code class="sig-name descname"><span class="pre">SendBlock</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">job</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outqueues</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection_queue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command_rst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">finish_event</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">head_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sqn_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.synchronization.SendBlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">threading.Thread</span></code></p>
+<dl class="py method">
+<dt id="fission.remote.synchronization.SendBlock.kill">
+<code class="sig-name descname"><span class="pre">kill</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.synchronization.SendBlock.kill" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.remote.synchronization.SendBlock.read_out_job">
+<code class="sig-name descname"><span class="pre">read_out_job</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pipe</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">queue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">packet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.synchronization.SendBlock.read_out_job" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read data from file_obj form the current job.</p>
+<dl class="simple">
+<dt>Arguments:</dt><dd><p>file_obj {file} – File object  to read from
+pipe {Pipe} – read from output-pipe of job
+queue {queue} – outputqueue of job
+reset {bool} – if true, set reset flag</p>
+</dd>
+<dt>Keyword Arguments:</dt><dd><p>packet {Packet} – packet from the connection_queue(default: {None})</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fission.remote.synchronization.SendBlock.read_pipe">
+<code class="sig-name descname"><span class="pre">read_pipe</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pipe</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.synchronization.SendBlock.read_pipe" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.remote.synchronization.SendBlock.run">
+<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.synchronization.SendBlock.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method representing the thread’s activity.</p>
+<p>You may override this method in a subclass. The standard run() method
+invokes the callable object passed to the object’s constructor as the
+target argument, if any, with sequential and keyword arguments taken
+from the args and kwargs arguments, respectively.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="fission.remote.synchronization.SendSocket">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.remote.synchronization.</span></code><code class="sig-name descname"><span class="pre">SendSocket</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">socketqueue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seq_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">head_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.synchronization.SendSocket" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">threading.Thread</span></code></p>
+<dl class="py method">
+<dt id="fission.remote.synchronization.SendSocket.kill">
+<code class="sig-name descname"><span class="pre">kill</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.synchronization.SendSocket.kill" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.remote.synchronization.SendSocket.redirected_copy">
+<code class="sig-name descname"><span class="pre">redirected_copy</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ip</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.synchronization.SendSocket.redirected_copy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.remote.synchronization.SendSocket.run">
+<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.synchronization.SendSocket.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method representing the thread’s activity.</p>
+<p>You may override this method in a subclass. The standard run() method
+invokes the callable object passed to the object’s constructor as the
+target argument, if any, with sequential and keyword arguments taken
+from the args and kwargs arguments, respectively.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="fission.remote.synchronization.WritePipe">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">fission.remote.synchronization.</span></code><code class="sig-name descname"><span class="pre">WritePipe</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pipe</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">queue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">head</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wrapper_pipe</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seq_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">head_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.synchronization.WritePipe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">threading.Thread</span></code></p>
+<p>Writing in the pipe between wrappers</p>
+<dl class="py method">
+<dt id="fission.remote.synchronization.WritePipe.kill">
+<code class="sig-name descname"><span class="pre">kill</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.synchronization.WritePipe.kill" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fission.remote.synchronization.WritePipe.run">
+<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.synchronization.WritePipe.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method representing the thread’s activity.</p>
+<p>You may override this method in a subclass. The standard run() method
+invokes the callable object passed to the object’s constructor as the
+target argument, if any, with sequential and keyword arguments taken
+from the args and kwargs arguments, respectively.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-fission.remote.wrapper">
+<span id="fission-remote-wrapper-module"></span><h2>fission.remote.wrapper module<a class="headerlink" href="#module-fission.remote.wrapper" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="fission.remote.wrapper.pipe_wrapper_sync">
+<code class="sig-prename descclassname"><span class="pre">fission.remote.wrapper.</span></code><code class="sig-name descname"><span class="pre">pipe_wrapper_sync</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">job</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port_offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ip_addr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'DEBUG'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fission.remote.wrapper.pipe_wrapper_sync" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-fission.remote">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-fission.remote" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="fission.templates.html" class="btn btn-neutral float-right" title="fission.templates package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="fission.core.html" class="btn btn-neutral float-left" title="fission.core package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, several.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

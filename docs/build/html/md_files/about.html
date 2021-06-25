@@ -1,0 +1,341 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>About MARVELO &mdash; MARVELO 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="shared.pipes package" href="../example_networks/shared.pipes.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> MARVELO
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">How to use MARVELO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development.html">Develop your own Network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example_networks.html">Example Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation.html">Documentation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">About MARVELO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#the-journey">The Journey</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#the-first-approach">The first approach…</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-second-approach">The second approach…</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#job-distribution-in-a-failover">Job Distribution in a failover</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#synchronization">Synchronization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sqn-checker">SQN-Checker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#head-check">Head-Check</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#please-note">Please note:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MARVELO</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>About MARVELO</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/md_files/about.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="about-marvelo">
+<h1>About MARVELO<a class="headerlink" href="#about-marvelo" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-journey">
+<h2>The Journey<a class="headerlink" href="#the-journey" title="Permalink to this headline">¶</a></h2>
+<p>We started off with the task: “Failover in wireless distributed computing”.
+And soon enough we came to our present name <strong>FISSION</strong> - <strong>F</strong>ailover in w<strong>I</strong>rele<strong>SS</strong> d<strong>I</strong>stributed c<strong>O</strong>mputi<strong>N</strong>g.
+Besides matching our initial title in at least some way, <strong>FISSION</strong> describes the opposite of fusion and seemed quite appropriate for out digital splitting of a “core” task.<br />Being thrown into this project with two tools, <a class="reference external" href="https://github.com/CN-UPB/MARVELO"><strong>MARVELO</strong></a> and <a class="reference external" href="http://dispy.sourceforge.net/"><strong>dispy</strong></a>, and not too much knowledge of failover, we had some research to do.</p>
+<ul class="simple">
+<li><p>What is failover?</p></li>
+<li><p>What is <a class="reference external" href="http://dispy.sourceforge.net/"><strong>dispy</strong></a>?</p></li>
+<li><p>What is <a class="reference external" href="https://github.com/CN-UPB/MARVELO"><strong>MARVELO</strong></a>?</p></li>
+<li><p>How to combine them?!</p></li>
+</ul>
+<p>It turns out that dispy is a framework for “Distributed and Parallel Computing with/for Python”.
+Which sounds perfect for our use case at first but reveals some issues when taking another look.
+<strong>dispy</strong> heavily depends on distributing a <em>single</em> task onto different nodes with different parameters per node and reporting back to a single entity.
+Communication in between nodes is not intended. In addition <strong>dispy</strong> provides some failover mechanism like heartbeats and fail recovery.<br /><strong>MARVELO</strong> on the other hand takes a set of possibly diverse tasks, creates the infrastructure needed for communication in between nodes and computes depending on interim results of different nodes.<br />In conclusion booth projects desire to split up compute power onto nodes but do so in two different ways.<br />While figuring out the best way of combining them to keep the failover mechanisms of <strong>dispy</strong> while inducing the functionality of <strong>MARVELO</strong> we came across two approaches.</p>
+<div class="section" id="the-first-approach">
+<h3>The first approach…<a class="headerlink" href="#the-first-approach" title="Permalink to this headline">¶</a></h3>
+<p>…was to keep as much of the current code as possible.
+<strong>MARVELO</strong> has a “Daemon” running on each node of the network to receive and execute commands from a central “Server” (Don’t stick to these notions as they change shortly).
+The obvious thing to do is to start the “Daemon” on each reachable node with <strong>dispy</strong> to gain heartbeats and still have all the functionality of <strong>MARVELO</strong>s “Daemons”.<br />We still had to change some code of the “Server” and while digging into <strong>MARVELO</strong>s code we soon noticed we might want to replace the <strong>MARVELO</strong> code entirely and the second approach was born in parallel.</p>
+</div>
+<div class="section" id="the-second-approach">
+<h3>The second approach…<a class="headerlink" href="#the-second-approach" title="Permalink to this headline">¶</a></h3>
+<p>…was to get rid of the “Daemons” and provide the whole functionality within a <strong>dispy</strong> job, in other words a single Python function and some dependencies. By doing so, we are able to utilize every node within a network running <strong>dispy</strong>. Which is a huge benefit in booth development and deployment. Setting up nodes becomes easier and while developing your code is centralized and changes can be easily tested as distributing the code is part of the start up process. As a drawback you lose a bit of control over the node as you only spawn jobs, managing them is done by <strong>dispy</strong>.<br />Still sounds great, doesn’t it?</p>
+<p>Soon enough we had a basic failover mechanism in place using the second approach and with no considerable achievements nor advantages we dropped the first approach and stuck to the second one.</p>
+<p>The core of the problem <strong>FISSION</strong> comes from our predecessor <a class="reference external" href="https://github.com/CN-UPB/MARVELO"><strong>MARVELO</strong></a>.
+Our goal is to distribute a set of jobs across a set of nodes.
+While doing so, you want your distribution to be optimal in within specific parameters.
+<a class="reference external" href="https://github.com/CN-UPB/MARVELO"><strong>MARVELO</strong></a> has an algorithm which needs a lot of computing power to determine a desired distribution and therefore is not suited agile processes like failover mechanisms. This is where <strong>FISSION</strong> kicks in.</p>
+</div>
+</div>
+<div class="section" id="job-distribution-in-a-failover">
+<h2>Job Distribution in a failover<a class="headerlink" href="#job-distribution-in-a-failover" title="Permalink to this headline">¶</a></h2>
+<p>If a failover is initiated, some jobs need to be rescheduled onto different nodes.
+For this the following procedure is used for each non scheduled job, while the order of the job is random:</p>
+<ol class="simple">
+<li><p>Looking at all possible nodes in the highest priority GROUP of the job</p></li>
+<li><p>Calculating which nodes fit the best based on given parameter</p></li>
+<li><p>If no node is given or fits, repeat for all other GROUPS of the job</p></li>
+<li><p>Check whether the user wants to calculate the new node himself and getting a node from him</p></li>
+<li><p>If nothing is found abort the current running network</p></li>
+</ol>
+<p>The used parameters for this are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cpu</span></code>: free cpu in percentage (close to 100 meaning no load)(average over 3 seconds)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">swap</span></code>: used swap space in percentage (average over 3 seconds)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TQ</span></code>: Transmit Quality (0 means no connection, 255 means perfect connection)</p></li>
+</ul>
+<p>Since <code class="docutils literal notranslate"><span class="pre">dispy</span></code> is mandatory <code class="docutils literal notranslate"><span class="pre">cpu</span></code> and <code class="docutils literal notranslate"><span class="pre">swap</span></code> are always provided. For having an useful <code class="docutils literal notranslate"><span class="pre">TQ</span></code> value BATMAN-adv needs to be installed otherwise a default value of 255 is used. Furthermore, without BATMAN-adv no routing is provided. See <a class="reference external" href="https://git.cs.upb.de/js99/afdwc/-/wikis/fission/Job-Distribution#install-and-setup-batman-adv">Install and setup B.A.T.M.A.N-adv</a> on how to install batman and for more information on how BATMAN-adv calculates its <code class="docutils literal notranslate"><span class="pre">TQ</span></code> value visit: <a class="reference external" href="https://www.open-mesh.org/projects/batman-adv/wiki/BATMAN_IV">BATMAN_IV</a></p>
+<p>Other parameters not used in the default calculation:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">memory</span></code>: free main memory in bytes (average over 3 seconds)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">disk</span></code>: free disk space in bytes (average over 3 seconds)</p></li>
+</ul>
+</div>
+<div class="section" id="synchronization">
+<h2>Synchronization<a class="headerlink" href="#synchronization" title="Permalink to this headline">¶</a></h2>
+<p>A wrapper is build around each job on a node to guarantee synchronization among multiple inputs.
+This wrapper consists of two parts,SQN-Check and Head-Check, which are explained in the following.
+The SQN-Check is dealing with the input data of a job and the second part is involved in the output-data of the job.</p>
+<img src="synchronization.png"  width="640" height="360"><div class="section" id="sqn-checker">
+<h3>SQN-Checker<a class="headerlink" href="#sqn-checker" title="Permalink to this headline">¶</a></h3>
+<p>The SQN-Checker has to check the sequence numbers and headers of the job’s incoming data.
+In the case of a missing Block a Dummy-Block is build. If the incoming Pipe is ASYNC, the SQN-Checker ignores the Packet completely.</p>
+<p>There are two provided modes to generate Dummys. The first is ‘zero’, where the data from the Packet will be filled with zeros in the right length. The second is ‘prev’, where the same data from the last Packet will be used. New get_dummy methods can be written in the Pipe.</p>
+<p>The wrapper reads from the input and put the Data, which are represented by Packets, in Queues.
+From these Queues the sequence numbers are checked against a counter, which is increased by 1 every run.
+The decisions, which are made in the context of the counter, the SQN and the Reset-Flag for a <strong>new</strong> Packet:</p>
+<ul class="simple">
+<li><p>The <strong>counter starts at 0</strong>, but the SQN of the first Packet is 1. So with the 0 the SQN-Checker knows that he is spawned new. If the counter=0, the counter will be set on the SQN from the next Packet and the Packet will be pushed in the outqueue. So if the first Packet is not getting lost, the counter will be set on 1.</p></li>
+<li><p>Next the SQN_Checker checks <strong>if the Reset-Flag is set</strong>. If it is, the Packet will be pushed to a buffer and a Dummy will be pushed in the outqueue. We have to check all Pipes for the Reset-Flag, before we can push the new Packet in the outqueue, so it is stored and Dummys are pushed until at all Pipes the Reset-Flag was given. Even all Reset-Flags come at the same run, one Dummy per Pipe and per Block_Count will be pushed in the outqueue.</p></li>
+<li><p>Next it is checked if the <strong>SQN is smaller than expected</strong> and the <strong>Reset-Flag is not set</strong>. These Packets will be deleted.</p></li>
+<li><p>Next it is checked if the <strong>SQN is higher than expected</strong>. In this case the Packet is pushed in the buffer and a Dummy is pushed in the outqueue.</p></li>
+</ul>
+<p>If the Buffer has a Packet the SQN-Checker checks the following cases:</p>
+<ul class="simple">
+<li><p>First it checks if at all (not ASYNC) Pipes the Reset-Flag were set and if it is in the checking of the first (not ASYNC) Pipe. Then the counter is set on 1, the Packet from the Buffer is pushed in the outqueue and the Reset-Flags will be deleted.</p></li>
+<li><p>If the SQN of the Packet from the Buffer has the expected SQN, the Packet will be pushed in the outqueue.</p></li>
+<li><p>If the SQN of the Packet from the Buffer has <strong>not</strong> the expected SQN, a Dummy will be pushed in the outqueue.</p></li>
+</ul>
+</div>
+<div class="section" id="head-check">
+<h3>Head-Check<a class="headerlink" href="#head-check" title="Permalink to this headline">¶</a></h3>
+<p>The Head-Check of the wrapper is needed to send the output-data of the current job to the next job.
+In order to send these data, there are some steps involved.</p>
+<p>First of all, the wrapper reads from the output-pipes of the Job, in order get the data.
+The Head-Check defines data as data without head.
+If the job has decided in the SQN-Checker that he also wants the head, then it also needed to read head from the output-pipes and not only the data.</p>
+<p>In case if the head is read from the output-pipe, then the next step is, to check which flags are set by the job.
+There are three flags, corrupted, reset and finished.
+It is not allowed that a connector job, can set a reset flag, only a source job is allowed to set the reset-flag.
+We make distinction between connector jobs, which have inputs and outputs, and source jobs, which have only outputs.</p>
+<p>In order to send the data, the calculated output sequence number for connector job from the SQN-Checker is needed, which can be in found in a so called “connection-queue”.
+This queue connects SQN-Checker and HEAD-Check.</p>
+<p>If a source job is running on the node, then the HEAD-Check has to compute the sequence numbers for the output-blocks.
+The SQN-Checker is not able to compute the sequence numbers because source jobs have no inputs and SQN-Checker is only sitting in front of inputs.
+In case of that, the HEAD-Check is not allowed to use the connection_queue.
+The HEAD-Check also has to add an Head for the output-blocks, where no flags is set in the head.</p>
+<p>But if the source job is on his first run, in other words where output-block is produced on the first run, then the reset-flag is set in the output-block automatically.
+In the next runs, the reset flag is not set automatically.</p>
+<p>No matter, if there is a source or a connector job running on the node, if we get a command to reset, then on the next run and only in that run, the reset flag is set in the output-block.
+Then also the  sequence number needs to restart to count from 1.
+The command for reset is a timestamp or just a boolean. If in case a timestamp is used the, the reset is set sychronously. The timestamp is just a float-number.</p>
+<p>If we have done all the necessary steps for sequence number and head, no matter if there is source or connector job is running on the node, then the output-block needs to be sent to next jobs.</p>
+<div class="section" id="please-note">
+<h4>Please note:<a class="headerlink" href="#please-note" title="Permalink to this headline">¶</a></h4>
+<p>This is implemented in the module <code class="docutils literal notranslate"><span class="pre">fission.remote.synchronization</span></code> and is instantiated in the module <code class="docutils literal notranslate"><span class="pre">fission.remote.wrapper</span></code>.
+To avoid confusion with conventional Packets we refer to Blocks in the documentation.
+The class representing a Block is still called <code class="docutils literal notranslate"><span class="pre">Packet</span></code>.
+HEAD Check is called <code class="docutils literal notranslate"><span class="pre">SendBlock</span></code> in the module.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../example_networks/shared.pipes.html" class="btn btn-neutral float-left" title="shared.pipes package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, several.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

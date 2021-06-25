@@ -1,0 +1,361 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Getting Started &mdash; MARVELO 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="How to use MARVELO" href="usage.html" />
+    <link rel="prev" title="MARVELO" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> MARVELO
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#terminology">Terminology</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#a-client">A Client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#a-server">A Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#a-job">A Job</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#client">Client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#server">Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-and-setup-b-a-t-m-a-n-adv">Install and setup B.A.T.M.A.N-adv</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">How to use MARVELO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development.html">Develop your own Network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example_networks.html">Example Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About MARVELO</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MARVELO</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Getting Started</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/md_files/getting_started.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="terminology">
+<h2>Terminology<a class="headerlink" href="#terminology" title="Permalink to this headline">¶</a></h2>
+<p>The four most important terms in <strong>FISSION</strong> are: <strong>Network</strong>, <strong>Client</strong>, <strong>Server</strong> and <strong>Job</strong>.</p>
+<blockquote>
+<div><p>Coming from MARVELO:</p>
+<ul class="simple">
+<li><p>Server -&gt; Client</p></li>
+<li><p>Daemon -&gt; Server</p></li>
+<li><p>Algorithm -&gt; Job</p></li>
+</ul>
+</div></blockquote>
+<p>Within a <strong>Network</strong> there is <strong>one Client</strong>, some number of <strong>Server</strong>s and a number of <strong>Job</strong>s.</p>
+<div class="section" id="a-client">
+<h3>A Client<a class="headerlink" href="#a-client" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><strong>distributes</strong> Jobs and their associated Files.</p></li>
+<li><p><strong>monitors</strong> all Servers.</p></li>
+<li><p><strong>restarts</strong> the Jobs of a Server within the Network in case of its failure.</p></li>
+</ul>
+</div>
+<div class="section" id="a-server">
+<h3>A Server<a class="headerlink" href="#a-server" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><strong>executes</strong> provided Jobs</p></li>
+<li><p><strong>receives</strong> input data from other Servers</p></li>
+<li><p><strong>sends</strong> output data to other Servers</p></li>
+</ul>
+</div>
+<div class="section" id="a-job">
+<h3>A Job<a class="headerlink" href="#a-job" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><strong>defines</strong> a program and the Jobs it communicates with</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p><strong>Your Python version has to be 3.6 or greater!</strong></p>
+<div class="section" id="client">
+<h3>Client<a class="headerlink" href="#client" title="Permalink to this headline">¶</a></h3>
+<p>The Client is where you should copy the repository to and is the “supervisor” of your cluster, monitoring all servers and managing the failover.</p>
+<p><strong>FISSION</strong> depends on named pipes and therefore can not run on Windows.</p>
+<p><strong>FISSION</strong> is installable via pip. We recommend setting up a virtual environment and activating it:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m venv &lt;my-virtual-environment&gt;
+<span class="nb">source</span> &lt;my-virtual-environment&gt;/bin/activate
+</pre></div>
+</div>
+<p>Next install fission via pip:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip3 install &lt;fission-root-directory&gt;
+</pre></div>
+</div>
+<p>When developing we recommend to make an editable install by adding the <code class="docutils literal notranslate"><span class="pre">-e</span></code> flag.</p>
+<p>That’s it, the Client is ready to run!</p>
+</div>
+<div class="section" id="server">
+<h3>Server<a class="headerlink" href="#server" title="Permalink to this headline">¶</a></h3>
+<p>If you haven’t already, install ansible. It is used to set up your servers automated, you only have to tweak a few setting.</p>
+<blockquote>
+<div><p><strong>On Windows</strong>:
+There is no Windows version of ansible, but on Windows 10, you can simply install WSL (e.g., <a class="reference external" href="https://www.microsoft.com/de-de/p/ubuntu-1804-lts/9n9tngvndl3q">Ubuntu</a>),
+which gives you a Linux subsystem running on top of your Windows machine.
+Then, you can open the Linux terminal and follow the instructions below, as if you were on Linux.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>On Ubuntu</strong>:
+<a class="reference external" href="http://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#latest-releases-via-apt-ubuntu">ansible documentation</a><br />Commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get update
+sudo apt-get install software-properties-common
+sudo apt-add-repository ppa:ansible/ansible
+sudo apt-get update
+sudo apt-get install ansible make
+</pre></div>
+</div>
+</div></blockquote>
+<blockquote>
+<div><p><strong>On macOS</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew install ansible
+</pre></div>
+</div>
+</div></blockquote>
+<p>You have to set all ips of your servers in the <code class="docutils literal notranslate"><span class="pre">ansible/inventories/production/hosts.yml</span></code> file.
+If the ip you are connecting to for installation differs from the one you wish you dispynode to serve just add a <code class="docutils literal notranslate"><span class="pre">dispy_ip</span></code> to the host.
+You will find two examples, follow them.<br />Now head to <code class="docutils literal notranslate"><span class="pre">ansible/inventories/production/group_vars/fissionservers/setting.yml</span></code> and change <code class="docutils literal notranslate"><span class="pre">ansible_user</span></code> to what ever user you set up on your servers. At this point you can also specify any additional python3 packages you wish to install for your jobs.</p>
+<p>Run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">servers_pw</span></code>. This will run the ansible playbook and ask for an ssh password and a sudo password.<br />If you already copied an id to the server by running <code class="docutils literal notranslate"><span class="pre">ssh-copy-id</span> <span class="pre">&lt;server-address&gt;</span></code> (you maybe have to run <code class="docutils literal notranslate"><span class="pre">ssh-keygen</span></code> first to create a key), you can run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">servers</span></code> and it will only ask for a sudo password.</p>
+<p>The following commands are also supported by the make file:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">start</span></code> starts the service running a dispynode on each node (`make servers starts the service automatically)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">stop</span></code> stops the service running a dispynode on each node</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">renew</span></code> copies a new version of the fission.service file to the nodes and restarts the fission service.
+This is useful if you want to change the ip the dispynode serves or changed something in the <code class="docutils literal notranslate"><span class="pre">ansible/roles/setup/templates/fission.service.j2</span></code> file.
+E.g. you could ad <code class="docutils literal notranslate"><span class="pre">-d</span></code> flag to run the nodes in debug mode if you are experiencing issues.</p></li>
+</ul>
+<p><strong>Make sure you run the same dispy versions on the client and all nodes, otherwise they will not detect each other.</strong></p>
+<p>Your Network is ready now.</p>
+</div>
+<div class="section" id="install-and-setup-b-a-t-m-a-n-adv">
+<h3>Install and setup B.A.T.M.A.N-adv<a class="headerlink" href="#install-and-setup-b-a-t-m-a-n-adv" title="Permalink to this headline">¶</a></h3>
+<p>Prior to installing BATMAN, make sure the device is connected to your ad-hoc network.</p>
+<p>First you need to enable necessary interfaces on boot.</p>
+<p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~</span> <span class="pre">&amp;&amp;</span> <span class="pre">touch</span> <span class="pre">start-batman-adv.sh</span> <span class="pre">&amp;&amp;</span> <span class="pre">chmod</span> <span class="pre">+x</span> <span class="pre">start-batman-adv.sh</span></code></p>
+<p>After creating the file, type in:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tell batman-adv which interface to use</span>
+<span class="n">sudo</span> <span class="n">batctl</span> <span class="k">if</span> <span class="n">add</span> <span class="n">wlan0</span>
+<span class="c1"># Activates the interfaces for batman-adv</span>
+<span class="n">sudo</span> <span class="n">ifconfig</span> <span class="n">wlan0</span> <span class="n">up</span>
+<span class="n">sudo</span> <span class="n">ifconfig</span> <span class="n">bat0</span> <span class="n">up</span> <span class="c1"># bat0 is created via the first command</span>
+</pre></div>
+</div>
+<p>Note: <em>wlan0</em> in this case is the interface used for your ad-hoc network.</p>
+<p>Next you need to configure the <em>bat0</em> interfaces, by creating a file in <code class="docutils literal notranslate"><span class="pre">/etc/network/interfaces.d</span></code> named bat0 with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">auto</span> <span class="n">bat0</span>
+<span class="n">iface</span> <span class="n">bat0</span> <span class="n">inet</span> <span class="n">auto</span>
+    <span class="n">pre</span><span class="o">-</span><span class="n">up</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">batctl</span> <span class="k">if</span> <span class="n">add</span> <span class="n">wlan0</span>
+</pre></div>
+</div>
+<p>Finally, to install BATMAN-adv use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install batman-adv</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">batctl</span>
+<span class="c1"># Have batman-adv startup automatically on boot</span>
+<span class="n">echo</span> <span class="s1">&#39;batman-adv&#39;</span> <span class="o">|</span> <span class="n">sudo</span> <span class="n">tee</span> <span class="o">--</span><span class="n">append</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">modules</span>
+<span class="c1"># Enable interfaces on boot</span>
+<span class="n">echo</span> <span class="s2">&quot;$(pwd)/start-batman-adv.sh&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">~/.</span><span class="n">bashrc</span>
+</pre></div>
+</div>
+<p>To complete the installation reboot your device.
+To check if your installation succeeded, type
+<code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">batctl</span> <span class="pre">-v</span></code>
+and check if a batman-adv module is loaded
+and type
+<code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">batctl</span> <span class="pre">if</span></code>
+to check whether wlan0 is active.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="usage.html" class="btn btn-neutral float-right" title="How to use MARVELO" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../index.html" class="btn btn-neutral float-left" title="MARVELO" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, several.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

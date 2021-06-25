@@ -1,0 +1,1179 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Develop your own Network &mdash; MARVELO 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> MARVELO
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">How to use MARVELO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development.html">Develop your own Network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example_networks.html">Example Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About MARVELO</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MARVELO</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Develop your own Network</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/md_files/developing.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="develop-your-own-network">
+<h1>Develop your own Network<a class="headerlink" href="#develop-your-own-network" title="Permalink to this headline">¶</a></h1>
+<p>[[<em>TOC</em>]]</p>
+<div class="section" id="creating-a-new-project">
+<h2>Creating a new Project<a class="headerlink" href="#creating-a-new-project" title="Permalink to this headline">¶</a></h2>
+<p>To start a <strong>MARVELO</strong> project just run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>fission_admin.py &lt;my-project&gt; startproject
+</pre></div>
+</div>
+<p>This will result in the following structure:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;my-project&gt;/
+├── manage.py
+└── shared
+    ├── __init__.py
+    ├── jobs
+    │   ├── __init__.py
+    │   └── jobs.py
+    ├── nodes
+    │   ├── __init__.py
+    │   └── nodes.py
+    ├── pipes
+    │   ├── __init__.py
+    │   └── pipes.py
+    └── source
+</pre></div>
+</div>
+<p>By default a <code class="docutils literal notranslate"><span class="pre">shared</span></code> network is started.
+It contains no <code class="docutils literal notranslate"><span class="pre">config.py</span></code> file and there for can’t be directly executed.<br />It’s purpose is to hold jobs, nodes, pipes and files you may want to use in multiple networks within you project.</p>
+<p>Next head into <code class="docutils literal notranslate"><span class="pre">&lt;my-project&gt;</span></code> and start a network:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> &lt;my-project&gt;
+python3 manage.py &lt;my-network&gt; startnetwork
+</pre></div>
+</div>
+<p>The folder structure changes to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;my-project&gt;/
+├── manage.py
+├── shared
+│   ├── __init__.py
+│   ├── jobs
+│   │   ├── __init__.py
+│   │   └── jobs.py
+│   ├── nodes
+│   │   ├── __init__.py
+│   │   └── nodes.py
+│   ├── pipes
+│   │   ├── __init__.py
+│   │   └── pipes.py
+│   └── source
+└── &lt;my-network&gt;
+    ├── config.py
+    ├── __init__.py
+    ├── jobs
+    │   ├── __init__.py
+    │   └── jobs.py
+    ├── nodes
+    │   ├── __init__.py
+    │   └── nodes.py
+    ├── pipes
+    │   ├── __init__.py
+    │   └── pipes.py
+    └── source
+</pre></div>
+</div>
+<p>Notice how our newly created network provides a <code class="docutils literal notranslate"><span class="pre">config.py</span></code> file, meaning we can actually run it.</p>
+<p>We’ll return to the config later, first a quick explanation of what’s what:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">config.py</span></code> is the part of your network where you define a few general things, but also how and with what pipes your jobs are connected.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">jobs</span></code> is a directory / python module where you are meant to define your jobs in.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nodes</span></code> is a directory / python module where you are meant to define your nodes in.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pipes</span></code> is a directory / python module where you are meant to define, you guessed it, your pipes in.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">source</span></code> is a directory where you are meant to put your job’s dependencies like executables or in general files you job depends on.</p></li>
+</ul>
+</div>
+<div class="section" id="implementing-jobs">
+<h2>Implementing Jobs<a class="headerlink" href="#implementing-jobs" title="Permalink to this headline">¶</a></h2>
+<p>This page covers what you need to think about when making a job for <strong>MARVELO</strong>.</p>
+<div class="section" id="overview">
+<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h3>
+<p>In general there are 2 types of jobs:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#python-jobs">Python Jobs</a></p></li>
+<li><p><a class="reference external" href="#executable-jobs">Executable Jobs</a></p></li>
+</ul>
+<p>In addition we differentiate between 3 types depending on in- and outputs:</p>
+<ul class="simple">
+<li><p><strong>Source job</strong>: A job which only has outputs, no inputs.
+It only feeds data into the network.</p></li>
+<li><p><strong>Connector Job</strong>: A job providing both in- and outputs. It processes and forwards.</p></li>
+<li><p><strong>Sink Job</strong>: A job which only has inputs. It may process data and is likely to store results somewhere.</p></li>
+</ul>
+<p><a class="reference external" href="#python-jobs">Python Jobs</a> need to be implemented in Python and are therefore highly integrated into our Python based framework.</p>
+<p><a class="reference external" href="#executable-jobs">Executable Jobs</a> on the other hand allow to run any type of executable that takes the correct argument and knows how to handle them.</p>
+</div>
+<div class="section" id="predefined-jobs">
+<h3>Predefined Jobs<a class="headerlink" href="#predefined-jobs" title="Permalink to this headline">¶</a></h3>
+<p>There are some already implemented jobs that may be useful.</p>
+<div class="section" id="csvsinkjob">
+<h4>CSVSinkJob<a class="headerlink" href="#csvsinkjob" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="interactivejob">
+<h4>InteractiveJob<a class="headerlink" href="#interactivejob" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="loggingjob-and-loggingsinkjobs">
+<h4>LoggingJob and LoggingSinkJobs<a class="headerlink" href="#loggingjob-and-loggingsinkjobs" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="datajob">
+<h4>DataJob<a class="headerlink" href="#datajob" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="clockjob">
+<h4>ClockJob<a class="headerlink" href="#clockjob" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="forwardingjob">
+<h4>ForwardingJob<a class="headerlink" href="#forwardingjob" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+<div class="section" id="groups-default-node-and-max-queue">
+<h3>GROUPS, DEFAULT_NODE and MAX_QUEUE<a class="headerlink" href="#groups-default-node-and-max-queue" title="Permalink to this headline">¶</a></h3>
+<p>These are class attributes of a job. You can override them.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">GROUPS</span></code>:<br />A list of strings or a single string representing a name for a group.
+A group is used when allocating a job.
+Jobs will only be allocated to nodes of the same group(s).<br />When listing multiple groups, order matters.
+First one being highest priority and last one lowest.<br />The group “ALL” is the default groups each node and job is part of, if not specified.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DEFAULT_NODE</span></code>:
+This is a ip address as a string.
+Each time the job is allocated, it will try to allocate this job to the given node.
+If it isn’t reachable or full it will fall back on the given <code class="docutils literal notranslate"><span class="pre">GROUPS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MAX_QUEUE</span></code>(inaccurate):
+This is used to specify how many inputs will be queued before deleting old ones.<br />This isn’t a exact amount as there are many pipes and queues involved but a rough orientation.<br />Using pipes with the “ASYNC” flag active will first fill up the entire named pipe before starting to count inputs and discard them.</p></li>
+</ul>
+<p>If you were to define your own class attribute and want it to be accessible on your server nodes please note that you have to load the class attribute into the object for it to be detected by pickle:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyJob</span><span class="p">(</span><span class="n">PythonJob</span><span class="p">):</span>
+
+    <span class="n">MY_ATTRIBUTE</span> <span class="o">=</span> <span class="s2">&quot;MY_VALUE&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="c1"># safe it into the object</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">MY_ATTRIBUTE</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">MY_ATTRIBUTE</span>
+
+        <span class="c1"># or rename it while saving it into the object</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">my_attribute</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">MY_ATTRIBUTE</span>
+</pre></div>
+</div>
+<p>This is kind of pointless when facing variable class attributes as they won’t be updated, but as we use them for constants this is fine and allows for a clearer job definition.</p>
+</div>
+<div class="section" id="python-jobs">
+<h3>Python Jobs<a class="headerlink" href="#python-jobs" title="Permalink to this headline">¶</a></h3>
+<p>Python jobs are the easiest way to implement a job for <strong>MARVELO</strong> and are recommended unless you have to use another language due to compatibility or performance issues/concerns.</p>
+<p>To start developing a Python job you need to import <code class="docutils literal notranslate"><span class="pre">PythonJob</span></code> from <code class="docutils literal notranslate"><span class="pre">fission.core.jobs</span></code>.
+This is the class implementing all the boilerplate code for interacting with pipes, converting Python objects to a byte representation and few other things.<br />There are two methods you are meant to override:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">setup</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">run</span></code></p></li>
+</ul>
+<div class="section" id="setup-your-job">
+<h4>Setup your job<a class="headerlink" href="#setup-your-job" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">setup</span></code> is called once before entering a loop calling <code class="docutils literal notranslate"><span class="pre">run</span></code>.
+It allows to initiate variable, open files and so on before the job starts.</p>
+<blockquote>
+<div><p>Why don’t we use <code class="docutils literal notranslate"><span class="pre">__init__</span></code> for that?</p>
+</div></blockquote>
+<p>This is because <code class="docutils literal notranslate"><span class="pre">__init__</span></code> is called on the client when the jobs are instantiated.
+This means everything you define in the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> needs to be send over to the node, transferring more data and maybe causing issues because some objects can’t be pickled (<a class="reference external" href="https://docs.python.org/3/library/pickle.html#what-can-be-pickled-and-unpickled">What can be pickled and unpickled?</a>).<br />So the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> is only meant to initiate attributes you can not generate on the node such as a path to a custom file.
+Always make sure you pass arguments through super() methods, a quick example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyJob</span><span class="p">(</span><span class="n">PythonJob</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">my_path</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This is executed on the client machine with the arguments</span>
+<span class="sd">        specified in the config file.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># call the init of the super class</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="c1"># store my custom attribute.</span>
+        <span class="c1"># I need to define the path to this file int the config</span>
+        <span class="c1"># as it cant be generated in `setup`</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">my_path</span> <span class="o">=</span> <span class="n">my_path</span>
+
+    <span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This is executed on the server before the job starts</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># call setup from super class and pass arguments.</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="c1"># now I open the the path that was initated on the client.</span>
+        <span class="c1"># I can access both attributes within the `run` method</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">my_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">my_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="implementing-the-actual-logic">
+<h4>Implementing the actual logic<a class="headerlink" href="#implementing-the-actual-logic" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">run</span></code> method defines the actual job being executed.</p>
+<div class="section" id="source-job">
+<h5>Source Job<a class="headerlink" href="#source-job" title="Permalink to this headline">¶</a></h5>
+<p>Let’s start with a source job:<br />Needless to say, a source job won’t be passed any arguments.
+As it is likely you wish to keep context in your source job between calls of <code class="docutils literal notranslate"><span class="pre">run</span></code> it is possible for the <code class="docutils literal notranslate"><span class="pre">run</span></code> method to be a generator.
+So a source job counting from 1 to 30 can be defined in two ways:</p>
+<p><strong>As a normal method</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CountJob</span><span class="p">(</span><span class="n">PythonJob</span><span class="p">):</span>
+    <span class="n">HEAD</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">limit</span> <span class="o">=</span> <span class="mi">30</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">limit</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">finish</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">counter</span>
+</pre></div>
+</div>
+<p><strong>As a generator</strong> (no <code class="docutils literal notranslate"><span class="pre">setup</span></code> needed):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CountJob</span><span class="p">(</span><span class="n">PythonJob</span><span class="p">):</span>
+    <span class="n">HEAD</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">31</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">30</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">finish</span><span class="p">()</span>
+
+            <span class="k">yield</span> <span class="n">i</span>
+</pre></div>
+</div>
+<p><strong>returning <code class="docutils literal notranslate"><span class="pre">None</span></code> will end a job without properly finishing it.</strong></p>
+<p>Notice how using the generator is much easier and more compact.<br />You may wonder what’s up with <code class="docutils literal notranslate"><span class="pre">HEAD</span> <span class="pre">=</span> <span class="pre">True</span></code> and the <code class="docutils literal notranslate"><span class="pre">self.finish()</span></code> call.
+This will be covered in <a class="reference external" href="#interacting-with-the-fission-head">Interacting with the MARVELO Head</a>, so don’t bother too much at this point.</p>
+<blockquote>
+<div><p>Okay but we returned only one value, does that mean we can only attach one output?</p>
+</div></blockquote>
+<p>No. For convenience returning a value that is not of type <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, it will be distributed to all outputs defined in the config file.<br />If you wish to send different values to different outputs you have to return a tuple, in the same order as the outputs defined in the config.</p>
+<p>If you need to return a single tuple just return a tuple containing a single tuple. If you need to map it to all outputs do</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_tuple</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">()</span>
+<span class="k">return</span> <span class="nb">tuple</span><span class="p">([(</span><span class="n">my_tuple</span><span class="p">)]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">outputs</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CountJob</span><span class="p">(</span><span class="n">PythonJob</span><span class="p">):</span>
+    <span class="n">HEAD</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">31</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">30</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">finish</span><span class="p">()</span>
+
+            <span class="k">yield</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="mi">31</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This means for the following job definition:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">CountJob</span><span class="p">(</span>
+    <span class="n">outputs</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">SomePipe</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+        <span class="n">SomePipe</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The job on the other end of the pipe with id 1 will receive values counting up from 1 to 30 and the one at id 2 would receive values counting from 30 down to 1.</p>
+</div>
+</div>
+<div class="section" id="connector-and-sink-jobs">
+<h4>Connector and Sink Jobs<a class="headerlink" href="#connector-and-sink-jobs" title="Permalink to this headline">¶</a></h4>
+<p>Now it is all about inputs. The <code class="docutils literal notranslate"><span class="pre">run</span></code> method will never be called with key word arguments, it’s all about positional arguments.<br />This means you can define a fixed number of inputs, take a variable amount of inputs or make a mix of both.</p>
+<p>Let’s make a job that takes 2 arguments and calculates the sum:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">SumJob</span><span class="p">(</span><span class="n">PythonJob</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">in_1</span><span class="p">,</span> <span class="n">in_2</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">in_1</span> <span class="o">+</span> <span class="n">in_2</span>
+</pre></div>
+</div>
+<p>This should be self-explanatory.<br />Next we will make a job that take a variable amount of inputs and calculates the sum:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">SumJob</span><span class="p">(</span><span class="n">PythonJob</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>At last a job taking one fixed input, a multiplier, and a variable number of inputs that will be summed up and multiplied with the multiplier:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MultiplySumJob</span><span class="p">(</span><span class="n">PythonJob</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">multiplier</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">multiplier</span> <span class="o">*</span> <span class="nb">sum</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This required at least two inputs, because the <code class="docutils literal notranslate"><span class="pre">sum</span></code> with an empty list raises an exception.<br />Like with the outputs, the order in which the inputs are given matters:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">MultiplySumJob</span><span class="p">(</span>
+    <span class="n">inputs</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">SomePipe</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+        <span class="n">SomePipe</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+        <span class="n">SomePipe</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
+    <span class="p">],</span>
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">SomePipe</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>This will multiply id 1 with the sum over id 2 and 3 and forward it to id 4.</p>
+<p>Sink jobs are basically the same thing but they have no return value.<br />They can be e.g. used to store results in a file.</p>
+</div>
+<div class="section" id="local-job">
+<h4>Local job<a class="headerlink" href="#local-job" title="Permalink to this headline">¶</a></h4>
+<p>Local jobs are always executed on the client node without any dispy involved.<br />These jobs are useful to collect data from the network or inject data from the client.</p>
+<p>To mark a jobs as local just inherit from <code class="docutils literal notranslate"><span class="pre">fission.core.jobs.LocalNode</span></code>.<br />If you were to change the <code class="docutils literal notranslate"><span class="pre">GROUPS</span></code> make sure you still list “LOCAL”.</p>
+<p>This will create a local version of the <code class="docutils literal notranslate"><span class="pre">MultiplySumJob</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fission.core.jobs</span> <span class="kn">import</span> <span class="n">LocalJob</span>
+
+<span class="k">class</span> <span class="nc">LocalMultiplySumJob</span><span class="p">(</span><span class="n">LocalJob</span><span class="p">,</span> <span class="n">MultiplySumJob</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">multiplier</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">multiplier</span> <span class="o">*</span> <span class="nb">sum</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-modules">
+<h4>Using modules<a class="headerlink" href="#using-modules" title="Permalink to this headline">¶</a></h4>
+<p>If you want to use modules which are installable over pip, make sure you list them in the ansible script when setting up your servers.
+This allows you to just normally import them in the module you define your job in.</p>
+<p>When you want to write a custom module for helper functions or classes and want to use them you have to:</p>
+<ol class="simple">
+<li><p>List the module in the dependencies class attribute</p></li>
+<li><p>Make sure you import the module relative to your projects root directory!</p></li>
+</ol>
+<p>You may also list one directory containing files that are copied before executing the job.</p>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mynetwork.job.mymodule</span> <span class="k">as</span> <span class="nn">mymodule</span>
+
+<span class="k">class</span> <span class="nc">MyJob</span><span class="p">(</span><span class="n">PythonJob</span><span class="p">):</span>
+    <span class="n">DEPENDENCIES</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a/directory/&quot;</span><span class="p">,</span> <span class="n">mymodule</span><span class="p">]</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="c1"># I need mymodule and the files from &quot;a/directory&quot; to work.</span>
+</pre></div>
+</div>
+<p>If you use the <code class="docutils literal notranslate"><span class="pre">PicklePipe</span></code> and directly send custom Python objects over it, make sure both the sending and receiving job have the according module listed!</p>
+</div>
+<div class="section" id="marvelo-head-interface">
+<h4>MARVELO Head interface<a class="headerlink" href="#marvelo-head-interface" title="Permalink to this headline">¶</a></h4>
+<p>If you set the class attribute <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code> you are able to interact with the MARVELO head.</p>
+<p>To make it as easy as possible we created a class <code class="docutils literal notranslate"><span class="pre">Head</span></code> each Head is converted to.
+This class allows you to easily interact bitwise via indexing, without the need of implementing bitwise operations.</p>
+<p>Below you can see a list, which bitwise operations can be performed on a head in a class <code class="docutils literal notranslate"><span class="pre">Head</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">and</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">or</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xor</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">left-shift</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">right-shift</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">inverting</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">indexing</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">slicing</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Setting</span> <span class="pre">a</span> <span class="pre">bit</span></code></p></li>
+</ul>
+<p>The first three operations <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code>, <code class="docutils literal notranslate"><span class="pre">xor</span></code>  are performed with another Head-object or an integer</p>
+<p>The both <code class="docutils literal notranslate"><span class="pre">shift</span></code> operations can be only performed with another integer.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">inverting</span></code> operation, as the just name suggests, just inverts the head.</p>
+<p>With <code class="docutils literal notranslate"><span class="pre">indexing</span></code> you are able to access an bit and you able to see if the certain bit is set, which gives a return value True, if not the return value would False.</p>
+<p>With <code class="docutils literal notranslate"><span class="pre">slicing</span></code> your are able return some specific part of head.</p>
+<p>Last but least, you can <code class="docutils literal notranslate"><span class="pre">set</span></code> a specitfic bit in head. It is important to say that you are not allowed to set the second bit, because it is reserved.</p>
+<p>All these bitwise operations are returning  a Head-object, apart from indexing and setting a bit.</p>
+<p>Within a jobs <code class="docutils literal notranslate"><span class="pre">run</span></code> method you have two heads to access:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">self.head</span></code>: A reduced version of your head.
+By default this is the result of a bitwise <code class="docutils literal notranslate"><span class="pre">or</span></code> comparison for all heads for a given compute block.<br />By overriding the <code class="docutils literal notranslate"><span class="pre">head_reduce</span></code> method of your job you can change this behaviour.
+The return value of this method will be assigned to <code class="docutils literal notranslate"><span class="pre">self.head</span></code> before <code class="docutils literal notranslate"><span class="pre">run</span></code> is called.<br />This value will be mapped to each outgoing pipe which value has not changed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">self.in_heads</span></code>: A list (of lists) containing all heads as objects of <code class="docutils literal notranslate"><span class="pre">Head</span></code> in the same order as <code class="docutils literal notranslate"><span class="pre">inputs</span></code>.
+If a incoming pipe has <code class="docutils literal notranslate"><span class="pre">BLOCK_COUNT</span></code> &gt; 1 the entry will be a list containing each head in the order they have been read (index 0 being the first).
+This can be used by <code class="docutils literal notranslate"><span class="pre">head_reduce</span></code> do define <code class="docutils literal notranslate"><span class="pre">self.head</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">self.out_heads</span></code> is reset to a list of <code class="docutils literal notranslate"><span class="pre">None</span></code>s, the length of the number of outputs a job has, before each call.
+You may set a custom head for each outgoing pipe by changing the associated entry in <code class="docutils literal notranslate"><span class="pre">self.out_heads</span></code>.<br />Each <code class="docutils literal notranslate"><span class="pre">None</span></code> entry will be replaced with <code class="docutils literal notranslate"><span class="pre">self.head</span></code> before writing each head.</p></li>
+</ul>
+<p>The first 3 bits are reserved by <strong>MARVELO</strong>, for more information see <a class="reference external" href="fission/Synchronization">Synchronization</a>.</p>
+</div>
+</div>
+<div class="section" id="executable-jobs">
+<h3>Executable Jobs<a class="headerlink" href="#executable-jobs" title="Permalink to this headline">¶</a></h3>
+<p>There are two kinds of Executable jobs available:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ExecutableJob</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MARVELOJob</span></code></p></li>
+</ul>
+<p>The only way they differ is that <code class="docutils literal notranslate"><span class="pre">ExecutableJob</span></code> will pass paths to the name pipes and <code class="docutils literal notranslate"><span class="pre">MARVELOJob</span></code> will pass file descriptors.</p>
+<p>You will have to accept flags for every input and every output.
+These flags default to <code class="docutils literal notranslate"><span class="pre">-i</span></code> for inputs and <code class="docutils literal notranslate"><span class="pre">-o</span></code> for outputs but can be adjusted to your needs.
+They will be passed in the order defined in the config file.<br />Each in- or output is passed with an additional flag, so you need to resolve them in append mode.<br />Opening them and reading and writing is up to you at this point.</p>
+<p>Be aware that you have to read <strong>and</strong> write the head if you set it to <code class="docutils literal notranslate"><span class="pre">True</span></code>.
+This default to one byte you have to read and write before the rest of the data.</p>
+<blockquote>
+<div><p>So how do I define a ExecutableJob?</p>
+</div></blockquote>
+<p>Whether you use <code class="docutils literal notranslate"><span class="pre">ExecutableJob</span></code> or <code class="docutils literal notranslate"><span class="pre">MARVELOJob</span></code> does not matter for defining it, we will stick to <code class="docutils literal notranslate"><span class="pre">ExecutableJob</span></code> for now.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyExecutableJob</span><span class="p">(</span><span class="n">ExecutableJob</span><span class="p">):</span>
+    <span class="c1"># The actual command being run.</span>
+    <span class="c1"># If included in the dependencies folder</span>
+    <span class="c1"># this should be relativ to it.</span>
+    <span class="n">EXECUTABLE</span> <span class="o">=</span> <span class="s2">&quot;./my_executable&quot;</span>
+
+    <span class="c1"># The folder containing everything the job needs to be executed.</span>
+    <span class="c1"># We recommend the source folder of your network or the shared source folder</span>
+    <span class="c1"># This is optional</span>
+    <span class="n">DEPENDENCIES</span> <span class="o">=</span> <span class="s2">&quot;my_network/source/my_executable_job&quot;</span>
+
+    <span class="c1"># some additional parameters does not have to be defined</span>
+    <span class="n">PARAMETERS</span> <span class="o">=</span> <span class="s2">&quot;--my_addition 2 --parameters&quot;</span>
+
+    <span class="c1"># this defaults to &#39;-i&#39;</span>
+    <span class="n">INPUT_FLAG</span> <span class="o">=</span> <span class="s1">&#39;--input&#39;</span>
+
+    <span class="c1"># this defaults to &#39;-o&#39;</span>
+    <span class="n">OUTPUTS_FLAG</span> <span class="o">=</span> <span class="s1">&#39;--output&#39;</span>
+</pre></div>
+</div>
+<p>That’s it. You can import this job and use it in your config.<br />You could also do something like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyExecutableJob</span><span class="p">(</span><span class="n">ExecutableJob</span><span class="p">):</span>
+    <span class="n">EXECUTABLE</span> <span class="o">=</span> <span class="s2">&quot;./my_executable&quot;</span>
+    <span class="n">DEPENDENCIES</span> <span class="o">=</span> <span class="s2">&quot;my_network/source/my_executable_job&quot;</span>
+    <span class="n">INPUT_FLAG</span> <span class="o">=</span> <span class="s1">&#39;--input&#39;</span>
+    <span class="n">OUTPUTS_FLAG</span> <span class="o">=</span> <span class="s1">&#39;--outputs&#39;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">PARAMETERS</span> <span class="o">=</span> <span class="n">params</span>
+</pre></div>
+</div>
+<p>This allows you set custom parameters in the config without having to define a new class every time.</p>
+<p>Alternatively there is a “dynamic” variant of both <code class="docutils literal notranslate"><span class="pre">ExecutableJob</span></code> and <code class="docutils literal notranslate"><span class="pre">MARVELOJob</span></code>, called <code class="docutils literal notranslate"><span class="pre">DynamicExecutableJob</span></code> and <code class="docutils literal notranslate"><span class="pre">DynamicMARVELOJob</span></code>.</p>
+<p>They allow you to define all these parameters without the need of creating a new class by passing them in the config file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DynamicExecutableJob</span><span class="p">(</span>
+    <span class="n">executable</span><span class="o">=</span><span class="s2">&quot;./my_executable&quot;</span><span class="p">,</span>
+    <span class="n">dependencies</span><span class="o">=</span><span class="s2">&quot;my_network/source/my_executable_job&quot;</span><span class="p">,</span>
+    <span class="n">parameters</span><span class="o">=</span><span class="s2">&quot;--my_addition 2 --parameters&quot;</span><span class="p">,</span>
+    <span class="n">input_flag</span><span class="o">=</span><span class="s1">&#39;--input&#39;</span><span class="p">,</span>
+    <span class="n">output_flag</span><span class="o">=</span><span class="s1">&#39;--output&#39;</span><span class="p">,</span>
+    <span class="n">head</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">groups</span><span class="o">=</span><span class="s1">&#39;ALL&#39;</span><span class="p">,</span>
+    <span class="o">...</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>When using Executable jobs and combine them with Python jobs you will have to think about what exactly is send by the Executable job and how you need to convert it before passing it to a Python job’s <code class="docutils literal notranslate"><span class="pre">run</span></code> method.
+This also goes the other way around.</p>
+<p>This is explained in <a class="reference external" href="Creating-a-Pipe">Creating a Pipe</a>.</p>
+<div class="section" id="marvelo-head">
+<h4>MARVELO Head<a class="headerlink" href="#marvelo-head" title="Permalink to this headline">¶</a></h4>
+<p>If you set the <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> attribute, you have to read <code class="docutils literal notranslate"><span class="pre">HEAD_SIZE</span></code> bytes before reading the actual data.<br />You will also have to write the head of the same size to the output before writing any data.<br /><code class="docutils literal notranslate"><span class="pre">HEAD_SIZE</span></code> defaults to 1.</p>
+<p>The first 3 bytes are reserved by <strong>MARVELO</strong>, for more information see <a class="reference external" href="fission/Synchronization">Synchronization</a>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="implementing-pipes">
+<h2>Implementing Pipes<a class="headerlink" href="#implementing-pipes" title="Permalink to this headline">¶</a></h2>
+<p>This section covers what you need to think about when making a pipe for <strong>MARVELO</strong>.</p>
+<div class="section" id="id1">
+<h3>Overview<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>A <strong>MARVELO</strong> pipe is where the protocols between jobs are defined.<br />There are a few powerful pipes predefined in <code class="docutils literal notranslate"><span class="pre">fission.core.pipes</span></code> which suffice most cases but you can implement you own pipes if you want to.</p>
+<p>Introducing 2 terminologies:</p>
+<ul class="simple">
+<li><p>Block: Is one output to a single pipe.</p></li>
+<li><p>Compute block: Is a complete set of blocks a job need before it can compute something.
+Each job (excluding source jobs) needs to receive one ore multiple blocks on each input before being able to compute something.</p></li>
+</ul>
+<p>Class attributes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">BLOCK_SIZE</span></code> is either a string or integer.
+If you implemented a custom protocol with variable length this should be string identifying the protocol.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BLOCK_COUNT</span></code> describes how many blocks are needed on this pipe until the receiving end is able to compute.
+For Python jobs this means it will pass a list of values of length <code class="docutils literal notranslate"><span class="pre">BLOCK_COUNT</span></code> instead of a single value.<br />For Executable jobs this will just write <code class="docutils literal notranslate"><span class="pre">BLOCK_COUNT</span></code> times to the pipe. This information is still needed to properly determine SQNs.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ASYNC</span></code> will be covered <a class="reference external" href="#async-and-optional-pipes">later</a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SOURCE_JOBS</span></code> is a list of job classes allowed as source of this pipe.
+It is not needed at any time but may be useful to avoid errors while configuring your network.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DESTINATION_JOBS</span></code> is a list of job classes allowed as destination of this pipe.
+It is not needed at any time but may be useful to avoid errors while configuring your network.</p></li>
+</ul>
+</div>
+<div class="section" id="predefined-pipes">
+<h3>Predefined Pipes<a class="headerlink" href="#predefined-pipes" title="Permalink to this headline">¶</a></h3>
+<p>The following pipes are predefined:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PicklePipe</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">JSONPipe</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BytesPipe</span></code></p></li>
+</ul>
+<div class="section" id="picklepipe">
+<h4>PicklePipe<a class="headerlink" href="#picklepipe" title="Permalink to this headline">¶</a></h4>
+<p>The PicklePipe, as the name suggests, implements a pipe using <a class="reference external" href="https://docs.python.org/3/library/pickle.html">pickle</a> and is therefore very suitable for communicating between Python jobs without worrying about too much.
+Only thing you have to worry about is to make sure you defined the dependencies correctly at both ends when sending objects from custom modules. Described <a class="reference external" href="Create-a-Job#using-modules">here</a>.</p>
+<p>As this is Python specific, it is not suitable for communicating with any Executable job running some other language</p>
+</div>
+<div class="section" id="jsonpipe">
+<h4>JSONPipe<a class="headerlink" href="#jsonpipe" title="Permalink to this headline">¶</a></h4>
+<p>This pipe sends data in the JSON format it therefore is very versatile.
+It relies on sending JSON in one line with an ending line break to distinguish between multiple in-/outputs.</p>
+<p>This does not have to bother you when using Python job.
+You just need to stick to types that are convertible according to <a class="reference external" href="https://docs.python.org/3/library/json.html?highlight=jsondecoder#json.JSONDecoder">this table</a>.
+Otherwise errors will occur while converting Python objects.</p>
+</div>
+<div class="section" id="bytespipe">
+<h4>BytesPipe<a class="headerlink" href="#bytespipe" title="Permalink to this headline">¶</a></h4>
+<p>A very basic pipe allowing to specify the amount of bytes expected to be send.</p>
+<p>It allows to to set the amount being send/received in the config:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">JOBS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">SomeJob</span><span class="p">(</span>
+        <span class="n">inputs</span><span class="o">=</span><span class="p">[</span>
+            <span class="n">BytesPipe</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>This example will read 64 bytes (BLOCK_SIZE) from the pipe twice (BLOCK_COUNT).</p>
+<p>Normally you sill want to define <a class="reference external" href="#packdata">pack</a> and <a class="reference external" href="#unpackdata">unpack</a> methods.</p>
+</div>
+</div>
+<div class="section" id="implementing-my-own-pipe">
+<h3>Implementing my own pipe<a class="headerlink" href="#implementing-my-own-pipe" title="Permalink to this headline">¶</a></h3>
+<p>We highly recommend to take a look at the <code class="docutils literal notranslate"><span class="pre">fission.core.pipes</span></code> module see a few examples of pipe implementations.</p>
+<p>There are 5 methods that are essential to a pipes behaviour:</p>
+<div class="section" id="python-job-specific">
+<h4>Python job specific<a class="headerlink" href="#python-job-specific" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="read-file-obj">
+<h5><code class="docutils literal notranslate"><span class="pre">read(file_obj)</span></code><a class="headerlink" href="#read-file-obj" title="Permalink to this headline">¶</a></h5>
+<p>This method take a file_obj opened in binary read mode and reads a block from it.<br />It is supposed to return bytes but may also return something else if it is inefficient to read the bytes before converting it to Python objects.
+E.g. the <code class="docutils literal notranslate"><span class="pre">PicklePipe</span></code> violates this rule.</p>
+</div>
+<div class="section" id="unpack-data">
+<h5><code class="docutils literal notranslate"><span class="pre">unpack(data)</span></code><a class="headerlink" href="#unpack-data" title="Permalink to this headline">¶</a></h5>
+<p>This method it called with what ever <a class="reference external" href="#readfileobj">read</a> returns.<br />It is supposed to return a Python object created from the bytes read in <a class="reference external" href="#readfileobj">read</a>.
+The default implementation always returns <code class="docutils literal notranslate"><span class="pre">data</span></code>.<br />It is meant to convert the received bytes from the network to a Python object suitable for the <code class="docutils literal notranslate"><span class="pre">run</span></code> method of the job.</p>
+</div>
+<div class="section" id="write-file-obj-data">
+<h5><code class="docutils literal notranslate"><span class="pre">write(file_obj,</span> <span class="pre">data)</span></code><a class="headerlink" href="#write-file-obj-data" title="Permalink to this headline">¶</a></h5>
+<p>This method is passed a file opened in binary write mode and data it is supposed to write to the file object.<br /><code class="docutils literal notranslate"><span class="pre">data</span></code> is what ever <a class="reference external" href="#packdata">pack</a> returns and should be bytes.</p>
+</div>
+<div class="section" id="pack-data">
+<h5><code class="docutils literal notranslate"><span class="pre">pack(data)</span></code><a class="headerlink" href="#pack-data" title="Permalink to this headline">¶</a></h5>
+<p>This method is meant to convert return values of the <code class="docutils literal notranslate"><span class="pre">run</span></code> method of a job into bytes to be able to send it across the network.</p>
+</div>
+</div>
+<div class="section" id="general">
+<h4>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="read-wrapper-file-obj">
+<h5><code class="docutils literal notranslate"><span class="pre">read_wrapper(file_obj)</span></code><a class="headerlink" href="#read-wrapper-file-obj" title="Permalink to this headline">¶</a></h5>
+<p>This method will be similar to the <a class="reference external" href="#readfileobj">read</a> method.
+It is called in the wrapper when reading from a jobs output pipe and therefore not only effecting Python jobs but Executable jobs.
+Other than <a class="reference external" href="#readfileobj">read</a> this method <strong>has to return bytes</strong>.<br />By default this method just calls <a class="reference external" href="#readfileobj">read</a> and returns it return value.</p>
+<blockquote>
+<div><p>Why do we have this method?</p>
+</div></blockquote>
+<p>Taking the <code class="docutils literal notranslate"><span class="pre">PicklePipe</span></code> as an example, we can’t use <code class="docutils literal notranslate"><span class="pre">pickle.load</span></code> to read from a pipe because necessary modules might not be loaded in the wrapper.<br />Therefore we need a method that only reads a bytes representation.
+Doing so each time before converting it to Python objects would be inefficient, therefore we have two different methods.</p>
+</div>
+</div>
+</div>
+<div class="section" id="async-and-optional-pipes">
+<h3>ASYNC and Optional Pipes<a class="headerlink" href="#async-and-optional-pipes" title="Permalink to this headline">¶</a></h3>
+<p>Setting the <code class="docutils literal notranslate"><span class="pre">ASYNC</span></code> flag to <code class="docutils literal notranslate"><span class="pre">True</span></code> will cause the pipe to bypass the [SQN Checker][fission/Synchronization#sqn-checker] and be directly forwarded to the underlying job.</p>
+<p>This is of special interest when talking about <a class="reference external" href="fission/Data-Structure#optionalmixin">optional pipes</a>.
+When you have a job that produces outputs occasionally but only improves your computation and isn’t necessary or will always be the same unless changed, this is what you need.</p>
+<p>Let’s say we use an <code class="docutils literal notranslate"><span class="pre">InteractiveJob</span></code> that reads user input once in a while to change a parameter of a job (see <a class="reference external" href="Examples#version-4">examples</a>) we do not want to rely on the user to inputs this parameter as frequently as other jobs may produce data.
+Therefore we want this input to be optional, have a default and it maybe should be overridden with the latest value.</p>
+<p>All of this provides the <a class="reference external" href="fission/Data-Structure#optionalmixin">OptionalMixIn</a>.</p>
+<p><strong>Only works with PythonJobs on the receiving end</strong></p>
+<p>This MixIn creates a pipe which does not have to read data for each time <code class="docutils literal notranslate"><span class="pre">run</span></code> is called.<br />Instead you can define a default value which should be returned by the pipe’s <code class="docutils literal notranslate"><span class="pre">read</span></code> method.
+If the pipe received a value, it will be returned instead.<br />You may also set whether the value should be saved, and replace the default value or just should be passed once and afterwards fall back on the old default value, if no new inputs are available.<br />At last you can also set a buffer size, indicating how many inputs the pipe is allowed to buffer before deleting data.</p>
+<p>This MixIn enables the <code class="docutils literal notranslate"><span class="pre">ASYNC</span></code> flag.</p>
+<p>This behaviour is achieved by calling <code class="docutils literal notranslate"><span class="pre">super().read()</span></code> in a thread while overriding the <code class="docutils literal notranslate"><span class="pre">read</span></code> method and having a queue between main and sub thread.
+This means this MixIn can only be used to <strong>extend a existing pipe</strong> by having the <code class="docutils literal notranslate"><span class="pre">OptionalMixIn</span></code> before the pipe you wish to extend in the mro.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyOptionalPipe</span><span class="p">(</span><span class="n">OptionalMixIn</span><span class="p">,</span> <span class="n">MyNormalPipe</span><span class="p">):</span>
+    <span class="n">OPTIONAL_DEFAULT</span> <span class="o">=</span> <span class="s2">&quot;And now I override the class attributes&quot;</span>
+</pre></div>
+</div>
+<p><strong>Class attributes</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">OPTIONAL_DEFAULT</span></code>: The default value, defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.
+Keep in mind that this is the value returned by <code class="docutils literal notranslate"><span class="pre">read</span></code> and therefore <code class="docutils literal notranslate"><span class="pre">unpack</span></code> will be called with it.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OPTIONAL_STORE</span></code>: Whether the value should be stored or not. Defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OPTIONAL_BUFFER_SIZE</span></code>: Buffer size, defaults to 0</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OPTIONAL_DELETE_MODE</span></code>: Defines delete mode it pipes is full. Must be <code class="docutils literal notranslate"><span class="pre">'oldest'</span></code> or <code class="docutils literal notranslate"><span class="pre">'newest'</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="pipes-as-bridges-between-executable-jobs-and-python-jobs">
+<h3>Pipes as bridges between Executable jobs and Python jobs<a class="headerlink" href="#pipes-as-bridges-between-executable-jobs-and-python-jobs" title="Permalink to this headline">¶</a></h3>
+<p>As stated in <a class="reference external" href="#python-job-specific">Python job specific</a>, there are methods only called by Python jobs.<br />Still putting the effort into developing all 5 methods listed <a class="reference external" href="#implementing-my-own-pipe">here</a> is worth it.<br />On one hand you can use the pipes to easily connect Python and Executable jobs, on the other handy it is very useful for debugging and testing a Executable like described in <a class="reference external" href="Debugging">debugging</a>.</p>
+</div>
+</div>
+<div class="section" id="edit-config-py">
+<h2>Edit config.py<a class="headerlink" href="#edit-config-py" title="Permalink to this headline">¶</a></h2>
+<p>This is a plain config file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ----------------------------------------------------</span>
+<span class="c1"># FISSION CONFIG FILE</span>
+<span class="c1"># ----------------------------------------------------</span>
+
+<span class="c1"># Enter the user on the remote machines</span>
+<span class="n">USER</span> <span class="o">=</span> <span class="s2">&quot;pi&quot;</span>
+
+<span class="c1"># The directory all the action is done on the remote machines</span>
+<span class="n">REMOTE_ROOT</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/home/</span><span class="si">{</span><span class="n">USER</span><span class="si">}</span><span class="s2">/fission/&quot;</span>
+
+<span class="c1"># Logging</span>
+<span class="n">LOG_LEVEL</span> <span class="o">=</span> <span class="s2">&quot;DEBUG&quot;</span>
+<span class="n">LOG_FILE</span> <span class="o">=</span> <span class="s2">&quot;FISSION.log&quot;</span>
+
+<span class="c1"># Enter the clients ip within the network, must be visible for nodes</span>
+<span class="n">CLIENT_IP</span> <span class="o">=</span> <span class="s2">&quot;192.168.0.31&quot;</span>
+
+<span class="c1"># Debug window</span>
+<span class="c1"># Redirects stdout to console</span>
+<span class="n">DEBUG_WINDOW</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="c1"># A list of jobs to be executed within the network.</span>
+<span class="c1"># This can be an instance of BaseJob or any of its subclasses</span>
+<span class="c1"># or a path to csv file defining jobs (see documentation).</span>
+<span class="n">JOBS</span> <span class="o">=</span> <span class="p">[</span> <span class="p">]</span>
+
+<span class="c1"># A list of nodes to be included in the network</span>
+<span class="c1"># This can be an instance of BaseNode or Multinode</span>
+<span class="c1"># or a path to csv file defining nodes (see documentation)</span>
+<span class="n">NODES</span> <span class="o">=</span> <span class="p">[</span> <span class="p">]</span>
+
+<span class="c1"># Optional XML file defining the whole network or a part of it </span>
+<span class="c1"># This is not recommended and only exists for specific usecases </span>
+<span class="n">XML_FILE</span> <span class="o">=</span> <span class="kc">None</span>
+</pre></div>
+</div>
+<p>Most of the lines are self explanatory.</p>
+<p>Set <code class="docutils literal notranslate"><span class="pre">USER</span></code> to the username of your nodes. All nodes must have the same.</p>
+<p><code class="docutils literal notranslate"><span class="pre">REMOTE_ROOT</span></code> is the working directory on your servers.</p>
+<p><code class="docutils literal notranslate"><span class="pre">LOG_LEVEL</span></code> can be <code class="docutils literal notranslate"><span class="pre">&quot;INFO&quot;</span></code> for the important logs or <code class="docutils literal notranslate"><span class="pre">&quot;DEBUG&quot;</span></code> for detailed information. Set the name of the log file with <code class="docutils literal notranslate"><span class="pre">LOG_FILE</span></code>.</p>
+<p>Insert the client’s IP address in <code class="docutils literal notranslate"><span class="pre">CLIENT_IP</span></code> and set <code class="docutils literal notranslate"><span class="pre">DEBUG_WINDOW</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code> if you want all standard outputs from your servers at you client’s console.</p>
+<p>You can define you network topology and nodes either with declaring the jobs/nodes directly in this file or load a XML-file.</p>
+<p>When you want to define the jobs directly in the config file, initialize them in the <code class="docutils literal notranslate"><span class="pre">JOBS</span></code> list. An element of this list looks like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">job</span><span class="o">&gt;</span><span class="p">(</span>
+	<span class="n">inputs</span><span class="o">=</span><span class="p">[</span>
+		<span class="o">&lt;</span><span class="n">pipe</span><span class="o">&gt;</span><span class="p">(</span><span class="o">&lt;</span><span class="nb">id</span><span class="o">&gt;</span><span class="p">),</span>
+		<span class="o">...</span>
+	<span class="p">],</span>
+	<span class="n">outputs</span><span class="o">=</span><span class="p">[</span>
+		<span class="o">&lt;</span><span class="n">pipe</span><span class="o">&gt;</span><span class="p">(</span><span class="o">&lt;</span><span class="nb">id</span><span class="o">&gt;</span><span class="p">),</span>
+		<span class="o">...</span>
+	<span class="p">],</span>
+	<span class="n">args</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Actually you are doing here a normal object initialization. To know which arguments have to be set look at the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> function of that job.
+<code class="docutils literal notranslate"><span class="pre">inputs</span></code> and <code class="docutils literal notranslate"><span class="pre">outputs</span></code> are the lists of pipes. The order of input pipes is the same as the arguments in the run method, the order of the output pipes is the same as the return values.
+You connect an input and output pipe by assigning them the same Id.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">NODES</span></code> list is a list of all servers of your network. An element looks like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">node</span><span class="o">&gt;</span><span class="p">(</span><span class="s2">&quot;&lt;ip-address&gt;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="use-a-xml-file">
+<h3>Use a XML file<a class="headerlink" href="#use-a-xml-file" title="Permalink to this headline">¶</a></h3>
+<p>Coming soon</p>
+</div>
+</div>
+<div class="section" id="debugging">
+<h2>Debugging<a class="headerlink" href="#debugging" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="simulate">
+<h3>Simulate<a class="headerlink" href="#simulate" title="Permalink to this headline">¶</a></h3>
+<p>You can simulate a network by running the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 manage.py my_network simulate
+</pre></div>
+</div>
+<p>This will run all jobs in subprocesses and use named pipes to connect them.<br />This also start the wrapper, therefore the network should run just the same as it would when run on the servers.
+While running it will output the stdout and stderr of each job.
+Only thing being that issues with custom modules will not be detected by simulation!</p>
+<p>If you have jobs that need specific hardware, i.e. a microphone, we recommend you replace this job with one just feeding prerecorded data from a file for simulation.</p>
+<p>You will find a <code class="docutils literal notranslate"><span class="pre">simulation</span></code> folder in your network folder afterwards.
+This will contain a folder for each job, named after its id.
+To better track down the jobs there is a <code class="docutils literal notranslate"><span class="pre">info.txt</span></code> mapping ids to jobs but in general job ids are enumerated in the order they are defined in the config.</p>
+<p>This is a great way for final validation before trying to run it on the servers and allows for way more responsive errors.</p>
+</div>
+<div class="section" id="interactive">
+<h3>Interactive<a class="headerlink" href="#interactive" title="Permalink to this headline">¶</a></h3>
+<p>You can run a interactive Python console like this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 manage.py my_network interactive
+</pre></div>
+</div>
+<p>This will load the network, including all pipes and jobs, and allows to browse the data structure freely.<br />Sanity checks are disabled while loading, so you network does not have to be complete, pipes can  be open ended.</p>
+<p>These locals are passed to the console:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">network</span></code> the loaded network.
+A instance of <code class="docutils literal notranslate"><span class="pre">fission.core.network.Network</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">JOBS</span></code> a dict containing all jobs.
+<code class="docutils literal notranslate"><span class="pre">{&lt;job_id&gt;:</span> <span class="pre">&lt;obj&gt;}</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PIPES</span></code> a dict containing all pipes.
+<code class="docutils literal notranslate"><span class="pre">{&lt;pipe_id&gt;:</span> <span class="pre">&lt;obj&gt;}</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NODES</span></code> a dict containing all nodes.
+<code class="docutils literal notranslate"><span class="pre">{&lt;node_ip&gt;:</span> <span class="pre">&lt;obj&gt;}</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GROUPS</span></code> a dict containing all groups.
+<code class="docutils literal notranslate"><span class="pre">{&lt;group_name&gt;:</span> <span class="pre">&lt;obj&gt;}</span></code></p></li>
+</ul>
+<p>In addition a function <code class="docutils literal notranslate"><span class="pre">emulate</span></code> is defined.
+Passing a job or pipe to it will return a emulator object.
+It allows you to call your pipes or jobs like normal functions.</p>
+<p><strong>Emulation will not spawn a wrapper, but emulates it by calling <code class="docutils literal notranslate"><span class="pre">read_wrapper</span></code></strong></p>
+<div class="section" id="pipe-emulation">
+<h4>Pipe emulation<a class="headerlink" href="#pipe-emulation" title="Permalink to this headline">¶</a></h4>
+<p>Calling a pipe will print detailed outputs what was read and written at what stage and return a tuple containing the output at each stage.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Staring</span> <span class="n">Python</span> <span class="n">Interactive</span> <span class="n">console</span><span class="o">.</span>
+<span class="n">Following</span> <span class="n">variables</span> <span class="n">are</span> <span class="n">defines</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;network&#39;</span><span class="p">,</span> <span class="s1">&#39;JOBS&#39;</span><span class="p">,</span> <span class="s1">&#39;PIPES&#39;</span><span class="p">,</span> <span class="s1">&#39;NODES&#39;</span><span class="p">,</span> <span class="s1">&#39;GROUPS&#39;</span><span class="p">,</span> <span class="s1">&#39;emulate&#39;</span><span class="p">]</span>
+<span class="n">Python</span> <span class="mf">3.7</span><span class="o">.</span><span class="mi">5</span> <span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">Nov</span> <span class="mi">20</span> <span class="mi">2019</span><span class="p">,</span> <span class="mi">09</span><span class="p">:</span><span class="mi">21</span><span class="p">:</span><span class="mi">52</span><span class="p">)</span> 
+<span class="p">[</span><span class="n">GCC</span> <span class="mf">9.2</span><span class="o">.</span><span class="mi">1</span> <span class="mi">20191008</span><span class="p">]</span> <span class="n">on</span> <span class="n">linux</span>
+<span class="n">Type</span> <span class="s2">&quot;help&quot;</span><span class="p">,</span> <span class="s2">&quot;copyright&quot;</span><span class="p">,</span> <span class="s2">&quot;credits&quot;</span> <span class="ow">or</span> <span class="s2">&quot;license&quot;</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
+<span class="p">(</span><span class="n">InteractiveConsole</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">PIPES</span>
+<span class="p">{</span><span class="mi">104</span><span class="p">:</span> <span class="n">OperatorPipe</span> <span class="n">ID</span> <span class="mi">104</span><span class="p">,</span> <span class="mi">101</span><span class="p">:</span> <span class="n">PicklePipe</span> <span class="n">ID</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">201</span><span class="p">:</span> <span class="n">PicklePipe</span> <span class="n">ID</span> <span class="mi">201</span><span class="p">,</span> <span class="mi">102</span><span class="p">:</span> <span class="n">PicklePipe</span> <span class="n">ID</span> <span class="mi">102</span><span class="p">,</span> <span class="mi">202</span><span class="p">:</span> <span class="n">PicklePipe</span> <span class="n">ID</span> <span class="mi">202</span><span class="p">,</span> <span class="mi">103</span><span class="p">:</span> <span class="n">PicklePipe</span> <span class="n">ID</span> <span class="mi">103</span><span class="p">,</span> <span class="mi">203</span><span class="p">:</span> <span class="n">PicklePipe</span> <span class="n">ID</span> <span class="mi">203</span><span class="p">,</span> <span class="mi">105</span><span class="p">:</span> <span class="n">ReducePipe</span> <span class="n">ID</span> <span class="mi">105</span><span class="p">,</span> <span class="mi">204</span><span class="p">:</span> <span class="n">PicklePipe</span> <span class="n">ID</span> <span class="mi">204</span><span class="p">,</span> <span class="mi">205</span><span class="p">:</span> <span class="n">PicklePipe</span> <span class="n">ID</span> <span class="mi">205</span><span class="p">,</span> <span class="mi">301</span><span class="p">:</span> <span class="n">PicklePipe</span> <span class="n">ID</span> <span class="mi">301</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">p</span> <span class="o">=</span> <span class="n">emulate</span><span class="p">(</span><span class="n">PIPES</span><span class="p">[</span><span class="mi">101</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">p</span>
+<span class="o">&lt;</span><span class="n">fission</span><span class="o">.</span><span class="n">emulate</span><span class="o">.</span><span class="n">PipeEmulator</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x7fa266f2d090</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">p</span><span class="p">(</span><span class="mi">400</span><span class="p">)</span>
+<span class="n">Packed</span> <span class="n">to</span><span class="p">:</span> <span class="mi">400</span>
+<span class="n">Wrote</span> <span class="n">to</span> <span class="n">pipe</span><span class="o">.</span>
+<span class="n">Read</span> <span class="ow">in</span> <span class="n">pipe</span><span class="o">.</span><span class="n">read_wrapper</span><span class="p">:</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x80\x03</span><span class="s1">M</span><span class="se">\x90\x01</span><span class="s1">.&#39;</span>
+<span class="n">Rewriting</span> <span class="n">to</span> <span class="n">pipe</span> <span class="p">(</span><span class="ow">not</span> <span class="n">using</span> <span class="n">write</span> <span class="n">method</span> <span class="n">of</span> <span class="n">pipe</span><span class="p">)</span><span class="o">...</span>
+<span class="n">Read</span> <span class="ow">in</span> <span class="n">pipe</span><span class="o">.</span><span class="n">read</span><span class="p">:</span> <span class="mi">400</span>
+<span class="n">Unpacked</span> <span class="n">to</span><span class="p">:</span> <span class="mi">400</span>
+<span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x80\x03</span><span class="s1">M</span><span class="se">\x90\x01</span><span class="s1">.&#39;</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> 
+</pre></div>
+</div>
+<p>You may pass a integer for head in a kwarg (<code class="docutils literal notranslate"><span class="pre">head=0</span></code>)-</p>
+</div>
+<div class="section" id="job-emulation">
+<h4>Job emulation<a class="headerlink" href="#job-emulation" title="Permalink to this headline">¶</a></h4>
+<p><strong>Job emulation has no great support for <code class="docutils literal notranslate"><span class="pre">BLOCK_COUNT</span></code> at this point and cause unexpected but valid behaviour with optional pipes</strong></p>
+<p><strong>Only supports <code class="docutils literal notranslate"><span class="pre">MARVELOJob</span></code>s, not <code class="docutils literal notranslate"><span class="pre">ExecutableJob</span></code>s</strong></p>
+<p>The job emulator spawns a <a class="reference external" href="#pipe-emulation">pipe emulator</a> for each in and output.<br />Calling a job at this point looks equivalent to just calling a normal function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Staring</span> <span class="n">Python</span> <span class="n">Interactive</span> <span class="n">console</span><span class="o">.</span>
+<span class="n">Following</span> <span class="n">variables</span> <span class="n">are</span> <span class="n">defines</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;network&#39;</span><span class="p">,</span> <span class="s1">&#39;JOBS&#39;</span><span class="p">,</span> <span class="s1">&#39;PIPES&#39;</span><span class="p">,</span> <span class="s1">&#39;NODES&#39;</span><span class="p">,</span> <span class="s1">&#39;GROUPS&#39;</span><span class="p">,</span> <span class="s1">&#39;emulate&#39;</span><span class="p">]</span>
+<span class="n">Python</span> <span class="mf">3.7</span><span class="o">.</span><span class="mi">5</span> <span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">Nov</span> <span class="mi">20</span> <span class="mi">2019</span><span class="p">,</span> <span class="mi">09</span><span class="p">:</span><span class="mi">21</span><span class="p">:</span><span class="mi">52</span><span class="p">)</span> 
+<span class="p">[</span><span class="n">GCC</span> <span class="mf">9.2</span><span class="o">.</span><span class="mi">1</span> <span class="mi">20191008</span><span class="p">]</span> <span class="n">on</span> <span class="n">linux</span>
+<span class="n">Type</span> <span class="s2">&quot;help&quot;</span><span class="p">,</span> <span class="s2">&quot;copyright&quot;</span><span class="p">,</span> <span class="s2">&quot;credits&quot;</span> <span class="ow">or</span> <span class="s2">&quot;license&quot;</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
+<span class="p">(</span><span class="n">InteractiveConsole</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">JOBS</span>
+<span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="n">InteractiveJob</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="n">SourceJob</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="n">SourceJob</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="n">SourceJob</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="n">JoinJob</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">:</span> <span class="n">ReduceJob</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">:</span> <span class="n">CSVSinkJob</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">:</span> <span class="n">CSVSinkJob</span> <span class="mi">8</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">j</span> <span class="o">=</span> <span class="n">emulate</span><span class="p">(</span><span class="n">JOBS</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">j</span>
+<span class="o">&lt;</span><span class="n">fission</span><span class="o">.</span><span class="n">emulate</span><span class="o">.</span><span class="n">JobEmulator</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x7f21eb4296d0</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">j</span><span class="p">(</span><span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">Putting</span> <span class="o">+</span> <span class="ow">in</span> <span class="n">OperatorPipe</span> <span class="n">ID</span> <span class="mf">104.</span>
+<span class="n">Putting</span> <span class="mi">1</span> <span class="ow">in</span> <span class="n">PicklePipe</span> <span class="n">ID</span> <span class="mf">101.</span>
+<span class="n">Putting</span> <span class="mi">2</span> <span class="ow">in</span> <span class="n">PicklePipe</span> <span class="n">ID</span> <span class="mf">102.</span>
+<span class="n">Putting</span> <span class="mi">3</span> <span class="ow">in</span> <span class="n">PicklePipe</span> <span class="n">ID</span> <span class="mf">103.</span>
+<span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="o">+</span><span class="mi">3</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">Got</span> <span class="mi">6</span> <span class="kn">from</span> <span class="nn">ReducePipe</span> <span class="n">ID</span> <span class="mf">105.</span>
+<span class="n">Got</span> <span class="mi">6</span> <span class="kn">from</span> <span class="nn">PicklePipe</span> <span class="n">ID</span> <span class="mf">204.</span>
+<span class="n">Got</span> <span class="o">+</span> <span class="kn">from</span> <span class="nn">PicklePipe</span> <span class="n">ID</span> <span class="mf">205.</span>
+<span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;+&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">j</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">Putting</span> <span class="o">*</span> <span class="ow">in</span> <span class="n">OperatorPipe</span> <span class="n">ID</span> <span class="mf">104.</span>
+<span class="n">Putting</span> <span class="mi">1</span> <span class="ow">in</span> <span class="n">PicklePipe</span> <span class="n">ID</span> <span class="mf">101.</span>
+<span class="n">Putting</span> <span class="mi">2</span> <span class="ow">in</span> <span class="n">PicklePipe</span> <span class="n">ID</span> <span class="mf">102.</span>
+<span class="n">Putting</span> <span class="mi">3</span> <span class="ow">in</span> <span class="n">PicklePipe</span> <span class="n">ID</span> <span class="mf">103.</span>
+<span class="mi">1</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="mi">3</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">Got</span> <span class="mi">6</span> <span class="kn">from</span> <span class="nn">ReducePipe</span> <span class="n">ID</span> <span class="mf">105.</span>
+<span class="n">Got</span> <span class="mi">6</span> <span class="kn">from</span> <span class="nn">PicklePipe</span> <span class="n">ID</span> <span class="mf">204.</span>
+<span class="n">Got</span> <span class="o">*</span> <span class="kn">from</span> <span class="nn">PicklePipe</span> <span class="n">ID</span> <span class="mf">205.</span>
+<span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> 
+</pre></div>
+</div>
+<p>A call returns a list containing all outputs.</p>
+<p>The given example uses an optional pipe.
+Although it looks fine, if I were to change the first call to</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">j</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>it would still produce the exact same outputs, why is that?</p>
+<p>We used a optional pipe as a input at the first position.
+This causes the job to read from it first, because it is a optional pipe and we did not provide any input while creating it, the default value is used.
+It causes a shift by one for any optional pipe listed before a normal pipe.</p>
+</div>
+</div>
+<div class="section" id="debugging-console">
+<h3>Debugging console<a class="headerlink" href="#debugging-console" title="Permalink to this headline">¶</a></h3>
+<p>When setting the <code class="docutils literal notranslate"><span class="pre">DEBUG_WINDOW</span></code> option in the config file, a console will automatically open printing all stdout and stderr of the jobs running on you network.
+This can be very crowded when running a big network with many jobs.</p>
+<p>Therefore you can additionally launch a console only monitoring specific jobs.
+When the general console is launched you will find ‘Network Information’ at the very beginning (and every time the network rearranges due to failover).
+You will find a ip and port for each job.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Network</span> <span class="n">Information</span><span class="p">:</span>
+<span class="p">[{</span><span class="s1">&#39;ip&#39;</span><span class="p">:</span> <span class="s1">&#39;192.168.4.1&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;InteractiveJob 1&#39;</span><span class="p">,</span> <span class="s1">&#39;port&#39;</span><span class="p">:</span> <span class="mi">1998</span><span class="p">},</span>
+ <span class="p">{</span><span class="s1">&#39;ip&#39;</span><span class="p">:</span> <span class="s1">&#39;192.168.4.2&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;SourceJob 2&#39;</span><span class="p">,</span> <span class="s1">&#39;port&#39;</span><span class="p">:</span> <span class="mi">1996</span><span class="p">},</span>
+ <span class="p">{</span><span class="s1">&#39;ip&#39;</span><span class="p">:</span> <span class="s1">&#39;192.168.4.4&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;SourceJob 3&#39;</span><span class="p">,</span> <span class="s1">&#39;port&#39;</span><span class="p">:</span> <span class="mi">1994</span><span class="p">},</span>
+ <span class="p">{</span><span class="s1">&#39;ip&#39;</span><span class="p">:</span> <span class="s1">&#39;192.168.4.4&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;SourceJob 4&#39;</span><span class="p">,</span> <span class="s1">&#39;port&#39;</span><span class="p">:</span> <span class="mi">1992</span><span class="p">},</span>
+ <span class="p">{</span><span class="s1">&#39;ip&#39;</span><span class="p">:</span> <span class="s1">&#39;192.168.4.4&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;JoinJob 5&#39;</span><span class="p">,</span> <span class="s1">&#39;port&#39;</span><span class="p">:</span> <span class="mi">1990</span><span class="p">},</span>
+ <span class="p">{</span><span class="s1">&#39;ip&#39;</span><span class="p">:</span> <span class="s1">&#39;192.168.4.4&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;ReduceJob 6&#39;</span><span class="p">,</span> <span class="s1">&#39;port&#39;</span><span class="p">:</span> <span class="mi">1988</span><span class="p">},</span>
+ <span class="p">{</span><span class="s1">&#39;ip&#39;</span><span class="p">:</span> <span class="s1">&#39;192.168.4.1&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;CSVSinkJob 7&#39;</span><span class="p">,</span> <span class="s1">&#39;port&#39;</span><span class="p">:</span> <span class="mi">1986</span><span class="p">},</span>
+ <span class="p">{</span><span class="s1">&#39;ip&#39;</span><span class="p">:</span> <span class="s1">&#39;192.168.4.1&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;CSVSinkJob 8&#39;</span><span class="p">,</span> <span class="s1">&#39;port&#39;</span><span class="p">:</span> <span class="mi">1984</span><span class="p">}]</span>
+</pre></div>
+</div>
+<p>Just pick the ones you wish to monitor in a new console and execute:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>fission_debug.py --ip &lt;ip_1&gt; --port &lt;port_1&gt; --ip &lt;ip_2&gt; --port &lt;port_2&gt;
+</pre></div>
+</div>
+<p>Unlike the one that is spawned automatically, it won’t update connections if a node fails and jobs are newly distributed.</p>
+</div>
+<div class="section" id="writing-tests">
+<h3>Writing tests<a class="headerlink" href="#writing-tests" title="Permalink to this headline">¶</a></h3>
+<p>For using the test functionality you have to install pytest first: <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">pytest</span></code>.<br />This does <strong>only</strong> work for <code class="docutils literal notranslate"><span class="pre">PythonJob</span></code>s and <code class="docutils literal notranslate"><span class="pre">MARVELOJob</span></code>s, not “normal” <code class="docutils literal notranslate"><span class="pre">ExecutableJob</span></code>s!</p>
+<p><strong>MARVELO</strong> provides testing based on <a class="reference external" href="https://docs.pytest.org/en/latest/contents.html">pytest</a>.
+If you haven’t already, we recommend you take a look at pytest and how it works before you continue.</p>
+<p>To start writing tests create a <code class="docutils literal notranslate"><span class="pre">tests</span></code> directory in you network’s directory.
+This is the directory where <strong>MARVELO</strong> looks for tests.
+How exactly you structure your tests is up to you, but they must be detectable by pytest.</p>
+<p>When testing we make use of the <code class="docutils literal notranslate"><span class="pre">fission.emulate</span></code> module.
+It allows you to call you jobs like normal functions after wrapping them with an job emulator.
+This is especially useful when writing <code class="docutils literal notranslate"><span class="pre">MARVELOJob</span></code>s because all pipes are created for you and you can easily feed the job with data.</p>
+<blockquote>
+<div><p>What is the difference between calling a PythonJob’s <code class="docutils literal notranslate"><span class="pre">run</span></code> method and running it with an emulator?</p>
+</div></blockquote>
+<p>Running it with an emulator gives a much better representation of what happens when executing it within <strong>MARVELO</strong>.
+Besides just testing the <code class="docutils literal notranslate"><span class="pre">run</span></code> method, it also makes sure your job works as expected with the given pipes.</p>
+<p>There a are basically 2 ways how you can access the jobs:</p>
+<ol class="simple">
+<li><p>Import them like you would do in the config file and instantiate them like you would do in the config.</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">cfg_job</span></code> fixture provided by <strong>MARVELO</strong> to access the jobs defined in the config file.</p></li>
+</ol>
+<p>There are some examples in <code class="docutils literal notranslate"><span class="pre">examples/demo_network_v4/tests</span></code>.</p>
+<div class="section" id="defining-specific-jobs-for-testing">
+<h4>Defining specific jobs for testing<a class="headerlink" href="#defining-specific-jobs-for-testing" title="Permalink to this headline">¶</a></h4>
+<p>When instantiating new jobs and pipes you have to keep in mind that <strong>MARVELO</strong> caches all existing pipes and jobs.
+This means when you where to instantiate a pipe with an id already in use this will result in an error.</p>
+<p>They are cached in <code class="docutils literal notranslate"><span class="pre">fission.core.base</span></code> in dicts called <code class="docutils literal notranslate"><span class="pre">PIPES</span></code>, <code class="docutils literal notranslate"><span class="pre">JOBS</span></code>, <code class="docutils literal notranslate"><span class="pre">GROUPS</span></code> and <code class="docutils literal notranslate"><span class="pre">NODES</span></code>.
+As job id are just increases for each new job you don’t really have to worry about them, pipes are the issue here.<br />To avoid this issue you either have to delete the according pipes from <code class="docutils literal notranslate"><span class="pre">PIPES</span></code> when you test is done or you call the <code class="docutils literal notranslate"><span class="pre">reset</span></code> function from <code class="docutils literal notranslate"><span class="pre">fission.core.base</span></code>.
+This will clear <strong>all</strong> cached objects.
+It actually sounds worse than it is, they are still accessible via the config file.</p>
+<p>We recommend the following for testing with custom testing jobs:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pytest</span>
+
+<span class="kn">from</span> <span class="nn">fission.core.base</span> <span class="kn">import</span> <span class="n">reset</span>
+<span class="kn">from</span> <span class="nn">fission.emulate</span> <span class="kn">import</span> <span class="n">emulate</span>
+
+<span class="kn">from</span> <span class="nn">my_network.jobs.jobs</span> <span class="kn">import</span> <span class="n">MyJob</span>
+<span class="kn">from</span> <span class="nn">my_network.pipes.pipes</span> <span class="kn">import</span> <span class="n">MyPipe</span>
+
+<span class="c1"># the job only needs to be created once as emulator spawns a subprocess</span>
+<span class="c1"># and this exact job object is never changed.</span>
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">(</span><span class="n">scope</span><span class="o">=</span><span class="s2">&quot;module&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">my_job</span><span class="p">():</span>
+    <span class="n">_job</span> <span class="o">=</span> <span class="n">MyJob</span><span class="p">(</span>
+        <span class="n">inputs</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">MyPipe</span><span class="p">(</span><span class="mi">9001</span><span class="p">),</span>
+            <span class="o">...</span>
+        <span class="p">],</span>
+        <span class="n">outputs</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">MyPipe</span><span class="p">(</span><span class="mi">9101</span><span class="p">),</span>
+            <span class="o">...</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+
+    <span class="k">yield</span> <span class="n">_job</span>
+
+    <span class="n">reset</span><span class="p">()</span>
+
+<span class="c1"># create a new emulate object for each test.</span>
+<span class="c1"># This should be done to avoid data being still left in the fifo pipes.</span>
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
+<span class="k">def</span> <span class="nf">my_job_emulator</span><span class="p">(</span><span class="n">my_job</span><span class="p">):</span>
+    <span class="n">_emulator</span> <span class="o">=</span> <span class="n">emulate</span><span class="p">(</span><span class="n">my_job</span><span class="p">)</span>
+
+    <span class="k">yield</span> <span class="n">_emulator</span>
+
+    <span class="n">_emulator</span><span class="o">.</span><span class="n">kill</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">test_my_test</span><span class="p">(</span><span class="n">my_job_emulator</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<p>If you rename the <code class="docutils literal notranslate"><span class="pre">my_job</span></code> fixture to <code class="docutils literal notranslate"><span class="pre">fission_test_job</span></code> you can skip the emulator fixture and just use <code class="docutils literal notranslate"><span class="pre">fission_test_emulator</span></code> provided by <strong>MARVELO</strong>.
+It will aromatically wrap the <code class="docutils literal notranslate"><span class="pre">fission_test_job</span></code> fixture with an emulator and will call <code class="docutils literal notranslate"><span class="pre">reset</span></code> before and after the fixture, just keep it in mind.
+This will remove the need of calling reset in the fixture.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pytest</span>
+
+<span class="kn">from</span> <span class="nn">fission.core.base</span> <span class="kn">import</span> <span class="n">reset</span>
+
+<span class="kn">from</span> <span class="nn">my_network.jobs.jobs</span> <span class="kn">import</span> <span class="n">MyJob</span>
+<span class="kn">from</span> <span class="nn">my_network.pipes.pipes</span> <span class="kn">import</span> <span class="n">MyPipe</span>
+
+<span class="c1"># the job only needs to be created once as emulator spawns a subprocess</span>
+<span class="c1"># and this exact job object is never changed.</span>
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">(</span><span class="n">scope</span><span class="o">=</span><span class="s2">&quot;module&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">fission_test_job</span><span class="p">():</span>
+    <span class="n">_job</span> <span class="o">=</span> <span class="n">MyJob</span><span class="p">(</span>
+        <span class="n">inputs</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">MyPipe</span><span class="p">(</span><span class="mi">9001</span><span class="p">),</span>
+            <span class="o">...</span>
+        <span class="p">],</span>
+        <span class="n">outputs</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">MyPipe</span><span class="p">(</span><span class="mi">9101</span><span class="p">),</span>
+            <span class="o">...</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">_job</span>
+
+<span class="k">def</span> <span class="nf">test_my_test</span><span class="p">(</span><span class="n">fission_test_emulator</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<p>Sometimes your job has different start parameters when initiating.
+This can easily be added by adding parametrized fixtures to the <code class="docutils literal notranslate"><span class="pre">fission_test_job</span></code>.<br />(Imports are skipped in the following)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">start_value</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">request</span><span class="o">.</span><span class="n">param</span>
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;last&quot;</span><span class="p">,</span> <span class="s2">&quot;first&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">mode</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">request</span><span class="o">.</span><span class="n">param</span>
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
+<span class="k">def</span> <span class="nf">fission_test_job</span><span class="p">(</span><span class="n">start_value</span><span class="p">,</span> <span class="n">mode</span><span class="p">):</span>
+    <span class="n">_job</span> <span class="o">=</span> <span class="n">MyJob</span><span class="p">(</span>
+        <span class="n">start_value</span> <span class="o">=</span> <span class="n">start_value</span><span class="p">,</span>
+        <span class="n">mode</span> <span class="o">=</span> <span class="n">mode</span><span class="p">,</span>
+        <span class="n">inputs</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">MyPipe</span><span class="p">(</span><span class="mi">9001</span><span class="p">),</span>
+            <span class="o">...</span>
+        <span class="p">],</span>
+        <span class="n">outputs</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">MyPipe</span><span class="p">(</span><span class="mi">9101</span><span class="p">),</span>
+            <span class="o">...</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">_job</span>
+
+<span class="k">def</span> <span class="nf">test_my_test</span><span class="p">(</span><span class="n">fission_test_emulator</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<p>Notice how we are now forced to remove the scope as dispy does not allow it when fixtures are parametrized.
+To write useful test you most likely need access to the job parameters.
+Luckily the emulator object stores the according job in it’s <code class="docutils literal notranslate"><span class="pre">job</span></code> attribute.
+Therefore you can access each parameter that is stored within the job object: <code class="docutils literal notranslate"><span class="pre">fission_test_emulator.job.&lt;job_attribute&gt;</span></code>.</p>
+</div>
+<div class="section" id="using-jobs-from-the-config-file">
+<h4>Using jobs from the config file<a class="headerlink" href="#using-jobs-from-the-config-file" title="Permalink to this headline">¶</a></h4>
+<p>You can also just use the jobs defined in your config file. This isn’t exactly recommended because you tests will most likely stop working after changing the config file.</p>
+<p>The fixture <code class="docutils literal notranslate"><span class="pre">fission_cfg</span></code> will give you the config module.
+From there on you can access everything defined in the <code class="docutils literal notranslate"><span class="pre">config.py</span></code> module.</p>
+<p>Additionally you can use <code class="docutils literal notranslate"><span class="pre">fission_cfg_jobs</span></code>.
+This will give you a function which wrappes the jobs defined in the config.
+Calling the function with an index, it will return an emulator for <code class="docutils literal notranslate"><span class="pre">config.JOBS[index]</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">job</span> <span class="o">=</span> <span class="n">fission_cfg_jobs</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Will return an emulator object for the first job defined in the config.</p>
+</div>
+<div class="section" id="testing-output-files">
+<h4>Testing output files<a class="headerlink" href="#testing-output-files" title="Permalink to this headline">¶</a></h4>
+<p>By default the emulator executes jobs in the <code class="docutils literal notranslate"><span class="pre">.emulate</span></code> directory in your project.
+This is shared between all networks, but as these are temp files this should not be a problem.</p>
+<p>The emulator object has a <code class="docutils literal notranslate"><span class="pre">cwd</span></code> attribute which is the path where the job is executed.
+By default this path is relative to the project root: <code class="docutils literal notranslate"><span class="pre">.emulate/&lt;job_id&gt;</span></code>.
+There you can access all files you created within you job.</p>
+</div>
+<div class="section" id="marking-slow-tests">
+<h4>Marking slow tests<a class="headerlink" href="#marking-slow-tests" title="Permalink to this headline">¶</a></h4>
+<p>Job can be very time intensive, due to being computationally heavy or involving sleep statements to reduce the load for the network.
+You can mark such tests with an decorator: <code class="docutils literal notranslate"><span class="pre">&#64;pytest.mark.slow</span></code>.
+These test will be skipped, unless you run the tests with the <code class="docutils literal notranslate"><span class="pre">--runslow</span></code> flag.</p>
+</div>
+<div class="section" id="running-the-tests">
+<h4>Running the tests<a class="headerlink" href="#running-the-tests" title="Permalink to this headline">¶</a></h4>
+<p>You can run the test as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 manage.py my_network <span class="nb">test</span>
+</pre></div>
+</div>
+<p>This is equivalent to <code class="docutils literal notranslate"><span class="pre">pytest</span> <span class="pre">my_network/tests</span></code>, except it includes the <strong>MARVELO</strong> plugins to add the functionality discussed before.
+You can pass any additional arguments, like you would when running pytest normally.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, several.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
