@@ -21,6 +21,7 @@
 This project is a Python-based solution for distributing a set of dependent tasks onto multiple devices and having a failover mechanism in place to prevent outage of your cluster.  
 **MARVELO** uses **FISSION** to implement failover by making us of [**dispy**](http://dispy.sourceforge.net/)s heartbeat, monitoring and job cluster functionality.
 
+For a quick ramp-up, please have a look at the [video](https://drive.google.com/file/d/1FhXeoun40hiU3WRceljSOrwO5wBEkZ5Y/view?usp=sharing) and [documentation](https://marvelo.readthedocs.io/en/latest)
 
 ---
 
