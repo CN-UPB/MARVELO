@@ -25,5 +25,8 @@ setuptools.setup(
         'lxml==4.4.2',
         'pycos>=4.8.13',
         'graphviz==0.13.2',
+        'networkx==2.6.3',
+        'matplotlib==3.5.2'
+
     ]
 )
