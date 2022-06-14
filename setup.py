@@ -8,7 +8,7 @@ with open("README.md", "r") as f:
     long_description = f.read()
 
 setuptools.setup(
-    name='marvelo',
+    name='fission',
     version='2.0-beta',
     license='MIT',
     scripts=["fission/templates/fission_admin.py",
@@ -18,7 +18,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://git.cs.upb.de/js99/afdwc",
-    packages=["marvelo"] +
+    packages=["fission"] +
         setuptools.find_packages(include=["fission.*"]),
     install_requires=[
         'dispy>=4.12',
