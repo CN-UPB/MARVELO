@@ -22,7 +22,7 @@ setuptools.setup(
         setuptools.find_packages(include=["fission.*"]),
     install_requires=[
         'dispy>=4.12',
-        'lxml==4.4.2',
+        'lxml==4.6.5',
         'pycos>=4.8.13',
         'graphviz==0.13.2',
         'networkx==2.6.3',
