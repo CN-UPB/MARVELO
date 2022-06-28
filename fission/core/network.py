@@ -453,6 +453,7 @@ class Network():
                     if best_node:
                         # Catch case if all nodes are full
                         return best_node
+                return self._get_node_fewest_jobs(job)
             else:
                 return self._get_node_fewest_jobs(job)
         except:

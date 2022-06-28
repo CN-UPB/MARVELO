@@ -5,7 +5,7 @@ Description=FISSION Service
 Type=simple
 Restart=always
 RestartSec=1
-ExecStart={{ dispynode_path.stdout_lines[0] }} -i {% if dispy_ip is defined %}{{ dispy_ip }}{% else %}{{ ansible_host }}{% endif %} --daemon --clean
+ExecStart={{ dispynode_path.stdout_lines[0] }} -i {% if dispy_ip is defined %}{{ dispy_ip }}{% else %}{{ ansible_host }}{% endif %} --daemon -d --clean
 WorkingDirectory=/home/{{ansible_user}}
 User={{ansible_user}}
 
