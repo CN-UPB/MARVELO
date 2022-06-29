@@ -350,7 +350,7 @@ class MARVELOJob(ExecutableJob):
     """
 
     def generate_command(self, root, seperate_job_pipes):
-        path = root
+        rootpath = root
         command = self.EXECUTABLE.split()
 
         if self.PARAMETERS:
@@ -360,18 +360,18 @@ class MARVELOJob(ExecutableJob):
 
         for pipe in self.inputs:
             if seperate_job_pipes:
-                path = f"{path}/fifo/{self.id}/{pipe.id}.fifo"
+                path = f"{rootpath}/fifo/{self.id}/{pipe.id}.fifo"
             else:
-                path = f"{path}/fifo/{pipe.id}.fifo"
+                path = f"{rootpath}/fifo/{pipe.id}.fifo"
             FD = os.open(path, os.O_RDONLY)
             FDs.append(FD)
             command.extend([self.INPUT_FLAG, f"{FD}"])
 
         for pipe in self.outputs:
             if seperate_job_pipes:
-                path = f"{path}/fifo/{self.id}/{pipe.id}.fifo"
+                path = f"{rootpath}/fifo/{self.id}/{pipe.id}.fifo"
             else:
-                path = f"{path}/fifo/{pipe.id}.fifo"
+                path = f"{rootpath}/fifo/{pipe.id}.fifo"
             FD = os.open(path, os.O_WRONLY)
             FDs.append(FD)
             command.extend([self.OUTPUT_FLAG, f"{FD}"])
