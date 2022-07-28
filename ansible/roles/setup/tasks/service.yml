@@ -29,3 +29,11 @@
   tags:
     - never
     - stop_service
+
+- name: restart fission service
+  service:
+    name: fission
+    state: restarted
+  tags:
+    - never
+    - restart_service

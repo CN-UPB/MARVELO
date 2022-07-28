@@ -1,6 +1,6 @@
 ---
 # You have to use the same user with the same password on every server
-ansible_user: pi
+ansible_user: asn
 
 # any additional pip3 packages you would like to install
 # you have to set name, version is optional
