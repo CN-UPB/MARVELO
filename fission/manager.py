@@ -147,11 +147,15 @@ def execute_network(config, network):
 
         cluster = dispy.JobCluster(pipe_wrapper_sync, nodes=nodes, depends=dependencies, cluster_status=network.status_callback,
                                    pulse_interval=pulse_interval, ping_interval=1, ip_addr=config.CLIENT_IP, loglevel=dispy.logger.INFO)
-        time.sleep(2)  # TODO make discovery delay settable
-        cluster.print_status()
+        time.sleep(len(nodes))  # TODO make discovery delay settable
 
         network.cluster = cluster
         # allocated jobs to active nodes
+        if network.has_inactive_nodes():
+            time.sleep(0.5)  # TODO make discovery delay settable
+
+        cluster.print_status()
+
         network.allocate_jobs()
         # submit all jobs to dispy cluster
         network.submit(cluster)
