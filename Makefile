@@ -24,6 +24,11 @@ stop:
 renew:
 	$(AP) $(COPY_ID_FLAGS) --tags "renew_service"
 
+.PHONY: restart
+restart:
+	$(AP) $(COPY_ID_FLAGS) --tags "restart_service"
+
+
 .PHONY: servers_pw
 servers_pw:
 	$(AP) $(NO_COPY_ID_FLAGS)
