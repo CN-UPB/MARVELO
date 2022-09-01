@@ -369,6 +369,12 @@ class Network():
         for group in job.GROUPS:
             try:
                 logger.debug(
+                    f"Avail Nodes without active: {[n for n in group.nodes if  n.active]}")
+                logger.debug(
+                    f"Avail Nodes without full: {[n for n in group.nodes if not n.full()]}")
+                logger.debug(
+                    f"Avail Nodes without both: {[n for n in group.nodes ]}")
+                logger.debug(
                     f"Avail Nodes: {[n for n in group.nodes if n.active and not n.full()]}")
                 return min([n for n in group.nodes if n.active and not n.full()], key=lambda x: len(x.jobs))
             except ValueError:
@@ -467,12 +473,22 @@ class Network():
             # logger.warining(
             #     "No restart jobs given, or some other error occured!")
             return self._get_node_fewest_jobs(job)
+    def has_inactive_nodes(self):
+        debug = ""
+        for n in self.nodes.values():
+            if not n.active():
+                debug+=f"Node {n} is still inactive\n"
+        if debug:
+            #logger.debug(debug)
+            return True
+        return False
 
     def allocate_jobs(self, ssh=True, timeout=-1):
         """Allocate all none allocated jobs
 
             Returns: Nodes with new allocated jobs
         """
+        # logger.debug(f"Before Allocating Jobs Check Network status\n {self.__repr__()}")
         try:
             self._callback_lock.acquire(timeout=timeout)
             nodes = []
@@ -505,6 +521,7 @@ class Network():
                     node.add_job(job)
                     nodes.append(node)
                 else:
+                    logger.debug(self.__repr__())
                     logger.warning(f"No available node for allocating {job.id}.")
                     raise AllocationError(f"No available node for allocating {job}.")
 
@@ -740,4 +757,10 @@ class Network():
         return out
 
     def __repr__(self):
+        debug = "Nodes\n"
+        for i in self.nodes.values():
+            debug+=f"node {i} : {i.active()} Group: {[j.name for j in i.GROUPS]}\n"
+        debug +="\n Jobs\n"
+        for i in self.jobs.values:
+            debug+=f"job {i} : Group: {[g.name for g in g.GROUPS]}"
         return "Network: {} Nodes | {} Jobs".format(len(self.nodes), len(self.jobs))
