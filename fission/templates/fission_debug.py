@@ -24,6 +24,7 @@ class JobInfo():
         for _ in range(50):
             try:
                 self.socket.connect((self.ip, self.port))
+                print(f"Successful connection: ({self.ip}, {self.port})")
                 break
             except socket.error:
                 time.sleep(.1)

@@ -388,10 +388,11 @@ class Network():
             for i in job.inputs:
                 if i.source.allocated not in redirect_nodes and isinstance(i.source.allocated, BaseNode):
                     redirect_nodes.append(i.source.allocated)
+            logger.debug(f" input jobs for {job}: {redirect_nodes}")
             for o in job.outputs:
                 if o.destination.allocated not in redirect_nodes and isinstance(o.destination.allocated, BaseNode):
                     redirect_nodes.append(o.destination.allocated)
-
+            logger.debug(f" input and output jobs for {job}: {redirect_nodes}")
             if ssh:
                 for node in redirect_nodes:
                     if isinstance(node, LocalNode):
@@ -408,7 +409,9 @@ class Network():
             x = len(redirect_nodes)
             if x:  # if zero skip and return _get_node_fewest_jobs()
                 for group in job.GROUPS:
+                    logger.debug(f" Checking group {group}")
                     for node in group.nodes:
+                        logger.debug(f" Checking node {node} in group {group}")
                         # check if dispy info is available
                         if node.active and node.info["cpu"] and not node.full():
                             TQ = 0
@@ -439,9 +442,13 @@ class Network():
 
                             if(max_value < value):
                                 best_node, max_value = node, value
+                                logger.debug(f" selecting best node  {best_node}")
+
                         else:
-                            logger.info(
-                                f"Node {node.ip} has no Dispy informations.")
+                            logger.debug(
+                                f"Node {node.ip} has no Dispy informations."
+                                f"\nCurrent info: "
+                                f"\nactive: {node.active} and CPU: {node.info['cpu']}\n full {node.full()}")
                     # if a node is found return, or search in other group
                     if hasattr(job, "preference"):
                         nodeinfo = job.preference(preference_nodes)
