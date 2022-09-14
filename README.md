@@ -506,3 +506,14 @@ graph LR
 ![img](https://www.uni-paderborn.de/fileadmin/_processed_/9/2/csm_ASNLogo_c443ce161b.png)
 
 - Teamprojekt FISSION at Paderborn University
+
+## contact:
+Haitham Afifi
+
+haitham.afifi@ieee.org
+
+haitham.afifi@hpi.de
+
+Holger Karl
+
+holger.karl@hpi.de
