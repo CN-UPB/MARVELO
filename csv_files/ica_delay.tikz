@@ -1,0 +1,98 @@
+% This file was created with tikzplotlib v0.10.1.
+\starttikzpicture
+
+\definecolor{crimson2143940}{RGB}{214,39,40}
+\definecolor{darkgray176}{RGB}{176,176,176}
+\definecolor{darkorange25512714}{RGB}{255,127,14}
+\definecolor{forestgreen4416044}{RGB}{44,160,44}
+\definecolor{lightgray204}{RGB}{204,204,204}
+\definecolor{steelblue31119180}{RGB}{31,119,180}
+
+\startaxis[
+legend cell align={left},
+legend columns=2,
+legend style={
+  fill opacity=0.8,
+  draw opacity=1,
+  text opacity=1,
+  at={(0.5,1.22)},
+  anchor=center,
+  draw=lightgray204
+},
+tick align=outside,
+tick pos=left,
+x grid style={darkgray176},
+xmin=-0.24, xmax=2.84,
+xtick style={color=black},
+xtick={0.3,1.3,2.3},
+xticklabels={Cov1,norm,Cov2},
+y grid style={darkgray176},
+ylabel={Delay(ms)},
+ymin=0, ymax=16.8535841417622,
+ytick style={color=black}
+]
+\draw[draw=none,fill=steelblue31119180] (axis cs:-0.1,0) rectangle (axis cs:0.1,10.467763671875);
+\addlegendimage{ybar,ybar legend,draw=none,fill=steelblue31119180}
+\addlegendentry{centralized}
+
+\draw[draw=none,fill=darkorange25512714] (axis cs:0.1,0) rectangle (axis cs:0.3,4.77295703125);
+\addlegendimage{ybar,ybar legend,draw=none,fill=darkorange25512714}
+\addlegendentry{mesh_distributed}
+
+\draw[draw=none,fill=darkorange25512714] (axis cs:1.1,0) rectangle (axis cs:1.3,5.73217578125);
+\draw[draw=none,fill=darkorange25512714] (axis cs:2.1,0) rectangle (axis cs:2.3,9.846677734375);
+\draw[draw=none,fill=forestgreen4416044] (axis cs:0.3,0) rectangle (axis cs:0.5,9.192322265625);
+\addlegendimage{ybar,ybar legend,draw=none,fill=forestgreen4416044}
+\addlegendentry{AP_distributed}
+
+\draw[draw=none,fill=forestgreen4416044] (axis cs:1.3,0) rectangle (axis cs:1.5,5.587294921875);
+\draw[draw=none,fill=forestgreen4416044] (axis cs:2.3,0) rectangle (axis cs:2.5,9.5608056640625);
+\draw[draw=none,fill=crimson2143940] (axis cs:0.5,0) rectangle (axis cs:0.7,1.58594736421655);
+\addlegendimage{ybar,ybar legend,draw=none,fill=crimson2143940}
+\addlegendentry{CPU_time}
+
+\draw[draw=none,fill=crimson2143940] (axis cs:1.5,0) rectangle (axis cs:1.7,1.38809158934859);
+\draw[draw=none,fill=crimson2143940] (axis cs:2.5,0) rectangle (axis cs:2.7,1.80191253653169);
+\path [draw=black, semithick]
+(axis cs:0,4.88449482778598)
+--(axis cs:0,16.051032515964);
+
+\path [draw=black, semithick]
+(axis cs:0.2,0.92854930767108)
+--(axis cs:0.2,8.61736475482892);
+
+\path [draw=black, semithick]
+(axis cs:1.2,5.44797456223598)
+--(axis cs:1.2,6.01637700026402);
+
+\path [draw=black, semithick]
+(axis cs:2.2,9.50460294221049)
+--(axis cs:2.2,10.1887525265395);
+
+\path [draw=black, semithick]
+(axis cs:0.4,4.94074582284551)
+--(axis cs:0.4,13.4438987084045);
+
+\path [draw=black, semithick]
+(axis cs:1.4,5.08488162406335)
+--(axis cs:1.4,6.08970821968665);
+
+\path [draw=black, semithick]
+(axis cs:2.4,8.97529668088422)
+--(axis cs:2.4,10.1463146472408);
+
+\path [draw=black, semithick]
+(axis cs:0.6,1.55204389223996)
+--(axis cs:0.6,1.61985083619314);
+
+\path [draw=black, semithick]
+(axis cs:1.6,1.37005322815505)
+--(axis cs:1.6,1.40612995054213);
+
+\path [draw=black, semithick]
+(axis cs:2.6,1.77460944958422)
+--(axis cs:2.6,1.82921562347916);
+
+\stopaxis
+
+\stoptikzpicture

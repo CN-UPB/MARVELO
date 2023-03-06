@@ -1,0 +1,11 @@
+Node: 192.168.0.30 with:
+	whiten 4
+	normfn 5
+Node: 192.168.0.29 with:
+	cov1svd_sqrtfn 3
+	cov2svd 6
+Node: 192.168.0.28 with:
+	ica_readModule 1
+	ica_readModule 2
+Node: LocalNode with:
+	CSVSinkJob_2 7

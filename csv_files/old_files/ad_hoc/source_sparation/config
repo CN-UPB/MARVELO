@@ -1,0 +1,3 @@
+file_1: pi28 readModule 2, pi29 cov1svd_sqrtfn whiten normfn cov2svd, pi30 readModule 1
+file_2: pi28 cov1svd_sqrtfn whiten, pi29 ica_readModeul2 cov2svd, pi30 ica_readModule 1 nromfn
+file_3: pi28 ica_readModule 1 nromfn,  pi29 ica_readmodule 2 cov2svd, pi30 cov1svd_sqrtfn whiten

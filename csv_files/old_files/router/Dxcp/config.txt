@@ -1,0 +1,6 @@
+1: one source, completely distributed
+2: source seperated from others
+3 two sources
+4: one source seperated from others, times probably much better syncronized
+5: one source, completly distributed, better time synchronization
+6: two sources, better syncronization

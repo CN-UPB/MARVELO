@@ -1,0 +1,3 @@
+node1: ica_readmodule1
+node2: cov1svd_sqrtfn, cov2svd, whiten, normfn
+node3: ica_readmodule2
