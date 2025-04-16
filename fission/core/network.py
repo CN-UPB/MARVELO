@@ -759,8 +759,8 @@ class Network():
     def __repr__(self):
         debug = "Nodes\n"
         for i in self.nodes.values():
-            debug+=f"node {i} : {i.active()} Group: {[j.name for j in i.GROUPS]}\n"
+            debug+=f"node {i} : {i.active} Group: {[j.name for j in i.GROUPS]}\n"
         debug +="\n Jobs\n"
-        for i in self.jobs.values:
-            debug+=f"job {i} : Group: {[g.name for g in g.GROUPS]}"
+        for i in self.jobs.values():
+            debug+=f"job {i} : Group: {[g.name for g in i.GROUPS]}"
         return "Network: {} Nodes | {} Jobs".format(len(self.nodes), len(self.jobs))
