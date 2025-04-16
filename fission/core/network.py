@@ -476,7 +476,7 @@ class Network():
     def has_inactive_nodes(self):
         debug = ""
         for n in self.nodes.values():
-            if not n.active():
+            if not n.active:
                 debug+=f"Node {n} is still inactive\n"
         if debug:
             #logger.debug(debug)
