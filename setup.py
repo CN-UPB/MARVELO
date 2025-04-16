@@ -21,11 +21,11 @@ setuptools.setup(
     packages=["fission"] +
         setuptools.find_packages(include=["fission.*"]),
     install_requires=[
-        'dispy>=4.12',
-        'lxml==4.4.2',
+        'dispy==4.12.3',
+        'lxml>=4.4.2',
         'pycos>=4.8.13',
-        'graphviz==0.13.2',
-        'networkx==2.6.3',
-        'matplotlib==3.5.2',
+        'graphviz>=0.13.2',
+        'networkx>=2.6.3',
+        'matplotlib>=3.5.2',
     ]
 )
