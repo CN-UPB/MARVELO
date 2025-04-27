@@ -1,0 +1,5 @@
+__pycache__
+
+# artefacts from installing through setup.py
+fission.egg-info/*
+build/*
